@@ -54,6 +54,9 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.Invalid.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.Valid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Invalid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\IValidator.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.cs" />
@@ -80,6 +83,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ContentValidation\UniqueValidator\Invalid\NotUniqueIdentifiers.xml" />
+    <Content Include="Resources\ContentValidation\UniqueValidator\Valid\UniqueIdentifiersWithXsiType.xml" />
+    <Content Include="Resources\ContentValidation\UniqueValidator\Valid\UniqueIdentifiers.xml" />
     <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrlSingleValid.xml" />
     <Content Include="Resources\ContentValidation\UrlValidator\Invalid\TwoNotAUrl.xml" />
     <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml" />

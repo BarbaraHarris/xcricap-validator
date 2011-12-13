@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentValidation\UniqueValidator.cs" />
     <Compile Include="ContentValidation\ValidationException.cs" />
     <Compile Include="ContentValidation\Validator.cs" />
     <Compile Include="ContentValidation\UrlValidator.cs" />
