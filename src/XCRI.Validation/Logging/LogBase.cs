@@ -23,7 +23,13 @@ namespace XCRI.Validation.Logging
 
         #region IDisposable Members
 
-        public virtual void Dispose()
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
         {
         }
 

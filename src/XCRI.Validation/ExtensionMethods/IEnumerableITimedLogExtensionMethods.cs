@@ -32,6 +32,12 @@ namespace XCRI.Validation.ExtensionMethods
 
             public void Dispose()
             {
+                this.Dispose(true);
+                GC.SuppressFinalize(this);
+            }
+
+            protected virtual void Dispose(bool disposing)
+            {
                 if (null == this.WrappedLog)
                     return;
                 foreach (var l in this.WrappedLog)

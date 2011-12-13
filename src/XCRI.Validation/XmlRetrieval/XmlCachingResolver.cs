@@ -16,14 +16,29 @@ namespace XCRI.Validation.XmlRetrieval
         public bool BypassCache { get; set; }
         private ICredentials credentials = null;
         public IList<IXmlCacheLocation> CacheLocations { get; protected set; }
+        public IList<Logging.ILog> Logs { get; protected set; }
+        public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
 
-        public XmlCachingResolver(IEnumerable<IXmlCacheLocation> cacheLocations)
+        public XmlCachingResolver
+            (
+            IEnumerable<IXmlCacheLocation> cacheLocations,
+            IEnumerable<Logging.ILog> logs,
+            IEnumerable<Logging.ITimedLog> timedLogs
+            )
         {
             this.BypassCache = false;
             if (null != cacheLocations)
                 this.CacheLocations = new List<IXmlCacheLocation>(cacheLocations);
             else
                 this.CacheLocations = new List<IXmlCacheLocation>();
+            if (null != logs)
+                this.Logs = new List<Logging.ILog>(logs);
+            else
+                this.Logs = new List<Logging.ILog>();
+            if (null != timedLogs)
+                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
+            else
+                this.TimedLogs = new List<Logging.ITimedLog>();
         }
 
         public override ICredentials Credentials
@@ -43,16 +58,16 @@ namespace XCRI.Validation.XmlRetrieval
             }
             if (this.BypassCache)
             {
-                IoC.ResolveAll<Logging.ILog>().Log
+                this.Logs.Log
                     (
                     Logging.LogCategory.XsdLocations,
                     "Bypassing cache for " + absoluteUri
                     );
                 return base.GetEntity(absoluteUri, role, ofObjectToReturn);
             }
-            using (IoC.ResolveAll<Logging.ITimedLog>().Step("Retrieving " + absoluteUri.ToString()))
+            using (this.TimedLogs.Step("Retrieving " + absoluteUri.ToString()))
             {
-                IoC.ResolveAll<Logging.ILog>().Log
+                this.Logs.Log
                     (
                     Logging.LogCategory.XsdLocations,
                     "Attempting to load " + absoluteUri + " (using credentials: " + (null == this.credentials ? "no" : "yes") + ")"
@@ -61,14 +76,14 @@ namespace XCRI.Validation.XmlRetrieval
                 {
                     if (null != this.CacheLocations)
                     {
-                        using (IoC.ResolveAll<Logging.ITimedLog>().Step("Checking cache"))
+                        using (this.TimedLogs.Step("Checking cache"))
                         {
                             foreach (var cl in this.CacheLocations)
                             {
                                 var fs = cl.RetrieveCache(absoluteUri);
                                 if (null != fs)
                                 {
-                                    IoC.ResolveAll<Logging.ILog>().Log
+                                    this.Logs.Log
                                         (
                                         Logging.LogCategory.XsdLocations | Logging.LogCategory.CachingInformation | Logging.LogCategory.TimingInformation,
                                         absoluteUri.ToString() + " loaded from cache"
@@ -87,14 +102,14 @@ namespace XCRI.Validation.XmlRetrieval
                             (null == ofObjectToReturn || ofObjectToReturn == typeof(Stream))
                             )
                         {
-                            using (IoC.ResolveAll<Logging.ITimedLog>().Step("Downloading file"))
+                            using (this.TimedLogs.Step("Downloading file"))
                             {
                                 WebRequest webReq = WebRequest.Create(absoluteUri);
                                 webReq.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.CacheIfAvailable);
                                 if (null != credentials)
                                     webReq.Credentials = credentials;
                                 WebResponse resp = webReq.GetResponse();
-                                IoC.ResolveAll<Logging.ILog>().Log
+                                this.Logs.Log
                                     (
                                     Logging.LogCategory.XsdLocations | Logging.LogCategory.CachingInformation | Logging.LogCategory.TimingInformation,
                                     resp.IsFromCache ? absoluteUri + " loaded from HTTP cache" : absoluteUri + " downloaded"
@@ -104,7 +119,7 @@ namespace XCRI.Validation.XmlRetrieval
                         }
                         else
                         {
-                            IoC.ResolveAll<Logging.ILog>().Log
+                            this.Logs.Log
                                 (
                                 Logging.LogCategory.CachingInformation,
                                 absoluteUri + " was downloaded as it was not deemed suitable for caching"
@@ -113,7 +128,7 @@ namespace XCRI.Validation.XmlRetrieval
                     }
                     catch (Exception e)
                     {
-                        IoC.ResolveAll<Logging.ILog>().Log
+                        this.Logs.Log
                             (
                             Logging.LogCategory.XsdLocations | Logging.LogCategory.Exceptions,
                             "Exception encountered when retrieving " + absoluteUri.ToString() + "(" + e.Message + ")"

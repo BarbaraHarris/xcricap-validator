@@ -125,9 +125,10 @@ namespace XCRI.Validation.Logging
                 this.Children = new List<ITimedLogSection>();
             }
 
-            public override void Dispose()
+            protected override void Dispose(bool disposing)
             {
                 this.StopTiming();
+                base.Dispose(disposing);
             }
         }
     }

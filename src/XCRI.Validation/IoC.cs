@@ -36,7 +36,14 @@ namespace XCRI.Validation
 
         public static T Resolve<T>()
         {
-            return _resolver.Resolve<T>();
+            try
+            {
+                return _resolver.Resolve<T>();
+            }
+            catch (ActivationException e)
+            {
+                throw new IoCDependencyInjectionNotFoundException<T>(e);
+            }
         }
 
         public static IEnumerable<T> ResolveAll<T>()
@@ -56,17 +63,15 @@ namespace XCRI.Validation
                 loadAction(resolver);
         }
     }
-    public class IoCException : Exception
-    {
-        public IoCException(string message)
-            : base(message)
-        {
-        }
-    }
-    public class IoCDependencyInjectionNotFoundException<T> : IoCException
+    [Serializable]
+    public class IoCDependencyInjectionNotFoundException<T> : ActivationException
     {
         public IoCDependencyInjectionNotFoundException()
             : base("Dependency injection for " + typeof(T) + " not found")
+        {
+        }
+        public IoCDependencyInjectionNotFoundException(ActivationException innerException)
+            : base("Dependency injection for " + typeof(T) + " not found", innerException)
         {
         }
     }

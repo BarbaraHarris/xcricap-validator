@@ -5,14 +5,15 @@ using System.Text;
 
 namespace XCRI.Validation.ContentValidation
 {
-    public class ContentValidationException : Exception
+    [Serializable]
+    public class ValidationException : Exception
     {
         public ValidationStatus ValidationStatus { get; protected set; }
-        public ContentValidationException(string message)
+        public ValidationException(string message)
             : base(message)
         {
         }
-        public ContentValidationException(string message, ValidationStatus validationStatus)
+        public ValidationException(string message, ValidationStatus validationStatus)
             : this(message)
         {
             this.ValidationStatus = validationStatus;

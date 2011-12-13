@@ -9,17 +9,24 @@ namespace XCRI.Validation.ExtensionMethods
 {
     public static class IEnumerableInterpreterExtensionMethods
     {
-        public static IValidationResult Interpret(this IEnumerable<IInterpreter> interpreters, Exception exception)
+        public static ValidationResult Interpret
+            (
+            this IEnumerable<IInterpreter> interpreters, 
+            Exception exception
+            )
         {
             if (null == interpreters)
                 return null;
             if (null == exception)
                 throw new ArgumentNullException("exception");
-            var r = IoC.Resolve<IValidationResult>();
-            r.Exception = exception;
-            r.Status = ValidationStatus.Exception;
-            if (exception is ContentValidationException)
-                r.Status = (exception as ContentValidationException).ValidationStatus;
+            var r = new ValidationResult()
+            {
+                Exception = exception,
+                Interpretation = exception.Message,
+                Status = ValidationStatus.Exception
+            };
+            if (exception is ValidationException)
+                r.Status = (exception as ValidationException).ValidationStatus;
             foreach (var i in interpreters)
             {
                 if (null == i)

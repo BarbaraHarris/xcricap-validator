@@ -10,18 +10,23 @@ namespace XCRI.Validation.XmlRetrieval
     public abstract class SourceBase<T> : ISource<T>
     {
 
-        public IList<INamespaceReference> NamespaceReferences { get; protected set; }
+        public IList<NamespaceReference> NamespaceReferences { get; protected set; }
         public Action<System.Xml.Schema.ValidationEventArgs> ValidationEventHandler { get; set; }
+        public XmlResolver XmlResolver { get; set; }
+        public IList<Logging.ILog> Logs { get; protected set; }
 
         public SourceBase
             (
-            IEnumerable<INamespaceReference> namespaceReferences
+            IEnumerable<Logging.ILog> logs,
+            XmlResolver xmlResolver
             )
         {
-            if (null != namespaceReferences)
-                this.NamespaceReferences = new List<INamespaceReference>(namespaceReferences);
+            if (null != logs)
+                this.Logs = new List<Logging.ILog>(logs);
             else
-                this.NamespaceReferences = new List<INamespaceReference>();
+                this.Logs = new List<Logging.ILog>();
+            this.XmlResolver = xmlResolver;
+            this.NamespaceReferences = new List<NamespaceReference>();
         }
 
         #region ISource Members
@@ -36,7 +41,7 @@ namespace XCRI.Validation.XmlRetrieval
         }
 
         public abstract System.Xml.XmlReader GetXmlReader(T input);
-
+        
         public virtual System.Xml.XmlReaderSettings GetXmlReaderSettings
             (
             )
@@ -49,7 +54,7 @@ namespace XCRI.Validation.XmlRetrieval
                 | XmlSchemaValidationFlags.ProcessIdentityConstraints
                 | XmlSchemaValidationFlags.ProcessSchemaLocation;
             readerSettings.DtdProcessing = DtdProcessing.Prohibit;
-            readerSettings.XmlResolver = IoC.Resolve<IXmlCachingResolver>() as XmlResolver;
+            readerSettings.XmlResolver = this.XmlResolver;
             readerSettings.ValidationEventHandler += (o, e) =>
             {
                 if (null != this.ValidationEventHandler)
@@ -57,20 +62,19 @@ namespace XCRI.Validation.XmlRetrieval
             };
             if (null != this.NamespaceReferences)
             {
+                readerSettings.Schemas.XmlResolver = this.XmlResolver;
                 foreach (var nsr in this.NamespaceReferences)
                 {
                     if (null == nsr)
                         continue;
-                    var ns = nsr.Namespace;
-                    var prefix = nsr.Prefix;
-                    if (false == ns.IsAbsoluteUri)
+                    if (false == nsr.Namespace.IsAbsoluteUri)
                         throw new ArgumentException("Namespace URIs must be absolute");
-                    if (String.IsNullOrEmpty(prefix))
-                        continue;
+                    if (false == nsr.SchemaLocation.IsAbsoluteUri)
+                        throw new ArgumentException("Schema locations must be absolute");
                     readerSettings.Schemas.Add
                         (
-                        ns.ToString(),
-                        prefix
+                        nsr.Namespace.ToString(),
+                        nsr.SchemaLocation.ToString()
                         );
                 }
             }

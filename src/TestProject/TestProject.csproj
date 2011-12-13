@@ -54,6 +54,9 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Invalid.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\IValidator.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.cs" />
     <Compile Include="UnitTests\IValidationService.cs" />
     <Compile Include="UnitTests\MessageInterpretation\Interpreter.cs" />
     <Compile Include="TestBase.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="UnitTests\MessageInterpretation\Interpretation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\ValidationService.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Valid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.cs" />
     <Compile Include="XmlValidationTests\IValidationService.Invalid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.Valid.cs" />
@@ -76,6 +80,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrlSingleValid.xml" />
+    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\TwoNotAUrl.xml" />
+    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml" />
+    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrl.xml" />
+    <Content Include="Resources\ContentValidation\UrlValidator\Valid\SingleUrlWithNamespace.xml" />
+    <Content Include="Resources\ContentValidation\UrlValidator\Valid\SingleUrl.xml" />
     <Content Include="Resources\IValidationService\Invalid\Namespaces\Description.xml" />
     <Content Include="Resources\IValidationService\Invalid\Namespaces\Identifier.xml" />
     <Content Include="Resources\IValidationService\Invalid\Formatting\GeneratedAttribute.xml">

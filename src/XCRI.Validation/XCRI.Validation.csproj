@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentValidation\ContentValidationException.cs" />
+    <Compile Include="ContentValidation\ValidationException.cs" />
+    <Compile Include="ContentValidation\Validator.cs" />
+    <Compile Include="ContentValidation\UrlValidator.cs" />
     <Compile Include="ExtensionMethods\IEnumerableILogExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableInterpreterExtensionMethods.cs" />
-    <Compile Include="ContentValidation\IContentValidator.cs" />
+    <Compile Include="ContentValidation\IValidator.cs" />
     <Compile Include="ExtensionMethods\IEnumerableITimedLogExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IValidationServiceExtensionMethods.cs" />
     <Compile Include="Logging\LogToDebug.cs" />
@@ -68,12 +70,11 @@
     <Compile Include="MessageInterpretation\IInterpretation.cs" />
     <Compile Include="MessageInterpretation\IInterpreter.cs" />
     <Compile Include="MatchEvaluators\IMatchEvaluator.cs" />
-    <Compile Include="INamespaceReference.cs" />
+    <Compile Include="NamespaceReference.cs" />
     <Compile Include="MessageInterpretation\Interpretation.cs" />
     <Compile Include="MessageInterpretation\InterpretationStatus.cs" />
     <Compile Include="MessageInterpretation\Interpreter.cs" />
     <Compile Include="IoC.cs" />
-    <Compile Include="IValidationResult.cs" />
     <Compile Include="IValidationService.cs" />
     <Compile Include="MatchEvaluators\MatchEvaluatorBase.cs" />
     <Compile Include="MatchEvaluators\NumberMatchEvaluator.cs" />

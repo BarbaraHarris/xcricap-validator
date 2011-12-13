@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestProject.XmlValidationTests
 {
     [TestClass]
-    public class ValidationService : IValidationService<XCRI.Validation.ValidationService>
+    public class ValidationService : IValidationService<XCRI.Validation.ValidationService<Uri>>
     {
 
     }

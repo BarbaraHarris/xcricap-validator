@@ -7,9 +7,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestProject.XmlValidationTests
 {
     [TestClass]
-    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService, T>
-        where T : XCRI.Validation.IValidationService
+    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<Uri>, T>
+        where T : XCRI.Validation.IValidationService<Uri>
     {
+        protected XCRI.Validation.XmlRetrieval.XmlCachingResolver XmlResolver
+            = new XCRI.Validation.XmlRetrieval.XmlCachingResolver(null, null, null);
         private class DebugIntepreter : XCRI.Validation.MessageInterpretation.IInterpreter
         {
 

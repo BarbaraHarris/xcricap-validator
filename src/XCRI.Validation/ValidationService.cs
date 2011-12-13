@@ -13,28 +13,35 @@ using XCRI.Validation.XmlRetrieval;
 
 namespace XCRI.Validation
 {
-    public partial class ValidationService : IValidationService
+    public partial class ValidationService<T> : IValidationService<T>
     {
         public IList<IInterpreter> XmlExceptionInterpreters { get; protected set; }
-        public IList<IContentValidator> XmlContentValidators { get; protected set; }
-        public IList<INamespaceReference> NamespaceReferences { get; protected set; }
-        public System.Globalization.CultureInfo TargetCulture { get; protected set; }
+        public IList<IValidator> XmlContentValidators { get; protected set; }
+        public IList<NamespaceReference> NamespaceReferences { get; protected set; }
+        public System.Globalization.CultureInfo TargetCulture { get; set; }
+        public IList<Logging.ILog> Logs { get; protected set; }
+        public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
+        public XmlRetrieval.ISource<T> Source { get; set; }
         public ValidationService()
-            : this(null, null, null)
+            : this(null, null, null, null, null)
         {
         }
         public ValidationService
             (
             IEnumerable<IInterpreter> interpreters,
-            IEnumerable<IContentValidator> contentValidators,
-            IEnumerable<INamespaceReference> namespaceReferences
+            IEnumerable<IValidator> contentValidators,
+            IEnumerable<Logging.ILog> logs,
+            IEnumerable<Logging.ITimedLog> timedLogs,
+            XmlRetrieval.ISource<T> source
             )
             : this
             (
             System.Globalization.CultureInfo.CurrentUICulture, 
             interpreters, 
             contentValidators,
-            namespaceReferences
+            logs,
+            timedLogs,
+            source
             )
         {
         }
@@ -42,39 +49,60 @@ namespace XCRI.Validation
             (
             System.Globalization.CultureInfo targetCulture,
             IEnumerable<IInterpreter> interpreters,
-            IEnumerable<IContentValidator> contentValidators,
-            IEnumerable<INamespaceReference> namespaceReferences
+            IEnumerable<IValidator> contentValidators,
+            IEnumerable<Logging.ILog> logs,
+            IEnumerable<Logging.ITimedLog> timedLogs,
+            XmlRetrieval.ISource<T> source
             )
         {
+            this.NamespaceReferences = new List<NamespaceReference>();
+            this.Source = source;
             this.TargetCulture = targetCulture;
             if (null != interpreters)
                 this.XmlExceptionInterpreters = new List<IInterpreter>(interpreters.OrderBy(i => i.Order));
             else
                 this.XmlExceptionInterpreters = new List<IInterpreter>();
             if (null != contentValidators)
-                this.XmlContentValidators = new List<IContentValidator>(contentValidators.OrderBy(cv => cv.Order));
+                this.XmlContentValidators = new List<IValidator>(contentValidators.OrderBy(cv => cv.Order));
             else
-                this.XmlContentValidators = new List<IContentValidator>();
-            if (null != namespaceReferences)
-                this.NamespaceReferences = new List<INamespaceReference>(namespaceReferences);
+                this.XmlContentValidators = new List<IValidator>();
+            if (null != logs)
+                this.Logs = new List<Logging.ILog>(logs);
             else
-                this.NamespaceReferences = new List<INamespaceReference>();
+                this.Logs = new List<Logging.ILog>();
+            if (null != timedLogs)
+                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
+            else
+                this.TimedLogs = new List<Logging.ITimedLog>();
         }
-        public IList<IValidationResult> Validate<T>(T input)
+        public IList<ValidationResult> Validate(T input)
         {
-            XmlRetrieval.ISource<T> source = IoC.Resolve<XmlRetrieval.ISource<T>>();
-            if (null == source)
-                throw new IoCDependencyInjectionNotFoundException<T>();
-            List<IValidationResult> results = new List<IValidationResult>();
-            source.ValidationEventHandler = (e) =>
+            if (null == this.Source)
+                throw new InvalidOperationException("The Source property must be set before calling Validate");
+            List<ValidationResult> results = new List<ValidationResult>();
+            this.Source.ValidationEventHandler = (e) =>
             {
                 if (null == e)
                     throw new ArgumentNullException("e");
                 if (null == e.Exception)
                     throw new ArgumentException("The validation event args must contain an exception");
-                IValidationResult r = this.XmlExceptionInterpreters.Interpret(e.Exception);
+                ValidationResult r = this.XmlExceptionInterpreters.Interpret(e.Exception);
                 if (null != r)
+                {
+                    ValidationInstance vi = null;
+                    if (e.Exception is System.Xml.Schema.XmlSchemaException)
+                    {
+                        vi = new ValidationInstance()
+                        {
+                            LinePosition = (e.Exception as System.Xml.Schema.XmlSchemaException).LinePosition,
+                            LineNumber = (e.Exception as System.Xml.Schema.XmlSchemaException).LineNumber,
+                            Status = ValidationStatus.Exception
+                        };
+                    }
+                    if(null != vi)
+                        r.Instances.Add(vi);
                     results.Add(r);
+                }
                 else
                     results.Add(new ValidationResult()
                     {
@@ -83,44 +111,34 @@ namespace XCRI.Validation
                         Status = ValidationStatus.Exception
                     });
             };
-            using (XmlReader xmlReader = source.GetXmlReader(input))
+            using (XmlReader xmlReader = this.Source.GetXmlReader(input))
             {
-                System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
-                doc.Schemas = xmlReader.Settings.Schemas;
+                System.Xml.Linq.XDocument doc = null;
+                //doc.Schemas = xmlReader.Settings.Schemas;
+                using (this.TimedLogs.Step("Loading and parsing XML file"))
                 {
-                    using (IoC.ResolveAll<Logging.ITimedLog>().Step("Loading and parsing XML file"))
+                    DateTime start = DateTime.Now;
+                    try
                     {
-                        DateTime start = DateTime.Now;
-                        try
-                        {
-                            doc.Load(xmlReader);
-                        }
-                        catch (Exception e)
-                        {
-                            IValidationResult r = this.XmlExceptionInterpreters.Interpret(e);
-                            if (null != r)
-                                results.Add(r);
-                        }
+                        doc = System.Xml.Linq.XDocument.Load(xmlReader, System.Xml.Linq.LoadOptions.SetLineInfo);
+                    }
+                    catch (Exception e)
+                    {
+                        ValidationResult r = this.XmlExceptionInterpreters.Interpret(e);
+                        if (null != r)
+                            results.Add(r);
                     }
                 }
+                using (this.TimedLogs.Step("Executing content validators"))
                 {
-                    using (IoC.ResolveAll<Logging.ITimedLog>().Step("Executing content validators"))
+                    if (null != this.XmlContentValidators)
                     {
-                        if (null != this.XmlContentValidators)
+                        foreach (var cv in this.XmlContentValidators)
                         {
-                            foreach (var cv in this.XmlContentValidators)
-                            {
-                                string message = String.Empty;
-                                var status = cv.Validate(doc, out message);
-                                if (status == ValidationStatus.Valid)
-                                    continue;
-                                IValidationResult r = cv.Interpreters.Interpret
-                                    (
-                                    new ContentValidation.ContentValidationException(message)
-                                    );
-                                if (null != r)
-                                    results.Add(r);
-                            }
+                            var validationResult = cv.Validate(doc.Root);
+                            if (validationResult.Status == ValidationStatus.Valid)
+                                continue;
+                            results.Add(validationResult);
                         }
                     }
                 }

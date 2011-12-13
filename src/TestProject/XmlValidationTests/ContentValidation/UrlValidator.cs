@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestProject.UnitTests
+namespace TestProject.XmlValidationTests.ContentValidation
 {
     [TestClass]
-    public class ValidationService : IValidationService<XCRI.Validation.ValidationService<Uri>>
+    public partial class UrlValidator : IValidator<XCRI.Validation.ContentValidation.UrlValidator>
     {
     }
 }

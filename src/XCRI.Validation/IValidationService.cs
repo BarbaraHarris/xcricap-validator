@@ -8,12 +8,13 @@ using XCRI.Validation.ContentValidation;
 
 namespace XCRI.Validation
 {
-    public interface IValidationService
+    public interface IValidationService<T>
     {
         IList<IInterpreter> XmlExceptionInterpreters { get; }
-        IList<IContentValidator> XmlContentValidators { get; }
-        IList<INamespaceReference> NamespaceReferences { get; }
+        IList<IValidator> XmlContentValidators { get; }
+        IList<NamespaceReference> NamespaceReferences { get; }
         System.Globalization.CultureInfo TargetCulture { get; }
-        IList<IValidationResult> Validate<T>(T input);
+        IList<ValidationResult> Validate(T input); 
+        XmlRetrieval.ISource<T> Source { get; set; }
     }
 }
