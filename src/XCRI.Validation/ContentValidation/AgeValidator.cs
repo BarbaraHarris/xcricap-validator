@@ -77,7 +77,7 @@ namespace XCRI.Validation.ContentValidation
             Group upper = match.Groups["Upper"];
             if (null == upper)
             {
-                throw new InvalidOperationException("The regular expression did not include a 'Lower' group");
+                throw new InvalidOperationException("The regular expression did not include an 'Upper' group");
             }
             if (upper.Success)
             {

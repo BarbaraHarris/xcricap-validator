@@ -32,4 +32,4 @@ _ReSharper*/
 *.resharper
 
 # test impact data not important
-*testimpactdata.sdf
+testimpactdata.sdf
