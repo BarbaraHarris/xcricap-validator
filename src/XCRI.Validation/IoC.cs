@@ -6,6 +6,7 @@ using Ninject;
 
 namespace XCRI.Validation
 {
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public class NinjectResolver : Ninject.Modules.NinjectModule, IResolver
     {
         private readonly StandardKernel _kernel;
@@ -30,6 +31,7 @@ namespace XCRI.Validation
             
         }
     }
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public class IoC
     {
         private static IResolver _resolver;
@@ -63,6 +65,7 @@ namespace XCRI.Validation
                 loadAction(resolver);
         }
     }
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [Serializable]
     public class IoCDependencyInjectionNotFoundException<T> : ActivationException
     {

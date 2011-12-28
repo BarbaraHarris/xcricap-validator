@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestProject.UnitTests.ContentValidation
 {
     [TestClass]
-    public partial class AgeValidator : IValidator<XCRI.Validation.ContentValidation.UniqueValidator>
+    public partial class AgeValidator : IValidator<XCRI.Validation.ContentValidation.AgeValidator>
     {
         protected List<XCRI.Validation.ValidationResult> ValidateString(string input)
         {

@@ -48,6 +48,10 @@ namespace XCRI.Validation.ContentValidation
             }
             int lowerInteger = Int32.MaxValue;
             Group lower = match.Groups["Lower"];
+            if (null == lower)
+            {
+                throw new InvalidOperationException("The regular expression did not include a 'Lower' group");
+            }
             if (lower.Success)
             {
                 if (false == Int32.TryParse(lower.Value, out lowerInteger))
@@ -71,6 +75,10 @@ namespace XCRI.Validation.ContentValidation
             }
             int upperInteger = Int32.MinValue;
             Group upper = match.Groups["Upper"];
+            if (null == upper)
+            {
+                throw new InvalidOperationException("The regular expression did not include a 'Lower' group");
+            }
             if (upper.Success)
             {
                 if (false == Int32.TryParse(upper.Value, out upperInteger))

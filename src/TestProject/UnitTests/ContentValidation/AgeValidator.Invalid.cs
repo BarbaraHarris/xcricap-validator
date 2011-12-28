@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject.UnitTests.ContentValidation
 {
-    public partial class AgeValidator : IValidator<XCRI.Validation.ContentValidation.UniqueValidator>
+    public partial class AgeValidator
     {
         [TestMethod]
         public void AgeIsBlankString()
@@ -16,6 +16,32 @@ namespace TestProject.UnitTests.ContentValidation
             Assert.IsTrue(results[0].SuccessCount == 0);
             Assert.IsTrue(results[0].FailedCount == 1);
             Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void InputIsNull()
+        {
+            this.ValidateString(null);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void PatternIsNull()
+        {
+            XCRI.Validation.ContentValidation.AgeValidator av = new XCRI.Validation.ContentValidation.AgeValidator
+            (
+            null,
+            null,
+            "/",
+            null,
+            XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+            null,
+            null
+            );
+            av.Pattern = null;
+            av.Validate(new System.Xml.Linq.XElement("age")
+            {
+                Value = "test value"
+            });
         }
         [TestMethod]
         public void AgeIsSingleNumber()

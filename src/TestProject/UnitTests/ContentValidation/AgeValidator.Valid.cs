@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject.UnitTests.ContentValidation
 {
-    public partial class AgeValidator : IValidator<XCRI.Validation.ContentValidation.UniqueValidator>
+    public partial class AgeValidator
     {
         [TestMethod]
         public void AgeIsAny()
