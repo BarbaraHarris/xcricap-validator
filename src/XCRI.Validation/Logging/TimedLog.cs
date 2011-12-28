@@ -26,15 +26,12 @@ namespace XCRI.Validation.Logging
             : base(LogCategory.TimingInformation)
         {
             this.Stack = new Stack<ITimedLogSection>();
-            var ts = IoC.Resolve<ITimedLogSection>();
-            ts.Title = "Timed Log";
-            this.Stack.Push(ts);
-            ts.StartTiming();
             this.Created = DateTime.Now;
         }
+        protected abstract ITimedLogSection GetNewTimedLogSection();
         public ITimedLogSection Step(string title)
         {
-            var ts = IoC.Resolve<ITimedLogSection>();
+            var ts = this.GetNewTimedLogSection();
             ts.Title = title;
             ts.Offset = (decimal)DateTime.Now.Subtract(this.Created).TotalMilliseconds;
             ts.TimingStopped += (o, e) =>

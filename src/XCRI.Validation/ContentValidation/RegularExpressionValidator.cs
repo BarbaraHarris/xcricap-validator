@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace XCRI.Validation.ContentValidation
 {
-    public class UrlValidator : Validator
+    public class RegularExpressionValidator : Validator
     {
-        public bool AllowRelative { get; set; }
-        public UrlValidator
+        public string Pattern { get; set; }
+        public RegularExpressionValidator
             (
             IEnumerable<MessageInterpretation.IInterpreter> interpreters,
             XmlNamespaceManager namespaceManager,
@@ -21,23 +22,23 @@ namespace XCRI.Validation.ContentValidation
             )
             : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
         {
-            this.AllowRelative = false;
         }
         protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
-            Uri throwaway;
+            if (null == input)
+                throw new ArgumentNullException("input");
+            if(String.IsNullOrWhiteSpace(this.Pattern))
+                throw new InvalidOperationException("The Pattern property must be set");
             details = null;
-            if (this.AllowRelative)
-            {
-                if (Uri.TryCreate(input.Value, UriKind.RelativeOrAbsolute, out throwaway))
-                    return true;
-            }
-            else
-            {
-                if (Uri.TryCreate(input.Value, UriKind.Absolute, out throwaway))
-                    return true;
-            }
-            details = String.Format("Value was: '{0}'", input.Value);
+            Regex expression = new Regex(this.Pattern);
+            if (expression.IsMatch(input.Value))
+                return true;
+            details = String.Format
+                (
+                "The value '{0}' did not match the regular expression pattern '{1}'",
+                input.Value,
+                this.Pattern
+                );
             return false;
         }
     }

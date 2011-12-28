@@ -79,14 +79,14 @@ namespace XCRI.Validation
         {
             if (null == this.Source)
                 throw new InvalidOperationException("The Source property must be set before calling Validate");
-            List<ValidationResult> results = new List<ValidationResult>();
+            ValidationResultCollection results = new ValidationResultCollection();
             this.Source.ValidationEventHandler = (e) =>
             {
                 if (null == e)
                     throw new ArgumentNullException("e");
                 if (null == e.Exception)
                     throw new ArgumentException("The validation event args must contain an exception");
-                ValidationResult r = this.XmlExceptionInterpreters.Interpret(e.Exception);
+                ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", e.Exception);
                 if (null != r)
                 {
                     ValidationInstance vi = null;
@@ -101,14 +101,13 @@ namespace XCRI.Validation
                     }
                     if(null != vi)
                         r.Instances.Add(vi);
-                    results.Add(r);
+                    results.Add(r.Interpretation, r);
                 }
                 else
-                    results.Add(new ValidationResult()
+                    results.Add(e.Message, new ValidationResult()
                     {
                         Exception = e.Exception,
-                        Interpretation = e.Message,
-                        Status = ValidationStatus.Exception
+                        Interpretation = e.Message
                     });
             };
             using (XmlReader xmlReader = this.Source.GetXmlReader(input))
@@ -122,28 +121,58 @@ namespace XCRI.Validation
                     {
                         doc = System.Xml.Linq.XDocument.Load(xmlReader, System.Xml.Linq.LoadOptions.SetLineInfo);
                     }
-                    catch (Exception e)
+                    catch (System.Xml.XmlException e)
                     {
-                        ValidationResult r = this.XmlExceptionInterpreters.Interpret(e);
+                        ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", e);
+                        r.Instances.Add(new ValidationInstance()
+                        {
+                            LineNumber = e.LineNumber,
+                            LinePosition = e.LinePosition
+                        });
                         if (null != r)
-                            results.Add(r);
+                            results.Add(r.Interpretation, r);
                     }
                 }
-                using (this.TimedLogs.Step("Executing content validators"))
+                if (null != doc)
                 {
-                    if (null != this.XmlContentValidators)
+                    using (this.TimedLogs.Step("Executing content validators"))
                     {
-                        foreach (var cv in this.XmlContentValidators)
+                        if (null != this.XmlContentValidators)
                         {
-                            var validationResult = cv.Validate(doc.Root);
-                            if (validationResult.Status == ValidationStatus.Valid)
-                                continue;
-                            results.Add(validationResult);
+                            foreach (var cv in this.XmlContentValidators)
+                            {
+                                var vrc = cv.Validate(doc.Root);
+                                if (null != vrc)
+                                    foreach (var vr in vrc)
+                                        if (null != vr)
+                                            results.Add(vr.Interpretation, vr);
+                            }
                         }
                     }
                 }
             }
-            return results;
+            return results.Values.ToList();
+        }
+        private class ValidationResultCollection : Dictionary<string, ValidationResult>
+        {
+            public new void Add(string key, ValidationResult result)
+            {
+                if(null == result)
+                    throw new ArgumentNullException("result");
+                if(null == key)
+                    throw new ArgumentNullException("key");
+                if(String.IsNullOrWhiteSpace(key))
+                    throw new ArgumentException("key");
+                if (false == base.ContainsKey(key))
+                {
+                    base.Add(key, result);
+                    return;
+                }
+                var vr = base[key];
+                foreach (var vi in result.Instances)
+                    if(null != vi)
+                        vr.Instances.Add(vi);
+            }
         }
     }
 }

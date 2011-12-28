@@ -14,10 +14,28 @@ namespace XCRI.Validation
             this.Instances = new List<ValidationInstance>();
         }
 
-        public ContentValidation.ValidationStatus Status { get; internal set; }
+        public ContentValidation.ValidationStatus Status
+        {
+            get
+            {
+                if (this.FailedCount == 0)
+                    return ContentValidation.ValidationStatus.Valid;
+                else
+                    return (ContentValidation.ValidationStatus)this.Instances.Max(i => (int)i.Status);
+            }
+        }
         public Exception Exception { get; internal set; }
         public string Interpretation { get; internal set; }
+        public string ValidationGroup { get; internal set; }
         public IList<ValidationInstance> Instances { get; protected set; }
+        public IEnumerable<ValidationInstance> FailedInstances
+        {
+            get { return this.Instances.Where(i => i.Status != ContentValidation.ValidationStatus.Valid); }
+        }
+        public IEnumerable<ValidationInstance> SuccessfulInstances
+        {
+            get { return this.Instances.Where(i => i.Status == ContentValidation.ValidationStatus.Valid); }
+        }
         public int Count
         {
             get { return this.Instances.Count; }
@@ -33,9 +51,7 @@ namespace XCRI.Validation
         {
             get
             {
-                if (this.Count == 0)
-                    return 0;
-                return this.Instances.Count(i => i.Status == ContentValidation.ValidationStatus.Valid);
+                return this.SuccessfulInstances.Count();
             }
         }
 

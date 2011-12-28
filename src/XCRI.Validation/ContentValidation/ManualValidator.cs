@@ -6,10 +6,16 @@ using System.Xml;
 
 namespace XCRI.Validation.ContentValidation
 {
-    public class UrlValidator : Validator
+    /// <summary>
+    /// The ManualValidator is a supplemental validator that bubbles messages to the user regardless of
+    /// the XML file.  This is used to provide feedback where the content cannot be programmatically checked.
+    /// For example: identifier elements should contain URLs that resolve to human-readable content.  Without
+    /// requesting every identifier (and even then it would be hard) it's impossible to programmatically check that
+    /// the content is human-readable.
+    /// </summary>
+    public class ManualValidator : Validator
     {
-        public bool AllowRelative { get; set; }
-        public UrlValidator
+        public ManualValidator
             (
             IEnumerable<MessageInterpretation.IInterpreter> interpreters,
             XmlNamespaceManager namespaceManager,
@@ -21,23 +27,16 @@ namespace XCRI.Validation.ContentValidation
             )
             : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
         {
-            this.AllowRelative = false;
         }
         protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
-            Uri throwaway;
-            details = null;
-            if (this.AllowRelative)
-            {
-                if (Uri.TryCreate(input.Value, UriKind.RelativeOrAbsolute, out throwaway))
-                    return true;
-            }
-            else
-            {
-                if (Uri.TryCreate(input.Value, UriKind.Absolute, out throwaway))
-                    return true;
-            }
-            details = String.Format("Value was: '{0}'", input.Value);
+            if (null == input)
+                throw new ArgumentNullException("input");
+            details = String.Format
+                (
+                "Value is: '{0}'",
+                input.Value
+                );
             return false;
         }
     }

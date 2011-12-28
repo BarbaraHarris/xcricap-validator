@@ -29,6 +29,14 @@ namespace XCRI.Validation.Logging
                     e.LogSection.Elapsed.TotalMilliseconds
                     );
             };
+            var ts = this.GetNewTimedLogSection();
+            ts.Title = "Timed Log";
+            this.Stack.Push(ts);
+            ts.StartTiming();
+        }
+        protected override ITimedLogSection GetNewTimedLogSection()
+        {
+            return new TimedLogSectionToDebug();
         }
         public class TimedLogSectionToDebug : TimedLog.TimedLogSection
         {

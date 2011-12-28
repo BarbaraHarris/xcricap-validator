@@ -54,17 +54,22 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTests\ContentValidation\ManualValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\NumberValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\UniqueValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\UrlValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\AgeValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\AgeValidator.Valid.cs" />
+    <Compile Include="UnitTests\ContentValidation\AgeValidator.Invalid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.Invalid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.Valid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Invalid.cs" />
-    <Compile Include="XmlValidationTests\ContentValidation\IValidator.cs" />
+    <Compile Include="IValidator.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.cs" />
     <Compile Include="UnitTests\IValidationService.cs" />
     <Compile Include="UnitTests\MessageInterpretation\Interpreter.cs" />
     <Compile Include="TestBase.cs" />
-    <Compile Include="UnitTests\MatchEvaluators\NumberMatchEvaluator.cs" />
-    <Compile Include="UnitTests\MatchEvaluators\StringMatchEvaluator.cs" />
     <Compile Include="UnitTests\MessageInterpretation\IInterpretation.cs" />
     <Compile Include="UnitTests\MessageInterpretation\IInterpreter.cs" />
     <Compile Include="UnitTests\MessageInterpretation\Interpretation.cs" />

@@ -14,6 +14,9 @@ namespace XCRI.Validation.ContentValidation
         System.Xml.XmlNamespaceManager NamespaceManager { get; }
         ValidationStatus FailedValidationStatus { get; }
         IList<IInterpreter> Interpreters { get; }
-        ValidationResult Validate(System.Xml.Linq.XElement input);
+        IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input);
+        string ValidationGroup { get; set; }
+        IList<Logging.ILog> Logs { get; }
+        IList<Logging.ITimedLog> TimedLogs { get; }
     }
 }

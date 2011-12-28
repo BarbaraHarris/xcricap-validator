@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,15 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentValidation\AgeValidator.cs" />
+    <Compile Include="ContentValidation\DocumentValidator.cs" />
+    <Compile Include="ContentValidation\ElementValidator.cs" />
+    <Compile Include="ContentValidation\EmptyElementValidator.cs" />
+    <Compile Include="ContentValidation\ManualValidator.cs" />
+    <Compile Include="ContentValidation\NumberValidator.cs" />
+    <Compile Include="ContentValidation\RegularExpressionValidator.cs" />
+    <Compile Include="ContentValidation\StringLengthValidator.cs" />
     <Compile Include="ContentValidation\UniqueValidator.cs" />
     <Compile Include="ContentValidation\ValidationException.cs" />
     <Compile Include="ContentValidation\Validator.cs" />
     <Compile Include="ContentValidation\UrlValidator.cs" />
+    <Compile Include="ContentValidation\ValidatorCollection.cs" />
+    <Compile Include="ExtensionMethods\IntExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableILogExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableInterpreterExtensionMethods.cs" />
     <Compile Include="ContentValidation\IValidator.cs" />
     <Compile Include="ExtensionMethods\IEnumerableITimedLogExtensionMethods.cs" />
-    <Compile Include="ExtensionMethods\IValidationServiceExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\FileInfoExtensionMethods.cs" />
     <Compile Include="Logging\LogToDebug.cs" />
     <Compile Include="Logging\ILog.cs" />
     <Compile Include="Logging\ITimedLog.cs" />
@@ -64,23 +75,19 @@
     <Compile Include="Logging\TimedLog.cs" />
     <Compile Include="Logging\TimedLogSection.cs" />
     <Compile Include="Logging\TimedLogToDebug.cs" />
-    <Compile Include="MatchEvaluators\RegularExpressionEvaluator.cs" />
+    <Compile Include="Logging\TimedLogToHTML.cs" />
     <Compile Include="ValidationResult.cs" />
     <Compile Include="XmlRetrieval\ISource.cs" />
     <Compile Include="XmlRetrieval\IXmlCacheLocation.cs" />
     <Compile Include="MessageInterpretation\IInterpretation.cs" />
     <Compile Include="MessageInterpretation\IInterpreter.cs" />
-    <Compile Include="MatchEvaluators\IMatchEvaluator.cs" />
     <Compile Include="NamespaceReference.cs" />
     <Compile Include="MessageInterpretation\Interpretation.cs" />
     <Compile Include="MessageInterpretation\InterpretationStatus.cs" />
     <Compile Include="MessageInterpretation\Interpreter.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="IValidationService.cs" />
-    <Compile Include="MatchEvaluators\MatchEvaluatorBase.cs" />
-    <Compile Include="MatchEvaluators\NumberMatchEvaluator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MatchEvaluators\StringMatchEvaluator.cs" />
     <Compile Include="ValidationService.cs" />
     <Compile Include="ContentValidation\ValidationStatus.cs" />
     <Compile Include="XmlRetrieval\IXmlCachingResolver.cs" />

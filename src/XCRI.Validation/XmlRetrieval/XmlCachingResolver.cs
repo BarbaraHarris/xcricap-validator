@@ -76,7 +76,12 @@ namespace XCRI.Validation.XmlRetrieval
                 {
                     if (null != this.CacheLocations)
                     {
-                        using (this.TimedLogs.Step("Checking cache"))
+                        using (this.TimedLogs.Step(String.Format
+                            (
+                            "Checking cache ({0} location{1})",
+                            this.CacheLocations.Count,
+                            this.CacheLocations.Count == 1 ? String.Empty : "s"
+                            )))
                         {
                             foreach (var cl in this.CacheLocations)
                             {
@@ -91,6 +96,11 @@ namespace XCRI.Validation.XmlRetrieval
                                     return fs;
                                 }
                             }
+                            this.Logs.Log
+                                (
+                                Logging.LogCategory.XsdLocations | Logging.LogCategory.CachingInformation | Logging.LogCategory.TimingInformation,
+                                "No suitable cache found"
+                                );
                         }
                     }
                     // resolve resources from cache (if possible)

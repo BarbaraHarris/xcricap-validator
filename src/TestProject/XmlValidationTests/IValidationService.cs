@@ -22,11 +22,6 @@ namespace TestProject.XmlValidationTests
 
             public int Order { get; set; }
 
-            public IList<XCRI.Validation.MatchEvaluators.IMatchEvaluator> MatchEvaluators
-            {
-                get { throw new InvalidOperationException("Match Evaluators are ignored for the debug interpreter - assume everything matches"); ; }
-            }
-
             public IList<XCRI.Validation.MessageInterpretation.IInterpretation> Interpretations
             {
                 get { throw new InvalidOperationException("Populate the InterpretationFunction property instead"); }

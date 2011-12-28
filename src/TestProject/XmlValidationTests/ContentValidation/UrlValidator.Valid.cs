@@ -29,34 +29,38 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 nsmgr,
                 "//mlo:url",
                 "All url elements must contain valid URLs",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception
+                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                null,
+                null
             );
-            var r = v.Validate(xDoc.Root);
-            Assert.IsNotNull(r);
+            var vrc = v.Validate(xDoc.Root);
+            Assert.AreEqual<int>(1, vrc.Count());
+            var vr = vrc.ElementAt(0);
+            Assert.IsNotNull(vr);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
                 XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                r.Status
+                vr.Status
                 );
             Assert.AreEqual<int>
                 (
                 1,
-                r.Count
+                vr.Count
                 );
             Assert.AreEqual<int>
                 (
                 1,
-                r.SuccessCount
+                vr.SuccessCount
                 );
             Assert.AreEqual<int>
                 (
                 0,
-                r.FailedCount
+                vr.FailedCount
                 );
-            Assert.IsTrue(r.Instances[0].LineNumber.HasValue);
-            Assert.IsTrue(r.Instances[0].LinePosition.HasValue);
-            Assert.AreEqual<int>(r.Instances[0].LineNumber.Value, 2);
-            Assert.AreEqual<int>(r.Instances[0].LinePosition.Value, 4);
+            Assert.IsTrue(vr.Instances[0].LineNumber.HasValue);
+            Assert.IsTrue(vr.Instances[0].LinePosition.HasValue);
+            Assert.AreEqual<int>(vr.Instances[0].LineNumber.Value, 2);
+            Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
         [TestMethod]
         [DeploymentItem
@@ -77,34 +81,38 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 null,
                 "//url",
                 "All url elements must contain valid URLs",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception
+                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                null,
+                null
             );
-            var r = v.Validate(xDoc.Root);
-            Assert.IsNotNull(r);
+            var vrc = v.Validate(xDoc.Root);
+            Assert.AreEqual<int>(1, vrc.Count());
+            var vr = vrc.ElementAt(0);
+            Assert.IsNotNull(vr);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
                 XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                r.Status
+                vr.Status
                 );
             Assert.AreEqual<int>
                 (
                 1,
-                r.Count
+                vr.Count
                 );
             Assert.AreEqual<int>
                 (
                 1,
-                r.SuccessCount
+                vr.SuccessCount
                 );
             Assert.AreEqual<int>
                 (
                 0,
-                r.FailedCount
+                vr.FailedCount
                 );
-            Assert.IsTrue(r.Instances[0].LineNumber.HasValue);
-            Assert.IsTrue(r.Instances[0].LinePosition.HasValue);
-            Assert.AreEqual<int>(r.Instances[0].LineNumber.Value, 2);
-            Assert.AreEqual<int>(r.Instances[0].LinePosition.Value, 4);
+            Assert.IsTrue(vr.Instances[0].LineNumber.HasValue);
+            Assert.IsTrue(vr.Instances[0].LinePosition.HasValue);
+            Assert.AreEqual<int>(vr.Instances[0].LineNumber.Value, 2);
+            Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
         [TestMethod]
         [DeploymentItem
@@ -125,35 +133,39 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 null,
                 "//url",
                 "All url elements must contain valid URLs",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception
+                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                null,
+                null
             );
             v.AllowRelative = true;
-            var r = v.Validate(xDoc.Root);
-            Assert.IsNotNull(r);
+            var vrc = v.Validate(xDoc.Root);
+            Assert.AreEqual<int>(1, vrc.Count());
+            var vr = vrc.ElementAt(0);
+            Assert.IsNotNull(vr);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
                 XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                r.Status
+                vr.Status
                 );
             Assert.AreEqual<int>
                 (
                 1,
-                r.Count
+                vr.Count
                 );
             Assert.AreEqual<int>
                 (
                 1,
-                r.SuccessCount
+                vr.SuccessCount
                 );
             Assert.AreEqual<int>
                 (
                 0,
-                r.FailedCount
+                vr.FailedCount
                 );
-            Assert.IsTrue(r.Instances[0].LineNumber.HasValue);
-            Assert.IsTrue(r.Instances[0].LinePosition.HasValue);
-            Assert.AreEqual<int>(r.Instances[0].LineNumber.Value, 2);
-            Assert.AreEqual<int>(r.Instances[0].LinePosition.Value, 4);
+            Assert.IsTrue(vr.Instances[0].LineNumber.HasValue);
+            Assert.IsTrue(vr.Instances[0].LinePosition.HasValue);
+            Assert.AreEqual<int>(vr.Instances[0].LineNumber.Value, 2);
+            Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
     }
 }

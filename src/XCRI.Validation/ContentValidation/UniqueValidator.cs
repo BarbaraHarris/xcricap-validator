@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.XPath;
+using System.Xml.Linq;
 
 namespace XCRI.Validation.ContentValidation
 {
@@ -16,22 +17,31 @@ namespace XCRI.Validation.ContentValidation
             XmlNamespaceManager namespaceManager,
             string xPathSelector,
             string exceptionMessage,
-            ValidationStatus failedValidationStatus
+            ValidationStatus failedValidationStatus,
+            IEnumerable<Logging.ILog> logs,
+            IEnumerable<Logging.ITimedLog> timedLogs
             )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus)
+            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
         {
             this.UniqueAcross = UnqiueAcrossTypes.Document;
         }
         protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
+            details = null;
+            if (null == input)
+                throw new ArgumentNullException("input");
+            string value;
+            int count;
+            IEnumerable<XElement> same;
             switch (this.UniqueAcross)
             {
                 case UnqiueAcrossTypes.Document:
-                    details = null;
-                    var value = input.Value;
-                    var sameIdentifiers = input.Document.XPathSelectElements(this.XPathSelector, this.NamespaceManager)
+                    if (null == input.Document)
+                        throw new ArgumentException("The XElement must be associated with an XDocument", "input");
+                    value = input.Value;
+                    same = input.Document.XPathSelectElements(this.XPathSelector, this.NamespaceManager)
                         .Where(xe => xe.Value == value);
-                    var count = sameIdentifiers.Count();
+                    count = same.Count();
                     if (count == 1)
                     {
                         return true;
@@ -40,16 +50,54 @@ namespace XCRI.Validation.ContentValidation
                     {
                         details = String.Format
                             (
-                            "There are {0} other elements with the same identifier as {1} (on line{2} ",
+                            "There are {0} element{2} with the identifier {1} (on line{2} ",
                             count,
                             value,
-                            count == 2 ? String.Empty : "s"
+                            count == 1 ? String.Empty : "s"
                             );
-                        bool firstItem =true ;
-                        foreach (System.Xml.Linq.XElement xe in sameIdentifiers)
+                        bool firstItem = true;
+                        foreach (System.Xml.Linq.XElement xe in same)
                         {
-                            if (xe == input)
+                            if (false == (xe is IXmlLineInfo))
                                 continue;
+                            if (firstItem == false)
+                            {
+                                details += ", ";
+                            }
+                            else
+                            {
+                                firstItem = false;
+                            };
+                            details += (xe as IXmlLineInfo).LineNumber.ToString();
+                        }
+                        details += ")";
+                        return false;
+                    }
+                case UnqiueAcrossTypes.Context:
+                    if (null == input.Document)
+                        throw new ArgumentException("The XElement must be associated with an XDocument", "input");
+                    value = input.Value;
+                    same = input.Document.XPathSelectElements(this.XPathSelector, this.NamespaceManager)
+                        .Where(xe => xe.Value == value)
+                        .Where(xe => xe.Parent.Name.LocalName == input.Parent.Name.LocalName)
+                        .Where(xe => xe.Parent.Name.NamespaceName == input.Parent.Name.NamespaceName);
+                    count = same.Count();
+                    if (count == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        details = String.Format
+                            (
+                            "There are {0} element{2} with the identifier {1} (on line{2} ",
+                            count,
+                            value,
+                            count == 1 ? String.Empty : "s"
+                            );
+                        bool firstItem = true;
+                        foreach (System.Xml.Linq.XElement xe in same)
+                        {
                             if (false == (xe is IXmlLineInfo))
                                 continue;
                             if (firstItem == false)
@@ -71,7 +119,8 @@ namespace XCRI.Validation.ContentValidation
         }
         public enum UnqiueAcrossTypes
         {
-            Document = 1
+            Document = 1,
+            Context = 2
         }
     }
 }

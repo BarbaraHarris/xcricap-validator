@@ -11,7 +11,8 @@ namespace XCRI.Validation.ExtensionMethods
     {
         public static ValidationResult Interpret
             (
-            this IEnumerable<IInterpreter> interpreters, 
+            this IEnumerable<IInterpreter> interpreters,
+            string validationGroup, 
             Exception exception
             )
         {
@@ -23,16 +24,18 @@ namespace XCRI.Validation.ExtensionMethods
             {
                 Exception = exception,
                 Interpretation = exception.Message,
-                Status = ValidationStatus.Exception
+                ValidationGroup = validationGroup
             };
-            if (exception is ValidationException)
-                r.Status = (exception as ValidationException).ValidationStatus;
             foreach (var i in interpreters)
             {
                 if (null == i)
                     continue;
                 string interpretation = String.Empty;
-                if (i.Interpret(exception, out interpretation) == InterpretationStatus.Interpreted)
+                if (
+                    i.Interpret(exception, out interpretation) == InterpretationStatus.Interpreted
+                    &&
+                    false == String.IsNullOrWhiteSpace(interpretation)
+                    )
                 {
                     r.Interpretation = interpretation;
                     return r;
