@@ -9,17 +9,8 @@ namespace XCRI.Validation.ContentValidation
 {
     public class AgeValidator : RegularExpressionValidator
     {
-        public AgeValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public AgeValidator()
+            : base()
         {
             this.Pattern = @"^(?:any|not known|(?<Lower>\d{1,})(?:\+|(?:\-(?<Upper>\d{1,}))))$";
         }

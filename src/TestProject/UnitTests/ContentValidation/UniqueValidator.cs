@@ -28,16 +28,10 @@ namespace TestProject.UnitTests.ContentValidation
             out string details
             )
         {
-            var v = new XCRI.Validation.ContentValidation.UniqueValidator
-                (
-                null,
-                null,
-                selector,
-                String.Empty,
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-                );
+            var v = new XCRI.Validation.ContentValidation.UniqueValidator()
+            {
+                XPathSelector = selector
+            };
             v.UniqueAcross = unique;
             return v.PassesValidation(input, out details);
         }

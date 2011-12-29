@@ -24,16 +24,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
             nsmgr.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
             nsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            XCRI.Validation.ContentValidation.UniqueValidator v = new XCRI.Validation.ContentValidation.UniqueValidator
-            (
-                null,
-                nsmgr,
-                "//dc:identifier[not(@xsi:type)]",
-                "All identifier elements without xsi:type attributes must be unique",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-            );
+            XCRI.Validation.ContentValidation.UniqueValidator v = new XCRI.Validation.ContentValidation.UniqueValidator()
+            {
+                XPathSelector = "//dc:identifier[not(@xsi:type)]",
+                NamespaceManager = nsmgr
+            };
             var vrc = v.Validate(xDoc.Root);
             Assert.AreEqual<int>(1, vrc.Count());
             var vr = vrc.ElementAt(0);
@@ -83,16 +78,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
             nsmgr.AddNamespace("dc", "http://purl.org/dc/elements/1.1/");
             nsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            XCRI.Validation.ContentValidation.UniqueValidator v = new XCRI.Validation.ContentValidation.UniqueValidator
-            (
-                null,
-                nsmgr,
-                "//dc:identifier[not(@xsi:type)]",
-                "All identifier elements without xsi:type attributes must be unique",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-            );
+            XCRI.Validation.ContentValidation.UniqueValidator v = new XCRI.Validation.ContentValidation.UniqueValidator()
+            {
+                XPathSelector = "//dc:identifier[not(@xsi:type)]",
+                NamespaceManager = nsmgr
+            };
             var vrc = v.Validate(xDoc.Root);
             Assert.AreEqual<int>(1, vrc.Count());
             var vr = vrc.ElementAt(0);

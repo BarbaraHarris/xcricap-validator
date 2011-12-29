@@ -10,34 +10,15 @@ namespace XCRI.Validation.ContentValidation
 {
     public abstract class Validator : IValidator
     {
-
-        public Validator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
+        public Validator()
+            : base()
         {
-            if (null == interpreters)
-                this.Interpreters = new List<MessageInterpretation.IInterpreter>();
-            else
-                this.Interpreters = new List<MessageInterpretation.IInterpreter>(interpreters);
-            if (null == logs)
-                this.Logs = new List<Logging.ILog>();
-            else
-                this.Logs = new List<Logging.ILog>(logs);
-            if (null == timedLogs)
-                this.TimedLogs = new List<Logging.ITimedLog>();
-            else
-                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
-            this.XPathSelector = xPathSelector;
-            this.ExceptionMessage = exceptionMessage;
-            this.NamespaceManager = namespaceManager;
-            this.FailedValidationStatus = failedValidationStatus;
+            this.Interpreters = new List<MessageInterpretation.IInterpreter>();
+            this.Logs = new List<Logging.ILog>();
+            this.TimedLogs = new List<Logging.ITimedLog>();
+            this.XPathSelector = null;
+            this.ExceptionMessage = String.Empty;
+            this.FailedValidationStatus = ValidationStatus.Exception;
             this.ValidationGroup = "Other";
         }
 

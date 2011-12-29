@@ -17,16 +17,10 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationString(string input, string pattern, out string details)
         {
-            XCRI.Validation.ContentValidation.AgeValidator av = new XCRI.Validation.ContentValidation.AgeValidator
-            (
-            null,
-            null,
-            "/",
-            null,
-            XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-            null,
-            null
-            );
+            XCRI.Validation.ContentValidation.AgeValidator av = new XCRI.Validation.ContentValidation.AgeValidator()
+            {
+                XPathSelector = "/"
+            };
             if (null != pattern)
                 av.Pattern = pattern;
             if (null == input)

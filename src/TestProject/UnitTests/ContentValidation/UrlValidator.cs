@@ -16,16 +16,10 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected List<XCRI.Validation.ValidationResult> ValidateString(string input, bool? allowRelative)
         {
-            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator
-            (
-            null,
-            null,
-            "//url",
-            null,
-            XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-            null,
-            null
-            );
+            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
+            {
+                XPathSelector = "//url"
+            };
             var xelement = new System.Xml.Linq.XElement("root", new System.Xml.Linq.XElement("url", input));
             if (allowRelative.HasValue)
                 v.AllowRelative = allowRelative.Value;

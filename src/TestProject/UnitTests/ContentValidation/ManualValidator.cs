@@ -17,22 +17,17 @@ namespace TestProject.UnitTests.ContentValidation
                 new XElement("test")
                 );
             var message = "Test exception message";
-            var v = new XCRI.Validation.ContentValidation.ManualValidator
-                (
-                null,
-                null,
-                "/test",
-                message,
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                null,
-                null
-                );
+            var v = new XCRI.Validation.ContentValidation.ManualValidator()
+            {
+                XPathSelector = "/test",
+                ExceptionMessage = message
+            };
             var vrc = v.Validate(xElement);
             Assert.AreEqual<int>(1, vrc.Count());
             var vr = vrc.ElementAt(0);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 vr.Status
                 );
             Assert.AreEqual<int>
@@ -54,22 +49,17 @@ namespace TestProject.UnitTests.ContentValidation
                 new XElement("test")
                 );
             var message = "Test exception message";
-            var v = new XCRI.Validation.ContentValidation.ManualValidator
-                (
-                null,
-                null,
-                "/test",
-                message,
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                null,
-                null
-                );
+            var v = new XCRI.Validation.ContentValidation.ManualValidator()
+            {
+                XPathSelector = "/test",
+                ExceptionMessage = message
+            };
             var vrc = v.Validate(xElement);
             Assert.AreEqual<int>(1, vrc.Count());
             var vr = vrc.ElementAt(0);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 vr.Status
                 );
             Assert.AreEqual<int>

@@ -9,17 +9,8 @@ namespace XCRI.Validation.ContentValidation
     public class EmptyElementValidator : Validator
     {
         public EnforcementTypes EnforcementType { get; set; }
-        public EmptyElementValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public EmptyElementValidator()
+            : base()
         {
             this.EnforcementType = EnforcementTypes.ForceNotEmpty;
         }

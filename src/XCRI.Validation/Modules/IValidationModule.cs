@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Xml.Linq;
 
 namespace XCRI.Validation.Modules
 {
@@ -12,5 +13,6 @@ namespace XCRI.Validation.Modules
         List<Logging.ITimedLog> TimedLogs { get; }
         ContentValidation.IValidatorFactory ValidatorFactory { get; set; }
         IEnumerable<ContentValidation.IValidator> ExtractValidators(FileInfo fi);
+        ContentValidation.IValidator ExtractValidator(XElement validatorNode);
     }
 }

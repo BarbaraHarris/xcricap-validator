@@ -10,17 +10,8 @@ namespace XCRI.Validation.ContentValidation
     {
         public int? MinimumCharacters { get; set; }
         public int? MaximumCharacters { get; set; }
-        public StringLengthValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public StringLengthValidator()
+            : base()
         {
         }
         public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)

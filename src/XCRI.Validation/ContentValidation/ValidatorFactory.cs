@@ -35,25 +35,32 @@ namespace XCRI.Validation.ContentValidation
             )
             where T : class, IValidator
         {
-
+            IValidator v = null;
             if (typeof(T) == typeof(UrlValidator))
-                return new UrlValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new UrlValidator();
             if (typeof(T) == typeof(UniqueValidator))
-                return new UniqueValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new UniqueValidator();
             if (typeof(T) == typeof(EmptyElementValidator))
-                return new EmptyElementValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new EmptyElementValidator();
             if (typeof(T) == typeof(NumberValidator))
-                return new NumberValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new NumberValidator();
             if (typeof(T) == typeof(ManualValidator))
-                return new ManualValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new ManualValidator();
             if (typeof(T) == typeof(StringLengthValidator))
-                return new StringLengthValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new StringLengthValidator();
             if (typeof(T) == typeof(RegularExpressionValidator))
-                return new RegularExpressionValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
+                v = new RegularExpressionValidator();
             if (typeof(T) == typeof(AgeValidator))
-                return new AgeValidator(null, null, null, null, ValidationStatus.Exception, this.Logs, this.TimedLogs) as T;
-
-            throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
+                v = new AgeValidator();
+            if(v == null)
+                throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
+            if (null != this.Logs)
+                foreach (var l in this.Logs)
+                    v.Logs.Add(l);
+            if (null != this.TimedLogs)
+                foreach (var l in this.TimedLogs)
+                    v.TimedLogs.Add(l);
+            return v as T;
         }
 
         #endregion

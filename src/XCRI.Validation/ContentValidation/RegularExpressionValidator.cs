@@ -10,17 +10,8 @@ namespace XCRI.Validation.ContentValidation
     public class RegularExpressionValidator : Validator
     {
         public string Pattern { get; set; }
-        public RegularExpressionValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public RegularExpressionValidator()
+            : base()
         {
         }
         public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)

@@ -14,14 +14,8 @@ namespace XCRI.Validation.ContentValidation
     /// </summary>
     public class ElementValidator : ValidatorCollection
     {
-        public ElementValidator
-            (
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(namespaceManager, xPathSelector, logs, timedLogs)
+        public ElementValidator()
+            : base()
         {
             base.ValidationGroup = String.Empty;
         }

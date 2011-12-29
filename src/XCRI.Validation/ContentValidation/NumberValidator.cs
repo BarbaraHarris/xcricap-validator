@@ -12,17 +12,8 @@ namespace XCRI.Validation.ContentValidation
     {
         public decimal? Minimum { get; set; }
         public decimal? Maximum { get; set; }
-        public NumberValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public NumberValidator()
+            : base()
         {
             this.Minimum = null;
             this.Maximum = null;

@@ -9,17 +9,8 @@ namespace XCRI.Validation.ContentValidation
     public class UrlValidator : Validator
     {
         public bool AllowRelative { get; set; }
-        public UrlValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public UrlValidator()
+            : base()
         {
             this.AllowRelative = false;
         }

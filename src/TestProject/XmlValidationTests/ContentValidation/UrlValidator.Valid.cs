@@ -23,16 +23,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 );
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
             nsmgr.AddNamespace("mlo", "http://purl.org/net/mlo");
-            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator
-            (
-                null,
-                nsmgr,
-                "//mlo:url",
-                "All url elements must contain valid URLs",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-            );
+            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
+            {
+                XPathSelector = "//mlo:url",
+                NamespaceManager = nsmgr
+            };
             var vrc = v.Validate(xDoc.Root);
             Assert.AreEqual<int>(1, vrc.Count());
             var vr = vrc.ElementAt(0);
@@ -75,16 +70,10 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 new System.IO.FileInfo(@"ContentValidation\UrlValidator\Valid\SingleUrl.xml").FullName,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
-            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator
-            (
-                null,
-                null,
-                "//url",
-                "All url elements must contain valid URLs",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-            );
+            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
+            {
+                XPathSelector = "//url"
+            };
             var vrc = v.Validate(xDoc.Root);
             Assert.AreEqual<int>(1, vrc.Count());
             var vr = vrc.ElementAt(0);
@@ -127,16 +116,10 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 new System.IO.FileInfo(@"ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml").FullName,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
-            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator
-            (
-                null,
-                null,
-                "//url",
-                "All url elements must contain valid URLs",
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-            );
+            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
+            {
+                XPathSelector = "//url"
+            };
             v.AllowRelative = true;
             var vrc = v.Validate(xDoc.Root);
             Assert.AreEqual<int>(1, vrc.Count());

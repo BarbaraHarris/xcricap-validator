@@ -12,16 +12,10 @@ namespace TestProject.UnitTests.ContentValidation
         [TestMethod]
         public void MinimumSaved()
         {
-            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator
-            (
-            null,
-            null,
-            "number(//number/text())",
-            null,
-            XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-            null,
-            null
-            );
+            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "number(//number/text())"
+            };
             Assert.AreNotEqual<decimal?>(v.Minimum, 25);
             v.Minimum = 25;
             Assert.AreEqual<decimal?>(v.Minimum, 25);
@@ -30,16 +24,10 @@ namespace TestProject.UnitTests.ContentValidation
         public void MaximumSaved()
         {
 
-            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator
-            (
-            null,
-            null,
-            "number(//number/text())",
-            null,
-            XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-            null,
-            null
-            );
+            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "number(//number/text())"
+            };
             Assert.AreNotEqual<decimal?>(v.Maximum, 25);
             v.Maximum = 25;
             Assert.AreEqual<decimal?>(v.Maximum, 25);

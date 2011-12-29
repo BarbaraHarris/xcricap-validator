@@ -14,15 +14,11 @@ namespace XCRI.Validation.ContentValidation
     /// </summary>
     public class DocumentValidator : ValidatorCollection
     {
-        public DocumentValidator
-            (
-            XmlNamespaceManager namespaceManager,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(namespaceManager, "/*", logs, timedLogs)
+        public DocumentValidator()
+            : base()
         {
             base.ValidationGroup = String.Empty;
+            this.XPathSelector = "/*";
         }
         public override IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
         {

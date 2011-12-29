@@ -11,17 +11,8 @@ namespace XCRI.Validation.ContentValidation
     public class UniqueValidator : Validator
     {
         public UniqueAcrossTypes UniqueAcross { get; set; }
-        public UniqueValidator
-            (
-            IEnumerable<MessageInterpretation.IInterpreter> interpreters,
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            string exceptionMessage,
-            ValidationStatus failedValidationStatus,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
+        public UniqueValidator()
+            : base()
         {
             this.UniqueAcross = UniqueAcrossTypes.Document;
         }

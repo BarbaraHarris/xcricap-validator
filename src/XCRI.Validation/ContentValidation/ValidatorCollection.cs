@@ -10,14 +10,8 @@ namespace XCRI.Validation.ContentValidation
     public abstract class ValidatorCollection : Validator
     {
         public IList<IValidator> Validators = null;
-        public ValidatorCollection
-            (
-            XmlNamespaceManager namespaceManager,
-            string xPathSelector,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
-            )
-            : base(null, namespaceManager, xPathSelector, null, ValidationStatus.Valid, logs, timedLogs)
+        public ValidatorCollection()
+            : base()
         {
             this.Validators = new List<IValidator>();
         }

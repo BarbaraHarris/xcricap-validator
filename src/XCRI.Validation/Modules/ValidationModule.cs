@@ -56,7 +56,16 @@ namespace XCRI.Validation.Modules
             // Extract document validators
             foreach (var node in xdoc.XPathSelectElements("/contentValidators/documentValidation"))
             {
-                var d = new ContentValidation.DocumentValidator(xmlnsmgr, this.Logs, this.TimedLogs);
+                var d = new ContentValidation.DocumentValidator()
+                {
+                    NamespaceManager = xmlnsmgr
+                };
+                if (null != this.Logs)
+                    foreach (var l in this.Logs)
+                        d.Logs.Add(l);
+                if (null != this.TimedLogs)
+                    foreach (var l in this.TimedLogs)
+                        d.TimedLogs.Add(l);
                 foreach (var validatorNode in node.XPathSelectElements("./*"))
                 {
                     var v = this.ExtractValidator(validatorNode);
@@ -69,7 +78,17 @@ namespace XCRI.Validation.Modules
             foreach (var node in xdoc.XPathSelectElements("/contentValidators/elementValidation"))
             {
                 var selector = node.Attribute("selector").Value;
-                var e = new ContentValidation.ElementValidator(xmlnsmgr, selector, this.Logs, this.TimedLogs);
+                var e = new ContentValidation.ElementValidator()
+                {
+                    NamespaceManager = xmlnsmgr,
+                    XPathSelector = selector
+                };
+                if (null != this.Logs)
+                    foreach (var l in this.Logs)
+                        e.Logs.Add(l);
+                if (null != this.TimedLogs)
+                    foreach (var l in this.TimedLogs)
+                        e.TimedLogs.Add(l);
                 foreach (var validatorNode in node.XPathSelectElements("./*"))
                 {
                     var v = this.ExtractValidator(validatorNode);
@@ -79,7 +98,7 @@ namespace XCRI.Validation.Modules
                 yield return e;
             }
         }
-        protected ContentValidation.IValidator ExtractValidator
+        public ContentValidation.IValidator ExtractValidator
             (
             XElement validatorNode
             )
