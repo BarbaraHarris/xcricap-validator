@@ -10,7 +10,7 @@ namespace XCRI.Validation.ContentValidation
 {
     public class UniqueValidator : Validator
     {
-        public UnqiueAcrossTypes UniqueAcross { get; set; }
+        public UniqueAcrossTypes UniqueAcross { get; set; }
         public UniqueValidator
             (
             IEnumerable<MessageInterpretation.IInterpreter> interpreters,
@@ -23,9 +23,9 @@ namespace XCRI.Validation.ContentValidation
             )
             : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
         {
-            this.UniqueAcross = UnqiueAcrossTypes.Document;
+            this.UniqueAcross = UniqueAcrossTypes.Document;
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             details = null;
             if (null == input)
@@ -35,7 +35,7 @@ namespace XCRI.Validation.ContentValidation
             IEnumerable<XElement> same;
             switch (this.UniqueAcross)
             {
-                case UnqiueAcrossTypes.Document:
+                case UniqueAcrossTypes.Document:
                     if (null == input.Document)
                         throw new ArgumentException("The XElement must be associated with an XDocument", "input");
                     value = input.Value;
@@ -73,7 +73,7 @@ namespace XCRI.Validation.ContentValidation
                         details += ")";
                         return false;
                     }
-                case UnqiueAcrossTypes.Context:
+                case UniqueAcrossTypes.Context:
                     if (null == input.Document)
                         throw new ArgumentException("The XElement must be associated with an XDocument", "input");
                     value = input.Value;
@@ -117,7 +117,7 @@ namespace XCRI.Validation.ContentValidation
                     throw new NotImplementedException();
             }
         }
-        public enum UnqiueAcrossTypes
+        public enum UniqueAcrossTypes
         {
             Document = 1,
             Context = 2

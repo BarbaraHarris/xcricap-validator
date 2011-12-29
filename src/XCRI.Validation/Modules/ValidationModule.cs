@@ -1,0 +1,208 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml.XPath;
+using XCRI.Validation.ExtensionMethods;
+
+namespace XCRI.Validation.Modules
+{
+    public class ValidationModule : IValidationModule
+    {
+        public List<Logging.ILog> Logs { get; private set; }
+        public List<Logging.ITimedLog> TimedLogs { get; private set; }
+        public ContentValidation.IValidatorFactory ValidatorFactory { get; set; }
+        public ValidationModule
+            (
+            IEnumerable<Logging.ILog> logs,
+            IEnumerable<Logging.ITimedLog> timedLogs,
+            ContentValidation.IValidatorFactory validatorFactory
+            )
+            : base()
+        {
+            if (null == logs)
+                this.Logs = new List<Logging.ILog>();
+            else
+                this.Logs = new List<Logging.ILog>(logs);
+            if (null == timedLogs)
+                this.TimedLogs = new List<Logging.ITimedLog>();
+            else
+                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
+            this.ValidatorFactory = validatorFactory;
+        }
+        public IEnumerable<ContentValidation.IValidator> ExtractValidators
+            (
+            FileInfo fi
+            )
+        {
+            if (null == fi)
+                throw new ArgumentNullException("fi");
+            if (fi.Exists == false)
+                throw new ArgumentException("The file must exist to be called in this manner", "fi");
+            // Grab reference to doc
+            var xdoc = XDocument.Load(fi.FullName);
+            var xmlnsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
+            // Extract namespace details
+            foreach (var node in xdoc.XPathSelectElements("/contentValidators/namespaces/add"))
+            {
+                xmlnsmgr.AddNamespace
+                    (
+                    node.Attribute("prefix").Value,
+                    node.Attribute("namespace").Value
+                    );
+            }
+            // Extract document validators
+            foreach (var node in xdoc.XPathSelectElements("/contentValidators/documentValidation"))
+            {
+                var d = new ContentValidation.DocumentValidator(xmlnsmgr, this.Logs, this.TimedLogs);
+                foreach (var validatorNode in node.XPathSelectElements("./*"))
+                {
+                    var v = this.ExtractValidator(validatorNode);
+                    v.NamespaceManager = xmlnsmgr;
+                    d.Validators.Add(v);
+                }
+                yield return d;
+            }
+            // Extract element validators
+            foreach (var node in xdoc.XPathSelectElements("/contentValidators/elementValidation"))
+            {
+                var selector = node.Attribute("selector").Value;
+                var e = new ContentValidation.ElementValidator(xmlnsmgr, selector, this.Logs, this.TimedLogs);
+                foreach (var validatorNode in node.XPathSelectElements("./*"))
+                {
+                    var v = this.ExtractValidator(validatorNode);
+                    v.NamespaceManager = xmlnsmgr;
+                    e.Validators.Add(v);
+                }
+                yield return e;
+            }
+        }
+        protected ContentValidation.IValidator ExtractValidator
+            (
+            XElement validatorNode
+            )
+        {
+            if (null == validatorNode)
+                throw new ArgumentNullException("validatorNode");
+            if (null == this.ValidatorFactory)
+                throw new InvalidOperationException("The ValidatorFactory property must not be null in order to extract validators from an XML file");
+            ContentValidation.IValidator validator = null;
+            switch (validatorNode.Name.LocalName.ToLower())
+            {
+                case "urlvalidator":
+                    var urlvalidator = this.ValidatorFactory.GetValidator<ContentValidation.UrlValidator>();
+                    if (
+                        (null != validatorNode.Attribute("allowRelative"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("allowRelative").Value))
+                        )
+                        urlvalidator.AllowRelative = (validatorNode.Attribute("allowRelative").Value.ToLower() == "true");
+                    validator = urlvalidator;
+                    break;
+                case "uniquevalidator":
+                    var uniquevalidator = this.ValidatorFactory.GetValidator<ContentValidation.UniqueValidator>();
+                    if (
+                        (null != validatorNode.Attribute("uniqueAcross"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("uniqueAcross").Value))
+                        )
+                        uniquevalidator.UniqueAcross = validatorNode.Attribute("uniqueAcross").Value
+                            .ParseEnumFrom<ContentValidation.UniqueValidator.UniqueAcrossTypes>();
+                    validator = uniquevalidator;
+                    break;
+                case "emptyelementvalidator":
+                    var emptyElementValidator = this.ValidatorFactory.GetValidator<ContentValidation.EmptyElementValidator>();
+                    if (
+                        (null != validatorNode.Attribute("enforcementType"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("enforcementType").Value))
+                        )
+                        emptyElementValidator.EnforcementType = validatorNode.Attribute("enforcementType").Value
+                            .ParseEnumFrom<ContentValidation.EmptyElementValidator.EnforcementTypes>();
+                    validator = emptyElementValidator;
+                    break;
+                case "manualvalidator":
+                    var manualvalidator = this.ValidatorFactory.GetValidator<ContentValidation.ManualValidator>();
+                    validator = manualvalidator;
+                    break;
+                case "numbervalidator":
+                    var numbervalidator = this.ValidatorFactory.GetValidator<ContentValidation.NumberValidator>();
+                    decimal value;
+                    if (
+                        (null != validatorNode.Attribute("minimum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("minimum").Value))
+                        &&
+                        (decimal.TryParse(validatorNode.Attribute("minimum").Value, out value))
+                        )
+                        numbervalidator.Minimum = value;
+                    if (
+                        (null != validatorNode.Attribute("maximum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("maximum").Value))
+                        &&
+                        (decimal.TryParse(validatorNode.Attribute("maximum").Value, out value))
+                        )
+                        numbervalidator.Maximum = value;
+                    validator = numbervalidator;
+                    break;
+                case "stringlengthvalidator":
+                    var stringlengthvalidator = this.ValidatorFactory.GetValidator<ContentValidation.StringLengthValidator>();
+                    int slvalue;
+                    if (
+                        (null != validatorNode.Attribute("minimum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("minimum").Value))
+                        &&
+                        (int.TryParse(validatorNode.Attribute("minimum").Value, out slvalue))
+                        )
+                        stringlengthvalidator.MinimumCharacters = slvalue;
+                    if (
+                        (null != validatorNode.Attribute("maximum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("maximum").Value))
+                        &&
+                        (int.TryParse(validatorNode.Attribute("maximum").Value, out slvalue))
+                        )
+                        stringlengthvalidator.MaximumCharacters = slvalue;
+                    validator = stringlengthvalidator;
+                    break;
+                case "regularexpressionvalidator":
+                    var regularExpressionValidator = this.ValidatorFactory.GetValidator<ContentValidation.RegularExpressionValidator>();
+                    if (
+                        (null != validatorNode.Attribute("pattern"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("pattern").Value))
+                        )
+                        regularExpressionValidator.Pattern = validatorNode.Attribute("pattern").Value;
+                    validator = regularExpressionValidator;
+                    break;
+                case "agevalidator":
+                    var ageValidator = this.ValidatorFactory.GetValidator<ContentValidation.AgeValidator>();
+                    validator = ageValidator;
+                    break;
+            }
+            if (null == validator)
+                throw new InvalidDataException(String.Format
+                    (
+                    "The validator type {0} was not handled",
+                    validatorNode.Name
+                    ));
+            validator.XPathSelector
+                = validatorNode.Attribute("selector").Value;
+            validator.ExceptionMessage
+                = validatorNode.Attribute("message").Value;
+            validator.FailedValidationStatus
+                = validatorNode.Attribute("status").Value.ParseEnumFrom<ContentValidation.ValidationStatus>();
+            if (
+                (null != validatorNode.Attribute("validationGroup"))
+                &&
+                (false == String.IsNullOrEmpty(validatorNode.Attribute("validationGroup").Value))
+                )
+                validator.ValidationGroup = validatorNode.Attribute("validationGroup").Value;
+            return validator;
+        }
+    }
+}

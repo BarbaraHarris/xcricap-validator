@@ -8,151 +8,28 @@ using System.Xml.Linq;
 namespace TestProject.UnitTests.ContentValidation
 {
     [TestClass]
-    public class UrlValidator
+    public partial class UrlValidator : IValidator<XCRI.Validation.ContentValidation.UrlValidator>
     {
-        [TestMethod]
-        public void Valid_SingleAbsoluteURL()
+        protected List<XCRI.Validation.ValidationResult> ValidateString(string input)
         {
-            var xElement = new XElement("Root",
-                new XElement("url", "http://www.craighawker.co.uk/"),
-                new XElement("test", "def")
-                );
-            var message = "Test exception message";
-            var v = new XCRI.Validation.ContentValidation.UrlValidator
-                (
-                null,
-                null,
-                "//url",
-                message,
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-                );
-            v.AllowRelative = false;
-            var vrc = v.Validate(xElement);
-            Assert.AreEqual<int>(1, vrc.Count());
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
-                (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                vr.Status
-                );
-            Assert.AreEqual<int>
-                (
-                1,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                vr.SuccessCount,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                0,
-                vr.FailedCount
-                );
-            Assert.AreEqual<string>
-                (
-                message,
-                vr.Interpretation
-                );
+            return this.ValidateString(input, null);
         }
-        [TestMethod]
-        public void Valid_SingleRelativeURL()
+        protected List<XCRI.Validation.ValidationResult> ValidateString(string input, bool? allowRelative)
         {
-            var xElement = new XElement("Root",
-                new XElement("url", "/hello%20world/"),
-                new XElement("test", "def")
-                );
-            var message = "Test exception message";
-            var v = new XCRI.Validation.ContentValidation.UrlValidator
-                (
-                null,
-                null,
-                "//url",
-                message,
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-                );
-            v.AllowRelative = true;
-            var vrc = v.Validate(xElement);
-            Assert.AreEqual<int>(1, vrc.Count());
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
-                (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                vr.Status
-                );
-            Assert.AreEqual<int>
-                (
-                1,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                vr.SuccessCount,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                0,
-                vr.FailedCount
-                );
-            Assert.AreEqual<string>
-                (
-                message,
-                vr.Interpretation
-                );
-        }
-        [TestMethod]
-        public void Invalid_SingleRelativeURL()
-        {
-            var xElement = new XElement("Root",
-                new XElement("url", "/hello%20world/"),
-                new XElement("test", "def")
-                );
-            var message = "Test exception message";
-            var v = new XCRI.Validation.ContentValidation.UrlValidator
-                (
-                null,
-                null,
-                "//url",
-                message,
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                null,
-                null
-                );
-            v.AllowRelative = false;
-            var vrc = v.Validate(xElement);
-            Assert.AreEqual<int>(1, vrc.Count());
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
-                (
-                XCRI.Validation.ContentValidation.ValidationStatus.Exception,
-                vr.Status
-                );
-            Assert.AreEqual<int>
-                (
-                1,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                vr.FailedCount,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                0,
-                vr.SuccessCount
-                );
-            Assert.AreEqual<string>
-                (
-                message,
-                vr.Interpretation
-                );
+            XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator
+            (
+            null,
+            null,
+            "//url",
+            null,
+            XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+            null,
+            null
+            );
+            var xelement = new System.Xml.Linq.XElement("root", new System.Xml.Linq.XElement("url", input));
+            if (allowRelative.HasValue)
+                v.AllowRelative = allowRelative.Value;
+            return new List<XCRI.Validation.ValidationResult>(v.Validate(xelement));
         }
     }
 }

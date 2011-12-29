@@ -12,7 +12,6 @@ namespace TestProject.UnitTests.ContentValidation
         [TestMethod]
         public void MinimumSaved()
         {
-
             XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator
             (
             null,
@@ -48,97 +47,47 @@ namespace TestProject.UnitTests.ContentValidation
         [TestMethod]
         public void Valid_NoLimitsSpecified()
         {
-            List<XCRI.Validation.ValidationResult> vrc = this.ValidateString("1");
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
+            Assert.IsTrue
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                vr.Status
+                this.PassesValidationString("1"),
+                "The value is valid as it is a number and no limits have been placed on validity"
                 );
-            Assert.AreEqual<int>(1, vr.Instances.Count);
-            Assert.AreEqual<int>(vr.SuccessCount, vr.Instances.Count);
-            Assert.AreEqual<int>(0, vr.FailedCount);
         }
         [TestMethod]
         public void Valid_MinimumSpecified_ValueOverMinimum()
         {
-            List<XCRI.Validation.ValidationResult> vrc = this.ValidateString("1", 0, null);
-            Assert.AreEqual<int>(1, vrc.Count());
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
+            Assert.IsTrue
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                vr.Status
-                );
-            Assert.AreEqual<int>
-                (
-                1,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                vr.SuccessCount,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                0,
-                vr.FailedCount
+                this.PassesValidationString("1", 0, null),
+                "The value is valid as it is above the specified minimum"
                 );
         }
         [TestMethod]
         public void Valid_MaximumSpecified_ValueUnderMaximum()
         {
-            List<XCRI.Validation.ValidationResult> vrc = this.ValidateString("1", null, 2);
-            Assert.AreEqual<int>(1, vrc.Count());
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
+            Assert.IsTrue
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                vr.Status
-                );
-            Assert.AreEqual<int>
-                (
-                1,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                vr.SuccessCount,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                0,
-                vr.FailedCount
+                this.PassesValidationString("1", null, 2),
+                "The value is valid as it is under the specified maximum"
                 );
         }
         [TestMethod]
         public void Valid_MinimumAndMaximumSpecified_ValueWithinBounds()
         {
-            List<XCRI.Validation.ValidationResult> vrc = this.ValidateString("1", 0, 2);
-            Assert.AreEqual<int>(1, vrc.Count());
-            var vr = vrc.ElementAt(0);
-            Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
+            Assert.IsTrue
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
-                vr.Status
+                this.PassesValidationString("1", 0, 2),
+                "The value is valid as it is between the bounds specified"
                 );
-            Assert.AreEqual<int>
-                (
-                1,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                vr.SuccessCount,
-                vr.Instances.Count
-                );
-            Assert.AreEqual<int>
-                (
-                0,
-                vr.FailedCount
-                );
+        }
+        [TestMethod]
+        public void ValidateNumberXElementInput()
+        {
+            var vrc = this.ValidateXElement(new XElement("root", new XElement("number", "1")));
+            Assert.IsTrue(vrc.Count == 1);
+            Assert.IsTrue(vrc[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Valid);
+            Assert.IsTrue(vrc[0].SuccessCount == 1);
+            Assert.IsTrue(vrc[0].FailedCount == 0);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace XCRI.Validation.ContentValidation
         {
             this.Pattern = @"^(?:any|not known|(?<Lower>\d{1,})(?:\+|(?:\-(?<Upper>\d{1,}))))$";
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             if (null == input)
                 throw new ArgumentNullException("input");
@@ -31,12 +31,13 @@ namespace XCRI.Validation.ContentValidation
                 throw new InvalidOperationException("The Pattern property must be set");
             details = null;
             Regex expression = new Regex(this.Pattern, RegexOptions.Singleline | RegexOptions.IgnoreCase);
+            string[] groupNames = expression.GetGroupNames();
+            if (false == groupNames.Contains("Lower"))
+                throw new InvalidOperationException("The regular expression did not include a 'Lower' group");
+            if (false == groupNames.Contains("Upper"))
+                throw new InvalidOperationException("The regular expression did not include an 'Upper' group");
             Match match = expression.Match(input.Value);
-            if(
-                null == match
-                ||
-                false == match.Success
-                )
+            if(false == match.Success)
             {
                 details = String.Format
                     (
@@ -48,10 +49,6 @@ namespace XCRI.Validation.ContentValidation
             }
             int lowerInteger = Int32.MaxValue;
             Group lower = match.Groups["Lower"];
-            if (null == lower)
-            {
-                throw new InvalidOperationException("The regular expression did not include a 'Lower' group");
-            }
             if (lower.Success)
             {
                 if (false == Int32.TryParse(lower.Value, out lowerInteger))
@@ -75,10 +72,6 @@ namespace XCRI.Validation.ContentValidation
             }
             int upperInteger = Int32.MinValue;
             Group upper = match.Groups["Upper"];
-            if (null == upper)
-            {
-                throw new InvalidOperationException("The regular expression did not include an 'Upper' group");
-            }
             if (upper.Success)
             {
                 if (false == Int32.TryParse(upper.Value, out upperInteger))

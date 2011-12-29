@@ -23,7 +23,7 @@ namespace XCRI.Validation.ContentValidation
         {
             this.EnforcementType = EnforcementTypes.ForceNotEmpty;
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             details = null;
             if (null == input)

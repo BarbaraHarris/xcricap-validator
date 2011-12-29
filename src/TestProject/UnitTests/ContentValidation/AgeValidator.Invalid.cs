@@ -11,17 +11,87 @@ namespace TestProject.UnitTests.ContentValidation
         [TestMethod]
         public void AgeIsBlankString()
         {
-            List<XCRI.Validation.ValidationResult> results = this.ValidateString(String.Empty);
-            Assert.IsTrue(results.Count == 1, "Validating an empty string should return one result");
-            Assert.IsTrue(results[0].SuccessCount == 0);
-            Assert.IsTrue(results[0].FailedCount == 1);
-            Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
+            Assert.IsFalse(this.PassesValidationString(String.Empty), "A blank string is not a valid age element value");
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AgeIsNull()
+        {
+            Assert.IsFalse(this.PassesValidationString(null), "A null input argument should throw a null argument exception");
+        }
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void PatternDoesNotContainALowerGroup()
+        {
+            string details = null;
+            this.PassesValidationString
+                (
+                "14-16",
+                @"^(?:any|not known|(\d{1,})(?:\+|(?:\-(?<Upper>\d{1,}))))$",
+                out details
+                );
+        }
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void PatternDoesNotContainAnUpperGroup()
+        {
+            string details = null;
+            this.PassesValidationString
+                (
+                "14-16",
+                @"^(?:any|not known|(?<Lower>\d{1,})(?:\+|(?:\-(\d{1,}))))$",
+                out details
+                );
+        }
+        [TestMethod]
+        public void LowerBoundInvalidNumber()
+        {
+            string details = null;
+            Assert.IsFalse
+                (
+                this.PassesValidationString("a-12", @"^(?:any|not known|(?<Lower>.*?)(?:\+|(?:\-(?<Upper>.*?))))$", out details), 
+                "The string 'a-12' is not a valid age element value as the lower bound is not numeric"
+                );
+            Assert.IsTrue(details == "The value 'a' could not be converted to an integer");
+        }
+        [TestMethod]
+        public void LowerBoundNegative()
+        {
+            string details = null;
+            Assert.IsFalse
+                (
+                this.PassesValidationString("-1-12", @"^(?:any|not known|(?<Lower>.{1,}?)(?:\+|(?:\-(?<Upper>.*?))))$", out details),
+                "The string '-1-12' is not a valid age element value as the lower bound is negative"
+                );
+            Assert.IsTrue(details == "The value '-1' was negative");
+        }
+        [TestMethod]
+        public void UpperBoundInvalidNumber()
+        {
+            string details = null;
+            Assert.IsFalse
+                (
+                this.PassesValidationString("12-a", @"^(?:any|not known|(?<Lower>.*?)(?:\+|(?:\-(?<Upper>.*?))))$", out details),
+                "The string '12-a' is not a valid age element value as the upper bound is not numeric"
+                );
+            Assert.IsTrue(details == "The value 'a' could not be converted to an integer");
+        }
+        [TestMethod]
+        public void UpperBoundNegative()
+        {
+            string details = null;
+            Assert.IsFalse
+                (
+                this.PassesValidationString("1--1", @"^(?:any|not known|(?<Lower>.*?)(?:\+|(?:\-(?<Upper>.*?))))$", out details),
+                "The string '1--1' is not a valid age element value as the upper bound is negative"
+                );
+            Assert.IsTrue(details == "The value '-1' was negative");
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void InputIsNull()
         {
-            this.ValidateString(null);
+            this.PassesValidationString(null);
         }
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -46,47 +116,29 @@ namespace TestProject.UnitTests.ContentValidation
         [TestMethod]
         public void AgeIsSingleNumber()
         {
-            List<XCRI.Validation.ValidationResult> results = this.ValidateString("14");
-            Assert.IsTrue(results.Count == 1, "Validating a the string '14' should return one result");
-            Assert.IsTrue(results[0].SuccessCount == 0);
-            Assert.IsTrue(results[0].FailedCount == 1);
-            Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
-        }
-        [TestMethod]
-        public void LowerAgeIsNotNumeric()
-        {
-            List<XCRI.Validation.ValidationResult> results = this.ValidateString("a-13");
-            Assert.IsTrue(results.Count == 1, "Validating a the string 'a-13' should return one result");
-            Assert.IsTrue(results[0].SuccessCount == 0);
-            Assert.IsTrue(results[0].FailedCount == 1);
-            Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
-        }
-        [TestMethod]
-        public void UpperAgeIsNotNumeric()
-        {
-            List<XCRI.Validation.ValidationResult> results = this.ValidateString("13-a");
-            Assert.IsTrue(results.Count == 1, "Validating a the string '13-a' should return one result");
-            Assert.IsTrue(results[0].SuccessCount == 0);
-            Assert.IsTrue(results[0].FailedCount == 1);
-            Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
+            Assert.IsFalse
+                (
+                this.PassesValidationString("14"),
+                "The string '14' is not a valid age element value"
+                );
         }
         [TestMethod]
         public void LowerAgeIsHigherThanUpperAge()
         {
-            List<XCRI.Validation.ValidationResult> results = this.ValidateString("13-1");
-            Assert.IsTrue(results.Count == 1, "Validating a the string '13-1' should return one result");
-            Assert.IsTrue(results[0].SuccessCount == 0);
-            Assert.IsTrue(results[0].FailedCount == 1);
-            Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
+            Assert.IsFalse
+                (
+                this.PassesValidationString("13-1"),
+                "The string '13-1' is not a valid age element value as the lower age is higher than the upper age"
+                );
         }
         [TestMethod]
         public void NoUpperAgeDefined()
         {
-            List<XCRI.Validation.ValidationResult> results = this.ValidateString("13-");
-            Assert.IsTrue(results.Count == 1, "Validating a the string '13-' should return one result");
-            Assert.IsTrue(results[0].SuccessCount == 0);
-            Assert.IsTrue(results[0].FailedCount == 1);
-            Assert.IsTrue(results[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Exception);
+            Assert.IsFalse
+                (
+                this.PassesValidationString("13-"),
+                "The string '13-' is not a valid age element value as the lower age is higher than the upper age"
+                );
         }
     }
 }

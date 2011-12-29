@@ -23,7 +23,7 @@ namespace XCRI.Validation.ContentValidation
             : base(interpreters, namespaceManager, xPathSelector, exceptionMessage, failedValidationStatus, logs, timedLogs)
         {
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             if (null == input)
                 throw new ArgumentNullException("input");

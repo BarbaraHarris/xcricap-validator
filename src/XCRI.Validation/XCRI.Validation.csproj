@@ -51,6 +51,7 @@
     <Compile Include="ContentValidation\DocumentValidator.cs" />
     <Compile Include="ContentValidation\ElementValidator.cs" />
     <Compile Include="ContentValidation\EmptyElementValidator.cs" />
+    <Compile Include="ContentValidation\IValidatorFactory.cs" />
     <Compile Include="ContentValidation\ManualValidator.cs" />
     <Compile Include="ContentValidation\NumberValidator.cs" />
     <Compile Include="ContentValidation\RegularExpressionValidator.cs" />
@@ -60,12 +61,12 @@
     <Compile Include="ContentValidation\Validator.cs" />
     <Compile Include="ContentValidation\UrlValidator.cs" />
     <Compile Include="ContentValidation\ValidatorCollection.cs" />
+    <Compile Include="ContentValidation\ValidatorFactory.cs" />
     <Compile Include="ExtensionMethods\IntExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableILogExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableInterpreterExtensionMethods.cs" />
     <Compile Include="ContentValidation\IValidator.cs" />
     <Compile Include="ExtensionMethods\IEnumerableITimedLogExtensionMethods.cs" />
-    <Compile Include="ExtensionMethods\FileInfoExtensionMethods.cs" />
     <Compile Include="Logging\LogToDebug.cs" />
     <Compile Include="Logging\ILog.cs" />
     <Compile Include="Logging\ITimedLog.cs" />
@@ -76,6 +77,8 @@
     <Compile Include="Logging\TimedLogSection.cs" />
     <Compile Include="Logging\TimedLogToDebug.cs" />
     <Compile Include="Logging\TimedLogToHTML.cs" />
+    <Compile Include="Modules\IValidationModule.cs" />
+    <Compile Include="Modules\ValidationModule.cs" />
     <Compile Include="ValidationResult.cs" />
     <Compile Include="XmlRetrieval\ISource.cs" />
     <Compile Include="XmlRetrieval\IXmlCacheLocation.cs" />

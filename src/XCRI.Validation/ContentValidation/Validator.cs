@@ -43,11 +43,11 @@ namespace XCRI.Validation.ContentValidation
 
         #region IContentValidator Members
 
-        public string XPathSelector { get; protected set; }
-        public string ExceptionMessage { get; protected set; }
-        public int Order { get; protected set; }
-        public XmlNamespaceManager NamespaceManager { get; protected set; }
-        public ValidationStatus FailedValidationStatus { get; protected set; }
+        public string XPathSelector { get; set; }
+        public string ExceptionMessage { get; set; }
+        public int Order { get; set; }
+        public XmlNamespaceManager NamespaceManager { get; set; }
+        public ValidationStatus FailedValidationStatus { get; set; }
         public IList<MessageInterpretation.IInterpreter> Interpreters { get; protected set; }
         public string ValidationGroup { get; set; }
         public IList<Logging.ILog> Logs { get; protected set; }
@@ -60,7 +60,7 @@ namespace XCRI.Validation.ContentValidation
             this.Validate(input.XPathSelectElements(this.XPathSelector, this.NamespaceManager), out r);
             return r;
         }
-        protected virtual void Validate
+        public virtual void Validate
             (
             IEnumerable<System.Xml.Linq.XElement> elements,
             out IEnumerable<ValidationResult> results
@@ -113,7 +113,7 @@ namespace XCRI.Validation.ContentValidation
 
         #endregion
 
-        protected abstract bool PassesValidation(System.Xml.Linq.XElement input, out string details);
+        public abstract bool PassesValidation(System.Xml.Linq.XElement input, out string details);
 
     }
 }

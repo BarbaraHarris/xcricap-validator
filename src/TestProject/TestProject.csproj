@@ -54,6 +54,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTests\ContentValidation\UniqueValidator.Valid.cs" />
+    <Compile Include="UnitTests\ContentValidation\UniqueValidator.Invalid.cs" />
+    <Compile Include="UnitTests\ContentValidation\UrlValidator.Valid.cs" />
+    <Compile Include="UnitTests\ContentValidation\UrlValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\NumberValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\NumberValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\ManualValidator.cs" />

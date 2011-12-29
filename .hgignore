@@ -33,3 +33,4 @@ _ReSharper*/
 
 # test impact data not important
 testimpactdata.sdf
+*.testsettings

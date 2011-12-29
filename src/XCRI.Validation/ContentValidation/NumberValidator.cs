@@ -62,7 +62,7 @@ namespace XCRI.Validation.ContentValidation
             }
             return new ValidationResult[] { r };
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             details = null;
             // Check input
@@ -70,16 +70,21 @@ namespace XCRI.Validation.ContentValidation
                 throw new ArgumentNullException("input");
             return this.PassesValidation(input.Value, out details);
         }
-        protected virtual bool PassesValidation(string input, out string details)
+        public virtual bool PassesValidation(string input, out string details)
         {
             details = null;
+            if (null == input)
+                throw new ArgumentNullException("input");
             decimal d = 0;
             if (false == Decimal.TryParse(input, out d))
-                throw new ArgumentException
+            {
+                details = String.Format
                     (
-                    "The input parameter must be convertable to decimal",
-                    "input"
+                    "The value '{0}' could not be converted to a number",
+                    input
                     );
+                return false;
+            }
             // Check minimum
             if (
                 this.Minimum.HasValue

@@ -21,12 +21,12 @@ namespace XCRI.Validation.ContentValidation
         {
             this.Validators = new List<IValidator>();
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             details = null;
             return true;
         }
-        protected override void Validate
+        public override void Validate
             (
             IEnumerable<System.Xml.Linq.XElement> elements,
             out IEnumerable<ValidationResult> results

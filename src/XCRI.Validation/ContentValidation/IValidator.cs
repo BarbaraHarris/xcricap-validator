@@ -8,11 +8,11 @@ namespace XCRI.Validation.ContentValidation
 {
     public interface IValidator
     {
-        int Order { get; }
-        string XPathSelector { get; }
-        string ExceptionMessage { get; }
-        System.Xml.XmlNamespaceManager NamespaceManager { get; }
-        ValidationStatus FailedValidationStatus { get; }
+        int Order { get; set; }
+        string XPathSelector { get; set; }
+        string ExceptionMessage { get; set; }
+        System.Xml.XmlNamespaceManager NamespaceManager { get; set; }
+        ValidationStatus FailedValidationStatus { get; set; }
         IList<IInterpreter> Interpreters { get; }
         IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input);
         string ValidationGroup { get; set; }

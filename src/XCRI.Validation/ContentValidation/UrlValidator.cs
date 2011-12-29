@@ -23,7 +23,7 @@ namespace XCRI.Validation.ContentValidation
         {
             this.AllowRelative = false;
         }
-        protected override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
         {
             Uri throwaway;
             details = null;
