@@ -75,7 +75,7 @@ namespace XCRI.Validation.ContentValidation
                 {
                     var vi = new ValidationInstance()
                     {
-                        Status = ValidationStatus.Valid
+                        Status = ValidationStatus.Passed
                     };
                     if (node is IXmlLineInfo)
                     {

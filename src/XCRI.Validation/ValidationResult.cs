@@ -19,7 +19,7 @@ namespace XCRI.Validation
             get
             {
                 if (this.FailedCount == 0)
-                    return ContentValidation.ValidationStatus.Valid;
+                    return ContentValidation.ValidationStatus.Passed;
                 else
                     return (ContentValidation.ValidationStatus)this.Instances.Max(i => (int)i.Status);
             }
@@ -30,11 +30,11 @@ namespace XCRI.Validation
         public IList<ValidationInstance> Instances { get; protected set; }
         public IEnumerable<ValidationInstance> FailedInstances
         {
-            get { return this.Instances.Where(i => i.Status != ContentValidation.ValidationStatus.Valid); }
+            get { return this.Instances.Where(i => i.Status != ContentValidation.ValidationStatus.Passed); }
         }
         public IEnumerable<ValidationInstance> SuccessfulInstances
         {
-            get { return this.Instances.Where(i => i.Status == ContentValidation.ValidationStatus.Valid); }
+            get { return this.Instances.Where(i => i.Status == ContentValidation.ValidationStatus.Passed); }
         }
         public int Count
         {

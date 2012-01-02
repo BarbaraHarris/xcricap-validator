@@ -62,7 +62,7 @@
     <Compile Include="ContentValidation\UrlValidator.cs" />
     <Compile Include="ContentValidation\ValidatorCollection.cs" />
     <Compile Include="ContentValidation\ValidatorFactory.cs" />
-    <Compile Include="ExtensionMethods\IntExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods\StringExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableILogExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\IEnumerableInterpreterExtensionMethods.cs" />
     <Compile Include="ContentValidation\IValidator.cs" />

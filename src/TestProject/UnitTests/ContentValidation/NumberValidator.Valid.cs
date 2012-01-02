@@ -73,7 +73,7 @@ namespace TestProject.UnitTests.ContentValidation
         {
             var vrc = this.ValidateXElement(new XElement("root", new XElement("number", "1")));
             Assert.IsTrue(vrc.Count == 1);
-            Assert.IsTrue(vrc[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Valid);
+            Assert.IsTrue(vrc[0].Status == XCRI.Validation.ContentValidation.ValidationStatus.Passed);
             Assert.IsTrue(vrc[0].SuccessCount == 1);
             Assert.IsTrue(vrc[0].FailedCount == 0);
         }

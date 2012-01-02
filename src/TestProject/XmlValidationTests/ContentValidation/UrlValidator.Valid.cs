@@ -34,7 +34,7 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.IsNotNull(vr);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
             Assert.AreEqual<int>
@@ -80,7 +80,7 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.IsNotNull(vr);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
             Assert.AreEqual<int>
@@ -127,7 +127,7 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.IsNotNull(vr);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
             Assert.AreEqual<int>

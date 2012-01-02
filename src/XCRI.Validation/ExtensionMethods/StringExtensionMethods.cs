@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XCRI.Validation.ExtensionMethods
 {
-    public static class IntExtensionMethods
+    public static class StringExtensionMethods
     {
         public static T ParseEnumFrom<T>(this string value)
             where T : struct

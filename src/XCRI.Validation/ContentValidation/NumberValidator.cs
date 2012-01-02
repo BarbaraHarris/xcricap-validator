@@ -47,7 +47,7 @@ namespace XCRI.Validation.ContentValidation
             {
                 var vi = new ValidationInstance()
                 {
-                    Status = ValidationStatus.Valid
+                    Status = ValidationStatus.Passed
                 };
                 r.Instances.Add(vi);
             }

@@ -17,7 +17,7 @@ namespace TestProject.UnitTests.ContentValidation
             var vr = vrc.ElementAt(0);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
             Assert.AreEqual<int>
@@ -44,7 +44,7 @@ namespace TestProject.UnitTests.ContentValidation
             var vr = vrc.ElementAt(0);
             Assert.AreEqual<XCRI.Validation.ContentValidation.ValidationStatus>
                 (
-                XCRI.Validation.ContentValidation.ValidationStatus.Valid,
+                XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
             Assert.AreEqual<int>

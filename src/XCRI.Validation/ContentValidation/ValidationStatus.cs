@@ -9,7 +9,7 @@ namespace XCRI.Validation.ContentValidation
     public enum ValidationStatus
     {
         Unknown = 0,
-        Valid = 1,
+        Passed = 1,
         Recommendation = 2,
         Warning = 4,
         Exception = 8
