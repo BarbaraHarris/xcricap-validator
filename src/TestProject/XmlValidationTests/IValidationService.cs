@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Xml.Linq;
 
 namespace TestProject.XmlValidationTests
 {
@@ -12,42 +13,25 @@ namespace TestProject.XmlValidationTests
     {
         protected XCRI.Validation.XmlRetrieval.XmlCachingResolver XmlResolver
             = new XCRI.Validation.XmlRetrieval.XmlCachingResolver(null, null, null);
-        private class DebugIntepreter : XCRI.Validation.MessageInterpretation.IInterpreter
+        private class DebugIntepreter : XCRI.Validation.XmlExceptionInterpretation.Interpreter
         {
 
             public string InterpretationMessage { get; set; }
-            public Func<System.Globalization.CultureInfo, Exception, XCRI.Validation.MessageInterpretation.InterpretationStatus> InterpretationFunction = null;
+            public Func<Exception, XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus> InterpretationFunction = null;
 
             #region IInterpreter Members
 
-            public int Order { get; set; }
-
-            public IList<XCRI.Validation.MessageInterpretation.IInterpretation> Interpretations
-            {
-                get { throw new InvalidOperationException("Populate the InterpretationFunction property instead"); }
-            }
-
-            public XCRI.Validation.MessageInterpretation.InterpretationStatus Interpret
+            public override XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus Interpret
                 (
-                System.Globalization.CultureInfo cultureInfo, 
                 Exception e,
-                out string interpretation)
+                out XElement furtherInformation
+                )
             {
                 if (null == e)
                     throw new ArgumentNullException("e");
-                var status = this.InterpretationFunction(cultureInfo, e);
-                interpretation = this.InterpretationMessage;
+                var status = this.InterpretationFunction(e);
+                furtherInformation = null;
                 return status;
-            }
-
-            public XCRI.Validation.MessageInterpretation.InterpretationStatus Interpret(Exception e, out string interpretation)
-            {
-                return this.Interpret
-                    (
-                    System.Globalization.CultureInfo.CurrentUICulture,
-                    e,
-                    out interpretation
-                    );
             }
 
             #endregion

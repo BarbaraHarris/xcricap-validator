@@ -215,6 +215,8 @@ namespace XCRI.Validation.Modules
                 = validatorNode.Attribute("message").Value;
             validator.FailedValidationStatus
                 = validatorNode.Attribute("status").Value.ParseEnumFrom<ContentValidation.ValidationStatus>();
+            validator.FurtherInformation 
+                = validatorNode.XPathSelectElement("./furtherInformation");
             if (
                 (null != validatorNode.Attribute("validationGroup"))
                 &&

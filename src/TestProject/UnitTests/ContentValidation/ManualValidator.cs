@@ -38,7 +38,7 @@ namespace TestProject.UnitTests.ContentValidation
             Assert.AreEqual<string>
                 (
                 message,
-                vr.Interpretation
+                vr.Message
                 );
         }
         [TestMethod]
@@ -70,7 +70,7 @@ namespace TestProject.UnitTests.ContentValidation
             Assert.AreEqual<string>
                 (
                 message,
-                vr.Interpretation
+                vr.Message
                 );
         }
     }

@@ -7,9 +7,10 @@ using System.Xml.Schema;
 using Ninject;
 using System.IO;
 using XCRI.Validation.ExtensionMethods;
-using XCRI.Validation.MessageInterpretation;
+using XCRI.Validation.XmlExceptionInterpretation;
 using XCRI.Validation.ContentValidation;
 using XCRI.Validation.XmlRetrieval;
+using System.Xml.Linq;
 
 namespace XCRI.Validation
 {
@@ -99,39 +100,40 @@ namespace XCRI.Validation
                             Status = ValidationStatus.Exception
                         };
                     }
-                    if(null != vi)
+                    if (null != vi)
                         r.Instances.Add(vi);
-                    results.Add(r.Interpretation, r);
+                    results.Add(r.Message, r);
                 }
                 else
                     results.Add(e.Message, new ValidationResult()
                     {
                         Exception = e.Exception,
-                        Interpretation = e.Message
+                        Message = e.Message
                     });
             };
-            using (XmlReader xmlReader = this.Source.GetXmlReader(input))
+            System.Xml.Linq.XDocument doc = null;
+            //doc.Schemas = xmlReader.Settings.Schemas;
+            using (this.TimedLogs.Step("Loading and parsing XML file"))
             {
-                System.Xml.Linq.XDocument doc = null;
-                //doc.Schemas = xmlReader.Settings.Schemas;
-                using (this.TimedLogs.Step("Loading and parsing XML file"))
+                DateTime start = DateTime.Now;
+                try
                 {
-                    DateTime start = DateTime.Now;
-                    try
+                    using (XmlReader xmlReader = this.Source.GetXmlReader(input))
                     {
                         doc = System.Xml.Linq.XDocument.Load(xmlReader, System.Xml.Linq.LoadOptions.SetLineInfo);
                     }
-                    catch (System.Xml.XmlException e)
+                }
+                catch (System.Xml.XmlException e)
+                {
+                    ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", e);
+                    r.Instances.Add(new ValidationInstance()
                     {
-                        ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", e);
-                        r.Instances.Add(new ValidationInstance()
-                        {
-                            LineNumber = e.LineNumber,
-                            LinePosition = e.LinePosition
-                        });
-                        if (null != r)
-                            results.Add(r.Interpretation, r);
-                    }
+                        LineNumber = e.LineNumber,
+                        LinePosition = e.LinePosition,
+                        Status = ValidationStatus.Exception
+                    });
+                    if (null != r)
+                        results.Add(r.Message, r);
                 }
                 if (null != doc)
                 {
@@ -145,7 +147,7 @@ namespace XCRI.Validation
                                 if (null != vrc)
                                     foreach (var vr in vrc)
                                         if (null != vr)
-                                            results.Add(vr.Interpretation, vr);
+                                            results.Add(vr.Message, vr);
                             }
                         }
                     }
@@ -161,8 +163,6 @@ namespace XCRI.Validation
                     throw new ArgumentNullException("result");
                 if(null == key)
                     throw new ArgumentNullException("key");
-                if(String.IsNullOrWhiteSpace(key))
-                    throw new ArgumentException("key");
                 if (false == base.ContainsKey(key))
                 {
                     base.Add(key, result);

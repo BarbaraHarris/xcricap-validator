@@ -74,11 +74,9 @@
     <Compile Include="IValidator.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.cs" />
     <Compile Include="UnitTests\IValidationService.cs" />
-    <Compile Include="UnitTests\MessageInterpretation\Interpreter.cs" />
+    <Compile Include="UnitTests\XmlExceptionInterpretation\RegularExpressionInterpreter.cs" />
     <Compile Include="TestBase.cs" />
-    <Compile Include="UnitTests\MessageInterpretation\IInterpretation.cs" />
-    <Compile Include="UnitTests\MessageInterpretation\IInterpreter.cs" />
-    <Compile Include="UnitTests\MessageInterpretation\Interpretation.cs" />
+    <Compile Include="UnitTests\XmlExceptionInterpretation\IInterpreter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\ValidationService.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Valid.cs" />

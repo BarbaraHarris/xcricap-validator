@@ -21,7 +21,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Formatting_GeneratedAttribute()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.Schema.XmlSchemaException))
                     Assert.Fail("Expected System.Xml.Schema.XmlSchemaException");
@@ -35,7 +35,7 @@ namespace TestProject.XmlValidationTests
                     exception.Message == "The 'generated' attribute is invalid - The value '2011-03-21 20:00:23' is invalid according to its datatype 'http://www.w3.org/2001/XMLSchema:dateTime' - The string '2011-03-21 20:00:23' is not a valid DateTime value.",
                     "Exception expected to complain about description missing namespace"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -58,7 +58,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Namespaces_UndeclaredPrefix()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.XmlException))
                     Assert.Fail("Expected System.Xml.XmlException");
@@ -72,7 +72,7 @@ namespace TestProject.XmlValidationTests
                     exception.Message == "'dc' is an undeclared prefix. Line 6, position 6.",
                     "Exception expected to complain about schema information missing for root catalog element"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -91,7 +91,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Namespaces_NoDocumentNamespace()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.Schema.XmlSchemaException))
                     Assert.Fail("Expected System.Xml.Schema.XmlSchemaException");
@@ -105,7 +105,7 @@ namespace TestProject.XmlValidationTests
                     exception.Message == "Could not find schema information for the element 'catalog'.",
                     "Exception expected to complain about schema information missing for root catalog element"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -124,7 +124,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Namespaces_Description()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.Schema.XmlSchemaException))
                     Assert.Fail("Expected System.Xml.Schema.XmlSchemaException");
@@ -138,7 +138,7 @@ namespace TestProject.XmlValidationTests
                     exception.Message.StartsWith("The element 'provider' in namespace 'http://xcri.org/profiles/1.2/catalog' has invalid child element 'description' in namespace 'http://xcri.org/profiles/1.2/catalog'"),
                     "Exception expected to complain about description missing namespace"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -157,7 +157,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Namespaces_Title()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.Schema.XmlSchemaException))
                     Assert.Fail("Expected System.Xml.Schema.XmlSchemaException");
@@ -171,7 +171,7 @@ namespace TestProject.XmlValidationTests
                     exception.Message.StartsWith("The element 'provider' in namespace 'http://xcri.org/profiles/1.2/catalog' has invalid child element 'title' in namespace 'http://xcri.org/profiles/1.2/catalog'"),
                     "Exception expected to complain about title missing namespace"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -190,7 +190,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Namespaces_Identifier()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.Schema.XmlSchemaException))
                     Assert.Fail("Expected System.Xml.Schema.XmlSchemaException");
@@ -204,7 +204,7 @@ namespace TestProject.XmlValidationTests
                     e.Message.StartsWith("The element 'provider' in namespace 'http://xcri.org/profiles/1.2/catalog' has invalid child element 'identifier' in namespace 'http://xcri.org/profiles/1.2/catalog'"),
                     "Exception expected to complain about identifier missing namespace"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -227,7 +227,7 @@ namespace TestProject.XmlValidationTests
         public void Invalid_Structure_XmlNesting()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 if (false == (exception is System.Xml.XmlException))
                     Assert.Fail("Expected System.Xml.XmlException");
@@ -241,7 +241,7 @@ namespace TestProject.XmlValidationTests
                     e.Message == "The 'provider' start tag on line 5 position 4 does not match the end tag of 'catalog'. Line 7, position 5.",
                     "The test should faul because of incorrect tag nesting"
                     );
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();

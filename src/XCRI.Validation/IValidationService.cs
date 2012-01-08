@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using XCRI.Validation.MessageInterpretation;
+using XCRI.Validation.XmlExceptionInterpretation;
 using XCRI.Validation.ContentValidation;
 
 namespace XCRI.Validation

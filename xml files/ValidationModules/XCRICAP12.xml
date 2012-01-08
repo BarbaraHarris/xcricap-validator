@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<contentValidators
+    name="XCRI-CAP 1.2"
+		xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <namespaces>
+    <add namespace="http://purl.org/net/mlo" prefix="mlo" />
+    <add namespace="http://xcri.org/profiles/1.2/catalog" prefix="xcri12" />
+    <add namespace="http://purl.org/dc/elements/1.1/" prefix="dc" />
+    <add namespace="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi" />
+    <add namespace="http://purl.org/net/cm" prefix="credit" />
+  </namespaces>
+  <!-- documentValidation rules get run on the entire document -->
+  <documentValidation>
+    <numberValidator
+        selector="count(/xcri12:catalog)+count(/xcri12:provider)+count(/xcri12:course)"
+        message="The document root element must be a catalog, a provider or a course"
+        minimum="1"
+        maximum="1"
+        status="Exception"
+        validationGroup="Structure"
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          The document root element must be a &lt;catalog&gt;, a &lt;provider&gt; or a &lt;course&gt; element within the
+          http://xcri.org/profiles/1.2/catalog namespace.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#XCRI_Documents">XCRI Documents element within the XCRI-CAP 1.2 wiki specification</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the document root element is one of the expected XCRI-CAP 1.2 elements.
+        </div>
+      </furtherInformation>
+    </numberValidator>
+    <urlValidator
+			  selector="//mlo:url"
+			  message="All url elements must contain valid URLs"
+			  status="Exception"
+			  validationGroup="Formatting"
+			  allowRelative="false">
+      <furtherInformation>
+       <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          All url elements are expected to contain valid URLs to indicate a place on the provider's website where further information can be obtained.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Curl.3E_element">&lt;url&gt; element within the XCRI-CAP wiki specification</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the URL value is fully-qualified valid and publically accessible.  Typically the URL should start with "http://".
+        </div>
+      </furtherInformation>
+    </urlValidator>
+    <uniqueValidator
+        selector="//dc:identifier[not(@xsi:type)]"
+        message="All all identifiers without an xsi:type attribute should be unique within the context"
+        uniqueAcross="context"
+        status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(//dc:date)"
+        message="Date elements should not be used but, instead, using the start element and the temporal elements e.g. end, applyFrom and applyUntil"
+        minimum="0"
+        maximum="0"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(//dc:hasPart)"
+        message="hasPart is used for compatibility with EN15982 but should not be used"
+        minimum="0"
+        maximum="0"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(//dc:isPart)"
+        message="hasPart is used for compatibility with EN15982 but should not be used"
+        minimum="0"
+        maximum="0"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <manualValidator
+        selector="//dc:contributor"
+        message="The contributor element should not be used for general contact information and should only be used when other refinements (e.g. presenter or lecturer) are not available."
+        status="Warning"
+        validationGroup="Manual"
+      />
+    <urlValidator
+			  selector="//dc:identifier"
+			  message="Producers should use URLs for identifiers"
+			  status="Recommendation"
+			  validationGroup="Formatting"
+			  allowRelative="false"
+		  />
+    <manualValidator
+        selector="//dc:identifier"
+        message="Producers should use URLs for identifiers that also resolve to human-readable content."
+        status="Recommendation"
+        validationGroup="Manual"
+      />
+    <manualValidator
+        selector="//xcri12:qualification/dc:identifier"
+        message="In the qualification element, producers should use the title element for the name of the qualification - preferably as given by its Awarding Body."
+        status="Warning"
+        validationGroup="Manual"
+      />
+    <manualValidator
+        selector="//dc:subject"
+        message="Each subject element must contain one (and only one) keyword, phrase or classification."
+        status="Exception"
+        validationGroup="Manual"
+      />
+    <emptyElementValidator
+        selector="//dc:subject"
+        message="Subject elements cannot be empty"
+        status="Exception"
+        enforcementType="ForceNotEmpty"
+        validationGroup="Formatting"
+      />
+    <stringLengthValidator
+        selector="//xcri12:abstract"
+        message="Producers must not create an abstract that exceeds 140 characters"
+        status="Exception"
+        maximum="140"
+        validationGroup="Formatting"
+      />
+    <regularExpressionValidator
+        selector="//mlo:email"
+        message="Each email node should contain an email address"
+        status="Exception"
+        validationGroup="Formatting"
+        pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+    />
+    <regularExpressionValidator
+        selector="(//mlo:phone|//mlo:fax)"
+        message="Telephone numbers should be formatted as they would be dialed from the UK"
+        status="Exception"
+        validationGroup="Formatting"
+        pattern="^(?&lt;prefix&gt;[0-9]{3}\s*?[0-9]{1,2})\s*?(?&lt;number&gt;[0-9]{3}\s*?[0-9]{3,4})"
+    />
+    <regularExpressionValidator
+        selector="//mlo:postcode"
+        message="A postcode, if provided, should conform to the UK postal code format"
+        status="Exception"
+        validationGroup="Formatting"
+        pattern="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"
+    />
+    <emptyElementValidator
+        selector="//mlo:duration"
+        message="If a provider uses a duration element, it cannot be empty."
+        status="Warning"
+        enforcementType="ForceNotEmpty"
+        validationGroup="Formatting"
+      />
+    <ageValidator
+        selector="//xcri12:age"
+        message="The age element ."
+        status="Exception"
+        validationGroup="Formatting"
+      />
+  </documentValidation>
+  <!-- elementValidation rules get run once per match -->
+  <elementValidation
+      selector="//xcri12:provider"
+    >
+    <numberValidator
+        selector="count(./dc:identifier[not(@xsi:type)])"
+        message="All providers should contain an identifier without an xsi:type attribute"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:title)"
+        message="All providers should contain a title, which should be the trading name."
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./mlo:url)"
+        message="All providers should contain a url, which should be its homepage or microsite"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:course)"
+        message="All providers should contain a course"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+  </elementValidation>
+  <elementValidation
+      selector="//xcri12:course"
+    >
+    <numberValidator
+        selector="count(./dc:identifier[not(@xsi:type)])"
+        message="All courses should contain an identifier without an xsi:type attribute"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:title)"
+        message="All courses should contain a title"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:subject)"
+        message="All courses should contain a subject"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./mlo:level)"
+        message="The level element is included for compatibility with EN15982 but should not be used"
+        minimum="0"
+        maximum="0"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <!-- "Credit: Producers SHOULD use separate credit elements for describing the credits available under each scheme, for example CATS or ECTS." -->
+  </elementValidation>
+  <elementValidation
+      selector="//xcri12:presentation"
+    >
+    <numberValidator
+        selector="count(./mlo:start)"
+        message="All presentations should contain a start element"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <!-- "A presentation SHOULD include a duration element, or start and end dates, or both" -->
+  </elementValidation>
+  <elementValidation
+      selector="//xcri12:image"
+    >
+    <emptyElementValidator
+        selector="."
+        message="Image elements must be empty"
+        status="Exception"
+        enforcementType="ForceEmpty"
+        validationGroup="Formatting"
+      />
+    <numberValidator
+        selector="count(@alt)"
+        message="Image elements should contain alternative text for accessibility"
+        status="Warning"
+        minimum="1"
+        maximum="1"
+        validationGroup="Accessibility"
+      />
+    <emptyElementValidator
+        selector="@alt"
+        message="A provider should provide meaningful alternative text for each image"
+        status="Warning"
+        enforcementType="ForceNotEmpty"
+        validationGroup="Accessibility"
+      />
+  </elementValidation>
+  <elementValidation
+      selector="//mlo:credit"
+    >
+    <numberValidator
+      selector="count(./credit:scheme)"
+      message="Unless a default value has been agreed between the aggregator and producer, each credit element should contain a scheme element. Multiple scheme elements are not allowed."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./credit:level)"
+      message="A credit element must contain a level element."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Exception"
+    />
+    <numberValidator
+      selector="count(./credit:value)"
+      message="A credit element must contain a value element."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Exception"
+    />
+  </elementValidation>
+  <!-- temporal elements! -->
+  <elementValidation
+      selector="//xcri12:studyMode"
+    >
+    <regularExpressionValidator
+        selector="@identifier"
+        message="Producers should use one of the following codes within the study mode's identifier attribute: NK, FL, FT, PF, PT"
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="^(NK|FL|FT|PF|PT)$"
+    />
+    <regularExpressionValidator
+        selector="."
+        message="Producers should use one of the following values within a study mode element: Not Known, Flexible, Full time, Part of a full time programme, Part time"
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="^(Not Known|Flexible|Full time|Part of a full time programme|Part time)$"
+    />
+  </elementValidation>
+  <elementValidation
+      selector="//xcri12:attendanceMode"
+    >
+    <regularExpressionValidator
+        selector="@identifier"
+        message="Producers should use one of the following codes within the attendance mode's identifier attribute: CM, DA, DS, NC, MM, ON, WB"
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="^(CM|DA|DS|NC|MM|ON|WB)$"
+    />
+    <regularExpressionValidator
+        selector="."
+        message="Producers should use one of the following values within an attendance mode element: Campus, Distance with attendance, Distance without attendance, Face-to-face non-campus, Mixed Mode, Online (no attendance), Work-based"
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed Mode|Online (no attendance)|Work-based)$"
+    />
+  </elementValidation>
+  <elementValidation
+      selector="//xcri12:attendancePattern"
+    >
+    <regularExpressionValidator
+        selector="@identifier"
+        message="Producers should use one of the following codes within the attendance pattern's identifier attribute: DT, EV, TW, DR, WE, CS"
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="^(DT|EV|TW|DR|WE|CS)$"
+    />
+    <regularExpressionValidator
+        selector="."
+        message="Producers should use one of the following values within an attendance pattern element: Daytime, Evening, Twilight, Day/Block release, Weekend, Customised"
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="^(Daytime|Evening|Twilight|Day\/Block release|Weekend|Customised)$"
+    />
+  </elementValidation>
+  <!-- languageOfInstruction and languageOfAssessment -->
+  <elementValidation
+      selector="//xcri12:venue"
+    >
+    <numberValidator
+      selector="count(./xcri12:provider)"
+      message="A venue must contain one - and exactly one - provider element."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Exception"
+    />
+    <numberValidator
+      selector="count(./(* except xcri12:provider))"
+      message="A venue must only contain a single provider element (no other elements and no text)."
+      minimum="0"
+      maximum="0"
+      validationGroup="Structure"
+      status="Exception"
+    />
+  </elementValidation>
+</contentValidators>

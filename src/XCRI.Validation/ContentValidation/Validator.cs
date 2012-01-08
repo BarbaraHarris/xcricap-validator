@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using XCRI.Validation.ExtensionMethods;
 using System.Xml.XPath;
+using System.Xml.Linq;
 
 namespace XCRI.Validation.ContentValidation
 {
@@ -13,7 +14,6 @@ namespace XCRI.Validation.ContentValidation
         public Validator()
             : base()
         {
-            this.Interpreters = new List<MessageInterpretation.IInterpreter>();
             this.Logs = new List<Logging.ILog>();
             this.TimedLogs = new List<Logging.ITimedLog>();
             this.XPathSelector = null;
@@ -29,7 +29,7 @@ namespace XCRI.Validation.ContentValidation
         public int Order { get; set; }
         public XmlNamespaceManager NamespaceManager { get; set; }
         public ValidationStatus FailedValidationStatus { get; set; }
-        public IList<MessageInterpretation.IInterpreter> Interpreters { get; protected set; }
+        public XElement FurtherInformation { get; set; }
         public string ValidationGroup { get; set; }
         public IList<Logging.ILog> Logs { get; protected set; }
         public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
@@ -49,11 +49,13 @@ namespace XCRI.Validation.ContentValidation
         {
             if (null == elements)
                 throw new ArgumentNullException("elements");
-            var r = this.Interpreters.Interpret(this.ValidationGroup, new ContentValidation.ValidationException
-                (
-                this.ExceptionMessage,
-                this.FailedValidationStatus
-                ));
+            var r = new ValidationResult()
+            {
+                Exception = new ContentValidation.ValidationException(this.ExceptionMessage, this.FailedValidationStatus),
+                Message = this.ExceptionMessage,
+                ValidationGroup = this.ValidationGroup,
+                FurtherInformation = this.FurtherInformation
+            };
             foreach (System.Xml.Linq.XElement node in elements)
             {
                 string details = String.Empty;

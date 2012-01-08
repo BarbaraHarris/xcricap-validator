@@ -10,13 +10,21 @@ namespace TestProject
     public abstract class TestBase<T, A>
             where A : T
     {
-        public T Instantiate()
+        public Type BaseType
+        {
+            get { return typeof(T); }
+        }
+        public Type ClassType
+        {
+            get { return typeof(A); }
+        }
+        public A Instantiate()
         {
             return Activator.CreateInstance<A>();
         }
-        public T Instantiate(params object[] args)
+        public A Instantiate(params object[] args)
         {
-            return (T)Activator.CreateInstance(typeof(A), args);
+            return (A)Activator.CreateInstance(typeof(A), args);
         }
     }
 }

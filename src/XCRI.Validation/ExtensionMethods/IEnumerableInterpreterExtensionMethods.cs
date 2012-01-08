@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using XCRI.Validation.MessageInterpretation;
+using XCRI.Validation.XmlExceptionInterpretation;
 using XCRI.Validation.ContentValidation;
+using System.Xml.Linq;
 
 namespace XCRI.Validation.ExtensionMethods
 {
@@ -23,21 +24,19 @@ namespace XCRI.Validation.ExtensionMethods
             var r = new ValidationResult()
             {
                 Exception = exception,
-                Interpretation = exception.Message,
+                Message = exception.Message,
                 ValidationGroup = validationGroup
             };
             foreach (var i in interpreters)
             {
                 if (null == i)
                     continue;
-                string interpretation = String.Empty;
+                XElement furtherInformation = null;
                 if (
-                    i.Interpret(exception, out interpretation) == InterpretationStatus.Interpreted
-                    &&
-                    false == String.IsNullOrWhiteSpace(interpretation)
+                    i.Interpret(exception, out furtherInformation) == InterpretationStatus.Interpreted
                     )
                 {
-                    r.Interpretation = interpretation;
+                    r.FurtherInformation = furtherInformation;
                     return r;
                 }
             }

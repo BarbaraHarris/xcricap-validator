@@ -23,11 +23,13 @@ namespace XCRI.Validation.ContentValidation
             if (null == input)
                 throw new ArgumentNullException("input");
             string value = input.XPathEvaluate(this.XPathSelector, this.NamespaceManager).ToString();
-            var r = this.Interpreters.Interpret(this.ValidationGroup, new ContentValidation.ValidationException
-                (
-                this.ExceptionMessage,
-                this.FailedValidationStatus
-                ));
+            var r = new ValidationResult()
+            {
+                Exception = new ContentValidation.ValidationException(this.ExceptionMessage, this.FailedValidationStatus),
+                Message = this.ExceptionMessage,
+                ValidationGroup = this.ValidationGroup,
+                FurtherInformation = this.FurtherInformation
+            };
             string details = String.Empty;
             if (false == this.PassesValidation(value, out details))
             {

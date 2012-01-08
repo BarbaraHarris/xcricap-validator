@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace XCRI.Validation
 {
@@ -25,9 +26,10 @@ namespace XCRI.Validation
             }
         }
         public Exception Exception { get; internal set; }
-        public string Interpretation { get; internal set; }
+        public string Message { get; internal set; }
         public string ValidationGroup { get; internal set; }
         public IList<ValidationInstance> Instances { get; protected set; }
+        public XElement FurtherInformation { get; internal set; }
         public IEnumerable<ValidationInstance> FailedInstances
         {
             get { return this.Instances.Where(i => i.Status != ContentValidation.ValidationStatus.Passed); }

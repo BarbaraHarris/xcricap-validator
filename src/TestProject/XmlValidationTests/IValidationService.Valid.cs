@@ -21,10 +21,10 @@ namespace TestProject.XmlValidationTests
         public void Valid_Namespaces_Description()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 Assert.Fail("The XML file should not throw any exceptions");
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -43,10 +43,10 @@ namespace TestProject.XmlValidationTests
         public void Valid_Namespaces_Title()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 Assert.Fail("The XML file should not throw any exceptions");
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -65,10 +65,10 @@ namespace TestProject.XmlValidationTests
         public void Valid_Namespaces_Identifier()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 Assert.Fail("The XML file should not throw any exceptions");
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -91,10 +91,10 @@ namespace TestProject.XmlValidationTests
         public void Valid_Structure_BasicCatalog()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 Assert.Fail("The BasicCatalog.xml file should not throw any exceptions");
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
@@ -114,10 +114,10 @@ namespace TestProject.XmlValidationTests
         public void Valid_Structure_OfficialTestFromSchemas()
         {
             var interpreter = new DebugIntepreter();
-            interpreter.InterpretationFunction = (gi, exception) =>
+            interpreter.InterpretationFunction = (exception) =>
             {
                 Assert.Fail("The OfficialTestFromSchemas.xml file should not throw any exceptions");
-                return XCRI.Validation.MessageInterpretation.InterpretationStatus.Interpreted;
+                return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
 
             var t = base.Instantiate();
