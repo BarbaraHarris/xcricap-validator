@@ -9,16 +9,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
     public partial class UrlValidator
     {
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Valid\SingleUrlWithNamespace.xml",
-            @"ContentValidation\UrlValidator\Valid\"
-            )]
-        public void Valid_SingleUrl()
+        public void Valid_SingleUrlWithNamespace()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Valid\SingleUrlWithNamespace.xml").FullName,
+                Resources.ContentValidation.UrlValidator.Valid.SingleUrlWithNamespace,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
@@ -58,16 +53,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Valid\SingleUrl.xml",
-            @"ContentValidation\UrlValidator\Valid\"
-            )]
-        public void Valid_SingleUrlWithNamespace()
+        public void Valid_SingleUrl()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Valid\SingleUrl.xml").FullName,
+                Resources.ContentValidation.UrlValidator.Valid.SingleUrl,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
@@ -104,16 +94,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml",
-            @"ContentValidation\UrlValidator\Invalid\"
-            )]
         public void Valid_RelativeUrl()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml").FullName,
+                Resources.ContentValidation.UrlValidator.Invalid.SingleRelativeUrl,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()

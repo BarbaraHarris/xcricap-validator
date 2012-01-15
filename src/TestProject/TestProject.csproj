@@ -54,6 +54,56 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\ContentValidation\UniqueValidator\Invalid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invalid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ContentValidation\UniqueValidator\Valid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Valid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ContentValidation\UrlValidator\Invalid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invalid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ContentValidation\UrlValidator\Valid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Valid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Invalid\Formatting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formatting.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Invalid\Namespaces.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Namespaces.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Invalid\Structure.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Structure.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Valid\Formatting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formatting.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Valid\Namespaces.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Namespaces.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Valid\Structure.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Structure.resx</DependentUpon>
+    </Compile>
     <Compile Include="UnitTests\ContentValidation\UniqueValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\UniqueValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\UrlValidator.Valid.cs" />
@@ -92,36 +142,47 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\ContentValidation\UniqueValidator\Invalid\NotUniqueIdentifiers.xml" />
-    <Content Include="Resources\ContentValidation\UniqueValidator\Valid\UniqueIdentifiersWithXsiType.xml" />
-    <Content Include="Resources\ContentValidation\UniqueValidator\Valid\UniqueIdentifiers.xml" />
-    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrlSingleValid.xml" />
-    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\TwoNotAUrl.xml" />
-    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml" />
-    <Content Include="Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrl.xml" />
-    <Content Include="Resources\ContentValidation\UrlValidator\Valid\SingleUrlWithNamespace.xml" />
-    <Content Include="Resources\ContentValidation\UrlValidator\Valid\SingleUrl.xml" />
-    <Content Include="Resources\IValidationService\Invalid\Namespaces\Description.xml" />
-    <Content Include="Resources\IValidationService\Invalid\Namespaces\Identifier.xml" />
-    <Content Include="Resources\IValidationService\Invalid\Formatting\GeneratedAttribute.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\IValidationService\Invalid\Namespaces\NoDocumentNamespace.xml" />
-    <Content Include="Resources\IValidationService\Invalid\Namespaces\UndeclaredPrefix.xml" />
-    <Content Include="Resources\IValidationService\Invalid\Namespaces\Title.xml" />
-    <Content Include="Resources\IValidationService\Valid\Formatting\GeneratedAttribute.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\IValidationService\Valid\Namespaces\Description.xml" />
-    <Content Include="Resources\IValidationService\Valid\Namespaces\Identifier.xml" />
-    <Content Include="Resources\IValidationService\Valid\Namespaces\Title.xml" />
-    <Content Include="Resources\IValidationService\Valid\Structure\BasicCatalog.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\IValidationService\Invalid\Structure\XmlNesting.xml" />
-    <Content Include="Resources\IValidationService\Valid\Structure\OfficialTestFromSchemas.xml" />
+    <EmbeddedResource Include="Resources\ContentValidation\UniqueValidator\Invalid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invalid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentValidation\UniqueValidator\Valid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Valid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentValidation\UrlValidator\Invalid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invalid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentValidation\UrlValidator\Valid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Valid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Invalid\Formatting.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Formatting.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Invalid\Namespaces.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Namespaces.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Invalid\Structure.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Structure.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Valid\Formatting.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Formatting.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Valid\Namespaces.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Namespaces.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Valid\Structure.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Structure.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

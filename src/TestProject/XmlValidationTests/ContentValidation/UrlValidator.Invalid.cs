@@ -9,16 +9,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
     public partial class UrlValidator
     {
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrl.xml",
-            @"ContentValidation\UrlValidator\Invalid\"
-            )]
         public void Invalid_NotAUrl()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Invalid\SingleNotAUrl.xml").FullName, 
+                Resources.ContentValidation.UrlValidator.Invalid.SingleNotAUrl,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
@@ -55,17 +50,12 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Invalid\TwoNotAUrl.xml",
-            @"ContentValidation\UrlValidator\Invalid\"
-            )]
         public void Invalid_TwoNotAUrl()
         {
             
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Invalid\TwoNotAUrl.xml").FullName,
+                Resources.ContentValidation.UrlValidator.Invalid.TwoNotAUrl,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
@@ -106,16 +96,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.AreEqual<int>(vr.Instances[1].LinePosition.Value, 4);
         }
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Invalid\SingleNotAUrlSingleValid.xml",
-            @"ContentValidation\UrlValidator\Invalid\"
-            )]
         public void Invalid_SingleNotAUrlSingleValid()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Invalid\SingleNotAUrlSingleValid.xml").FullName,
+                Resources.ContentValidation.UrlValidator.Invalid.SingleNotAUrlSingleValid,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()
@@ -152,16 +137,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 4);
         }
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml",
-            @"ContentValidation\UrlValidator\Invalid\"
-            )]
         public void Invalid_RelativeUrl()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UrlValidator\Invalid\SingleRelativeUrl.xml").FullName,
+                Resources.ContentValidation.UrlValidator.Invalid.SingleRelativeUrl,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             XCRI.Validation.ContentValidation.UrlValidator v = new XCRI.Validation.ContentValidation.UrlValidator()

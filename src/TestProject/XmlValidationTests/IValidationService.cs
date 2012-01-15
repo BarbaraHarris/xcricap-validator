@@ -8,8 +8,8 @@ using System.Xml.Linq;
 namespace TestProject.XmlValidationTests
 {
     [TestClass]
-    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<Uri>, T>
-        where T : XCRI.Validation.IValidationService<Uri>
+    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<String>, T>
+        where T : XCRI.Validation.IValidationService<String>
     {
         protected XCRI.Validation.XmlRetrieval.XmlCachingResolver XmlResolver
             = new XCRI.Validation.XmlRetrieval.XmlCachingResolver(null, null, null);

@@ -6,20 +6,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject.XmlValidationTests
 {
-    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<Uri>, T>
-        where T : XCRI.Validation.IValidationService<Uri>
+    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<String>, T>
+        where T : XCRI.Validation.IValidationService<String>
     {
 
         #region Namespaces
 
-        [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Valid\Namespaces\Description.xml",
-            @"IValidationService\Valid\Namespaces\"
-            )]
         public void Valid_Namespaces_Description()
         {
+            string toValidate = Resources.IValidationService.Valid.Namespaces.Description;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -29,19 +24,15 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Valid\Namespaces\Description.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(0, results.Count, "No exceptions expected");
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Valid\Namespaces\Title.xml",
-            @"IValidationService\Valid\Namespaces\"
-            )]
         public void Valid_Namespaces_Title()
         {
+            string toValidate = Resources.IValidationService.Valid.Namespaces.Title;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -51,19 +42,15 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Valid\Namespaces\Title.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(0, results.Count, "No exceptions expected");
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Valid\Namespaces\Identifier.xml",
-            @"IValidationService\Valid\Namespaces\"
-            )]
         public void Valid_Namespaces_Identifier()
         {
+            string toValidate = Resources.IValidationService.Valid.Namespaces.Identifier;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -73,8 +60,8 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Valid\Namespaces\Identifier.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(0, results.Count, "No exceptions expected");
         }
 
@@ -83,13 +70,9 @@ namespace TestProject.XmlValidationTests
         #region Structure
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Valid\Structure\BasicCatalog.xml",
-            @"IValidationService\Valid\Structure\"
-            )]
         public void Valid_Structure_BasicCatalog()
         {
+            string toValidate = Resources.IValidationService.Valid.Structure.BasicCatalog;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -99,20 +82,16 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Valid\Structure\BasicCatalog.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(0, results.Count, "No exceptions expected");
 
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Valid\Structure\OfficialTestFromSchemas.xml",
-            @"IValidationService\Valid\Structure\"
-            )]
         public void Valid_Structure_OfficialTestFromSchemas()
         {
+            string toValidate = Resources.IValidationService.Valid.Structure.OfficialTestFromSchemas;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -122,8 +101,8 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Valid\Structure\OfficialTestFromSchemas.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(0, results.Count, "No exceptions expected");
 
         }

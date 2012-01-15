@@ -32,6 +32,7 @@ namespace XCRI.Validation.Modules
                 this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
             this.ValidatorFactory = validatorFactory;
         }
+
         public IEnumerable<ContentValidation.IValidator> ExtractValidators
             (
             FileInfo fi

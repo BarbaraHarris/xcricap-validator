@@ -9,16 +9,12 @@ namespace TestProject.XmlValidationTests.ContentValidation
     public partial class UniqueValidator
     {
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UniqueValidator\Invalid\NotUniqueIdentifiers.xml",
-            @"ContentValidation\UniqueValidator\Invalid\"
-            )]
         public void Invalid_NotUniqueIdentifiers()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UniqueValidator\Invalid\NotUniqueIdentifiers.xml").FullName, 
+                Resources.ContentValidation.UniqueValidator.Invalid.NotUnique,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());

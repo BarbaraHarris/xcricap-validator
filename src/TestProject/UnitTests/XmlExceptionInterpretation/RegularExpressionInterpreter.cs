@@ -62,11 +62,5 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 String.Format("The class {0} did not correctly persist the invert information", base.ClassType.FullName)
                 );
         }
-
-        [TestMethod]
-        public void WillFail()
-        {
-            Assert.Fail("This failure is to make sure I don't forget to sort out the XmlExceptionInterpretation priot to committing");
-        }
     }
 }

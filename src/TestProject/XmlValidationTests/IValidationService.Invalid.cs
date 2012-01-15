@@ -6,20 +6,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject.XmlValidationTests
 {
-    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<Uri>, T>
-        where T : XCRI.Validation.IValidationService<Uri>
+    public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<String>, T>
+        where T : XCRI.Validation.IValidationService<String>
     {
 
         #region Formatting
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Formatting\GeneratedAttribute.xml",
-            @"IValidationService\Invalid\Formatting\"
-            )]
         public void Invalid_Formatting_GeneratedAttribute()
         {
+            string toValidate = Resources.IValidationService.Invalid.Formatting.GeneratedAttribute;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -40,8 +36,8 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Formatting\GeneratedAttribute.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
@@ -50,13 +46,9 @@ namespace TestProject.XmlValidationTests
         #region Namespaces
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Namespaces\UndeclaredPrefix.xml",
-            @"IValidationService\Invalid\Namespaces\"
-            )]
         public void Invalid_Namespaces_UndeclaredPrefix()
         {
+            string toValidate = Resources.IValidationService.Invalid.Namespaces.UndeclaredPrefix;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -77,19 +69,15 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Namespaces\UndeclaredPrefix.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Namespaces\NoDocumentNamespace.xml",
-            @"IValidationService\Invalid\Namespaces\"
-            )]
         public void Invalid_Namespaces_NoDocumentNamespace()
         {
+            string toValidate = Resources.IValidationService.Invalid.Namespaces.NoDocumentNamespace;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -110,19 +98,15 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Namespaces\NoDocumentNamespace.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Namespaces\Description.xml",
-            @"IValidationService\Invalid\Namespaces\"
-            )]
         public void Invalid_Namespaces_Description()
         {
+            string toValidate = Resources.IValidationService.Invalid.Namespaces.Description;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -143,19 +127,15 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Namespaces\Description.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Namespaces\Title.xml",
-            @"IValidationService\Invalid\Namespaces\"
-            )]
         public void Invalid_Namespaces_Title()
         {
+            string toValidate = Resources.IValidationService.Invalid.Namespaces.Title;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -176,19 +156,15 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Namespaces\Title.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Namespaces\Identifier.xml",
-            @"IValidationService\Invalid\Namespaces\"
-            )]
         public void Invalid_Namespaces_Identifier()
         {
+            string toValidate = Resources.IValidationService.Invalid.Namespaces.Identifier;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -209,8 +185,8 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Namespaces\Identifier.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
@@ -219,13 +195,9 @@ namespace TestProject.XmlValidationTests
         #region Structure
 
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\IValidationService\Invalid\Structure\XmlNesting.xml",
-            @"IValidationService\Invalid\Structure\"
-            )]
         public void Invalid_Structure_XmlNesting()
         {
+            string toValidate = Resources.IValidationService.Invalid.Structure.XmlNesting;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>
             {
@@ -246,8 +218,8 @@ namespace TestProject.XmlValidationTests
 
             var t = base.Instantiate();
             t.XmlExceptionInterpreters.Add(interpreter);
-            t.Source = new XCRI.Validation.XmlRetrieval.UriSource(null, this.XmlResolver);
-            var results = t.Validate(new Uri(new System.IO.FileInfo(@"IValidationService\Invalid\Structure\XmlNesting.xml").FullName));
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
 
         }

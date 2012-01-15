@@ -9,16 +9,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
     public partial class UniqueValidator
     {
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UniqueValidator\Valid\UniqueIdentifiersWithXsiType.xml",
-            @"ContentValidation\UniqueValidator\Valid\"
-            )]
         public void Valid_UniqueIdentifiersWithXsiType()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UniqueValidator\Valid\UniqueIdentifiersWithXsiType.xml").FullName,
+                Resources.ContentValidation.UniqueValidator.Valid.UniqueIdentifiersWithXsiType,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
@@ -63,16 +58,11 @@ namespace TestProject.XmlValidationTests.ContentValidation
             Assert.AreEqual<int>(vr.Instances[1].LinePosition.Value, 8);
         }
         [TestMethod]
-        [DeploymentItem
-            (
-            @"TestProject\Resources\ContentValidation\UniqueValidator\Valid\UniqueIdentifiers.xml",
-            @"ContentValidation\UniqueValidator\Valid\"
-            )]
         public void Valid_UniqueIdentifiers()
         {
-            var xDoc = System.Xml.Linq.XDocument.Load
+            var xDoc = System.Xml.Linq.XDocument.Parse
                 (
-                new System.IO.FileInfo(@"ContentValidation\UniqueValidator\Valid\UniqueIdentifiers.xml").FullName,
+                Resources.ContentValidation.UniqueValidator.Valid.UniqueIdentifiers,
                 System.Xml.Linq.LoadOptions.SetLineInfo
                 );
             System.Xml.XmlNamespaceManager nsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
