@@ -72,6 +72,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Valid_Structure_BasicCatalog()
         {
+
             string toValidate = Resources.IValidationService.Valid.Structure.BasicCatalog;
             var interpreter = new DebugIntepreter();
             interpreter.InterpretationFunction = (exception) =>

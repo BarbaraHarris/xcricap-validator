@@ -98,6 +98,7 @@
     <Compile Include="ValidationService.cs" />
     <Compile Include="ContentValidation\ValidationStatus.cs" />
     <Compile Include="XmlRetrieval\IXmlCachingResolver.cs" />
+    <Compile Include="XmlRetrieval\NullXmlCacheLocation.cs" />
     <Compile Include="XmlRetrieval\SourceBase.cs" />
     <Compile Include="XmlRetrieval\StringSource.cs" />
     <Compile Include="XmlRetrieval\UriSource.cs" />
