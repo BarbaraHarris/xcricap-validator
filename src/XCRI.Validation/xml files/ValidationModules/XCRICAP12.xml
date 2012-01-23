@@ -204,6 +204,22 @@
         </div>
       </furtherInformation>
     </regularExpressionValidator>
+    <!-- descriptions with a href attribute must contain nothing. -->
+    <stringLengthValidator
+        selector="//dc:description[@href]"
+        message="Descriptions elements with a href element must not contain content."
+        status="Exception"
+        maximum="0"
+        validationGroup="Formatting"
+      />
+    <!-- descriptions without a href attribute must contain something -->
+    <stringLengthValidator
+        selector="//dc:description[not(@href)]"
+        message="Description elements without a href attribute must contain content."
+        status="Exception"
+        minimum="1"
+        validationGroup="Formatting"
+      />
   </documentValidation>
   <!-- elementValidation rules get run once per match -->
   <elementValidation
@@ -229,28 +245,35 @@
     >
     <numberValidator
         selector="count(./dc:identifier[not(@xsi:type)])"
-        message="All providers should contain an identifier without an xsi:type attribute"
+        message="All providers must contain an identifier without an xsi:type attribute"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./dc:title)"
-        message="All providers should contain a title, which should be the trading name."
+        message="All providers must contain a title, which should be the trading name."
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./mlo:url)"
-        message="All providers should contain a url, which should be its homepage or microsite"
+        message="All providers must contain a url, which should be its homepage or microsite"
         minimum="1"
-        status="Warning"
+        status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./mlo:location)"
+        message="All providers must contain a location"
+        minimum="1"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./xcri12:course)"
-        message="All providers should contain a course"
+        message="All providers must contain a course"
         minimum="1"
         status="Warning"
         validationGroup="Structure"
