@@ -54,6 +54,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\ContentValidation\StringLengthValidator\Invalid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Invalid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ContentValidation\StringLengthValidator\Valid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Valid.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ContentValidation\UniqueValidator\Invalid.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests\ContentValidation\StringLengthValidator.Invalid.cs" />
+    <Compile Include="UnitTests\ContentValidation\StringLengthValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\StringLengthValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\UniqueValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\UniqueValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\UrlValidator.Valid.cs" />
@@ -117,6 +130,9 @@
     <Compile Include="UnitTests\ContentValidation\AgeValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\AgeValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\AgeValidator.Invalid.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\StringValidator.Invalid.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\StringValidator.cs" />
+    <Compile Include="XmlValidationTests\ContentValidation\StringValidator.Valid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.Invalid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UniqueValidator.Valid.cs" />
@@ -142,6 +158,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ContentValidation\StringLengthValidator\Invalid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Invalid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentValidation\StringLengthValidator\Valid.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Valid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ContentValidation\UniqueValidator\Invalid.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Invalid.Designer.cs</LastGenOutput>

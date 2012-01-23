@@ -11,7 +11,6 @@ namespace TestProject.XmlValidationTests.ContentValidation
         [TestMethod]
         public void Invalid_NotUniqueIdentifiers()
         {
-            
             var xDoc = System.Xml.Linq.XDocument.Parse
                 (
                 Resources.ContentValidation.UniqueValidator.Invalid.NotUnique,
