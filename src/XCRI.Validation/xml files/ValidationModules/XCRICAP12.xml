@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
-          Ensure that the document root element is one of the expected XCRI-CAP 1.2 elements.
+          Ensure that the document root element is one of the expected XCRI-CAP 1.2 elements and that the document namespace is correct.
         </div>
       </furtherInformation>
     </numberValidator>
@@ -43,7 +43,7 @@
 			  validationGroup="Formatting"
 			  allowRelative="false">
       <furtherInformation>
-       <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           All url elements are expected to contain valid URLs to indicate a place on the provider's website where further information can be obtained.
           <ul class="links">
             <li>
@@ -65,123 +65,349 @@
       />
     <numberValidator
         selector="count(//dc:date)"
-        message="Date elements should not be used but, instead, using the start element and the temporal elements e.g. end, applyFrom and applyUntil"
+        message="Date elements should not be used but, instead, use the start element and the temporal elements e.g. end, applyFrom and applyUntil"
         minimum="0"
         maximum="0"
         status="Warning"
-        validationGroup="Structure"
-      />
+        validationGroup="Structure">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Date elements should not be used but, instead, use the start element and the temporal elements defined within the Wiki e.g. end, applyFrom and applyUntil.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Replace the date element with another of the temporal elements.
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(//mlo:hasPart)"
         message="hasPart is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements."
         minimum="0"
         maximum="0"
         status="Warning"
-        validationGroup="Structure"
-      />
+        validationGroup="Structure">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          hasPart is included for compatibility with the [EN 15982] standard but should not be used.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Remove the hasPart element.
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(//mlo:isPartOf)"
         message="isPartOf is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements."
         minimum="0"
         maximum="0"
         status="Warning"
-        validationGroup="Structure"
-      />
+        validationGroup="Structure">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Remove the isPartOf element.
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(//dc:hasPart)"
         message="hasPart is used for compatibility with EN15982 but should not be used"
         minimum="0"
         maximum="0"
         status="Warning"
-        validationGroup="Structure"
-      />
+        validationGroup="Structure">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Remove the isPartOf element.
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(//dc:isPart)"
         message="hasPart is used for compatibility with EN15982 but should not be used"
         minimum="0"
         maximum="0"
         status="Warning"
-        validationGroup="Structure"
-      />
+        validationGroup="Structure">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Remove the isPartOf element.
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <manualValidator
         selector="//dc:contributor"
         message="The contributor element should not be used for general contact information and should only be used when other refinements (e.g. presenter or lecturer) are not available."
         status="Warning"
-        validationGroup="Manual"
-      />
+        validationGroup="Manual">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          The contributor element should not be used for general contact information.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Ccontributor.3E_element">The contributor element within the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          If other elements are suitable, they should be used in preference.
+        </div>
+      </furtherInformation>
+    </manualValidator>
     <urlValidator
-			  selector="//dc:identifier"
+			  selector="//dc:identifier[not(@xsi:type)]"
 			  message="Producers should use URLs for identifiers"
 			  status="Recommendation"
 			  validationGroup="Formatting"
-			  allowRelative="false"
-		  />
+			  allowRelative="false">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Any identifier element with no type refinement must be a uniform resource identifier conforming to the URL scheme specified by IETF RFC 3986.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
+            </li>
+            <li>
+              <a href="http://tools.ietf.org/html/rfc3986">IETF RFC 3986</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that any identifier elements without types refinements (xsi:type attributes) are Uniform Resource Identifiers.
+          If the identifier uses a specific encoding scheme (e.g. a UK Provider Reference Number) then ensure that it has an
+          associated xsi:type attribute.
+        </div>
+      </furtherInformation>
+    </urlValidator>
     <manualValidator
         selector="//dc:identifier"
         message="Producers should use URLs for identifiers that also resolve to human-readable content."
         status="Recommendation"
-        validationGroup="Manual"
-      />
+        validationGroup="Manual">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Producers SHOULD use URLs for identifiers that also resolve to human-readable content.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that any identifier elements without types refinements (xsi:type attributes) are Uniform Resource Identifiers
+          and that these URIs resolve to human-readable content.
+        </div>
+      </furtherInformation>
+    </manualValidator>
     <manualValidator
-        selector="//xcri12:qualification/dc:identifier"
+        selector="//xcri12:qualification/dc:title"
         message="In the qualification element, producers should use the title element for the name of the qualification - preferably as given by its Awarding Body."
         status="Warning"
-        validationGroup="Manual"
-      />
+        validationGroup="Manual">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          In the qualification element, Producers SHOULD use title for the name of the qualification, preferably as given by its Awarding Body.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Ctitle.3E_element">The title element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that any title element within a qualification element contains the name of the qualification, preferably
+          as given by its Awarding Body.
+        </div>
+      </furtherInformation>
+    </manualValidator>
     <manualValidator
         selector="//dc:subject"
         message="Each subject element must contain one (and only one) keyword, phrase or classification."
         status="Exception"
-        validationGroup="Manual"
-      />
+        validationGroup="Manual">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Each subject element must contain one (and only one) keyword, phrase or classification.
+          Producers should use xml:lang and xsi:type attributes, where appropriate, to provide alternative language versions and encoding schemes respectively.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Csubject.3E_element">The subject element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that each subject element contains one (and only one) keyword, phrase or classification.
+        </div>
+      </furtherInformation>
+    </manualValidator>
     <emptyElementValidator
         selector="//dc:subject"
         message="Subject elements cannot be empty"
         status="Exception"
         enforcementType="ForceNotEmpty"
-        validationGroup="Formatting"
-      />
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Subject elements cannot be empty.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Csubject.3E_element">The subject element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          If the subject element is not used, remove it.
+        </div>
+      </furtherInformation>
+    </emptyElementValidator>
     <stringLengthValidator
         selector="//xcri12:abstract"
         message="Producers must not create an abstract that exceeds 140 characters"
         status="Exception"
         maximum="140"
-        validationGroup="Formatting"
-      />
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          The abstract element cannot contain more than 140 characters.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cabstract.3E_element">The abstract element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Shorten or truncate the text within the abstract element.
+        </div>
+      </furtherInformation>
+    </stringLengthValidator>
     <regularExpressionValidator
         selector="//mlo:email"
         message="Each email node should contain an email address"
         status="Exception"
         validationGroup="Formatting"
-        pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
-    />
+        pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Each email node should contain an email address conforming to the "addr-spec" production in RFC2822.
+          <ul class="links">
+            <li>
+              <a href="http://www.ietf.org/rfc/rfc2822.txt?number=2822">RFC8922</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the email node contains an email address.
+        </div>
+      </furtherInformation>
+    </regularExpressionValidator>
     <regularExpressionValidator
         selector="(//mlo:phone|//mlo:fax)"
         message="Telephone numbers should be formatted as they would be dialed from the UK"
         status="Exception"
         validationGroup="Formatting"
-        pattern="^(?&lt;prefix&gt;[0-9]{3}\s*?[0-9]{1,2})\s*?(?&lt;number&gt;[0-9]{3}\s*?[0-9]{3,4})"
-    />
+        pattern="^(?&lt;prefix&gt;[0-9]{3}\s*?[0-9]{1,2})\s*?(?&lt;number&gt;[0-9]{3}\s*?[0-9]{3,4})">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Each phone and fax element should contain a telephone number as it would be dialed from the UK.
+          The National Format Layout is cited as a recommended format.
+          <ul class="links">
+            <li>
+              <a href="http://www.ofcom.org.uk/static/archive/oftel/publications/numbering/2003/num_guide.htm#1b">National Format Layout</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that each phone and fax element contain a telephone number in the National Format Layout format.
+        </div>
+      </furtherInformation>
+    </regularExpressionValidator>
     <regularExpressionValidator
         selector="//mlo:postcode"
         message="A postcode, if provided, should conform to the UK postal code format"
         status="Exception"
         validationGroup="Formatting"
-        pattern="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"
-    />
+        pattern="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Each postcode element should contain the full UK postcode of the respective provider's main site or venue of a presentation.
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the postcode contains a full valid UK postcode.
+        </div>
+      </furtherInformation>
+    </regularExpressionValidator>
     <emptyElementValidator
         selector="//mlo:duration"
         message="If a provider uses a duration element, it cannot be empty."
         status="Warning"
         enforcementType="ForceNotEmpty"
-        validationGroup="Formatting"
-      />
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          A duration element must contain textual content.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cduration.3E_element">The duration element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the duration element contains textual content or drop it from the XML document.
+        </div>
+      </furtherInformation>
+    </emptyElementValidator>
     <ageValidator
         selector="//xcri12:age"
-        message="The age element ."
+        message="The value of the age element must be formatted in one of the four formats enumerated on the wiki."
         status="Exception"
-        validationGroup="Formatting"
-      />
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          The age element must be one of "age", "not known", "x-y, or "x+" (where x and y must be non-negative integers).
+          Additionally, if of the format "x-y", the value of x cannot be greater than the value of y.
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cage.3E_element">The age element on the wiki</a>
+            </li>
+          </ul>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the age element is one of the four formats enumerated on the wiki.
+        </div>
+      </furtherInformation>
+    </ageValidator>
     <!-- Language code validation. List from http://www.loc.gov/standards/iso639-2/php/English_list.php. -->
     <regularExpressionValidator
       selector="//@xml:lang"
@@ -207,19 +433,37 @@
     <!-- descriptions with a href attribute must contain nothing. -->
     <stringLengthValidator
         selector="//dc:description[@href]"
-        message="Descriptions elements with a href element must not contain content."
+        message="Description elements with a href attribute must not contain content."
         status="Exception"
         maximum="0"
-        validationGroup="Formatting"
-      />
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Description elements that have a href attribute must not contain any content; the content is expected to be
+          obtained from the URI in the href attribute.
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Decide whether the description element should contain content or link through to an external resource.
+        </div>
+      </furtherInformation>
+    </stringLengthValidator>
     <!-- descriptions without a href attribute must contain something -->
     <stringLengthValidator
         selector="//dc:description[not(@href)]"
         message="Description elements without a href attribute must contain content."
         status="Exception"
         minimum="1"
-        validationGroup="Formatting"
-      />
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          Description elements that have a href attribute must not contain any content; the content is expected to be
+          obtained from the URI in the href attribute.
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Decide whether the description element should contain content or link through to an external resource.
+        </div>
+      </furtherInformation>
+    </stringLengthValidator>
   </documentValidation>
   <!-- elementValidation rules get run once per match -->
   <elementValidation
@@ -453,6 +697,41 @@
       maximum="0"
       validationGroup="Structure"
       status="Exception"
+    />
+  </elementValidation>
+  <elementValidation
+      selector="//xcri:provider/mlo:location"
+    >
+    <numberValidator
+      selector="count(./mlo:postcode)"
+      message="An XCRI provider's location must contain one postcode element."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Exception"
+    />
+    <numberValidator
+      selector="count(./mlo:address)"
+      message="An XCRI provider's location must contain at least one address element."
+      minimum="1"
+      validationGroup="Structure"
+      status="Exception"
+    />
+    <numberValidator
+      selector="count(./mlo:phone)"
+      message="An XCRI provider's location must contain one phone element."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Exception"
+    />
+    <numberValidator
+      selector="count(./mlo:email)"
+      message="An XCRI provider's location should contain one email element."
+      minimum="1"
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
     />
   </elementValidation>
 </contentValidators>
