@@ -70,7 +70,7 @@ namespace TestProject.Resources.ContentValidation.RegularExpressionValidator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed Mode|Online (no attendance)|Work-based)$.
+        ///   Looks up a localized string similar to ^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed mode|Online \(no attendance\)|Work-based)$.
         /// </summary>
         internal static string AttendanceMode_Value {
             get {
@@ -106,7 +106,7 @@ namespace TestProject.Resources.ContentValidation.RegularExpressionValidator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^(?&lt;prefix&gt;[0-9]{3}\s*?[0-9]{1,2})\s*?(?&lt;number&gt;[0-9]{3}\s*?[0-9]{3,4}).
+        ///   Looks up a localized string similar to ^(?&lt;prefix&gt;0[0-9]{2}\s*?[0-9]{1,3})\s*?(?&lt;number&gt;[0-9]{2,4}\s*?[0-9]{3,4})$.
         /// </summary>
         internal static string Phone {
             get {
@@ -133,7 +133,7 @@ namespace TestProject.Resources.ContentValidation.RegularExpressionValidator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^(Not Known|Flexible|Full time|Part of a full time programme|Part time)$.
+        ///   Looks up a localized string similar to ^(Not known|Flexible|Full time|Part of a full time programme|Part time)$.
         /// </summary>
         internal static string StudyMode_Value {
             get {

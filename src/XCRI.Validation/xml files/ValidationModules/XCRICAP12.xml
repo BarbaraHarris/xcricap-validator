@@ -636,10 +636,10 @@
     />
     <regularExpressionValidator
         selector="."
-        message="Producers should use one of the following values within a study mode element: Not Known, Flexible, Full time, Part of a full time programme, Part time"
+        message="Producers should use one of the following values within a study mode element: Not known, Flexible, Full time, Part of a full time programme, Part time"
         status="Warning"
         validationGroup="Formatting"
-        pattern="^(Not Known|Flexible|Full time|Part of a full time programme|Part time)$"
+        pattern="^(Not known|Flexible|Full time|Part of a full time programme|Part time)$"
     />
   </elementValidation>
   <elementValidation
@@ -654,10 +654,10 @@
     />
     <regularExpressionValidator
         selector="."
-        message="Producers should use one of the following values within an attendance mode element: Campus, Distance with attendance, Distance without attendance, Face-to-face non-campus, Mixed Mode, Online (no attendance), Work-based"
+        message="Producers should use one of the following values within an attendance mode element: Campus, Distance with attendance, Distance without attendance, Face-to-face non-campus, Mixed mode, Online (no attendance), Work-based"
         status="Warning"
         validationGroup="Formatting"
-        pattern="^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed Mode|Online (no attendance)|Work-based)$"
+        pattern="^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed mode|Online \(no attendance\)|Work-based)$"
     />
   </elementValidation>
   <elementValidation

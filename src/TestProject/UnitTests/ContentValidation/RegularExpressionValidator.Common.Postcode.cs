@@ -116,5 +116,59 @@ namespace TestProject.UnitTests.ContentValidation
                 Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
                 ));
         }
+        [TestMethod]
+        public void PostCodes_A99AA_Valid()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "A9 9AA",
+                Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
+                ));
+        }
+        [TestMethod]
+        public void PostCodes_A999AA_Valid()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "A99 9AA",
+                Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
+                ));
+        }
+        [TestMethod]
+        public void PostCodes_AA99AA_Valid()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "AA9 9AA",
+                Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
+                ));
+        }
+        [TestMethod]
+        public void PostCodes_AA999AA_Valid()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "AA99 9AA",
+                Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
+                ));
+        }
+        [TestMethod]
+        public void PostCodes_A9A9AA_Valid()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "A9A 9AA",
+                Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
+                ));
+        }
+        [TestMethod]
+        public void PostCodes_AA9A9AA_Valid()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "AA9A 9AA",
+                Resources.ContentValidation.RegularExpressionValidator.Common.Postcode
+                ));
+        }
     }
 }
