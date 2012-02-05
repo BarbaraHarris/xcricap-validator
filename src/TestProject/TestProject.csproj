@@ -54,6 +54,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\ContentValidation\RegularExpressionValidator\Common.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Common.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ContentValidation\StringLengthValidator\Invalid.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +119,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.AttendancePattern.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.AttendanceMode.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.StudyMode.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.XmlLang.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.EmailAddress.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.Phone.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.Postcode.cs" />
+    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\StringLengthValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\StringLengthValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\StringLengthValidator.Valid.cs" />
@@ -158,6 +171,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ContentValidation\RegularExpressionValidator\Common.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ContentValidation\StringLengthValidator\Invalid.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Invalid.Designer.cs</LastGenOutput>

@@ -6,8 +6,17 @@ using System.Xml;
 
 namespace XCRI.Validation.ContentValidation
 {
+    /// <summary>
+    /// Validates that an element is (or is not, depending upon <see cref="EnforcementType"/>)
+    /// empty.  Empty is defined as either a self-closing element (e.g. &lt;element /&gt;)
+    /// or an element with no child elements (e.g. &lt;element&gt;&lt;/element&gt;).
+    /// </summary>
+    /// <seealso cref="IValidator"/>
     public class EmptyElementValidator : Validator
     {
+        /// <summary>
+        /// Whether to force that the item is empty or not.  Defaults to ForceNotEmpty.
+        /// </summary>
         public EnforcementTypes EnforcementType { get; set; }
         public EmptyElementValidator()
             : base()
@@ -61,9 +70,18 @@ namespace XCRI.Validation.ContentValidation
                     throw new NotImplementedException();
             }
         }
+        /// <summary>
+        /// Whether to enforce that the element is empty or not.
+        /// </summary>
         public enum EnforcementTypes
         {
+            /// <summary>
+            /// Forces that the element is not empty
+            /// </summary>
             ForceNotEmpty = 1,
+            /// <summary>
+            /// Forces that the element is empty
+            /// </summary>
             ForceEmpty = 2
         }
     }

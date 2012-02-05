@@ -9,6 +9,14 @@ namespace XCRI.Validation.ContentValidation
 {
     public class AgeValidator : RegularExpressionValidator
     {
+        /// <summary>
+        /// The AgeValidator validates that the value provided is valid according to the
+        /// XCRI-CAP 1.2 &lt;age&gt; element, detailed at 
+        /// http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cage.3E_element.
+        /// Valid values are "any", "not known", "x-y" or "x+", where x and y are non-negative integers
+        /// and x is less than or equal to the value of y.
+        /// </summary>
+        /// <seealso cref="IValidator"/>
         public AgeValidator()
             : base()
         {
