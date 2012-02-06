@@ -8,8 +8,8 @@ namespace XCRI.Validation.ContentValidation
 {
     /// <summary>
     /// Validates that an element is (or is not, depending upon <see cref="EnforcementType"/>)
-    /// empty.  Empty is defined as either a self-closing element (e.g. &lt;element /&gt;)
-    /// or an element with no child elements (e.g. &lt;element&gt;&lt;/element&gt;).
+    /// empty.  Empty is defined as either a self-closing element (for example: &lt;element /&gt;)
+    /// or an element with no child elements (for example: &lt;element&gt;&lt;/element&gt;).
     /// </summary>
     /// <seealso cref="IValidator"/>
     public class EmptyElementValidator : Validator

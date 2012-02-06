@@ -65,14 +65,14 @@
       />
     <numberValidator
         selector="count(//dc:date)"
-        message="Date elements should not be used but, instead, use the start element and the temporal elements e.g. end, applyFrom and applyUntil"
+        message="Date elements should not be used but, instead, use the start element and the temporal elements, for example: end, applyFrom and applyUntil"
         minimum="0"
         maximum="0"
         status="Warning"
         validationGroup="Structure">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          Date elements should not be used but, instead, use the start element and the temporal elements defined within the Wiki e.g. end, applyFrom and applyUntil.
+          Date elements should not be used but, instead, use the start element and the temporal elements defined within the Wiki, for example: end, applyFrom and applyUntil.
           <ul class="links">
             <li>
               <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
@@ -170,7 +170,7 @@
     </numberValidator>
     <manualValidator
         selector="//dc:contributor"
-        message="The contributor element should not be used for general contact information and should only be used when other refinements (e.g. presenter or lecturer) are not available."
+        message="The contributor element should not be used for general contact information and should only be used when other refinements (for example: presenter or lecturer) are not available."
         status="Warning"
         validationGroup="Manual">
       <furtherInformation>
@@ -207,7 +207,7 @@
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
           Ensure that any identifier elements without types refinements (xsi:type attributes) are Uniform Resource Identifiers.
-          If the identifier uses a specific encoding scheme (e.g. a UK Provider Reference Number) then ensure that it has an
+          If the identifier uses a specific encoding scheme (for example: a UK Provider Reference Number) then ensure that it has an
           associated xsi:type attribute.
         </div>
       </furtherInformation>

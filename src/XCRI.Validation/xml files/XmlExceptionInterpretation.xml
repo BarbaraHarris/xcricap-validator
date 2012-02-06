@@ -11,8 +11,8 @@
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           <p>
             The XML document has a major structural problem.  XML documents are structured through the use of tags.
-            All tags must have a start tag (e.g. &lt;a&gt;) and an end tag (e.g. &lt;/a&gt;).  The only exception are tags that
-            are "self-closing" (e.g. &lt;img /&gt;).
+            All tags must have a start tag (for example: &lt;a&gt;) and an end tag (for example: &lt;/a&gt;).  The only exception are tags that
+            are "self-closing" (for example: &lt;img /&gt;).
           </p>
           <p>
             All tags must be closed in the inverse order to that which they're created.
@@ -123,8 +123,8 @@
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           <p>
             The XML document has a major structural problem.  XML documents are structured through the use of tags.
-            All tags must have a start tag (e.g. &lt;a&gt;) and an end tag (e.g. &lt;/a&gt;).  The only exception are tags that
-            are "self-closing" (e.g. &lt;img /&gt;).
+            All tags must have a start tag (for example: &lt;a&gt;) and an end tag (for example: &lt;/a&gt;).  The only exception are tags that
+            are "self-closing" (for example: &lt;img /&gt;).
           </p>
           <p>
             All tags must be closed in the inverse order to that which they're created.
@@ -286,8 +286,8 @@
       <FurtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           <p>
-            Some elements within the XML schemas are allowed to contain text (e.g. a description or title),
-            whereas some elements are meant to contain other elements (e.g. an address should contain postcodes, etc).
+            Some elements within the XML schemas are allowed to contain text (for example: a description or title),
+            whereas some elements are meant to contain other elements (for example: an address should contain postcodes, etc).
             An element within the XML document contains text when it should contain elements.
           </p>
         </div>
