@@ -14,25 +14,36 @@
   <!-- documentValidation rules get run on the entire document -->
   <documentValidation>
     <numberValidator
-        selector="count(/xcri12:catalog)+count(/xcri12:provider)+count(/xcri12:course)"
-        message="The document root element must be a catalog, a provider or a course"
-        minimum="1"
-        maximum="1"
+        selector="count(/xcri12:course)"
+        message="The document root element cannot be a course"
+        maximum="0"
         status="Exception"
         validationGroup="Structure"
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          The document root element must be a &lt;catalog&gt;, a &lt;provider&gt; or a &lt;course&gt; element within the
-          http://xcri.org/profiles/1.2/catalog namespace.
-          <ul class="links">
-            <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#XCRI_Documents">XCRI Documents element within the XCRI-CAP 1.2 wiki specification</a>
-            </li>
-          </ul>
+          For the Course Data Programme, a &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace 
+          should be the root element.
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
-          Ensure that the document root element is one of the expected XCRI-CAP 1.2 elements and that the document namespace is correct.
+          Ensure that the document root element is an &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace.
+        </div>
+      </furtherInformation>
+    </numberValidator>
+    <numberValidator
+        selector="count(/xcri12:provider)"
+        message="The document root element must be a catalog, a provider or a course"
+        maximum="0"
+        status="Warning"
+        validationGroup="Structure"
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          For the Course Data Programme, a &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace 
+          should be the root element.
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          Ensure that the document root element is an &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace.
         </div>
       </furtherInformation>
     </numberValidator>
@@ -58,7 +69,7 @@
     </urlValidator>
     <uniqueValidator
         selector="//dc:identifier[not(@xsi:type)]"
-        message="All all identifiers without an xsi:type attribute should be unique within the context"
+        message="All identifiers without an xsi:type attribute should be unique for that named element (provider, course, presentation, qualification, etc.)."
         uniqueAcross="context"
         status="Exception"
         validationGroup="Structure"
@@ -195,7 +206,7 @@
 			  allowRelative="false">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          Any identifier element with no type refinement must be a uniform resource identifier conforming to the URL scheme specified by IETF RFC 3986.
+          Any identifier element with no type refinement must be a uniform resource identifier conforming to the URI scheme specified by IETF RFC 3986.
           <ul class="links">
             <li>
               <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
@@ -294,13 +305,13 @@
     </emptyElementValidator>
     <stringLengthValidator
         selector="//xcri12:abstract"
-        message="Producers must not create an abstract that exceeds 140 characters"
-        status="Exception"
+        message="Producers must not create an abstract that exceeds 140 characters."
+        status="Warning"
         maximum="140"
         validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          The abstract element cannot contain more than 140 characters.
+          The abstract element cannot contain more than 140 characters.  Aggregators may truncate the abstract if it is over 140 characters.
           <ul class="links">
             <li>
               <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cabstract.3E_element">The abstract element on the wiki</a>
@@ -432,7 +443,7 @@
     </regularExpressionValidator>
     <!-- descriptions with a href attribute must contain nothing. -->
     <stringLengthValidator
-        selector="//dc:description[@href]"
+        selector="//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]"
         message="Description elements with a href attribute must not contain content."
         status="Exception"
         maximum="0"
@@ -449,7 +460,7 @@
     </stringLengthValidator>
     <!-- descriptions without a href attribute must contain something -->
     <stringLengthValidator
-        selector="//dc:description[not(@href)]"
+        selector="//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]"
         message="Description elements without a href attribute must contain content."
         status="Exception"
         minimum="1"
@@ -522,6 +533,13 @@
         status="Warning"
         validationGroup="Structure"
       />
+    <numberValidator
+        selector="count(./dc:description)"
+        message="All providers should contain a description element."
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
   </elementValidation>
   <elementValidation
       selector="//xcri12:course"
@@ -537,7 +555,7 @@
         selector="count(./dc:title)"
         message="All courses should contain a title"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
@@ -552,6 +570,20 @@
         message="The level element is included for compatibility with EN15982 but should not be used"
         minimum="0"
         maximum="0"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:description)"
+        message="All courses should contain a description element."
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:presentation)"
+        message="All providers should contain a presentation element."
+        minimum="1"
         status="Warning"
         validationGroup="Structure"
       />
@@ -594,6 +626,20 @@
         enforcementType="ForceNotEmpty"
         validationGroup="Accessibility"
       />
+    <urlValidator
+        selector="@src"
+        message="Image sources must be URIs conforming to the URL scheme as specified by IETF RFC 3986."
+        status="Exception"
+        allowRelative="false"
+        validationGroup="Formatting"
+      />
+    <regularExpressionValidator
+        selector="@src"
+        message="Image sources are recommended to be JPEG (.jpg) or PNG files (.png)."
+        status="Warning"
+        validationGroup="Formatting"
+        pattern="(\.jpe?g|\.png)$"
+    />
   </elementValidation>
   <elementValidation
       selector="//mlo:credit"
