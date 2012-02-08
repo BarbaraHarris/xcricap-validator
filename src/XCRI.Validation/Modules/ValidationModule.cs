@@ -203,6 +203,13 @@ namespace XCRI.Validation.Modules
                     var ageValidator = this.ValidatorFactory.GetValidator<ContentValidation.AgeValidator>();
                     validator = ageValidator;
                     break;
+                case "vdexvalidator":
+                    var vdexValidator = this.ValidatorFactory.GetValidator<ContentValidation.VDEXValidator>();
+                    vdexValidator.VDEXLocation = new Uri(validatorNode.Attribute("vdexLocation").Value, UriKind.RelativeOrAbsolute);
+                    vdexValidator.IdentifierSelector = validatorNode.Attribute("identifierSelector").Value;
+                    vdexValidator.CaptionSelector= validatorNode.Attribute("captionSelector").Value;
+                    validator = vdexValidator;
+                    break;
             }
             if (null == validator)
                 throw new InvalidDataException(String.Format

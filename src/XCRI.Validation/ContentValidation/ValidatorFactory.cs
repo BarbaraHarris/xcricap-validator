@@ -52,6 +52,8 @@ namespace XCRI.Validation.ContentValidation
                 v = new RegularExpressionValidator();
             if (typeof(T) == typeof(AgeValidator))
                 v = new AgeValidator();
+            if (typeof(T) == typeof(VDEXValidator))
+                v = new VDEXValidator();
             if(v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
             if (null != this.Logs)

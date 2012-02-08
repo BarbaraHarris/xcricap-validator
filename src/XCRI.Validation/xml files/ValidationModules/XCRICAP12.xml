@@ -670,6 +670,16 @@
     />
   </elementValidation>
   <!-- temporal elements! -->
+  <vdexValidator
+      selector="//xcri12:studyMode"
+      message="Producers should use one of the following codes within the study mode's identifier attribute: NK, FL, FT, PF, PT"
+      Status="Warning"
+      validationGroup="Formatting"
+      vdexLocation="http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"
+      identifierSelector="@identifier"
+      captionSelector="."
+    />
+  <!--
   <elementValidation
       selector="//xcri12:studyMode"
     >
@@ -688,7 +698,8 @@
         pattern="^(Not known|Flexible|Full time|Part of a full time programme|Part time)$"
     />
   </elementValidation>
-  <elementValidation
+  -->
+    <elementValidation
       selector="//xcri12:attendanceMode"
     >
     <regularExpressionValidator
@@ -746,7 +757,7 @@
     />
   </elementValidation>
   <elementValidation
-      selector="//xcri:provider/mlo:location"
+      selector="//xcri12:provider/mlo:location"
     >
     <numberValidator
       selector="count(./mlo:postcode)"
