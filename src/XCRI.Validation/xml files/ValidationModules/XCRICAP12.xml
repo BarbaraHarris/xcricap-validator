@@ -137,6 +137,7 @@
         </div>
       </furtherInformation>
     </numberValidator>
+    <!--
     <numberValidator
         selector="count(//dc:hasPart)"
         message="hasPart is used for compatibility with EN15982 but should not be used"
@@ -179,6 +180,7 @@
         </div>
       </furtherInformation>
     </numberValidator>
+    -->
     <manualValidator
         selector="//dc:contributor"
         message="The contributor element should not be used for general contact information and should only be used when other refinements (for example: presenter or lecturer) are not available."
@@ -346,7 +348,7 @@
     <regularExpressionValidator
         selector="(//mlo:phone|//mlo:fax)"
         message="Telephone numbers should be formatted as they would be dialed from the UK"
-        status="Exception"
+        status="Warning"
         validationGroup="Formatting"
         pattern="^(?&lt;prefix&gt;[0-9]{3}\s*?[0-9]{1,2})\s*?(?&lt;number&gt;[0-9]{3}\s*?[0-9]{3,4})">
       <furtherInformation>
@@ -382,7 +384,7 @@
     <emptyElementValidator
         selector="//mlo:duration"
         message="If a provider uses a duration element, it cannot be empty."
-        status="Warning"
+        status="Exception"
         enforcementType="ForceNotEmpty"
         validationGroup="Formatting">
       <furtherInformation>
@@ -406,7 +408,7 @@
         validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          The age element must be one of "age", "not known", "x-y, or "x+" (where x and y must be non-negative integers).
+          The age element must be one of "any", "not known", "x-y, or "x+" (where x and y must be non-negative integers).
           Additionally, if of the format "x-y", the value of x cannot be greater than the value of y.
           <ul class="links">
             <li>
@@ -441,6 +443,7 @@
         </div>
       </furtherInformation>
     </regularExpressionValidator>
+    <!-- languageOfInstruction and languageOfAssessment -->
     <!-- descriptions with a href attribute must contain nothing. -->
     <stringLengthValidator
         selector="//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]"
@@ -467,8 +470,7 @@
         validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          Description elements that have a href attribute must not contain any content; the content is expected to be
-          obtained from the URI in the href attribute.
+          Description elements that do not have a href attribute must contain content.
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
           Decide whether the description element should contain content or link through to an external resource.
@@ -530,7 +532,7 @@
         selector="count(./xcri12:course)"
         message="All providers must contain a course"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
@@ -548,7 +550,7 @@
         selector="count(./dc:identifier[not(@xsi:type)])"
         message="All courses should contain an identifier without an xsi:type attribute"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
@@ -562,7 +564,7 @@
         selector="count(./dc:subject)"
         message="All courses should contain a subject"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
@@ -582,7 +584,14 @@
       />
     <numberValidator
         selector="count(./xcri12:presentation)"
-        message="All providers should contain a presentation element."
+        message="All courses should contain a presentation element."
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:qualification)"
+        message="The qualification element is mandatory if a course leads to awards of a qualification."
         minimum="1"
         status="Warning"
         validationGroup="Structure"
@@ -596,7 +605,7 @@
         selector="count(./mlo:start)"
         message="All presentations should contain a start element"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <!-- "A presentation SHOULD include a duration element, or start and end dates, or both" -->
@@ -622,13 +631,20 @@
     <emptyElementValidator
         selector="@alt"
         message="A provider should provide meaningful alternative text for each image"
-        status="Warning"
+        status="Exception"
         enforcementType="ForceNotEmpty"
         validationGroup="Accessibility"
       />
     <urlValidator
         selector="@src"
-        message="Image sources must be URIs conforming to the URL scheme as specified by IETF RFC 3986."
+        message="Image sources must be URIs conforming to the URI scheme as specified by IETF RFC 3986."
+        status="Exception"
+        allowRelative="false"
+        validationGroup="Formatting"
+      />
+    <urlValidator
+        selector="@href"
+        message="href attributes must be URIs conforming to the URI scheme as specified by IETF RFC 3986."
         status="Exception"
         allowRelative="false"
         validationGroup="Formatting"
@@ -735,7 +751,6 @@
         pattern="^(Daytime|Evening|Twilight|Day\/Block release|Weekend|Customised)$"
     />
   </elementValidation>
-  <!-- languageOfInstruction and languageOfAssessment -->
   <elementValidation
       selector="//xcri12:venue"
     >
