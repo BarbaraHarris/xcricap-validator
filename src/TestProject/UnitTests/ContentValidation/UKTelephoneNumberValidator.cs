@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestProject.UnitTests.ContentValidation
 {
     [TestClass]
-    public partial class PostCodeValidator : IValidator<XCRI.Validation.ContentValidation.PostCodeValidator>
+    public partial class UKTelephoneNumberValidator : IValidator<XCRI.Validation.ContentValidation.UKTelephoneNumberValidator>
     {
         protected bool PassesValidationString(string input)
         {
@@ -16,13 +16,13 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationString(string input, out string details)
         {
-            XCRI.Validation.ContentValidation.PostCodeValidator v = new XCRI.Validation.ContentValidation.PostCodeValidator()
+            XCRI.Validation.ContentValidation.UKTelephoneNumberValidator v = new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator()
             {
-                XPathSelector = "number(//postcode/text())"
+                XPathSelector = "number(//telephonenumber/text())"
             };
             if (input == null)
                 return v.PassesValidation(null, out details);
-            return v.PassesValidation(new System.Xml.Linq.XElement("postcode", input), out details);
+            return v.PassesValidation(new System.Xml.Linq.XElement("telephonenumber", input), out details);
         }
     }
 }

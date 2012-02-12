@@ -214,6 +214,10 @@ namespace XCRI.Validation.Modules
                     var postcodeValidator = this.ValidatorFactory.GetValidator<ContentValidation.PostCodeValidator>();
                     validator = postcodeValidator;
                     break;
+                case "uktelephonenumbervalidator":
+                    var ukTelephoneNumberValidator = this.ValidatorFactory.GetValidator<ContentValidation.UKTelephoneNumberValidator>();
+                    validator = ukTelephoneNumberValidator;
+                    break;
             }
             if (null == validator)
                 throw new InvalidDataException(String.Format

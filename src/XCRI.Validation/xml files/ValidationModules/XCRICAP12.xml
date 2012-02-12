@@ -345,12 +345,11 @@
         </div>
       </furtherInformation>
     </regularExpressionValidator>
-    <regularExpressionValidator
+    <ukTelephoneNumberValidator
         selector="(//mlo:phone|//mlo:fax)"
         message="Telephone numbers should be formatted as they would be dialed from the UK"
         status="Warning"
-        validationGroup="Formatting"
-        pattern="^(?&lt;prefix&gt;[0-9]{3}\s*?[0-9]{1,2})\s*?(?&lt;number&gt;[0-9]{3}\s*?[0-9]{3,4})">
+        validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           Each phone and fax element should contain a telephone number as it would be dialed from the UK.
@@ -365,7 +364,7 @@
           Ensure that each phone and fax element contain a telephone number in the National Format Layout format.
         </div>
       </furtherInformation>
-    </regularExpressionValidator>
+    </ukTelephoneNumberValidator>
     <postCodeValidator
         selector="//mlo:postcode"
         message="A postcode, if provided, should conform to the UK postal code format"

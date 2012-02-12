@@ -9,7 +9,7 @@ namespace TestProject.UnitTests.ContentValidation
     public partial class PostCodeValidator
     {
         [TestMethod]
-        public void M11AA_Invalid_NoSpace()
+        public void M11AA_NoSpace()
         {
             Assert.IsFalse(this.PassesValidationString
                 (
@@ -17,7 +17,7 @@ namespace TestProject.UnitTests.ContentValidation
                 ));
         }
         [TestMethod]
-        public void B338TH_Invalid_NoSpace()
+        public void B338TH_NoSpace()
         {
             Assert.IsFalse(this.PassesValidationString
                 (
@@ -25,7 +25,7 @@ namespace TestProject.UnitTests.ContentValidation
                 ));
         }
         [TestMethod]
-        public void CR26XH_Invalid_NoSpace()
+        public void CR26XH_NoSpace()
         {
             Assert.IsFalse(this.PassesValidationString
                 (
@@ -33,7 +33,7 @@ namespace TestProject.UnitTests.ContentValidation
                 ));
         }
         [TestMethod]
-        public void DN551PT_Invalid_NoSpace()
+        public void DN551PT_NoSpace()
         {
             Assert.IsFalse(this.PassesValidationString
                 (
@@ -41,7 +41,7 @@ namespace TestProject.UnitTests.ContentValidation
                 ));
         }
         [TestMethod]
-        public void W1A1HQ_Invalid_NoSpace()
+        public void W1A1HQ_NoSpace()
         {
             Assert.IsFalse(this.PassesValidationString
                 (
@@ -49,7 +49,7 @@ namespace TestProject.UnitTests.ContentValidation
                 ));
         }
         [TestMethod]
-        public void EC1A1BB_Invalid_NoSpace()
+        public void EC1A1BB_NoSpace()
         {
             Assert.IsFalse(this.PassesValidationString
                 (

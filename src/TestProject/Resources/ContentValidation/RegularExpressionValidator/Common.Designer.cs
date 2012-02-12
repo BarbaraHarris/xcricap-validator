@@ -106,24 +106,6 @@ namespace TestProject.Resources.ContentValidation.RegularExpressionValidator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^(?&lt;prefix&gt;0[0-9]{2}\s*?[0-9]{1,3})\s*?(?&lt;number&gt;[0-9]{2,4}\s*?[0-9]{3,4})$.
-        /// </summary>
-        internal static string Phone {
-            get {
-                return ResourceManager.GetString("Phone", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to (GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2}).
-        /// </summary>
-        internal static string Postcode {
-            get {
-                return ResourceManager.GetString("Postcode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ^(NK|FL|FT|PF|PT)$.
         /// </summary>
         internal static string StudyMode_Identifier {
