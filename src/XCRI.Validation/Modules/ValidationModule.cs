@@ -218,6 +218,10 @@ namespace XCRI.Validation.Modules
                     var ukTelephoneNumberValidator = this.ValidatorFactory.GetValidator<ContentValidation.UKTelephoneNumberValidator>();
                     validator = ukTelephoneNumberValidator;
                     break;
+                case "emailaddressvalidator":
+                    var emailAddressValidator = this.ValidatorFactory.GetValidator<ContentValidation.EmailAddressValidator>();
+                    validator = emailAddressValidator;
+                    break;
             }
             if (null == validator)
                 throw new InvalidDataException(String.Format

@@ -129,9 +129,6 @@
   <data name="AttendancePattern_Value" xml:space="preserve">
     <value>^(Daytime|Evening|Twilight|Day\/Block release|Weekend|Customised)$</value>
   </data>
-  <data name="EmailAddress" xml:space="preserve">
-    <value>^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$</value>
-  </data>
   <data name="StudyMode_Identifier" xml:space="preserve">
     <value>^(NK|FL|FT|PF|PT)$</value>
   </data>

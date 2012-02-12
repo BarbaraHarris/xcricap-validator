@@ -97,15 +97,6 @@ namespace TestProject.Resources.ContentValidation.RegularExpressionValidator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$.
-        /// </summary>
-        internal static string EmailAddress {
-            get {
-                return ResourceManager.GetString("EmailAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ^(NK|FL|FT|PF|PT)$.
         /// </summary>
         internal static string StudyMode_Identifier {

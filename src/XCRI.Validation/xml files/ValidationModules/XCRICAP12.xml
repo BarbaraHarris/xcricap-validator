@@ -325,12 +325,11 @@
         </div>
       </furtherInformation>
     </stringLengthValidator>
-    <regularExpressionValidator
+    <emailAddressValidator
         selector="//mlo:email"
         message="Each email node should contain an email address"
         status="Exception"
-        validationGroup="Formatting"
-        pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$">
+        validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           Each email node should contain an email address conforming to the "addr-spec" production in RFC2822.
@@ -344,7 +343,7 @@
           Ensure that the email node contains an email address.
         </div>
       </furtherInformation>
-    </regularExpressionValidator>
+    </emailAddressValidator>
     <ukTelephoneNumberValidator
         selector="(//mlo:phone|//mlo:fax)"
         message="Telephone numbers should be formatted as they would be dialed from the UK"

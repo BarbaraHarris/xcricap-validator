@@ -56,6 +56,8 @@ namespace XCRI.Validation.ContentValidation
                 v = new UKTelephoneNumberValidator();
             if (typeof(T) == typeof(AgeValidator))
                 v = new AgeValidator();
+            if (typeof(T) == typeof(EmailAddressValidator))
+                v = new EmailAddressValidator();
             if (typeof(T) == typeof(VDEXValidator))
                 v = new VDEXValidator();
             if(v == null)

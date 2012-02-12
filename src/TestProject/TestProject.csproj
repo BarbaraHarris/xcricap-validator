@@ -119,6 +119,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.Invalid.cs" />
+    <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.Valid.cs" />
+    <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\UKTelephoneNumberValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\UKTelephoneNumberValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\PostCodeValidator.Invalid.cs" />
@@ -128,7 +131,6 @@
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.AttendanceMode.cs" />
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.StudyMode.cs" />
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.XmlLang.cs" />
-    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.EmailAddress.cs" />
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\StringLengthValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\StringLengthValidator.cs" />
@@ -227,6 +229,7 @@
       <LastGenOutput>Structure.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
