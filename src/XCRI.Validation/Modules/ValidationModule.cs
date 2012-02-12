@@ -210,6 +210,10 @@ namespace XCRI.Validation.Modules
                     vdexValidator.CaptionSelector= validatorNode.Attribute("captionSelector").Value;
                     validator = vdexValidator;
                     break;
+                case "postcodevalidator":
+                    var postcodeValidator = this.ValidatorFactory.GetValidator<ContentValidation.PostCodeValidator>();
+                    validator = postcodeValidator;
+                    break;
             }
             if (null == validator)
                 throw new InvalidDataException(String.Format

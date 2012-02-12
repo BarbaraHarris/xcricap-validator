@@ -366,12 +366,11 @@
         </div>
       </furtherInformation>
     </regularExpressionValidator>
-    <regularExpressionValidator
+    <postCodeValidator
         selector="//mlo:postcode"
         message="A postcode, if provided, should conform to the UK postal code format"
         status="Exception"
-        validationGroup="Formatting"
-        pattern="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})">
+        validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
           Each postcode element should contain the full UK postcode of the respective provider's main site or venue of a presentation.
@@ -380,7 +379,7 @@
           Ensure that the postcode contains a full valid UK postcode.
         </div>
       </furtherInformation>
-    </regularExpressionValidator>
+    </postCodeValidator>
     <emptyElementValidator
         selector="//mlo:duration"
         message="If a provider uses a duration element, it cannot be empty."

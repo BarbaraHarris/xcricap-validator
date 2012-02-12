@@ -54,6 +54,7 @@
     <Compile Include="ContentValidation\IValidatorFactory.cs" />
     <Compile Include="ContentValidation\ManualValidator.cs" />
     <Compile Include="ContentValidation\NumberValidator.cs" />
+    <Compile Include="ContentValidation\PostCodeValidator.cs" />
     <Compile Include="ContentValidation\RegularExpressionValidator.cs" />
     <Compile Include="ContentValidation\StringLengthValidator.cs" />
     <Compile Include="ContentValidation\UniqueValidator.cs" />

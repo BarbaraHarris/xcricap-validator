@@ -50,6 +50,8 @@ namespace XCRI.Validation.ContentValidation
                 v = new StringLengthValidator();
             if (typeof(T) == typeof(RegularExpressionValidator))
                 v = new RegularExpressionValidator();
+            if (typeof(T) == typeof(PostCodeValidator))
+                v = new PostCodeValidator();
             if (typeof(T) == typeof(AgeValidator))
                 v = new AgeValidator();
             if (typeof(T) == typeof(VDEXValidator))
