@@ -56,6 +56,10 @@ namespace XCRI.Validation
                 return this.SuccessfulInstances.Count();
             }
         }
+        public int GetCountWithStatus(ContentValidation.ValidationStatus status)
+        {
+            return this.Instances.Where(i => i.Status == status).Count();
+        }
 
     }
     public class ValidationInstance

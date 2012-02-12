@@ -189,7 +189,7 @@
           <p>
             Please note that your feed will still fail validation if you do not reference an applicable
             XSD for the 'geo' namespace.  Whilst there is not an official XSD, you may download
-            and use a sample XSD stub from the <xhtml:a href="/XCRI/Validation/Help/References.aspx#geo">references page</xhtml:a> for use with XCRI-CAP 1.1.
+            and use a sample XSD stub from the <xhtml:a href="/XCRI/Validation/Help/References.aspx#geo">references page</xhtml:a> for use with XCRI-CAP 1.2.
           </p>
         </div>
       </FurtherInformation>
@@ -208,7 +208,7 @@
           <p>
             Please note that your feed will still fail validation if you do not reference an applicable
             XSD for the 'ukprn' namespace.  Whilst there is not an official XSD, you may download
-            and use a sample XSD stub from the <xhtml:a href="/XCRI/Validation/Help/References.aspx#ukprn">references page</xhtml:a> for use with XCRI-CAP 1.1.
+            and use a sample XSD stub from the <xhtml:a href="/XCRI/Validation/Help/References.aspx#ukprn">references page</xhtml:a> for use with XCRI-CAP 1.2.
           </p>
         </div>
       </FurtherInformation>
@@ -226,7 +226,7 @@
           <p>
             An element was found in the XML file that was unexpected.
             Any XSD file may define the order in which 'child' elements may appear under a 'parent'.
-            In the case of the XCRI-CAP 1.1 XSD file, the order of the child elements is specified and, as such it is required that the
+            In the case of the XCRI-CAP 1.2 XSD file, the order of the child elements is specified and, as such it is required that the
             'child' elements are output in this specific order.
           </p>
         </div>
@@ -257,7 +257,7 @@
           <p>
             An element was found in the XML file that was unexpected.
             Any XSD file may define the order in which 'child' elements may appear under a 'parent'.
-            In the case of the XCRI-CAP 1.1 XSD file, the order of the child elements is specified and, as such it is required that the
+            In the case of the XCRI-CAP 1.2 XSD file, the order of the child elements is specified and, as such it is required that the
             'child' elements are output in this specific order.
           </p>
         </div>
@@ -366,7 +366,7 @@
             <xhtml:strong>In this specific instance,</xhtml:strong>
             it seems that an XSD has not been loaded for the geolocation
             (http://www.w3.org/2003/01/geo/wgs84_pos) namespace.  Whilst there is not an official XSD, you may download
-            and use a sample XSD stub from the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx#stubs">references page</xhtml:a> for use with XCRI-CAP 1.1.
+            and use a sample XSD stub from the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx#stubs">references page</xhtml:a> for use with XCRI-CAP 1.2.
           </p>
         </div>
       </FurtherInformation>
@@ -382,7 +382,7 @@
             <xhtml:strong>In this specific instance,</xhtml:strong>
             it seems that an XSD has not been loaded for the UK Provider Reference Number
             (http://www.ukrlp.co.uk/) namespace.  Whilst there is not an official XSD, you may download
-            and use a sample XSD stub from the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx#stubs">references page</xhtml:a> for use with XCRI-CAP 1.1.
+            and use a sample XSD stub from the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx#stubs">references page</xhtml:a> for use with XCRI-CAP 1.2.
           </p>
         </div>
       </FurtherInformation>
