@@ -16,7 +16,7 @@ namespace XCRI.Validation.ContentValidation
         {
             throw new NotImplementedException();
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             throw new NotImplementedException();
         }

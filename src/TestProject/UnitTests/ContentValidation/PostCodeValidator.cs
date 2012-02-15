@@ -16,13 +16,13 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationString(string input, out string details)
         {
-            XCRI.Validation.ContentValidation.PostCodeValidator v = new XCRI.Validation.ContentValidation.PostCodeValidator()
-            {
-                XPathSelector = "number(//postcode/text())"
-            };
-            if (input == null)
-                return v.PassesValidation(null, out details);
-            return v.PassesValidation(new System.Xml.Linq.XElement("postcode", input), out details);
+            var v = this.CreateValidator();
+            return v.PassesValidation(input, out details);
+        }
+
+        public override XCRI.Validation.ContentValidation.PostCodeValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.PostCodeValidator();
         }
     }
 }

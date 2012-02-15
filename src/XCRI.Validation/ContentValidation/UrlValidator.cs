@@ -14,21 +14,21 @@ namespace XCRI.Validation.ContentValidation
         {
             this.AllowRelative = false;
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             Uri throwaway;
             details = null;
             if (this.AllowRelative)
             {
-                if (Uri.TryCreate(input.Value, UriKind.RelativeOrAbsolute, out throwaway))
+                if (Uri.TryCreate(input, UriKind.RelativeOrAbsolute, out throwaway))
                     return true;
             }
             else
             {
-                if (Uri.TryCreate(input.Value, UriKind.Absolute, out throwaway))
+                if (Uri.TryCreate(input, UriKind.Absolute, out throwaway))
                     return true;
             }
-            details = String.Format("Value was: '{0}'", input.Value);
+            details = String.Format("Value was: '{0}'", input);
             return false;
         }
     }

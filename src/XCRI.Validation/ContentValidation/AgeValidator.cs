@@ -22,7 +22,7 @@ namespace XCRI.Validation.ContentValidation
         {
             this.Pattern = @"^(?:any|not known|(?<Lower>\d{1,})(?:\+|(?:\-(?<Upper>\d{1,}))))$";
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             if (null == input)
                 throw new ArgumentNullException("input");
@@ -35,13 +35,13 @@ namespace XCRI.Validation.ContentValidation
                 throw new InvalidOperationException("The regular expression did not include a 'Lower' group");
             if (false == groupNames.Contains("Upper"))
                 throw new InvalidOperationException("The regular expression did not include an 'Upper' group");
-            Match match = expression.Match(input.Value);
+            Match match = expression.Match(input);
             if(false == match.Success)
             {
                 details = String.Format
                     (
                     "The value '{0}' did not match the regular expression pattern '{1}'",
-                    input.Value,
+                    input,
                     this.Pattern
                     );
                 return false;

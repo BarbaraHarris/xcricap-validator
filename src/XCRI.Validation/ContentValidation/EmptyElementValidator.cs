@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace XCRI.Validation.ContentValidation
 {
@@ -23,45 +24,50 @@ namespace XCRI.Validation.ContentValidation
         {
             this.EnforcementType = EnforcementTypes.ForceNotEmpty;
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XObject input, out string details)
         {
             details = null;
             if (null == input)
                 throw new ArgumentNullException("input");
+            string value;
+            if (input is XElement)
+                value = (input as XElement).Value;
+            else
+                throw new ArgumentException("The input parameter type " + input.GetType().FullName + " was not expected", "input");
             switch (this.EnforcementType)
             {
                 case EnforcementTypes.ForceEmpty:
-                    if (false == String.IsNullOrWhiteSpace(input.Value))
+                    if (false == String.IsNullOrWhiteSpace(value))
                     {
                         details = String.Format
                             (
                             "Element has a value of '{0}'",
-                            input.Value
+                            value
                             );
                         return false;
                     }
-                    if (input.DescendantNodes().Count() > 0)
+                    if ((input as XElement).DescendantNodes().Count() > 0)
                     {
                         details = String.Format
                             (
                             "Element has {0} children (none allowed)",
-                            input.DescendantNodes().Count()
+                            (input as XElement).DescendantNodes().Count()
                             );
                         return false;
                    } 
                     return true;
                 case EnforcementTypes.ForceNotEmpty:
-                    if (String.IsNullOrWhiteSpace(input.Value))
+                    if (String.IsNullOrWhiteSpace(value))
                     {
                         details = "Element has no value when one was expected";
                         return false;
                     }
-                    if (input.DescendantNodes().Count() == 0)
+                    if ((input as XElement).DescendantNodes().Count() == 0)
                     {
                         details = String.Format
                             (
                             "Element has 0 child nodes when they were expected",
-                            input.DescendantNodes().Count()
+                            (input as XElement).DescendantNodes().Count()
                             );
                         return false;
                     }

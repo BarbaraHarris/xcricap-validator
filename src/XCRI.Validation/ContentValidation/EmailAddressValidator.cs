@@ -14,18 +14,18 @@ namespace XCRI.Validation.ContentValidation
         {
             
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             System.Net.Mail.MailAddress throwaway;
             details = null;
             try
             {
-                throwaway = new System.Net.Mail.MailAddress(input.Value, String.Empty);
+                throwaway = new System.Net.Mail.MailAddress(input, String.Empty);
                 return true;
             }
             catch
             {
-                details = String.Format("Value was: '{0}'", input.Value);
+                details = String.Format("Value was: '{0}'", input);
                 return false;
             }
         }

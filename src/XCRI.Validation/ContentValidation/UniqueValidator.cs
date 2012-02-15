@@ -16,12 +16,18 @@ namespace XCRI.Validation.ContentValidation
         {
             this.UniqueAcross = UniqueAcrossTypes.Document;
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(System.Xml.Linq.XObject input, out string details)
         {
             details = null;
             if (null == input)
                 throw new ArgumentNullException("input");
             string value;
+            if (input is XElement)
+                value = (input as XElement).Value;
+            else if (input is XAttribute)
+                value = (input as XAttribute).Value;
+            else
+                throw new ArgumentException("The input parameter type " + input.GetType().FullName + " was not expected", "input");
             int count;
             IEnumerable<XElement> same;
             switch (this.UniqueAcross)
@@ -29,7 +35,6 @@ namespace XCRI.Validation.ContentValidation
                 case UniqueAcrossTypes.Document:
                     if (null == input.Document)
                         throw new ArgumentException("The XElement must be associated with an XDocument", "input");
-                    value = input.Value;
                     same = input.Document.XPathSelectElements(this.XPathSelector, this.NamespaceManager)
                         .Where(xe => xe.Value == value);
                     count = same.Count();
@@ -67,7 +72,6 @@ namespace XCRI.Validation.ContentValidation
                 case UniqueAcrossTypes.Context:
                     if (null == input.Document)
                         throw new ArgumentException("The XElement must be associated with an XDocument", "input");
-                    value = input.Value;
                     same = input.Document.XPathSelectElements(this.XPathSelector, this.NamespaceManager)
                         .Where(xe => xe.Value == value)
                         .Where(xe => xe.Parent.Name.LocalName == input.Parent.Name.LocalName)

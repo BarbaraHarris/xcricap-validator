@@ -14,7 +14,7 @@ namespace XCRI.Validation.ContentValidation
             : base()
         {
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             if (null == input)
                 throw new ArgumentNullException("input");
@@ -22,12 +22,12 @@ namespace XCRI.Validation.ContentValidation
                 throw new InvalidOperationException("The Pattern property must be set");
             details = null;
             Regex expression = new Regex(this.Pattern);
-            if (expression.IsMatch(input.Value))
+            if (expression.IsMatch(input))
                 return true;
             details = String.Format
                 (
                 "The value '{0}' did not match the regular expression pattern '{1}'",
-                input.Value,
+                input,
                 this.Pattern
                 );
             return false;

@@ -14,37 +14,36 @@ namespace XCRI.Validation.ContentValidation
             : base()
         {
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             if (null == input)
                 throw new ArgumentNullException("input");
             details = null;
-            string value = input.Value ?? String.Empty;
             if (
                 this.MinimumCharacters.HasValue
                 &&
-                value.Length < this.MinimumCharacters.Value
+                input.Length < this.MinimumCharacters.Value
                 )
             {
                 details = String.Format
                     (
                     "The minimum length of this element is {0} but this element is {1} characters long",
                     this.MinimumCharacters.Value,
-                    value.Length
+                    input.Length
                     );
                 return false;
             }
             if (
                 this.MaximumCharacters.HasValue
                 &&
-                value.Length > this.MaximumCharacters.Value
+                input.Length > this.MaximumCharacters.Value
                 )
             {
                 details = String.Format
                     (
                     "The maximum length of this element is {0} but this element is {1} characters long",
                     this.MaximumCharacters.Value,
-                    value.Length
+                    input.Length
                     );
                 return false;
             }

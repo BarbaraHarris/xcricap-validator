@@ -16,13 +16,13 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationString(string input, out string details)
         {
-            XCRI.Validation.ContentValidation.UKTelephoneNumberValidator v = new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator()
-            {
-                XPathSelector = "number(//telephonenumber/text())"
-            };
-            if (input == null)
-                return v.PassesValidation(null, out details);
-            return v.PassesValidation(new System.Xml.Linq.XElement("telephonenumber", input), out details);
+            var v = this.CreateValidator();
+            return v.PassesValidation(input, out details);
+        }
+
+        public override XCRI.Validation.ContentValidation.UKTelephoneNumberValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator();
         }
     }
 }

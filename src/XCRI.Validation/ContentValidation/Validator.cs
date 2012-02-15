@@ -38,12 +38,17 @@ namespace XCRI.Validation.ContentValidation
             if(null == input)
                 throw new ArgumentNullException("input");
             IEnumerable<ValidationResult> r = null;
-            this.Validate(input.XPathSelectElements(this.XPathSelector, this.NamespaceManager), out r);
+            //this.Validate(input.XPathSelectElements(this.XPathSelector, this.NamespaceManager), out r);
+            this.Validate
+                (
+                (input.XPathEvaluate(this.XPathSelector, this.NamespaceManager) as System.Collections.IEnumerable).Cast<XObject>(), 
+                out r
+                );
             return r;
         }
         public virtual void Validate
             (
-            IEnumerable<System.Xml.Linq.XElement> elements,
+            IEnumerable<System.Xml.Linq.XObject> elements,
             out IEnumerable<ValidationResult> results
             )
         {
@@ -56,7 +61,7 @@ namespace XCRI.Validation.ContentValidation
                 ValidationGroup = this.ValidationGroup,
                 FurtherInformation = this.FurtherInformation
             };
-            foreach (System.Xml.Linq.XElement node in elements)
+            foreach (System.Xml.Linq.XObject node in elements)
             {
                 string details = String.Empty;
                 if (false == this.PassesValidation(node, out details))
@@ -95,8 +100,24 @@ namespace XCRI.Validation.ContentValidation
         }
 
         #endregion
-
-        public abstract bool PassesValidation(System.Xml.Linq.XElement input, out string details);
+        public virtual bool PassesValidation(System.Xml.Linq.XObject node, out string details)
+        {
+            if (null == node)
+                throw new ArgumentNullException("node");
+            string value;
+            if (node is XAttribute)
+                value = (node as XAttribute).Value;
+            else if (node is XElement)
+                value = (node as XElement).Value;
+            else
+                throw new NotImplementedException("The node type" + node.GetType() + " was not expected");
+            return this.PassesValidation(value, out details);
+        }
+        public virtual bool PassesValidation(string input, out string details)
+        {
+            details = null;
+            return true;
+        }
 
     }
 }

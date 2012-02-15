@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestProject.XmlValidationTests.ContentValidation
 {
-    public partial class StringValidator : IValidator<XCRI.Validation.ContentValidation.UniqueValidator>
+    public partial class StringValidator
     {
         [TestMethod]
         public void Invalid_DescriptionsWithHrefMustNotContainContent()

@@ -19,14 +19,14 @@ namespace XCRI.Validation.ContentValidation
             : base()
         {
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             if (null == input)
                 throw new ArgumentNullException("input");
             details = String.Format
                 (
                 "Value is: '{0}'",
-                input.Value
+                input
                 );
             return false;
         }

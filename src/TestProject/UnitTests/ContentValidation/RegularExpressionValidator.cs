@@ -17,18 +17,53 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationString(string input, string pattern, out string details)
         {
-            XCRI.Validation.ContentValidation.RegularExpressionValidator av = new XCRI.Validation.ContentValidation.RegularExpressionValidator()
-            {
-                XPathSelector = "/"
-            };
+            var v = this.CreateValidator();
             if (null != pattern)
-                av.Pattern = pattern;
-            if (null == input)
-                return av.PassesValidation(null, out details);
-            return av.PassesValidation((new System.Xml.Linq.XElement("input")
+                v.Pattern = pattern;
+            return v.PassesValidation(input, out details);
+        }
+
+        public override XCRI.Validation.ContentValidation.RegularExpressionValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.RegularExpressionValidator();
+        }
+
+        [TestMethod]
+        public override void SelectAttribute()
+        {
+            var validator = this.CreateValidator();
+            validator.XPathSelector = "//@hello";
+            validator.Pattern = ".*?";
+            try
             {
-                Value = input
-            }), out details);
+                var results = validator.Validate(System.Xml.Linq.XDocument.Parse("<root><hello hello=\"hello world\" /></root>").Root);
+                Assert.IsTrue(results.Count() == 1);
+                Assert.IsTrue(results.ElementAt(0).Instances.Count() == 1);
+                Assert.IsTrue(this.SupportsAttributeXPathSelectors);
+            }
+            catch
+            {
+                Assert.IsTrue(false == this.SupportsAttributeXPathSelectors);
+            }
+        }
+
+        [TestMethod]
+        public override void SelectElement()
+        {
+            var validator = this.CreateValidator();
+            validator.XPathSelector = "//hello";
+            validator.Pattern = ".*?";
+            try
+            {
+                var results = validator.Validate(System.Xml.Linq.XDocument.Parse("<root><hello hello=\"hello world\" /></root>").Root);
+                Assert.IsTrue(results.Count() == 1);
+                Assert.IsTrue(results.ElementAt(0).Instances.Count() == 1);
+                Assert.IsTrue(this.SupportsElementXPathSelectors);
+            }
+            catch
+            {
+                Assert.IsTrue(false == this.SupportsElementXPathSelectors);
+            }
         }
     }
 }

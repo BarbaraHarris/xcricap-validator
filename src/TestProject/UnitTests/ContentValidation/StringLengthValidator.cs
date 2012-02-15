@@ -9,5 +9,9 @@ namespace TestProject.UnitTests.ContentValidation
     [TestClass]
     public partial class StringLengthValidator : IValidator<XCRI.Validation.ContentValidation.StringLengthValidator>
     {
+        public override XCRI.Validation.ContentValidation.StringLengthValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.StringLengthValidator();
+        }
     }
 }

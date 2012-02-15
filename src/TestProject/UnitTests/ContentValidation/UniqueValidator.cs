@@ -10,6 +10,11 @@ namespace TestProject.UnitTests.ContentValidation
     [TestClass]
     public partial class UniqueValidator : IValidator<XCRI.Validation.ContentValidation.UniqueValidator>
     {
+        public UniqueValidator()
+            : base()
+        {
+            this.SupportsAttributeXPathSelectors = false;
+        }
         protected bool PassesValidation
             (
             XElement input,
@@ -28,12 +33,15 @@ namespace TestProject.UnitTests.ContentValidation
             out string details
             )
         {
-            var v = new XCRI.Validation.ContentValidation.UniqueValidator()
-            {
-                XPathSelector = selector
-            };
+            var v = this.CreateValidator();
+            v.XPathSelector = selector;
             v.UniqueAcross = unique;
             return v.PassesValidation(input, out details);
+        }
+
+        public override XCRI.Validation.ContentValidation.UniqueValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.UniqueValidator();
         }
     }
 }

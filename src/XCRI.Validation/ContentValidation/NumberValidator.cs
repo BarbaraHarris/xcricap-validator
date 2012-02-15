@@ -55,15 +55,7 @@ namespace XCRI.Validation.ContentValidation
             }
             return new ValidationResult[] { r };
         }
-        public override bool PassesValidation(System.Xml.Linq.XElement input, out string details)
-        {
-            details = null;
-            // Check input
-            if (null == input)
-                throw new ArgumentNullException("input");
-            return this.PassesValidation(input.Value, out details);
-        }
-        public virtual bool PassesValidation(string input, out string details)
+        public override bool PassesValidation(string input, out string details)
         {
             details = null;
             if (null == input)

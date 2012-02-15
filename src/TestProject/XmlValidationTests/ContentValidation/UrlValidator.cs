@@ -9,5 +9,9 @@ namespace TestProject.XmlValidationTests.ContentValidation
     [TestClass]
     public partial class UrlValidator : IValidator<XCRI.Validation.ContentValidation.UrlValidator>
     {
+        public override XCRI.Validation.ContentValidation.UrlValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.UrlValidator();
+        }
     }
 }

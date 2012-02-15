@@ -12,10 +12,8 @@ namespace TestProject.UnitTests.ContentValidation
     {
         protected List<XCRI.Validation.ValidationResult> ValidateXElement(System.Xml.Linq.XElement input)
         {
-            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator()
-            {
-                XPathSelector = "number(//number/text())"
-            };
+            var v = this.CreateValidator();
+            v.XPathSelector = "number(//number/text())";
             return new List<XCRI.Validation.ValidationResult>(v.Validate(input));
         }
         protected bool PassesValidationString(string input)
@@ -30,10 +28,8 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationString(string input, decimal? minimum, decimal? maximum, out string details)
         {
-            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator()
-            {
-                XPathSelector = "number(//number/text())"
-            };
+            var v = this.CreateValidator();
+            v.XPathSelector = "number(//number/text())";
             v.Minimum = minimum;
             v.Maximum = maximum;
             if (input == null)
@@ -42,13 +38,16 @@ namespace TestProject.UnitTests.ContentValidation
         }
         protected bool PassesValidationXElement(XElement input, decimal? minimum, decimal? maximum, out string details)
         {
-            XCRI.Validation.ContentValidation.NumberValidator v = new XCRI.Validation.ContentValidation.NumberValidator()
-            {
-                XPathSelector = "number(//number/text())"
-            };
+            var v = this.CreateValidator();
+            v.XPathSelector = "number(//number/text())";
             v.Minimum = minimum;
             v.Maximum = maximum;
             return v.PassesValidation(input, out details);
+        }
+
+        public override XCRI.Validation.ContentValidation.NumberValidator CreateValidator()
+        {
+            return new XCRI.Validation.ContentValidation.NumberValidator();
         }
     }
 }
