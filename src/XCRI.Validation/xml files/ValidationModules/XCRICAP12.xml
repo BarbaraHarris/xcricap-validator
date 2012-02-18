@@ -474,6 +474,13 @@
         </div>
       </furtherInformation>
     </stringLengthValidator>
+    <vdexValidator
+        selector="//xcri12:studyMode"
+        message="Producers should use one of the following codes within the study mode's identifier attribute: NK, FL, FT, PF, PT"
+        status="Warning"
+        validationGroup="Formatting"
+        vdexLocation="http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"
+    />
   </documentValidation>
   <!-- elementValidation rules get run once per match -->
   <elementValidation
@@ -683,15 +690,6 @@
     />
   </elementValidation>
   <!-- temporal elements! -->
-  <vdexValidator
-      selector="//xcri12:studyMode"
-      message="Producers should use one of the following codes within the study mode's identifier attribute: NK, FL, FT, PF, PT"
-      Status="Warning"
-      validationGroup="Formatting"
-      vdexLocation="http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"
-      identifierSelector="@identifier"
-      captionSelector="."
-    />
   <!--
   <elementValidation
       selector="//xcri12:studyMode"

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using XCRI.Validation.XmlRetrieval;
+using System.Xml;
 
 namespace XCRI.Validation.ContentValidation
 {
@@ -10,14 +12,19 @@ namespace XCRI.Validation.ContentValidation
 
         public List<Logging.ILog> Logs { get; private set; }
         public List<Logging.ITimedLog> TimedLogs { get; private set; }
+        public ISource<Uri> UriSource { get; protected set; }
 
         public ValidatorFactory
             (
             IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
+            IEnumerable<Logging.ITimedLog> timedLogs,
+            ISource<Uri> uriSource
             )
             : base()
         {
+            if (null == uriSource)
+                throw new ArgumentNullException("uriSource");
+            this.UriSource = uriSource;
             if (null == logs)
                 this.Logs = new List<Logging.ILog>();
             else
@@ -59,7 +66,7 @@ namespace XCRI.Validation.ContentValidation
             if (typeof(T) == typeof(EmailAddressValidator))
                 v = new EmailAddressValidator();
             if (typeof(T) == typeof(VDEXValidator))
-                v = new VDEXValidator();
+                v = new VDEXValidator(this.UriSource);
             if(v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
             if (null != this.Logs)
