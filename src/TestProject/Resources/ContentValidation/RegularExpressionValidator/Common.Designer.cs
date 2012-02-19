@@ -61,24 +61,6 @@ namespace TestProject.Resources.ContentValidation.RegularExpressionValidator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ^(CM|DA|DS|NC|MM|ON|WB)$.
-        /// </summary>
-        internal static string AttendanceMode_Identifier {
-            get {
-                return ResourceManager.GetString("AttendanceMode_Identifier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed mode|Online \(no attendance\)|Work-based)$.
-        /// </summary>
-        internal static string AttendanceMode_Value {
-            get {
-                return ResourceManager.GetString("AttendanceMode_Value", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ^(DT|EV|TW|DR|WE|CS)$.
         /// </summary>
         internal static string AttendancePattern_Identifier {

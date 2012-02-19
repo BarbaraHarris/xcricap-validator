@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AttendanceMode_Identifier" xml:space="preserve">
-    <value>^(CM|DA|DS|NC|MM|ON|WB)$</value>
-  </data>
-  <data name="AttendanceMode_Value" xml:space="preserve">
-    <value>^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed mode|Online \(no attendance\)|Work-based)$</value>
-  </data>
   <data name="AttendancePattern_Identifier" xml:space="preserve">
     <value>^(DT|EV|TW|DR|WE|CS)$</value>
   </data>

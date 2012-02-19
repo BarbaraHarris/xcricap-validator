@@ -476,10 +476,24 @@
     </stringLengthValidator>
     <vdexValidator
         selector="//xcri12:studyMode"
-        message="Producers should use one of the following codes within the study mode's identifier attribute: NK, FL, FT, PF, PT"
+        message="Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CstudyMode.3E_element"
         status="Warning"
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"
+    />
+    <vdexValidator
+        selector="//xcri12:attendanceMode"
+        message="Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendanceMode.3E_element"
+        status="Warning"
+        validationGroup="Formatting"
+        vdexLocation="http://www.xcri.co.uk/vocabularies/attendanceMode1_0.xml"
+    />
+    <vdexValidator
+        selector="//xcri12:attendancePattern"
+        message="Producers should use one of the recommended attendancePattern values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendancePattern.3E_element"
+        status="Warning"
+        validationGroup="Formatting"
+        vdexLocation="http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"
     />
   </documentValidation>
   <!-- elementValidation rules get run once per match -->
@@ -690,62 +704,6 @@
     />
   </elementValidation>
   <!-- temporal elements! -->
-  <!--
-  <elementValidation
-      selector="//xcri12:studyMode"
-    >
-    <regularExpressionValidator
-        selector="@identifier"
-        message="Producers should use one of the following codes within the study mode's identifier attribute: NK, FL, FT, PF, PT"
-        status="Warning"
-        validationGroup="Formatting"
-        pattern="^(NK|FL|FT|PF|PT)$"
-    />
-    <regularExpressionValidator
-        selector="."
-        message="Producers should use one of the following values within a study mode element: Not known, Flexible, Full time, Part of a full time programme, Part time"
-        status="Warning"
-        validationGroup="Formatting"
-        pattern="^(Not known|Flexible|Full time|Part of a full time programme|Part time)$"
-    />
-  </elementValidation>
-  -->
-    <elementValidation
-      selector="//xcri12:attendanceMode"
-    >
-    <regularExpressionValidator
-        selector="@identifier"
-        message="Producers should use one of the following codes within the attendance mode's identifier attribute: CM, DA, DS, NC, MM, ON, WB"
-        status="Warning"
-        validationGroup="Formatting"
-        pattern="^(CM|DA|DS|NC|MM|ON|WB)$"
-    />
-    <regularExpressionValidator
-        selector="."
-        message="Producers should use one of the following values within an attendance mode element: Campus, Distance with attendance, Distance without attendance, Face-to-face non-campus, Mixed mode, Online (no attendance), Work-based"
-        status="Warning"
-        validationGroup="Formatting"
-        pattern="^(Campus|Distance with attendance|Distance without attendance|Face\-to\-face non-campus|Mixed mode|Online \(no attendance\)|Work-based)$"
-    />
-  </elementValidation>
-  <elementValidation
-      selector="//xcri12:attendancePattern"
-    >
-    <regularExpressionValidator
-        selector="@identifier"
-        message="Producers should use one of the following codes within the attendance pattern's identifier attribute: DT, EV, TW, DR, WE, CS"
-        status="Warning"
-        validationGroup="Formatting"
-        pattern="^(DT|EV|TW|DR|WE|CS)$"
-    />
-    <regularExpressionValidator
-        selector="."
-        message="Producers should use one of the following values within an attendance pattern element: Daytime, Evening, Twilight, Day/Block release, Weekend, Customised"
-        status="Warning"
-        validationGroup="Formatting"
-        pattern="^(Daytime|Evening|Twilight|Day\/Block release|Weekend|Customised)$"
-    />
-  </elementValidation>
   <elementValidation
       selector="//xcri12:venue"
     >

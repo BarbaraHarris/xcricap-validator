@@ -119,6 +119,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests\ContentValidation\VDEXValidator.AttendancePattern.cs" />
+    <Compile Include="UnitTests\ContentValidation\VDEXValidator.AttendanceMode.cs" />
     <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.cs" />
@@ -127,9 +129,6 @@
     <Compile Include="UnitTests\ContentValidation\PostCodeValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\PostCodeValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\PostCodeValidator.Valid.cs" />
-    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.AttendancePattern.cs" />
-    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.AttendanceMode.cs" />
-    <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.StudyMode.cs" />
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.XmlLang.cs" />
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\StringLengthValidator.Invalid.cs" />
