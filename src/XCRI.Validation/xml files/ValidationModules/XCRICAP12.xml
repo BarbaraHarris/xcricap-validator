@@ -137,50 +137,6 @@
         </div>
       </furtherInformation>
     </numberValidator>
-    <!--
-    <numberValidator
-        selector="count(//dc:hasPart)"
-        message="hasPart is used for compatibility with EN15982 but should not be used"
-        minimum="0"
-        maximum="0"
-        status="Warning"
-        validationGroup="Structure">
-      <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
-          <ul class="links">
-            <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
-            </li>
-          </ul>
-        </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
-          Remove the isPartOf element.
-        </div>
-      </furtherInformation>
-    </numberValidator>
-    <numberValidator
-        selector="count(//dc:isPart)"
-        message="hasPart is used for compatibility with EN15982 but should not be used"
-        minimum="0"
-        maximum="0"
-        status="Warning"
-        validationGroup="Structure">
-      <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
-          <ul class="links">
-            <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
-            </li>
-          </ul>
-        </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
-          Remove the isPartOf element.
-        </div>
-      </furtherInformation>
-    </numberValidator>
-    -->
     <manualValidator
         selector="//dc:contributor"
         message="The contributor element should not be used for general contact information and should only be used when other refinements (for example: presenter or lecturer) are not available."
@@ -812,5 +768,30 @@
       validationGroup="Structure"
       status="Warning"
     />
+  </elementValidation>
+  <elementValidation
+      selector="//mlo:qualification"
+    >
+    <numberValidator
+        selector="count(./dc:identifier)"
+        message="All qualifications should contain an identifier element"
+        minimum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:title)"
+        message="All qualifications should contain a title element"
+        minimum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:awardedBy)"
+        message="All qualifications should contain an awardedBy element"
+        minimum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
   </elementValidation>
 </contentValidators>
