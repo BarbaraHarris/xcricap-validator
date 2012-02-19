@@ -420,7 +420,7 @@
     </ageValidator>
     <!-- Language code validation. List from http://www.loc.gov/standards/iso639-2/php/English_list.php. -->
     <regularExpressionValidator
-      selector="//@xml:lang"
+      selector="//@xml:lang|//mlo:languageOfInstruction|//mlo:languageOfAssessment"
       message="Any explicit language set must be one of the 2-character ISO 639-1 character codes."
       status="Exception"
       validationGroup="Formatting"
@@ -440,7 +440,6 @@
         </div>
       </furtherInformation>
     </regularExpressionValidator>
-    <!-- languageOfInstruction and languageOfAssessment -->
     <!-- descriptions with a href attribute must contain nothing. -->
     <stringLengthValidator
         selector="//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]"
@@ -626,7 +625,62 @@
         status="Exception"
         validationGroup="Structure"
       />
-    <!-- "A presentation SHOULD include a duration element, or start and end dates, or both" -->
+    <numberValidator
+        selector="count(./xcri12:applyTo)"
+        message="All presentations should contain an applyTo element"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:attendanceMode)"
+        message="All presentations should contain an attendanceMode element"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:attendancePattern)"
+        message="All presentations should contain an attendancePattern element"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:studyMode)"
+        message="All presentations should contain a studyMode element"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./mlo:url)"
+        message="All presentations should contain a url element"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:identifier)"
+        message="All presentations should contain an identifier element"
+        minimum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./mlo:start)"
+        message="All presentations should contain a start element"
+        minimum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./dc:title)"
+        message="All presentations should contain a title element"
+        minimum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
   </elementValidation>
   <elementValidation
       selector="//xcri12:image"

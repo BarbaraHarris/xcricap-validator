@@ -28,6 +28,48 @@ namespace TestProject.UnitTests.ContentValidation
             return new XCRI.Validation.ContentValidation.RegularExpressionValidator();
         }
 
+        protected string _Image_ValidExtensions = @"(\.jpe?g|\.png)";
+
+        [TestMethod]
+        public void Images_Valid_Extensions_JPEG()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "http://www.blah.ac.uk/images/logo.jpeg",
+                _Image_ValidExtensions
+                ));
+        }
+
+        [TestMethod]
+        public void Images_Valid_Extensions_JPG()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "http://www.blah.ac.uk/images/logo.jpg",
+                _Image_ValidExtensions
+                ));
+        }
+
+        [TestMethod]
+        public void Images_Valid_Extensions_PNG()
+        {
+            Assert.IsTrue(this.PassesValidationString
+                (
+                "http://www.blah.ac.uk/images/logo.png",
+                _Image_ValidExtensions
+                ));
+        }
+
+        [TestMethod]
+        public void Images_Invalid_Extensions_ASP()
+        {
+            Assert.IsFalse(this.PassesValidationString
+                (
+                "http://www.blah.ac.uk/images/logo.asp",
+                _Image_ValidExtensions
+                ));
+        }
+
         [TestMethod]
         public override void SelectAttribute()
         {
