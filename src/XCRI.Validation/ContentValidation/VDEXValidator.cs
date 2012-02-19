@@ -52,6 +52,26 @@ namespace XCRI.Validation.ContentValidation
                 validCaptions.Add(e.Value);
             this.ValidCaptions = validCaptions;
         }
+        public bool IsValidIdentifier(string identifier)
+        {
+            if (
+                null == this.ValidIdentifiers
+                )
+                this.Setup();
+            return this.ValidIdentifiers.Where(s =>
+                String.Equals(s, identifier, (this.IsCaptionCaseSensitive ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase))
+                ).Count() > 0;
+        }
+        public bool IsValidElementValue(string value)
+        {
+            if (
+                null == this.ValidCaptions
+                )
+                this.Setup();
+            return this.ValidCaptions.Where(s => 
+                String.Equals(s, value, (this.IsCaptionCaseSensitive ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase))
+                ).Count() > 0;
+        }
         public override bool PassesValidation(System.Xml.Linq.XObject node, out string details)
         {
             if (
@@ -67,22 +87,22 @@ namespace XCRI.Validation.ContentValidation
             if (null != element.Attribute("identifier"))
             {
                 var identifier = element.Attribute("identifier").Value;
-                if (0 == this.ValidIdentifiers.Where(s => String.Equals(s, identifier, (this.IsIdentifierCaseSensitive ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase))).Count())
+                if (false == this.IsValidIdentifier(identifier))
                 {
                     details = String.Format
                         (
-                        "The value {0}  was not a valid identifier value",
+                        "The value {0} was not a valid identifier value",
                         identifier
                         );
                     return false;
                 }
             }
             var value = element.Value;
-            if(0 == this.ValidCaptions.Where(s => String.Equals(s, value, (this.IsCaptionCaseSensitive ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase))).Count())
+            if(false == this.IsValidElementValue(value))
             {
                 details = String.Format
                     (
-                    "The value {0}  was not a valid element value",
+                    "The value {0} was not a valid element value",
                     value
                     );
                 return false;
