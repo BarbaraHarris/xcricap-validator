@@ -28,6 +28,7 @@ namespace XCRI.Validation
         public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
         public XmlRetrieval.ISource<T> Source { get; set; }
         public IXmlCachingResolver XmlCachingResolver { get; set; }
+        public bool AttemptSchemaLocationInjection { get; set; }
         public ValidationService()
             : this(null, null, null, null, null, null)
         {
@@ -64,6 +65,7 @@ namespace XCRI.Validation
             XmlCachingResolver xmlCachingResolver
             )
         {
+            this.AttemptSchemaLocationInjection = true;
             this.Source = source;
             this.TargetCulture = targetCulture;
             this.XmlCachingResolver = xmlCachingResolver;
@@ -148,15 +150,27 @@ namespace XCRI.Validation
                     (null != doc)
                     &&
                     (results.Count != 0)
+                    &&
+                    this.AttemptSchemaLocationInjection
                     )
                 {
                     XmlNamespaceManager xmlnsmgr = new XmlNamespaceManager(new NameTable());
                     xmlnsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
                     if (((double)doc.XPathEvaluate("count(//xsi:schemaLocation)", xmlnsmgr)) == 0)
                     {
+                        results.Clear();
+                        // Add in to say we're missing an xsi:schemaLocation attribute
+                        ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", new ValidationException("Missing xsi:schemaLocation attribute"));
+                        r.Instances.Add(new ValidationInstance()
+                        {
+                            LineNumber = (doc.Root as IXmlLineInfo).LineNumber,
+                            LinePosition = (doc.Root as IXmlLineInfo).LinePosition,
+                            Status = ValidationStatus.Warning
+                        });
+                        if (null != r)
+                            results.Add(r.Message, r);
                         // If we're missing an xsi:schemaLocation then it'll all go to pot.
                         // Be nice and try and add the data.
-                        results.Clear();
                         XmlSchemaSet schemaSet = new XmlSchemaSet(new NameTable());
                         schemaSet.XmlResolver = this.XmlCachingResolver as XmlResolver;
                         schemaSet.Add

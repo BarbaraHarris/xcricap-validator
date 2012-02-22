@@ -18,5 +18,6 @@ namespace XCRI.Validation
         XmlRetrieval.ISource<T> Source { get; set; }
         IList<Logging.ILog> Logs { get; }
         IList<Logging.ITimedLog> TimedLogs { get; }
+        bool AttemptSchemaLocationInjection { get; set; }
     }
 }

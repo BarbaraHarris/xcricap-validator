@@ -35,6 +35,7 @@ namespace TestProject.XmlValidationTests
             };
 
             var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
             t.XmlExceptionInterpreters.Add(interpreter);
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
@@ -66,8 +67,8 @@ namespace TestProject.XmlValidationTests
                     );
                 return XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus.Interpreted;
             };
-
             var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
             t.XmlExceptionInterpreters.Add(interpreter);
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
@@ -97,6 +98,7 @@ namespace TestProject.XmlValidationTests
             };
 
             var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
             t.XmlExceptionInterpreters.Add(interpreter);
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
@@ -126,6 +128,7 @@ namespace TestProject.XmlValidationTests
             };
 
             var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
             t.XmlExceptionInterpreters.Add(interpreter);
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
@@ -155,6 +158,7 @@ namespace TestProject.XmlValidationTests
             };
 
             var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
             t.XmlExceptionInterpreters.Add(interpreter);
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
@@ -184,6 +188,7 @@ namespace TestProject.XmlValidationTests
             };
 
             var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
             t.XmlExceptionInterpreters.Add(interpreter);
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
