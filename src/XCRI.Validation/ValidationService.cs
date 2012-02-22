@@ -156,7 +156,7 @@ namespace XCRI.Validation
                 {
                     XmlNamespaceManager xmlnsmgr = new XmlNamespaceManager(new NameTable());
                     xmlnsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
-                    if (((double)doc.XPathEvaluate("count(//xsi:schemaLocation)", xmlnsmgr)) == 0)
+                    if (((double)doc.XPathEvaluate("count(//@xsi:schemaLocation)", xmlnsmgr)) == 0)
                     {
                         results.Clear();
                         // Add in to say we're missing an xsi:schemaLocation attribute
