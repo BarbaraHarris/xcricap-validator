@@ -67,13 +67,11 @@ namespace XCRI.Validation.XmlRetrieval
                 {
                     if (null == nsr)
                         continue;
-                    if (false == nsr.Namespace.IsAbsoluteUri)
-                        throw new ArgumentException("Namespace URIs must be absolute");
                     if (false == nsr.SchemaLocation.IsAbsoluteUri)
                         throw new ArgumentException("Schema locations must be absolute");
                     readerSettings.Schemas.Add
                         (
-                        nsr.Namespace.ToString(),
+                        nsr.Namespace,
                         nsr.SchemaLocation.ToString()
                         );
                 }

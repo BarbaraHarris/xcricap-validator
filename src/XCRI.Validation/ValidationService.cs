@@ -11,6 +11,7 @@ using XCRI.Validation.XmlExceptionInterpretation;
 using XCRI.Validation.ContentValidation;
 using XCRI.Validation.XmlRetrieval;
 using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace XCRI.Validation
 {
@@ -18,13 +19,17 @@ namespace XCRI.Validation
     {
         public IList<IInterpreter> XmlExceptionInterpreters { get; protected set; }
         public IList<IValidator> XmlContentValidators { get; protected set; }
-        public IList<NamespaceReference> NamespaceReferences { get; protected set; }
+        public IList<NamespaceReference> NamespaceReferences
+        {
+            get { return this.Source.NamespaceReferences; }
+        }
         public System.Globalization.CultureInfo TargetCulture { get; set; }
         public IList<Logging.ILog> Logs { get; protected set; }
         public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
         public XmlRetrieval.ISource<T> Source { get; set; }
+        public IXmlCachingResolver XmlCachingResolver { get; set; }
         public ValidationService()
-            : this(null, null, null, null, null)
+            : this(null, null, null, null, null, null)
         {
         }
         public ValidationService
@@ -33,7 +38,8 @@ namespace XCRI.Validation
             IEnumerable<IValidator> contentValidators,
             IEnumerable<Logging.ILog> logs,
             IEnumerable<Logging.ITimedLog> timedLogs,
-            XmlRetrieval.ISource<T> source
+            XmlRetrieval.ISource<T> source,
+            XmlCachingResolver xmlCachingResolver
             )
             : this
             (
@@ -42,7 +48,8 @@ namespace XCRI.Validation
             contentValidators,
             logs,
             timedLogs,
-            source
+            source,
+            xmlCachingResolver
             )
         {
         }
@@ -53,12 +60,13 @@ namespace XCRI.Validation
             IEnumerable<IValidator> contentValidators,
             IEnumerable<Logging.ILog> logs,
             IEnumerable<Logging.ITimedLog> timedLogs,
-            XmlRetrieval.ISource<T> source
+            XmlRetrieval.ISource<T> source,
+            XmlCachingResolver xmlCachingResolver
             )
         {
-            this.NamespaceReferences = new List<NamespaceReference>();
             this.Source = source;
             this.TargetCulture = targetCulture;
+            this.XmlCachingResolver = xmlCachingResolver;
             if (null != interpreters)
                 this.XmlExceptionInterpreters = new List<IInterpreter>(interpreters.OrderBy(i => i.Order));
             else
@@ -134,6 +142,44 @@ namespace XCRI.Validation
                     });
                     if (null != r)
                         results.Add(r.Message, r);
+                }
+                // Check to see whether there was an xsi:schemaLocation
+                if (
+                    (null != doc)
+                    &&
+                    (results.Count != 0)
+                    )
+                {
+                    XmlNamespaceManager xmlnsmgr = new XmlNamespaceManager(new NameTable());
+                    xmlnsmgr.AddNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+                    if (((double)doc.XPathEvaluate("count(//xsi:schemaLocation)", xmlnsmgr)) == 0)
+                    {
+                        // If we're missing an xsi:schemaLocation then it'll all go to pot.
+                        // Be nice and try and add the data.
+                        results.Clear();
+                        XmlSchemaSet schemaSet = new XmlSchemaSet(new NameTable());
+                        schemaSet.XmlResolver = this.XmlCachingResolver as XmlResolver;
+                        schemaSet.Add
+                            (
+                            "http://xcri.org/profiles/1.2/catalog",
+                            "http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd"
+                            );
+                        schemaSet.Add
+                            (
+                            "http://xcri.org/profiles/1.2/catalog/terms",
+                            "http://www.xcri.co.uk/bindings/xcri_cap_terms_1_2.xsd"
+                            );
+                        schemaSet.Add
+                            (
+                            "http://xcri.co.uk",
+                            "http://www.xcri.co.uk/bindings/coursedataprogramme.xsd"
+                            );
+                        schemaSet.Compile();
+                        doc.Validate(schemaSet, new ValidationEventHandler((o, e) =>
+                            {
+                                this.Source.ValidationEventHandler(e);
+                            }));
+                    }
                 }
                 if (null != doc)
                 {

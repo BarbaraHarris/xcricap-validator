@@ -8,9 +8,9 @@ namespace XCRI.Validation
     public class NamespaceReference
     {
 
-        public Uri Namespace { get; internal set; }
+        public string Namespace { get; set; }
 
-        public Uri SchemaLocation { get; internal set; }
+        public Uri SchemaLocation { get; set; }
 
     }
 
