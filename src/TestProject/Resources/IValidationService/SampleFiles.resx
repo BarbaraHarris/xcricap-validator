@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="NorthLindseyCollege_20120223" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog" xmlns:xcri="http://xcri.org/profiles/1.2/catalog/terms" xmlns:credit="http://purl.org/net/cm" xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:mlo="http://purl.org/net/mlo" xmlns:x="http://www.w3.org/1999/xhtml"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd http://xcri.org/profiles/1.2/catalog/terms http://www.xcri.co.uk/bindings/xcri_cap_terms_1_2.xsd" generated="2012-02-14T10:30:06.75Z"&gt;
+	&lt;description&gt; Further and Higher Education courses offered by North Lindsey College in Scunthorpe. Updated weekly&lt;/description&gt;
+	&lt;provider&gt;
+		&lt;description&gt;
+			&lt;x:div&gt;
+				&lt;x:h1&gt;Welcome to North Lindsey College&lt;/x:h1&gt;
+				&lt;x:p&gt;North Lindsey College is &lt;x:span style="COLOR: rgb(212,0,80); FONT-WEIGHT: bold"&gt;outstanding&lt;/x:span&gt; according to the Ofsted inspection of September 2010.&lt;/x:p&gt;
+				&lt;x:p&gt;We are the largest provider of post-16 education and training in North Lincolnshire, offering a huge range of full-time, part-time and apprenticeship courses at a range of levels. Our learners benefit from excellent facilities plus friendly and vocationally experienced staff.&lt;/x:p&gt;
+				&lt;x:p&gt;Whatever your needs, we have a course for you. Everyone is welcome.&lt;/x:p&gt;
+				&lt;x:p&gt;We are also an associate college of the University of Lincoln, and offer a range of HNCs, HNDs, degrees and an exciting new range of foundation degrees.&lt;/x:p&gt;
+				&lt;x:p&gt;In addition, since September 2008 we have been a smoke free College with smoking no longer permitted anywhere on the College campus.&lt;/x:p&gt;
+			&lt;/x:div&gt;
+		&lt;/description&gt;
+		&lt;dc:identifier xsi:type='ukrlp:ukprn'&gt;10004695&lt;/dc:identifier&gt; 
+		&lt;dc:title&gt;North Lindsey College&lt;/dc:title&gt; 
+		&lt;mlo:url&gt;http://www.northlindsey.ac.uk/&lt;/mlo:url&gt;
+		&lt;mlo:location&gt;
+			&lt;mlo:postcode&gt;DN17 1AJ&lt;/mlo:postcode&gt;
+			&lt;mlo:address xsi:type='addressLine'&gt;North Lindsey College&lt;/mlo:address&gt;
+			&lt;mlo:address xsi:type='addressLine'&gt;Kingsway&lt;/mlo:address&gt;
+			&lt;mlo:address xsi:type='addressLine'&gt;Scunthorpe&lt;/mlo:address&gt;
+			&lt;mlo:address xsi:type='addressLine'&gt;North Lincolnshire&lt;/mlo:address&gt;
+			&lt;mlo:phone&gt;01724 281111&lt;/mlo:phone&gt;
+			&lt;mlo:fax&gt;01724 294020&lt;/mlo:fax&gt; 
+			&lt;mlo:email&gt;info@northlindsey.ac.uk&lt;/mlo:email&gt; 
+			&lt;mlo:url&gt;http://www.northlindsey.ac.uk/admin/page_edit.php?page_seq=16&lt;/mlo:url&gt;
+			&lt;town&gt;Scunthorpe&lt;/town&gt;
+		&lt;/mlo:location&gt;
+		&lt;course&gt;
+			&lt;description&gt;
+				&lt;x:div&gt;
+					&lt;x:p&gt;If you love drawing, painting and making things and have an interest in creative studies such as art and design and want to develop your skills and self confidence, this course will be suitable for you. The course is mainly practical, learning how to produce a variety of creative images using drawing, painting and digital media, however evidence of written work is also required.&lt;/x:p&gt;
+					&lt;x:p&gt;This exciting one-year course focuses on a vocational pathway in Art and Design and Digital. It will introduce learners to a variety of drawing, painting, IT and craft skills used in the creative industry. Learners will have the opportunity to experiment with the techniques they have been taught and produce a range of art, design, digital media and craft work outcomes. Learners will also study 3 essential functional skills in English, Mathematics and IT to support progression to higher level courses. Where possible the functional skills will be embedded into the pathway options to enable learners to practise what they have been taught. Learners will also cover Personal and Social Development units to support the main programme and develop independent thinking&lt;/x:p&gt;
+				&lt;/x:div&gt;
+			&lt;/description&gt;
+			&lt;dc:identifier&gt;PF12001&lt;/dc:identifier&gt;
+			&lt;dc:subject&gt;creative arts&lt;/dc:subject&gt;
+			&lt;dc:subject&gt;drawing&lt;/dc:subject&gt;
+			&lt;dc:subject&gt;presenting&lt;/dc:subject&gt;
+			&lt;dc:title&gt;LEVEL 1 DIPLOMA IN ART, DESIGN &amp;amp; MEDIA&lt;/dc:title&gt;
+			&lt;mlo:url&gt;http://www.northlindsey.ac.uk/courses/PF12001&lt;/mlo:url&gt;
+			&lt;abstract&gt;This exciting one-year course focuses on a vocational pathway in Art, Design and Digital Media&lt;/abstract&gt;
+			&lt;applicationprocedure&gt;Instructions on how to apply&lt;/applicationprocedure&gt;
+			&lt;assessment&gt;Your progress will be measured through practical projects, written assignments, internal and external assessments. You will receive information about this through verbal feedback from your tutor, written feedback from an assignment or project and related grading of your work. Assessment of learner work is monitored by an internal verifier. Random sampling of learner work may take place from the examining body. Functional skills will have an external test&lt;/assessment&gt;
+			&lt;learningoutcome&gt;On the Level 1 Diploma in Creative Arts course, learners will study a range of units such as Drawing, Painting, 3D Design, Digital Photography, Multimedia and Printmaking. You will also cover personal and social development skills such as working towards goals, developing self and working as part of a group. Functional skills are also an important part of the programme and you will study English, Mathematics and IT at a level which is suitable for you as an individual&lt;/learningoutcome&gt;
+			&lt;objective&gt;The majority of the course will be either spent in art and design studios, classrooms or workshops. A lot of your time will be spent working on practical based lessons, but there will be some written work and tasks. You will be expected to work both as an individual and in teams. You will also be expected to attend theory classes in functional skills to improve your skill level&lt;/objective&gt;
+			&lt;prerequisites&gt;The course has been developed for learners who have a minimum of 2 GCSEs at Grades F or above. All learners will be required to attend an interview with a portfolio of work to assess their current skill level. You will also be assessed to establish which level of functional skills you should be studying&lt;/prerequisites&gt;
+			&lt;regulations&gt;No information available&lt;/regulations&gt;
+			&lt;qualification&gt;
+				&lt;dc:identifier&gt;50089857&lt;/dc:identifier&gt;
+				&lt;dc:title&gt;Diploma in Vocational Studies&lt;/dc:title&gt;
+				&lt;abbr&gt;L1 DIP&lt;/abbr&gt;
+				&lt;dc:description&gt;No information available&lt;/dc:description&gt;
+				&lt;educationlevel&gt;Level 1&lt;/educationlevel&gt;
+				&lt;awardedby&gt;EDEXCEL - Pearson Education Ltd&lt;/awardedby&gt;
+				&lt;accreditedby&gt;QCF&lt;/accreditedby&gt;
+			&lt;/qualification&gt;
+			&lt;presentation&gt;
+				&lt;age&gt;Any&lt;/age&gt;
+				&lt;applyfrom dtf='2011-10-01'&gt;1 October 2011&lt;/applyfrom&gt;
+				&lt;applyto&gt;http://www.northlindsey.ac.uk/&lt;/applyto&gt;
+				&lt;applyuntil dtf='2012-07-31'&gt;31 July 2012&lt;/applyuntil&gt;
+				&lt;attendanceMode identifier='CM'&gt;Campus&lt;/attendanceMode&gt;
+				&lt;attendancePattern identifier='DT'&gt;Daytime&lt;/attendancePattern&gt;
+				&lt;mlo:cost&gt;UK Fees: 16-18 exempt, 19+ to be advised&lt;/mlo:cost&gt;
+				&lt;mlo:duration interval='P1Y'&gt;One year&lt;/mlo:duration&gt;
+				&lt;end dtf='2012-09-05'&gt;September 2012&lt;/end&gt;
+				&lt;dc:identifier&gt;PF12001&lt;/dc:identifier&gt;
+				&lt;mlo:languageOfAssessment&gt;en&lt;/mlo:languageOfAssessment&gt;
+				&lt;mlo:languageOfInstruction&gt;en&lt;/mlo:languageOfInstruction&gt;
+				&lt;dc:start dtf='2013-06-30'&gt;June 2013&lt;/dc:start&gt;
+				&lt;studyMode identifier='FT'&gt;Full Time&lt;/studyMode&gt;
+				&lt;dc:title&gt;LEVEL 1 DIPLOMA IN ART, DESIGN &amp;amp; MEDIA&lt;/dc:title&gt;
+				&lt;mlo:url&gt;http://www.northlindsey.ac.uk/courses/PF12001&lt;/mlo:url&gt;
+			&lt;/presentation&gt;
+		&lt;/course&gt;
+	&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+</root>

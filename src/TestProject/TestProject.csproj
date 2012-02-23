@@ -104,6 +104,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\IValidationService\SampleFiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SampleFiles.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\IValidationService\Valid\Formatting.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="SampleFiles\NorthLindseyCollege_20120223.cs" />
     <Compile Include="UnitTests\ContentValidation\VDEXValidator.AttendancePattern.cs" />
     <Compile Include="UnitTests\ContentValidation\VDEXValidator.AttendanceMode.cs" />
     <Compile Include="UnitTests\ContentValidation\EmailAddressValidator.Invalid.cs" />
@@ -216,6 +222,10 @@
     <EmbeddedResource Include="Resources\IValidationService\Invalid\Structure.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Structure.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\SampleFiles.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleFiles.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Valid\Formatting.resx">
       <Generator>ResXFileCodeGenerator</Generator>
