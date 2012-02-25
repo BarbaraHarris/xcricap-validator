@@ -35,6 +35,8 @@ namespace XCRI.Validation.XmlExceptionInterpretation
             IInterpreter v = null;
             if (typeof(T) == typeof(RegularExpressionInterpreter))
                 v = new RegularExpressionInterpreter();
+            if (typeof(T) == typeof(InvalidChildElementInterpreter))
+                v = new InvalidChildElementInterpreter();
             if (v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName + "' could not be loaded");
             if (null != this.Logs)

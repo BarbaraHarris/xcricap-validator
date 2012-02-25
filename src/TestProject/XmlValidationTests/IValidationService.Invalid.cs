@@ -42,6 +42,28 @@ namespace TestProject.XmlValidationTests
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
         }
 
+        [TestMethod]
+        public void Invalid_Formatting_ElementCasing()
+        {
+            string toValidate = Resources.IValidationService.Invalid.Formatting.ElementCasing;
+            var interpreter = new XCRI.Validation.XmlExceptionInterpretation.InvalidChildElementInterpreter();
+            var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
+            t.XmlExceptionInterpreters.Add(interpreter);
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
+            Assert.AreEqual<int>(1, results.Count, "1 result expected");
+            Assert.AreEqual<int>(1, results[0].Count, "1 instance expected");
+            Assert.AreEqual<int>(1, results[0].FailedCount, "1 failed expected");
+            Assert.AreEqual<int>(0, results[0].SuccessCount, "0 successes expected");
+            Assert.IsTrue(results[0].Instances[0].LineNumber.HasValue, "Line number expected");
+            Assert.AreEqual<int>(4, results[0].Instances[0].LineNumber.Value, "Line number expected to be 4");
+            Assert.IsTrue(results[0].Instances[0].LinePosition.HasValue, "Line position expected");
+            Assert.AreEqual<int>(4, results[0].Instances[0].LinePosition.Value, "Line position expected to be 4");
+            Assert.AreNotEqual<string>(results[0].Exception.Message, results[0].Message, "The message returned was not interpreted.");
+            Assert.AreEqual<string>("The element 'Description' should be capitalised as 'description'.", results[0].Message, "The message returned was unexpected.");
+        }
+
         #endregion
 
         #region Namespaces
@@ -103,6 +125,28 @@ namespace TestProject.XmlValidationTests
             t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
             var results = t.Validate(toValidate);
             Assert.AreEqual<int>(1, results.Count, "1 exception expected");
+        }
+
+        [TestMethod]
+        public void Invalid_Formatting_InvalidElementNamespace()
+        {
+            string toValidate = Resources.IValidationService.Invalid.Namespaces.InvalidElementNamespace;
+            var interpreter = new XCRI.Validation.XmlExceptionInterpretation.InvalidChildElementInterpreter();
+            var t = base.Instantiate();
+            t.AttemptSchemaLocationInjection = false;
+            t.XmlExceptionInterpreters.Add(interpreter);
+            t.Source = new XCRI.Validation.XmlRetrieval.StringSource(null, this.XmlResolver);
+            var results = t.Validate(toValidate);
+            Assert.AreEqual<int>(1, results.Count, "1 result expected");
+            Assert.AreEqual<int>(1, results[0].Count, "1 instance expected");
+            Assert.AreEqual<int>(1, results[0].FailedCount, "1 failed expected");
+            Assert.AreEqual<int>(0, results[0].SuccessCount, "0 successes expected");
+            Assert.IsTrue(results[0].Instances[0].LineNumber.HasValue, "Line number expected");
+            Assert.AreEqual<int>(4, results[0].Instances[0].LineNumber.Value, "Line number expected to be 4");
+            Assert.IsTrue(results[0].Instances[0].LinePosition.HasValue, "Line position expected");
+            Assert.AreEqual<int>(4, results[0].Instances[0].LinePosition.Value, "Line position expected to be 4");
+            Assert.AreNotEqual<string>(results[0].Exception.Message, results[0].Message, "The message returned was not interpreted.");
+            Assert.AreEqual<string>("The element 'description' should be in namespace 'http://purl.org/dc/elements/1.1/', not 'http://xcri.org/profiles/1.2/catalog'.", results[0].Message, "The message returned was unexpected.");
         }
 
         [TestMethod]

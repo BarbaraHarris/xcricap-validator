@@ -156,6 +156,14 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="InvalidElementNamespace" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; 
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd" generated="2012-02-14T10:30:06.75Z"&gt;
+	&lt;provider&gt;
+		&lt;description&gt;hello world&lt;/description&gt;
+	&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="NoDocumentNamespace" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog&gt;

@@ -14,6 +14,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
         public RegexOptions Options { get; set; }
         public bool Invert { get; set; }
         public string Pattern { get; set; }
+        public string Message { get; set; }
         public List<Condition> Conditions { get; protected set; }
 
         public RegularExpressionInterpreter()
@@ -25,7 +26,8 @@ namespace XCRI.Validation.XmlExceptionInterpretation
         public override InterpretationStatus Interpret
             (
             Exception e,
-            out XElement furtherInformation
+            out XElement furtherInformation,
+            ref string message
             )
         {
             if (null == e)

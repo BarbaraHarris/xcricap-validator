@@ -26,7 +26,8 @@ namespace XCRI.Validation.XmlExceptionInterpretation
         public abstract InterpretationStatus Interpret
             (
             Exception e,
-            out XElement furtherInformation
+            out XElement furtherInformation,
+            ref string message
             );
 
         #endregion

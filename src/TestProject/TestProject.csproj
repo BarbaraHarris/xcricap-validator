@@ -175,6 +175,7 @@
     <Compile Include="XmlValidationTests\IValidationService.Invalid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.Valid.cs" />
     <Compile Include="XmlValidationTests\ValidationService.cs" />
+    <Compile Include="XmlValidationTests\XmlExceptionInterpretation\InvalidChildElementInterpretation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XCRI.Validation\XCRI.Validation.csproj">

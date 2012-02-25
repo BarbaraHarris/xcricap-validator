@@ -89,6 +89,7 @@
     <Compile Include="ValidationResult.cs" />
     <Compile Include="XmlExceptionInterpretation\IInterpreterFactory.cs" />
     <Compile Include="XmlExceptionInterpretation\InterpretationStatus.cs" />
+    <Compile Include="XmlExceptionInterpretation\InvalidChildElementInterpreter.cs" />
     <Compile Include="XmlExceptionInterpretation\RegularExpressionInterpreter.cs" />
     <Compile Include="XmlExceptionInterpretation\InterpreterFactory.cs" />
     <Compile Include="XmlRetrieval\ISource.cs" />

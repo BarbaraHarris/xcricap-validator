@@ -24,7 +24,8 @@ namespace TestProject.XmlValidationTests
             public override XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus Interpret
                 (
                 Exception e,
-                out XElement furtherInformation
+                out XElement furtherInformation,
+                ref string message
                 )
             {
                 if (null == e)

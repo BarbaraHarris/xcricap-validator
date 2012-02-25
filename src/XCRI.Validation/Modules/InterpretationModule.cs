@@ -77,6 +77,9 @@ namespace XCRI.Validation.Modules
                         (false == String.IsNullOrEmpty(interpreterNode.Attribute("pattern").Value))
                         )
                         regularExpressionInterpreter.Pattern = interpreterNode.Attribute("pattern").Value;
+                    if (null != interpreterNode.Attribute("message"))
+                        regularExpressionInterpreter.Message
+                            = interpreterNode.Attribute("message").Value;
                     foreach (XElement e in interpreterNode.XPathSelectElements("./if"))
                     {
                         switch (e.Attribute("type").Value.ToLower())
@@ -99,6 +102,12 @@ namespace XCRI.Validation.Modules
                     }
                     interpreter = regularExpressionInterpreter;
                     break;
+                case "invalidchildelementinterpreter":
+                    var childElementInterpreter = this.InterpreterFactory.GetInterpreter<XmlExceptionInterpretation.InvalidChildElementInterpreter>();
+                    childElementInterpreter.ElementNameCasingIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNameCasingIncorrect']");
+                    childElementInterpreter.ElementNamespaceIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNamespaceIncorrect']");
+                    interpreter = childElementInterpreter;
+                    break;
             }
             if (null == interpreter)
                 throw new System.IO.InvalidDataException(String.Format
@@ -106,8 +115,9 @@ namespace XCRI.Validation.Modules
                     "The interpreter type {0} was not handled",
                     interpreterNode.Name
                     ));
-            interpreter.PropertyName
-                = interpreterNode.Attribute("propertyName").Value;
+            if (null != interpreterNode.Attribute("propertyName"))
+                interpreter.PropertyName
+                    = interpreterNode.Attribute("propertyName").Value;
             return interpreter;
         }
     }

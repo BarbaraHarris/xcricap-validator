@@ -576,67 +576,181 @@
     >
     <numberValidator
         selector="count(./mlo:start)"
-        message="All presentations should contain a start element"
+        message="All presentations should contain a start element in the MLO namespace"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain a "start" element within the MLO (http://purl.org/net/mlo) namespace.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>Presentations must contain a start node, and the start node must be within the correct namespace.  For example, the following is valid provided that a namespace prefix of "mlo" has been declared pointing at the correct namespace:</p>
+          <pre>&lt;presentation&gt;&lt;mlo:start&gt;September 2012&lt;mlo:start&gt;&lt;/presentation&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;presentation&gt;&lt;start&gt;September 2012&lt;start&gt;&lt;/presentation&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain a "start" element, and that element exists within the MLO (http://purl.org/net/mlo) namespace (typically a namespace prefix of "mlo").</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./xcri12:applyTo)"
-        message="All presentations should contain an applyTo element"
+        message="All presentations should contain an applyTo element in the XCRI-CAP 1.2 namespace"
         minimum="1"
         status="Warning"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain an "applyTo" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid</p>
+          <pre>&lt;applyTo&gt;Apply in writing to the university directly&lt;/applyTo&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;applyto&gt;Apply in writing to the university directly&lt;/applyto&gt;</pre>
+          <pre>&lt;APPLYTO&gt;Apply in writing to the university directly&lt;/APPLYTO&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain an "applyTo" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./xcri12:attendanceMode)"
-        message="All presentations should contain an attendanceMode element"
+        message="All presentations should contain an attendanceMode element in the XCRI-CAP 1.2 namespace"
         minimum="1"
         status="Warning"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain an "attendanceMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid</p>
+          <pre>&lt;attendanceMode identifier="CM"&gt;Campus&lt;/attendanceMode&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;attendancemode identifier="CM"&gt;Campus&lt;/attendancemode&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain an "attendanceMode" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./xcri12:attendancePattern)"
-        message="All presentations should contain an attendancePattern element"
+        message="All presentations should contain an attendancePattern element in the XCRI-CAP 1.2 namespace"
         minimum="1"
         status="Warning"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain an "attendancePattern" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid</p>
+          <pre>&lt;attendancePattern identifier="CM"&gt;Campus&lt;/attendancePattern&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;attendancepattern identifier="WE"&gt;Weekend&lt;/attendancepattern&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain an "attendancePattern" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./xcri12:studyMode)"
-        message="All presentations should contain a studyMode element"
+        message="All presentations should contain a studyMode element in the XCRI-CAP 1.2 namespace"
         minimum="1"
         status="Warning"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain a "studyMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid</p>
+          <pre>&lt;studyMode identifier="FL"&gt;Flexible&lt;/studyMode&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;studymode identifier="FL"&gt;Flexible&lt;/studymode&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain a "studyMode" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./mlo:url)"
-        message="All presentations should contain a url element"
+        message="All presentations should contain a url element in the MLO namespace"
         minimum="1"
         status="Warning"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain a "url" element within the MLO (http://purl.org/net/mlo) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid, provided the "mlo" namespace prefix has been declared correctly</p>
+          <pre>&lt;mlo:url&gt;http://www.myinstitution.ac.uk&lt;/mlo:url&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;mlo:Url&gt;http://www.myinstitution.ac.uk&lt;/mlo:Url&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain a "url" element, and that element exists within the MLO (http://purl.org/net/mlo) namespace.</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./dc:identifier)"
-        message="All presentations should contain an identifier element"
+        message="All presentations should contain an identifier element in the Dublin Core namespace"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
-      />
-    <numberValidator
-        selector="count(./mlo:start)"
-        message="All presentations should contain a start element"
-        minimum="1"
-        status="Exception"
-        validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
+          <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;dc:Identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:Identifier&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain an "identifier" element, and that element exists within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./dc:title)"
-        message="All presentations should contain a title element"
+        message="All presentations should contain a title element in the Dublin Core namespace"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All presentations should contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
+          <pre>&lt;dc:title&gt;My Educational Institution&lt;/dc:title&gt;</pre>
+          <p>Whereas the following is invalid:</p>
+          <pre>&lt;dc:Title&gt;My Educational Institution&lt;/dc:Title&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>Ensure that the presentation nodes listed below contain an "title" element, and that element exists within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.</p>
+        </div>
+      </furtherInformation>
+    </numberValidator>
   </elementValidation>
   <elementValidation
       selector="//xcri12:image"

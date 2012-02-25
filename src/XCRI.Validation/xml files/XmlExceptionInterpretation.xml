@@ -2,6 +2,52 @@
 <interpreters
 		xmlns:xhtml="http://www.w3.org/1999/xhtml"
     >
+  <invalidChildElementInterpreter
+    >
+    <FurtherInformation type="ElementNameCasingIncorrect">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <p>
+          An element was found which had incorrect capitalisation.  As XML (and hence XCRI-CAP 1.2) is case-sensitive, it is important to note that
+          all elements must use the same capitalisation as on the <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2">wiki</a>.
+        </p>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <p>
+          As an example, the following is valid
+        </p>
+        <pre>&lt;applicationProcedure&gt;Apply to the university directly in writing&lt;/applicationProcedure&gt;</pre>
+        <p>Whereas the following is not:</p>
+        <pre>&lt;applicationprocedure&gt;Apply to the university directly in writing&lt;/applicationprocedure&gt;</pre>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <p>
+          The element will need to be correctly capitalised and the validator re-run.
+        </p>
+      </div>
+    </FurtherInformation>
+    <FurtherInformation type="ElementNamespaceIncorrect">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <p>
+          An element was found which was in an incorrect namespace.  The XCRI-CAP 1.2 standard uses a number of <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Namespace">XML namespaces</a>
+          and it is important that each element is placed in the correct one.  Mostly this is done using XML prefixes.
+        </p>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <p>
+          As an example, the following is valid, provided that the "dc" prefix has been declared pointing at the Dublin Core namespace (http://purl.org/dc/elements/1.1/).
+        </p>
+        <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
+        <p>Whereas the following is not:</p>
+        <pre>&lt;xcri:identifier&gt;http://www.myinstitution.ac.uk&lt;/xcri:identifier&gt;</pre>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <p>
+          The element will need to be altered to use the correct namespace.
+          For more information on using XML prefixes, see this <a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx">help page</a>.
+        </p>
+      </div>
+    </FurtherInformation>
+  </invalidChildElementInterpreter>
   <regularExpressionInterpreter
       pattern="The '(?&lt;StartTag&gt;\w*?)' start tag on line (?&lt;LineNumber&gt;[\d{1,}\,]) position (?&lt;Position&gt;[\d{1,}\,]) does not match the end tag of '(?&lt;EndTag&gt;\w*?)'"
       propertyName="Message"

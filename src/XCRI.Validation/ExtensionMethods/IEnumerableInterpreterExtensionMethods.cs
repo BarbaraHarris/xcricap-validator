@@ -32,11 +32,14 @@ namespace XCRI.Validation.ExtensionMethods
                 if (null == i)
                     continue;
                 XElement furtherInformation = null;
+                string updatedMessage = String.Empty;
                 if (
-                    i.Interpret(exception, out furtherInformation) == InterpretationStatus.Interpreted
+                    i.Interpret(exception, out furtherInformation, ref updatedMessage) == InterpretationStatus.Interpreted
                     )
                 {
                     r.FurtherInformation = furtherInformation;
+                    if(false == String.IsNullOrWhiteSpace(updatedMessage))
+                        r.Message = updatedMessage;
                     return r;
                 }
             }
