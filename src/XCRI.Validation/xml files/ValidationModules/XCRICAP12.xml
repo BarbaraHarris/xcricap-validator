@@ -840,7 +840,7 @@
       status="Exception"
     />
     <numberValidator
-      selector="count(./(* except xcri12:provider))"
+      selector="count(./*[not(self::xcri12:provider)])"
       message="A venue must only contain a single provider element (no other elements and no text)."
       minimum="0"
       maximum="0"
