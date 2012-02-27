@@ -553,7 +553,7 @@
         validationGroup="Structure"
       />
     <numberValidator
-        selector="count(./xcri12:qualification)"
+        selector="count(./mlo:qualification)"
         message="The qualification element is mandatory if a course leads to awards of a qualification."
         minimum="1"
         status="Warning"

@@ -79,6 +79,7 @@ namespace TestProject.UnitTests.ContentValidation
         {
             Assert.IsTrue(this.IsValidElementValue(this._attendanceModeLocation, "Face-to-face non-campus"));
         }
+        /*
         [TestMethod]
         public void AttendanceMode_Value_Valid_MixedMode()
         {
@@ -89,6 +90,7 @@ namespace TestProject.UnitTests.ContentValidation
         {
             Assert.IsTrue(this.IsValidElementValue(this._attendanceModeLocation, "Online (no attendance)"));
         }
+        */
         [TestMethod]
         public void AttendanceMode_Value_Valid_WorkBased()
         {
