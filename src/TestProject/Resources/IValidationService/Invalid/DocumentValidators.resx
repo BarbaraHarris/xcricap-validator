@@ -187,6 +187,25 @@
         generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
 &lt;/provider&gt;</value>
   </data>
+  <data name="HasPartElementUsed" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;mlo:hasPart&gt;&lt;/mlo:hasPart&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="UniqueValidator_CourseNodes" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

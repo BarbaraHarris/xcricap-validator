@@ -146,5 +146,39 @@ namespace TestProject.XmlValidationTests
 
         #endregion
 
+        #region HasPart
+
+        [TestMethod]
+        public void Valid_HasPartElementShouldNotBeUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(//mlo:hasPart)",
+                ExceptionMessage = "hasPart is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                Maximum = 0,
+                ValidationGroup = "Structure",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.HasPartElementNotUsed).Root)
+                .Where(r => r.Message == "hasPart is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        #endregion
+
     }
 }
