@@ -77,7 +77,6 @@
     <numberValidator
         selector="count(//dc:date)"
         message="Date elements should not be used but, instead, use the start element and the temporal elements, for example: end, applyFrom and applyUntil"
-        minimum="0"
         maximum="0"
         status="Warning"
         validationGroup="Structure">
@@ -98,7 +97,6 @@
     <numberValidator
         selector="count(//mlo:hasPart)"
         message="hasPart is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements."
-        minimum="0"
         maximum="0"
         status="Warning"
         validationGroup="Structure">
@@ -119,7 +117,6 @@
     <numberValidator
         selector="count(//mlo:isPartOf)"
         message="isPartOf is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements."
-        minimum="0"
         maximum="0"
         status="Warning"
         validationGroup="Structure">
@@ -506,13 +503,6 @@
         message="All providers must contain a course"
         minimum="1"
         status="Exception"
-        validationGroup="Structure"
-      />
-    <numberValidator
-        selector="count(./dc:description)"
-        message="All providers should contain a description element."
-        minimum="1"
-        status="Warning"
         validationGroup="Structure"
       />
   </elementValidation>
