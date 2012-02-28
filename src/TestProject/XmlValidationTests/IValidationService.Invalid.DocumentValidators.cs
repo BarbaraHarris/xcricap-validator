@@ -435,6 +435,100 @@ namespace TestProject.XmlValidationTests
                 );
         }
 
+        [TestMethod]
+        public void Invalid_SubjectElementEmpty()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.EmptyElementValidator()
+            {
+                XPathSelector = "//dc:subject",
+                ExceptionMessage = "Subject elements cannot be empty",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                EnforcementType = XCRI.Validation.ContentValidation.EmptyElementValidator.EnforcementTypes.ForceNotEmpty,
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.SubjectElementEmpty).Root)
+                .Where(r => r.Message == "Subject elements cannot be empty");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_SubjectElementSelfClosing()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.EmptyElementValidator()
+            {
+                XPathSelector = "//dc:subject",
+                ExceptionMessage = "Subject elements cannot be empty",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                EnforcementType = XCRI.Validation.ContentValidation.EmptyElementValidator.EnforcementTypes.ForceNotEmpty,
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.SubjectElementSelfClosing).Root)
+                .Where(r => r.Message == "Subject elements cannot be empty");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Abstract
+
+        [TestMethod]
+        public void Invalid_Abstract141Characters()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//xcri12:abstract",
+                ExceptionMessage = "Producers must not create an abstract that exceeds 140 characters.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Manual",
+                MaximumCharacters = 140,
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.Abstract141Characters).Root)
+                .Where(r => r.Message == "Producers must not create an abstract that exceeds 140 characters.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
         #endregion
 
     }
