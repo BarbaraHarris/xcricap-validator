@@ -208,7 +208,7 @@ namespace TestProject.XmlValidationTests
         #region HasPart
 
         [TestMethod]
-        public void InValid_HasPartElementShouldNotBeUsed()
+        public void Invalid_HasPartElementShouldNotBeUsed()
         {
             var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
             {
@@ -231,6 +231,204 @@ namespace TestProject.XmlValidationTests
                 (
                 result: vr.ElementAt(0),
                 expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region IsPartOf
+
+        [TestMethod]
+        public void Invalid_IsPartOfElementShouldNotBeUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(//mlo:isPartOf)",
+                ExceptionMessage = "isPartOf is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                Maximum = 0,
+                ValidationGroup = "Structure",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.IsPartOfElementUsed).Root)
+                .Where(r => r.Message == "isPartOf is included for compatibility with the [EN 15982] standard. Producers SHOULD NOT use these elements.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Contributor
+
+        [TestMethod]
+        public void Invalid_ContributorElementShouldNotBeUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.ManualValidator()
+            {
+                XPathSelector = "//dc:contributor",
+                ExceptionMessage = "The contributor element should not be used for general contact information and should only be used when other refinements (for example: presenter or lecturer) are not available.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Manual",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.ContributorElementUsed).Root)
+                .Where(r => r.Message == "The contributor element should not be used for general contact information and should only be used when other refinements (for example: presenter or lecturer) are not available.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Identifiers (without xsi:type attribute)
+
+        [TestMethod]
+        public void Invalid_IdentifierWithoutXsiType_NotAValidUri()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.UrlValidator()
+            {
+                XPathSelector = "//dc:identifier[not(@xsi:type)]",
+                ExceptionMessage = "Producers should use URLs for identifiers",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Recommendation,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                AllowRelative = false
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.Identifier_WithoutXsiType_NotAUri).Root)
+                .Where(r => r.Message == "Producers should use URLs for identifiers");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Recommendation,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_IdentifierWithoutXsiType_RelativeUri()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.UrlValidator()
+            {
+                XPathSelector = "//dc:identifier[not(@xsi:type)]",
+                ExceptionMessage = "Producers should use URLs for identifiers",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Recommendation,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                AllowRelative = false
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.Identifier_WithoutXsiType_RelativeUri).Root)
+                .Where(r => r.Message == "Producers should use URLs for identifiers");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Recommendation,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Qualification Title
+
+        [TestMethod]
+        public void Invalid_QualificationTitle()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.ManualValidator()
+            {
+                XPathSelector = "//mlo:qualification/dc:title",
+                ExceptionMessage = "In the qualification element, producers should use the title element for the name of the qualification - preferably as given by its Awarding Body.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Manual",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.Qualification_TitleElementUsed).Root)
+                .Where(r => r.Message == "In the qualification element, producers should use the title element for the name of the qualification - preferably as given by its Awarding Body.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Subject Element
+
+        [TestMethod]
+        // Test to just show that subject elements are found by the xpath selector
+        public void Invalid_SubjectElementUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.ManualValidator()
+            {
+                XPathSelector = "//dc:subject",
+                ExceptionMessage = "Each subject element must contain one (and only one) keyword, phrase or classification.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Manual",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.SubjectElementUsed).Root)
+                .Where(r => r.Message == "Each subject element must contain one (and only one) keyword, phrase or classification.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 expectedInstances: 1,
                 expectedFailedCount: 1,
                 expectedSuccessfulCount: 0

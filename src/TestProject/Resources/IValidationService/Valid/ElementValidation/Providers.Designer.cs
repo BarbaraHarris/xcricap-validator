@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestProject.Resources.IValidationService {
+namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace TestProject.Resources.IValidationService {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SampleFiles {
+    internal class Providers {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SampleFiles() {
+        internal Providers() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TestProject.Resources.IValidationService {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProject.Resources.IValidationService.SampleFiles", typeof(SampleFiles).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProject.Resources.IValidationService.Valid.ElementValidation.Providers", typeof(Providers).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,22 +61,21 @@ namespace TestProject.Resources.IValidationService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; 
-        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot; xmlns:xcri=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:credit=&quot;http://purl.org/net/cm&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot; xmlns:x=&quot;http://www.w3.org/1999/xhtml&quot;  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd http://xcri.org/profiles/1.2/catalog/terms h [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;catalog 
+        ///xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot; 
+        ///xmlns:credit=&quot;http://purl.org/net/cm&quot; 
+        ///xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; 
+        ///xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; 
+        ///xmlns:mlo=&quot;http://purl.org/net/mlo&quot; 
+        ///xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot; 
+        ///xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///xmlns:xcriTerms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot;
+        ///xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlec [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string NorthLindseyCollege_20120223 {
+        internal static string ProviderWithNoCoursesUnderVenue {
             get {
-                return ResourceManager.GetString("NorthLindseyCollege_20120223", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot; xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot; xmlns:credit=&quot;http://purl.org/net/cm&quot; xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot; xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1 [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string UniversityOfCentralLancaster_20120228 {
-            get {
-                return ResourceManager.GetString("UniversityOfCentralLancaster_20120228", resourceCulture);
+                return ResourceManager.GetString("ProviderWithNoCoursesUnderVenue", resourceCulture);
             }
         }
     }

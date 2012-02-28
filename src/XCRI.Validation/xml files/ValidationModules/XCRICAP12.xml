@@ -199,7 +199,7 @@
       </furtherInformation>
     </manualValidator>
     <manualValidator
-        selector="//xcri12:qualification/dc:title"
+        selector="//mlo:qualification/dc:title"
         message="In the qualification element, producers should use the title element for the name of the qualification - preferably as given by its Awarding Body."
         status="Warning"
         validationGroup="Manual">
@@ -468,7 +468,7 @@
       />
   </elementValidation>
   <elementValidation
-      selector="//xcri12:provider"
+      selector="//xcri12:provider[not(ancestor::xcri12:venue)]"
     >
     <numberValidator
         selector="count(./dc:identifier[not(@xsi:type)])"
@@ -760,11 +760,11 @@
         maximum="1"
         validationGroup="Accessibility"
       />
-    <emptyElementValidator
-        selector="@alt"
+    <numberValidator
+        selector="string-length(@alt)"
         message="A provider should provide meaningful alternative text for each image"
+        minimum="1"
         status="Exception"
-        enforcementType="ForceNotEmpty"
         validationGroup="Accessibility"
       />
     <urlValidator
