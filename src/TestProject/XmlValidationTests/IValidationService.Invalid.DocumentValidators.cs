@@ -531,5 +531,67 @@ namespace TestProject.XmlValidationTests
 
         #endregion
 
+        #region Email Addresses
+
+        [TestMethod]
+        public void Invalid_EmailAddress_NoAt()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.EmailAddressValidator()
+            {
+                XPathSelector = "//mlo:email",
+                ExceptionMessage = "Each email node should contain an email address",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.EmailAddress_NoAt).Root)
+                .Where(r => r.Message == "Each email node should contain an email address");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_EmailAddress_MissingDomain()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.EmailAddressValidator()
+            {
+                XPathSelector = "//mlo:email",
+                ExceptionMessage = "Each email node should contain an email address",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.EmailAddress_MissingDomain).Root)
+                .Where(r => r.Message == "Each email node should contain an email address");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
     }
 }

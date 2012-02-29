@@ -410,7 +410,7 @@ namespace TestProject.XmlValidationTests
         #region Abstract
 
         [TestMethod]
-        public void Invalid_Abstract139Characters()
+        public void Valid_Abstract139Characters()
         {
             var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
             {
@@ -440,7 +440,7 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
-        public void Invalid_Abstract140Characters()
+        public void Valid_Abstract140Characters()
         {
             var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
             {
@@ -458,6 +458,39 @@ namespace TestProject.XmlValidationTests
             var vr = documentValidators
                 .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Abstract140Characters).Root)
                 .Where(r => r.Message == "Producers must not create an abstract that exceeds 140 characters.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        #endregion
+
+        #region Email Addresses
+
+        [TestMethod]
+        public void Valid_EmailAddress()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.EmailAddressValidator()
+            {
+                XPathSelector = "//mlo:email",
+                ExceptionMessage = "Each email node should contain an email address",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.EmailAddress_ValidEmail).Root)
+                .Where(r => r.Message == "Each email node should contain an email address");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
