@@ -67,6 +67,8 @@ namespace XCRI.Validation.ContentValidation
                 v = new EmailAddressValidator();
             if (typeof(T) == typeof(VDEXValidator))
                 v = new VDEXValidator(this.UriSource);
+            if (typeof(T) == typeof(LanguageValidator))
+                v = new LanguageValidator();
             if(v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
             if (null != this.Logs)

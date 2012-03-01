@@ -220,6 +220,10 @@ namespace XCRI.Validation.Modules
                     var emailAddressValidator = this.ValidatorFactory.GetValidator<ContentValidation.EmailAddressValidator>();
                     validator = emailAddressValidator;
                     break;
+                case "languagevalidator":
+                    var languageValidator = this.ValidatorFactory.GetValidator<ContentValidation.LanguageValidator>();
+                    validator = languageValidator;
+                    break;
             }
             if (null == validator)
                 throw new InvalidDataException(String.Format

@@ -13,5 +13,16 @@ namespace XCRI.Validation.ContentValidation
         {
             base.Pattern = @"(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})";
         }
+        public override bool PassesValidation(string input, out string details)
+        {
+            bool baseValue = base.PassesValidation(input, out details);
+            if (false == baseValue)
+                details = String.Format
+                    (
+                    "The postcode '{0}' does not appear to be a valid postal code.",
+                    input
+                    );
+            return baseValue;
+        }
     }
 }

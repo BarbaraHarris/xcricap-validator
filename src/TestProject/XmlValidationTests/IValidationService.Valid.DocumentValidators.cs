@@ -504,5 +504,403 @@ namespace TestProject.XmlValidationTests
 
         #endregion
 
+        #region Phone and Fax
+
+        [TestMethod]
+        public void Valid_PhoneNumber()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator()
+            {
+                XPathSelector = "(//mlo:phone|//mlo:fax)",
+                ExceptionMessage = "Telephone numbers should be formatted as they would be dialed from the UK",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.PhoneNumber).Root)
+                .Where(r => r.Message == "Telephone numbers should be formatted as they would be dialed from the UK");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_FaxNumber()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator()
+            {
+                XPathSelector = "(//mlo:phone|//mlo:fax)",
+                ExceptionMessage = "Telephone numbers should be formatted as they would be dialed from the UK",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.FaxNumber).Root)
+                .Where(r => r.Message == "Telephone numbers should be formatted as they would be dialed from the UK");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_PhoneNumberAndFaxNumber()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator()
+            {
+                XPathSelector = "(//mlo:phone|//mlo:fax)",
+                ExceptionMessage = "Telephone numbers should be formatted as they would be dialed from the UK",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.PhoneNumberAndFaxNumber).Root)
+                .Where(r => r.Message == "Telephone numbers should be formatted as they would be dialed from the UK");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 2,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 2
+                );
+        }
+
+        [TestMethod]
+        public void Valid_NoPhoneNumberOrFaxNumber()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.UKTelephoneNumberValidator()
+            {
+                XPathSelector = "(//mlo:phone|//mlo:fax)",
+                ExceptionMessage = "Telephone numbers should be formatted as they would be dialed from the UK",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.NoPhoneNumberOrFaxNumber).Root)
+                .Where(r => r.Message == "Telephone numbers should be formatted as they would be dialed from the UK");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 0,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Postcode
+
+        [TestMethod]
+        public void Valid_Postcode()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.PostCodeValidator()
+            {
+                XPathSelector = "//mlo:postcode",
+                ExceptionMessage = "A postcode, if provided, should conform to the UK postal code format",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.PostcodeElementIncluded).Root)
+                .Where(r => r.Message == "A postcode, if provided, should conform to the UK postal code format");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_PostcodeElementNotUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.PostCodeValidator()
+            {
+                XPathSelector = "//mlo:postcode",
+                ExceptionMessage = "A postcode, if provided, should conform to the UK postal code format",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.PostcodeElementNotIncluded).Root)
+                .Where(r => r.Message == "A postcode, if provided, should conform to the UK postal code format");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 0,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Duration
+
+        [TestMethod]
+        public void Valid_DurationElementNotEmpty()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.EmptyElementValidator()
+            {
+                XPathSelector = "//mlo:duration",
+                ExceptionMessage = "If a provider uses a duration element, it cannot be empty.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                EnforcementType = XCRI.Validation.ContentValidation.EmptyElementValidator.EnforcementTypes.ForceNotEmpty,
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.DurationElementNotEmpty).Root)
+                .Where(r => r.Message == "If a provider uses a duration element, it cannot be empty.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        #endregion
+
+        #region Age
+
+        [TestMethod]
+        public void Valid_AgeElementValidValue()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.AgeValidator()
+            {
+                XPathSelector = "//xcri12:age",
+                ExceptionMessage = "The value of the age element must be formatted in one of the four formats enumerated on the wiki.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AgeElementValidValue).Root)
+                .Where(r => r.Message == "The value of the age element must be formatted in one of the four formats enumerated on the wiki.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_AgeElementNotUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.AgeValidator()
+            {
+                XPathSelector = "//xcri12:age",
+                ExceptionMessage = "The value of the age element must be formatted in one of the four formats enumerated on the wiki.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AgeElementNotUsed).Root)
+                .Where(r => r.Message == "The value of the age element must be formatted in one of the four formats enumerated on the wiki.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 0,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Languages
+
+        [TestMethod]
+        public void Valid_Languages()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.LanguageValidator()
+            {
+                XPathSelector = "//@xml:lang|//mlo:languageOfInstruction|//xcri12:languageOfAssessment",
+                ExceptionMessage = "Any explicit language set must be one of the 2-character ISO 639-1 character codes.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Languages).Root)
+                .Where(r => r.Message == "Any explicit language set must be one of the 2-character ISO 639-1 character codes.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 3,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 3
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Language_XmlLangAttribute()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.LanguageValidator()
+            {
+                XPathSelector = "//@xml:lang|//mlo:languageOfInstruction|//xcri12:languageOfAssessment",
+                ExceptionMessage = "Any explicit language set must be one of the 2-character ISO 639-1 character codes.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Languages_XmlLangAttribute).Root)
+                .Where(r => r.Message == "Any explicit language set must be one of the 2-character ISO 639-1 character codes.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Language_LanguageOfInstruction()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.LanguageValidator()
+            {
+                XPathSelector = "//@xml:lang|//mlo:languageOfInstruction|//xcri12:languageOfAssessment",
+                ExceptionMessage = "Any explicit language set must be one of the 2-character ISO 639-1 character codes.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Languages_LanguageOfInstruction).Root)
+                .Where(r => r.Message == "Any explicit language set must be one of the 2-character ISO 639-1 character codes.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Language_LanguageOfAssessment()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.LanguageValidator()
+            {
+                XPathSelector = "//@xml:lang|//mlo:languageOfInstruction|//xcri12:languageOfAssessment",
+                ExceptionMessage = "Any explicit language set must be one of the 2-character ISO 639-1 character codes.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Languages_LanguageOfAssessment).Root)
+                .Where(r => r.Message == "Any explicit language set must be one of the 2-character ISO 639-1 character codes.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        #endregion
+
     }
 }
