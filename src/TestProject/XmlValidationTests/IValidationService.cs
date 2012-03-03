@@ -216,6 +216,41 @@ namespace TestProject.XmlValidationTests
             ev.Validators.Clear();
         }
 
+        public void TestSubjectExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./dc:subject)",
+                ExceptionMessage = "All courses should contain a subject",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
         public void TestUrlExistsUnderElement
             (
             XCRI.Validation.ContentValidation.ElementValidator ev,

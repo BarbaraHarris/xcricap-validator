@@ -539,7 +539,6 @@
     <numberValidator
         selector="count(./mlo:level)"
         message="The level element is included for compatibility with EN15982 but should not be used"
-        minimum="0"
         maximum="0"
         status="Warning"
         validationGroup="Structure"
@@ -565,7 +564,6 @@
         status="Warning"
         validationGroup="Structure"
       />
-    <!-- "Credit: Producers SHOULD use separate credit elements for describing the credits available under each scheme, for example CATS or ECTS." -->
   </elementValidation>
   <elementValidation
       selector="//xcri12:presentation"
