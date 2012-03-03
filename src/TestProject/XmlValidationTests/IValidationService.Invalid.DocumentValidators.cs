@@ -1409,5 +1409,69 @@ namespace TestProject.XmlValidationTests
 
         #endregion
 
+        #region Root element
+
+        [TestMethod]
+        public void Valid_Root_CorrectElement_IncorrectNamespace()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(/xcri12:catalog)",
+                ExceptionMessage = "The root element must be a catalog element in the XCRI-CAP 1.2 namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Structure",
+                NamespaceManager = documentValidators.NamespaceManager,
+                Minimum = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Root_CorrectElement_IncorrectNamespace).Root)
+                .Where(r => r.Message == "The root element must be a catalog element in the XCRI-CAP 1.2 namespace");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Root_IncorrectElement_CorrectNamespace()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(/xcri12:catalog)",
+                ExceptionMessage = "The root element must be a catalog element in the XCRI-CAP 1.2 namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Structure",
+                NamespaceManager = documentValidators.NamespaceManager,
+                Minimum = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Root_IncorrectElement_CorrectNamespace).Root)
+                .Where(r => r.Message == "The root element must be a catalog element in the XCRI-CAP 1.2 namespace");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
     }
 }

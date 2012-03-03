@@ -1654,5 +1654,219 @@ namespace TestProject.XmlValidationTests
 
         #endregion
 
+        #region Study mode
+
+        [TestMethod]
+        public void Valid_StudyModeUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"));
+            v.XPathSelector = "//xcri12:studyMode";
+            v.ExceptionMessage = "Producers should use one of the recommended studyMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CstudyMode.3E_element (note that this list is case-sensitive)";
+            v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
+            v.ValidationGroup = "Formatting";
+            v.NamespaceManager = documentValidators.NamespaceManager;
+            documentValidators.Validators.Add(v);
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.StudyModeUsed).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_StudyModeNotUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"));
+            v.XPathSelector = "//xcri12:studyMode";
+            v.ExceptionMessage = "Producers should use one of the recommended studyMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CstudyMode.3E_element (note that this list is case-sensitive)";
+            v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
+            v.ValidationGroup = "Formatting";
+            v.NamespaceManager = documentValidators.NamespaceManager;
+            documentValidators.Validators.Add(v);
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.StudyModeNotUsed).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 0,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Attendance mode
+
+        [TestMethod]
+        public void Valid_AttendanceModeUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendanceMode1_0.xml"));
+            v.XPathSelector = "//xcri12:attendanceMode";
+            v.ExceptionMessage = "Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendanceMode.3E_element (note that this list is case-sensitive)";
+            v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
+            v.ValidationGroup = "Formatting";
+            v.NamespaceManager = documentValidators.NamespaceManager;
+            documentValidators.Validators.Add(v);
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AttendanceModeUsed).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_AttendanceModeNotUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendanceMode1_0.xml"));
+            v.XPathSelector = "//xcri12:attendanceMode";
+            v.ExceptionMessage = "Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendanceMode.3E_element (note that this list is case-sensitive)";
+            v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
+            v.ValidationGroup = "Formatting";
+            v.NamespaceManager = documentValidators.NamespaceManager;
+            documentValidators.Validators.Add(v);
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AttendanceModeNotUsed).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 0,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Attendance pattern
+
+        [TestMethod]
+        public void Valid_AttendancePatternUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"));
+            v.XPathSelector = "//xcri12:attendancePattern";
+            v.ExceptionMessage = "Producers should use one of the recommended attendancePattern values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendancePattern.3E_element (note that this list is case-sensitive)";
+            v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
+            v.ValidationGroup = "Formatting";
+            v.NamespaceManager = documentValidators.NamespaceManager;
+            documentValidators.Validators.Add(v);
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AttendancePatternUsed).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_AttendancePatternNotUsed()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"));
+            v.XPathSelector = "//xcri12:attendancePattern";
+            v.ExceptionMessage = "Producers should use one of the recommended attendancePattern values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendancePattern.3E_element (note that this list is case-sensitive)";
+            v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
+            v.ValidationGroup = "Formatting";
+            v.NamespaceManager = documentValidators.NamespaceManager;
+            documentValidators.Validators.Add(v);
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AttendancePatternNotUsed).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 0,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Root element
+
+        [TestMethod]
+        public void Valid_Root_CorrectElement_CorrectNamespace()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(/xcri12:catalog)",
+                ExceptionMessage = "The root element must be a catalog element in the XCRI-CAP 1.2 namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Structure",
+                NamespaceManager = documentValidators.NamespaceManager,
+                Minimum = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.Root_CorrectElement_CorrectNamespace).Root)
+                .Where(r => r.Message == "The root element must be a catalog element in the XCRI-CAP 1.2 namespace");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        #endregion
+
     }
 }

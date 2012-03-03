@@ -24,6 +24,26 @@ namespace TestProject.XmlValidationTests
             xmlnsmgr.AddNamespace("xml", "http://www.w3.org/XML/1998/namespace");
             return xmlnsmgr;
         }
+        private object _lock = new object();
+        protected Dictionary<Uri, XCRI.Validation.ContentValidation.VDEXValidator> CachedVDEXValidators = new Dictionary<Uri, XCRI.Validation.ContentValidation.VDEXValidator>();
+        public XCRI.Validation.ContentValidation.VDEXValidator CreateVDEXValidator(Uri vdexLocation)
+        {
+            if (false == this.CachedVDEXValidators.ContainsKey(vdexLocation))
+            {
+                lock (this._lock)
+                {
+                    if (false == this.CachedVDEXValidators.ContainsKey(vdexLocation))
+                        this.CachedVDEXValidators.Add(vdexLocation, new XCRI.Validation.ContentValidation.VDEXValidator
+                        (
+                        new XCRI.Validation.XmlRetrieval.UriSource(null, null)
+                        )
+                        {
+                            VDEXLocation = vdexLocation
+                        });
+                }
+            }
+            return this.CachedVDEXValidators[vdexLocation];
+        }
         protected void ValidateResults
             (
             XCRI.Validation.ValidationResult result,
