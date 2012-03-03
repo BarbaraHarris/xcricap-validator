@@ -964,6 +964,36 @@ namespace TestProject.XmlValidationTests
                 );
         }
 
+        [TestMethod]
+        public void Valid_DescriptionWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.DescriptionWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
         #endregion
 
         #region Abstract
@@ -1017,6 +1047,36 @@ namespace TestProject.XmlValidationTests
             var vr = documentValidators
                 .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AbstractWithHrefAndSelfClosing).Root)
                 .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_AbstractWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AbstractWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
@@ -1092,6 +1152,36 @@ namespace TestProject.XmlValidationTests
                 );
         }
 
+        [TestMethod]
+        public void Valid_ApplicationProcedureWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.ApplicationProcedureWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
         #endregion
 
         #region Assessment
@@ -1145,6 +1235,36 @@ namespace TestProject.XmlValidationTests
             var vr = documentValidators
                 .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AssessmentWithHrefAndSelfClosing).Root)
                 .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_AssessmentWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.AssessmentWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
@@ -1220,6 +1340,36 @@ namespace TestProject.XmlValidationTests
                 );
         }
 
+        [TestMethod]
+        public void Valid_LearningOutcomeWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.LearningOutcomeWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
         #endregion
 
         #region Objective
@@ -1273,6 +1423,36 @@ namespace TestProject.XmlValidationTests
             var vr = documentValidators
                 .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.ObjectiveWithHrefAndSelfClosing).Root)
                 .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_ObjectiveWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.ObjectiveWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
@@ -1348,6 +1528,36 @@ namespace TestProject.XmlValidationTests
                 );
         }
 
+        [TestMethod]
+        public void Valid_PrerequisiteWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.PrerequisiteWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
         #endregion
 
         #region Regulations
@@ -1401,6 +1611,36 @@ namespace TestProject.XmlValidationTests
             var vr = documentValidators
                 .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.RegulationsWithHrefAndSelfClosing).Root)
                 .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_RegulationsWithoutHrefWithContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]",
+                ExceptionMessage = "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MinimumCharacters = 1
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.DocumentValidators.RegulationsWithoutHrefWithContent).Root)
+                .Where(r => r.Message == "Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content.");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (

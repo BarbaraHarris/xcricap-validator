@@ -203,6 +203,27 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="AbstractWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;abstract&gt;hello world&lt;/abstract&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="AgeElementNotUsed" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -309,6 +330,27 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="ApplicationProcedureWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;applicationProcedure&gt;hello world&lt;/applicationProcedure&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="AssessmentWithHrefAndBlankValue" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -347,6 +389,27 @@
   &lt;provider&gt;
 	&lt;course&gt;
 		&lt;mlo:assessment href="http://www...." /&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="AssessmentWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;mlo:assessment&gt;hello world&lt;/mlo:assessment&gt;
 	&lt;/course&gt;
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
@@ -422,6 +485,25 @@
         generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
   &lt;provider&gt;
 	&lt;dc:description href="http://..." /&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="DescriptionWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;dc:description&gt;hello world&lt;/dc:description&gt;
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
@@ -714,6 +796,27 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="LearningOutcomeWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;learningOutcome&gt;hello world&lt;/learningOutcome&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="NoPhoneNumberOrFaxNumber" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -772,6 +875,27 @@
   &lt;provider&gt;
 	&lt;course&gt;
 		&lt;mlo:objective href="http://www...." /&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="ObjectiveWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;mlo:objective&gt;hello world&lt;/mlo:objective&gt;
 	&lt;/course&gt;
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
@@ -902,6 +1026,27 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="PrerequisiteWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;mlo:prerequisite&gt;hello world&lt;/mlo:prerequisite&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="Qualification_TitleElementNotUsed" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -962,6 +1107,27 @@
   &lt;provider&gt;
 	&lt;course&gt;
 		&lt;regulations href="http://www...." /&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="RegulationsWithoutHrefWithContent" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_1_2.xsd 
+                            http://xcri.org/profiles/1.2/catalog/terms http://xcri-schemas.googlecode.com/svn/trunk/xsd/xcri_cap_terms_1_2.xsd 
+                            http://purl.org/net/mlo http://xcri-schemas.googlecode.com/svn/trunk/xsd/mlo_xcri_profile.xsd 
+                            http://purl.org/dc/elements/1.1/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dc.xsd 
+                            http://purl.org/dc/terms/ http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd"
+        generated="2011-03-21T20:00:23Z" xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;regulations&gt;hello world&lt;/regulations&gt;
 	&lt;/course&gt;
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
