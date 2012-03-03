@@ -395,7 +395,7 @@
     <!-- descriptions with a href attribute must contain nothing. -->
     <stringLengthValidator
         selector="//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]"
-        message="Description elements with a href attribute must not contain content."
+        message="Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements with a href attribute must not contain content."
         status="Exception"
         maximum="0"
         validationGroup="Formatting">
@@ -412,7 +412,7 @@
     <!-- descriptions without a href attribute must contain something -->
     <stringLengthValidator
         selector="//dc:description[not(@href)]|//xcri12:abstract[not(@href)]|//xcri12:applicationProcedure[not(@href)]|//mlo:assessment[not(@href)]|//xcri12:learningOutcome[not(@href)]|//mlo:objective[not(@href)]|//mlo:prerequisite[not(@href)]|//xcri12:regulations[not(@href)]"
-        message="Description elements without a href attribute must contain content."
+        message="Description, abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite and regulations elements without a href attribute must contain content."
         status="Exception"
         minimum="1"
         validationGroup="Formatting">
@@ -446,6 +446,13 @@
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"
     />
+    <numberValidator
+      selector="count(/xcri12:catalog)"
+      message="The root element must be a catalog element in the XCRI-CAP 1.2 namespace"
+      minimum="1"
+      status="Exception"
+      validationGroup="Structure"
+      />
   </documentValidation>
   <!-- elementValidation rules get run once per match -->
   <elementValidation
