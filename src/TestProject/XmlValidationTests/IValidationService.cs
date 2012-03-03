@@ -75,6 +75,77 @@ namespace TestProject.XmlValidationTests
                 result.SuccessCount
                 );
         }
+
+        public void TestDescriptionExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./dc:description)",
+                ExceptionMessage = "All catalogs should provide a description element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Accessibility",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
+        public void TestCourseExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./xcri12:course)",
+                ExceptionMessage = "All providers must contain a course",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Accessibility",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
         private class DebugIntepreter : XCRI.Validation.XmlExceptionInterpretation.Interpreter
         {
 

@@ -10,32 +10,45 @@ namespace TestProject.XmlValidationTests
         where T : XCRI.Validation.IValidationService<String>
     {
 
-        protected XCRI.Validation.ContentValidation.ElementValidator GetElementValidator_Provider()
+        protected XCRI.Validation.ContentValidation.ElementValidator GetElementValidator_Category()
         {
             var elementValidator = new XCRI.Validation.ContentValidation.ElementValidator()
             {
                 NamespaceManager = this.GetNamespaceManager(),
-                XPathSelector = "//xcri12:provider[not(ancestor::xcri12:venue)]"
+                XPathSelector = "//xcri12:catalog"
             };
             return elementValidator;
         }
 
         [TestMethod]
-        public void Valid_ProviderWithNoCoursesUnderVenue()
+        public void Valid_Catalog_DescriptionUsed()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_Category();
+            this.TestDescriptionExistsUnderElement
+                (
+                elementValidator,
+                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Catalog.DescriptionUsed).Root,
+                0,
+                1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Catalog_GeneratedAttributeIncluded()
+        {
+            var elementValidator = this.GetElementValidator_Category();
             elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
             {
-                XPathSelector = "count(./xcri12:course)",
-                ExceptionMessage = "All providers must contain a course",
+                XPathSelector = "count(./@generated)",
+                ExceptionMessage = "All catalogs must supply the date and time at which the catalog was generated",
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 Minimum = 1,
                 ValidationGroup = "Structure",
                 NamespaceManager = elementValidator.NamespaceManager
             });
             var vr = elementValidator
-                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.ProviderWithNoCoursesUnderVenue).Root)
-                .Where(r => r.Message == "All providers must contain a course");
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Catalog.GeneratedAttributeUsed).Root)
+                .Where(r => r.Message == "All catalogs must supply the date and time at which the catalog was generated");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
