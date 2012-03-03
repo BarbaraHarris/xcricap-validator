@@ -45,6 +45,15 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                 default:
                     throw new InvalidOperationException("The PropertyName property could not be resolved to a valid property on the Exception object");
             }
+            if (0 == this.Conditions.Count)
+            {
+                if (regex.IsMatch(value))
+                {
+                    if(false == String.IsNullOrEmpty(this.Message))
+                        message = this.Message;
+                    return InterpretationStatus.Interpreted;
+                }
+            }
             List<XElement> childElements = new List<XElement>();
             foreach (var c in this.Conditions)
             {

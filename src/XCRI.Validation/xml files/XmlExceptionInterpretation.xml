@@ -49,6 +49,11 @@
     </FurtherInformation>
   </invalidChildElementInterpreter>
   <regularExpressionInterpreter
+      pattern="The element 'catalog' in namespace 'http://xcri.org/profiles/1.2/catalog' has invalid child element 'Provider' in namespace 'http://xcri.org/profiles/1.2/catalog'."
+      propertyName="Message"
+      message="The provider element should be capitalised as 'provider'."
+    ></regularExpressionInterpreter>
+  <regularExpressionInterpreter
       pattern="The '(?&lt;StartTag&gt;\w*?)' start tag on line (?&lt;LineNumber&gt;[\d{1,}\,]) position (?&lt;Position&gt;[\d{1,}\,]) does not match the end tag of '(?&lt;EndTag&gt;\w*?)'"
       propertyName="Message"
     >
