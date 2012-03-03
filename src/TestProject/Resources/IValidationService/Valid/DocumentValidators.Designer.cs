@@ -502,9 +502,73 @@ namespace TestProject.Resources.IValidationService.Valid {
         ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
         ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string LearningOutcomeWithHrefAndBlankValue {
+            get {
+                return ResourceManager.GetString("LearningOutcomeWithHrefAndBlankValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LearningOutcomeWithHrefAndSelfClosing {
+            get {
+                return ResourceManager.GetString("LearningOutcomeWithHrefAndSelfClosing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string NoPhoneNumberOrFaxNumber {
             get {
                 return ResourceManager.GetString("NoPhoneNumberOrFaxNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ObjectiveWithHrefAndBlankValue {
+            get {
+                return ResourceManager.GetString("ObjectiveWithHrefAndBlankValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ObjectiveWithHrefAndSelfClosing {
+            get {
+                return ResourceManager.GetString("ObjectiveWithHrefAndSelfClosing", resourceCulture);
             }
         }
         
@@ -582,9 +646,73 @@ namespace TestProject.Resources.IValidationService.Valid {
         ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
         ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string PrerequisiteWithHrefAndBlankValue {
+            get {
+                return ResourceManager.GetString("PrerequisiteWithHrefAndBlankValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PrerequisiteWithHrefAndSelfClosing {
+            get {
+                return ResourceManager.GetString("PrerequisiteWithHrefAndSelfClosing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string Qualification_TitleElementNotUsed {
             get {
                 return ResourceManager.GetString("Qualification_TitleElementNotUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RegulationsWithHrefAndBlankValue {
+            get {
+                return ResourceManager.GetString("RegulationsWithHrefAndBlankValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog h [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RegulationsWithHrefAndSelfClosing {
+            get {
+                return ResourceManager.GetString("RegulationsWithHrefAndSelfClosing", resourceCulture);
             }
         }
         

@@ -793,5 +793,141 @@ namespace TestProject.XmlValidationTests
 
         #endregion
 
+        #region LearningOutcome
+
+        [TestMethod]
+        public void Invalid_LearningOutcomeWithHrefAndContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]",
+                ExceptionMessage = "Description elements with a href attribute must not contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MaximumCharacters = 0
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.LearningOutcomeWithHrefAndContent).Root)
+                .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Objective
+
+        [TestMethod]
+        public void Invalid_ObjectiveWithHrefAndContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]",
+                ExceptionMessage = "Description elements with a href attribute must not contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MaximumCharacters = 0
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.ObjectiveWithHrefAndContent).Root)
+                .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Prerequisite
+
+        [TestMethod]
+        public void Invalid_PrerequisiteWithHrefAndContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]",
+                ExceptionMessage = "Description elements with a href attribute must not contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MaximumCharacters = 0
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.PrerequisiteWithHrefAndContent).Root)
+                .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
+        #region Regulations
+
+        [TestMethod]
+        public void Invalid_RegulationsWithHrefAndContent()
+        {
+            var documentValidators = new XCRI.Validation.ContentValidation.DocumentValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager()
+            };
+            documentValidators.Validators.Add(new XCRI.Validation.ContentValidation.StringLengthValidator()
+            {
+                XPathSelector = "//dc:description[@href]|//xcri12:abstract[@href]|//xcri12:applicationProcedure[@href]|//mlo:assessment[@href]|//xcri12:learningOutcome[@href]|//mlo:objective[@href]|//mlo:prerequisite[@href]|//xcri12:regulations[@href]",
+                ExceptionMessage = "Description elements with a href attribute must not contain content.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                ValidationGroup = "Formatting",
+                NamespaceManager = documentValidators.NamespaceManager,
+                MaximumCharacters = 0
+            });
+            var vr = documentValidators
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.DocumentValidators.RegulationsWithHrefAndContent).Root)
+                .Where(r => r.Message == "Description elements with a href attribute must not contain content.");
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        #endregion
+
     }
 }
