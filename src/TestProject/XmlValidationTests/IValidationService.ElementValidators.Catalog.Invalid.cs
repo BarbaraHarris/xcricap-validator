@@ -17,7 +17,7 @@ namespace TestProject.XmlValidationTests
             this.TestDescriptionExistsUnderElement
                 (
                 elementValidator,
-                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Catalog.DescriptionNotUsed).Root,
+                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Catalogs.DescriptionNotUsed).Root,
                 1,
                 0
                 );
@@ -37,7 +37,7 @@ namespace TestProject.XmlValidationTests
                 NamespaceManager = elementValidator.NamespaceManager
             });
             var vr = elementValidator
-                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Catalog.GeneratedAttributeNotUsed).Root)
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Catalogs.GeneratedAttributeNotUsed).Root)
                 .Where(r => r.Message == "All catalogs must supply the date and time at which the catalog was generated");
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
