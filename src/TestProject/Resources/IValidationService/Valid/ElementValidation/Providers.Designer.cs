@@ -61,6 +61,57 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithCourse {
+            get {
+                return ResourceManager.GetString("WithCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithIdentifierWithoutXsiType {
+            get {
+                return ResourceManager.GetString("WithIdentifierWithoutXsiType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithLocation {
+            get {
+                return ResourceManager.GetString("WithLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
         ///&lt;catalog 
         ///xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot; 
@@ -73,9 +124,43 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///xmlns:xcriTerms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot;
         ///xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlec [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ProviderWithNoCoursesUnderVenue {
+        internal static string WithNoCoursesUnderVenue {
             get {
-                return ResourceManager.GetString("ProviderWithNoCoursesUnderVenue", resourceCulture);
+                return ResourceManager.GetString("WithNoCoursesUnderVenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithTitle {
+            get {
+                return ResourceManager.GetString("WithTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithUrl {
+            get {
+                return ResourceManager.GetString("WithUrl", resourceCulture);
             }
         }
     }

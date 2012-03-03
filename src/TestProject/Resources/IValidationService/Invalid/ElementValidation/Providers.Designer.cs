@@ -73,9 +73,26 @@ namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
         ///xmlns:xcriTerms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot;
         ///xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlec [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ProviderWithCoursesUnderVenue {
+        internal static string WithCoursesUnderVenue {
             get {
-                return ResourceManager.GetString("ProviderWithCoursesUnderVenue", resourceCulture);
+                return ResourceManager.GetString("WithCoursesUnderVenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithIdentifierWithXsiType {
+            get {
+                return ResourceManager.GetString("WithIdentifierWithXsiType", resourceCulture);
             }
         }
         
@@ -92,9 +109,94 @@ namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
         ///xmlns:xcriTerms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot;
         ///xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://xcri-schemas.googlec [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ProviderWithNoCoursesUnderCatalog {
+        internal static string WithNoCoursesUnderCatalog {
             get {
-                return ResourceManager.GetString("ProviderWithNoCoursesUnderCatalog", resourceCulture);
+                return ResourceManager.GetString("WithNoCoursesUnderCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithoutCourse {
+            get {
+                return ResourceManager.GetString("WithoutCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithoutIdentifier {
+            get {
+                return ResourceManager.GetString("WithoutIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithoutLocation {
+            get {
+                return ResourceManager.GetString("WithoutLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithoutTitle {
+            get {
+                return ResourceManager.GetString("WithoutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithoutUrl {
+            get {
+                return ResourceManager.GetString("WithoutUrl", resourceCulture);
             }
         }
     }

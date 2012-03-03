@@ -90,7 +90,7 @@ namespace TestProject.XmlValidationTests
                 ExceptionMessage = "All catalogs should provide a description element",
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 Minimum = 1,
-                ValidationGroup = "Accessibility",
+                ValidationGroup = "Structure",
                 NamespaceManager = ev.NamespaceManager
             };
             ev.Validators.Add(v);
@@ -125,7 +125,147 @@ namespace TestProject.XmlValidationTests
                 ExceptionMessage = "All providers must contain a course",
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 Minimum = 1,
-                ValidationGroup = "Accessibility",
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
+        public void TestIdentifierWithoutXsiTypeExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./dc:identifier[not(@xsi:type)])",
+                ExceptionMessage = "All providers must contain an identifier without an xsi:type attribute",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
+        public void TestTitleExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./dc:title)",
+                ExceptionMessage = "All providers must contain a title, which should be the trading name.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
+        public void TestUrlExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:url)",
+                ExceptionMessage = "All providers must contain a url, which should be its homepage or microsite",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(element)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: (0 == expectedFailures)
+                    ? XCRI.Validation.ContentValidation.ValidationStatus.Passed
+                    : XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: expectedFailures + expectedSuccesses,
+                expectedFailedCount: expectedFailures,
+                expectedSuccessfulCount: expectedSuccesses
+                );
+            ev.Validators.Clear();
+        }
+
+        public void TestLocationExistsUnderElement
+            (
+            XCRI.Validation.ContentValidation.ElementValidator ev,
+            System.Xml.Linq.XElement element,
+            int expectedFailures,
+            int expectedSuccesses
+            )
+        {
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:location)",
+                ExceptionMessage = "All providers must contain a location",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                ValidationGroup = "Structure",
                 NamespaceManager = ev.NamespaceManager
             };
             ev.Validators.Add(v);

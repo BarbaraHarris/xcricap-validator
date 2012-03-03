@@ -904,4 +904,5 @@
         validationGroup="Structure"
       />
   </elementValidation>
+  <!-- add element validator for providers within venues should ONLY contain an mlo:location? -->
 </contentValidators>
