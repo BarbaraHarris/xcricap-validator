@@ -129,6 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Providers.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\IValidationService\Invalid\ElementValidation\Qualifications.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Qualifications.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\IValidationService\Invalid\ElementValidation\Venues.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +198,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Providers.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Valid\ElementValidation\Qualifications.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Qualifications.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\IValidationService\Valid\ElementValidation\Venues.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -264,6 +274,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\ValidationService.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Valid.cs" />
+    <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Qualifications.Invalid.cs" />
+    <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Qualifications.Valid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Locations.Invalid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Locations.Valid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Venues.Invalid.cs" />
@@ -355,6 +367,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Providers.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Invalid\ElementValidation\Qualifications.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Qualifications.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Invalid\ElementValidation\Venues.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Venues.Designer.cs</LastGenOutput>
@@ -406,6 +422,10 @@
     <EmbeddedResource Include="Resources\IValidationService\Valid\ElementValidation\Providers.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Providers.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Valid\ElementValidation\Qualifications.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Qualifications.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Valid\ElementValidation\Venues.resx">
       <Generator>ResXFileCodeGenerator</Generator>
