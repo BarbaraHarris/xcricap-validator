@@ -59,5 +59,77 @@ namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot;
+        ///&gt;
+        ///  &lt;provider&gt;
+        ///	&lt;mlo:location&gt;
+        ///	&lt;/mlo:location&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string WithoutAddress {
+            get {
+                return ResourceManager.GetString("WithoutAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot;
+        ///&gt;
+        ///  &lt;provider&gt;
+        ///	&lt;mlo:location&gt;
+        ///	&lt;/mlo:location&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string WithoutEmail {
+            get {
+                return ResourceManager.GetString("WithoutEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot;
+        ///&gt;
+        ///  &lt;provider&gt;
+        ///	&lt;mlo:location&gt;
+        ///	&lt;/mlo:location&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string WithoutPhone {
+            get {
+                return ResourceManager.GetString("WithoutPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot;
+        ///&gt;
+        ///  &lt;provider&gt;
+        ///	&lt;mlo:location&gt;
+        ///	&lt;/mlo:location&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string WithoutPostcode {
+            get {
+                return ResourceManager.GetString("WithoutPostcode", resourceCulture);
+            }
+        }
     }
 }
