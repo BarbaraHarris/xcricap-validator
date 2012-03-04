@@ -806,7 +806,6 @@
       status="Exception"
     />
   </elementValidation>
-  <!-- temporal elements! -->
   <elementValidation
       selector="//xcri12:venue"
     >
@@ -887,5 +886,4 @@
         validationGroup="Structure"
       />
   </elementValidation>
-  <!-- add element validator for providers within venues should ONLY contain an mlo:location? -->
 </contentValidators>

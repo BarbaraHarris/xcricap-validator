@@ -8,6 +8,7 @@ namespace TestProject.UnitTests.ContentValidation
 {
     public partial class LanguageValidator : IValidator<XCRI.Validation.ContentValidation.LanguageValidator>
     {
-        [TestMethod] public void TestLanguage_XX() { Assert.IsFalse(this.PassesValidationString("XX")); }
+        [TestMethod]
+        public void TestLanguage_XX() { Assert.IsFalse(this.PassesValidationString("XX")); }
     }
 }

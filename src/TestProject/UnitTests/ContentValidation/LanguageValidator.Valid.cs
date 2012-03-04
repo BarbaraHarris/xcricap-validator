@@ -376,5 +376,8 @@ namespace TestProject.UnitTests.ContentValidation
         public void TestLanguage_yo() { Assert.IsTrue(this.PassesValidationString("yo")); }
         [TestMethod]
         public void TestLanguage_zu() { Assert.IsTrue(this.PassesValidationString("zu")); }
+        /* Test for case sensitivity - don't see the point in running all tests again */
+        [TestMethod]
+        public void TestLanguage_ZU() { Assert.IsTrue(this.PassesValidationString("ZU")); }
     }
 }

@@ -9,10 +9,12 @@ namespace XCRI.Validation.ContentValidation
 {
     public class RegularExpressionValidator : Validator
     {
+        public bool IsCaseSensitive { get; set; }
         public string Pattern { get; set; }
         public RegularExpressionValidator()
             : base()
         {
+            this.IsCaseSensitive = true;
         }
         public override bool PassesValidation(string input, out string details)
         {
@@ -21,7 +23,9 @@ namespace XCRI.Validation.ContentValidation
             if(String.IsNullOrWhiteSpace(this.Pattern))
                 throw new InvalidOperationException("The Pattern property must be set");
             details = null;
-            Regex expression = new Regex(this.Pattern);
+            Regex expression = this.IsCaseSensitive
+                ? new Regex(this.Pattern)
+                : new Regex(this.Pattern, RegexOptions.IgnoreCase);
             if (expression.IsMatch(input))
                 return true;
             details = String.Format

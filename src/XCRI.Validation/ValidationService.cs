@@ -97,7 +97,7 @@ namespace XCRI.Validation
                     throw new ArgumentNullException("e");
                 if (null == e.Exception)
                     throw new ArgumentException("The validation event args must contain an exception");
-                ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", e.Exception);
+                ValidationResult r = this.XmlExceptionInterpreters.Interpret("Structure", e.Exception);
                 if (null != r)
                 {
                     ValidationInstance vi = null;
@@ -135,7 +135,7 @@ namespace XCRI.Validation
                 }
                 catch (System.Xml.XmlException e)
                 {
-                    ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", e);
+                    ValidationResult r = this.XmlExceptionInterpreters.Interpret("Structure", e);
                     r.Instances.Add(new ValidationInstance()
                     {
                         LineNumber = e.LineNumber,
@@ -160,7 +160,7 @@ namespace XCRI.Validation
                     {
                         results.Clear();
                         // Add in to say we're missing an xsi:schemaLocation attribute
-                        ValidationResult r = this.XmlExceptionInterpreters.Interpret("XML Structure", new ValidationException("Missing xsi:schemaLocation attribute"));
+                        ValidationResult r = this.XmlExceptionInterpreters.Interpret("Structure", new ValidationException("Missing xsi:schemaLocation attribute"));
                         r.Instances.Add(new ValidationInstance()
                         {
                             LineNumber = (doc.Root as IXmlLineInfo).LineNumber,
