@@ -20,24 +20,23 @@ namespace TestProject.XmlValidationTests
             return elementValidator;
         }
 
-        /*
         [TestMethod]
-        public void Valid_Venue_With()
+        public void Valid_Venue_WithProvider()
         {
             var elementValidator = this.GetElementValidator_Venues();
             elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
             {
-                XPathSelector = "count(./credit:scheme)",
-                ExceptionMessage = "Unless a default value has been agreed between the aggregator and producer, each credit element should contain a scheme element. Multiple scheme elements are not allowed.",
-                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                XPathSelector = "count(./xcri12:provider)",
+                ExceptionMessage = "A venue must contain one - and exactly one - provider element.",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 Minimum = 1,
                 Maximum = 1,
                 ValidationGroup = "Structure",
                 NamespaceManager = elementValidator.NamespaceManager
             });
             var vr = elementValidator
-                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Credits.WithScheme).Root)
-                .Where(r => r.Message == "Unless a default value has been agreed between the aggregator and producer, each credit element should contain a scheme element. Multiple scheme elements are not allowed.");
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Venues.WithProvider).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
@@ -48,7 +47,6 @@ namespace TestProject.XmlValidationTests
                 expectedSuccessfulCount: 1
                 );
         }
-        */
 
     }
 }

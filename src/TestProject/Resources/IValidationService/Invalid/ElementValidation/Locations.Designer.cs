@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
+namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Venues {
+    internal class Locations {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Venues() {
+        internal Locations() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProject.Resources.IValidationService.Valid.ElementValidation.Venues", typeof(Venues).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProject.Resources.IValidationService.Invalid.ElementValidation.Locations", typeof(Locations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,29 +57,6 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
-        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
-        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot;
-        ///&gt;
-        ///  &lt;provider&gt;
-        ///    &lt;course&gt;
-        ///		&lt;presentation&gt;
-        ///			&lt;venue&gt;
-        ///				&lt;provider /&gt;
-        ///			&lt;/venue&gt;
-        ///		&lt;/presentation&gt;
-        ///	&lt;/course&gt;
-        ///  &lt;/provider&gt;
-        ///&lt;/catalog&gt;.
-        /// </summary>
-        internal static string WithProvider {
-            get {
-                return ResourceManager.GetString("WithProvider", resourceCulture);
             }
         }
     }

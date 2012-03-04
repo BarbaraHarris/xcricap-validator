@@ -13,7 +13,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithNoCoursesUnderCatalog()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestCourseExistsUnderElement
                 (
                 elementValidator,
@@ -26,7 +26,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithIdentifierWithXsiType()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestIdentifierWithoutXsiTypeExistsUnderElement
                 (
                 elementValidator,
@@ -39,7 +39,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithoutIdentifier()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestIdentifierWithoutXsiTypeExistsUnderElement
                 (
                 elementValidator,
@@ -52,7 +52,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithoutTitle()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestTitleExistsUnderElement
                 (
                 elementValidator,
@@ -65,7 +65,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithoutUrl()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestUrlExistsUnderElement
                 (
                 elementValidator,
@@ -78,7 +78,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithoutLocation()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestLocationExistsUnderElement
                 (
                 elementValidator,
@@ -91,7 +91,7 @@ namespace TestProject.XmlValidationTests
         [TestMethod]
         public void Invalid_ProviderWithoutCourse()
         {
-            var elementValidator = this.GetElementValidator_Provider();
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
             this.TestCourseExistsUnderElement
                 (
                 elementValidator,

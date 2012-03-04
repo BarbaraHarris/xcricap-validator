@@ -59,5 +59,27 @@ namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot;
+        ///&gt;
+        ///  &lt;provider&gt;
+        ///    &lt;course&gt;
+        ///		&lt;presentation&gt;
+        ///			&lt;venue&gt;
+        ///			&lt;/venue&gt;
+        ///		&lt;/presentation&gt;
+        ///	&lt;/course&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string WithoutProvider {
+            get {
+                return ResourceManager.GetString("WithoutProvider", resourceCulture);
+            }
+        }
     }
 }

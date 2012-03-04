@@ -9,7 +9,7 @@ namespace TestProject.XmlValidationTests
     public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<String>, T>
         where T : XCRI.Validation.IValidationService<String>
     {
-
+        /*
         [TestMethod]
         public void Invalid_Venue_Without()
         {
@@ -37,6 +37,7 @@ namespace TestProject.XmlValidationTests
                 expectedSuccessfulCount: 0
                 );
         }
+        */
 
     }
 }

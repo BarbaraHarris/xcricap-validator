@@ -10,8 +10,19 @@ namespace TestProject.XmlValidationTests
         where T : XCRI.Validation.IValidationService<String>
     {
 
+        protected XCRI.Validation.ContentValidation.ElementValidator GetElementValidator_Locations()
+        {
+            var elementValidator = new XCRI.Validation.ContentValidation.ElementValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager(),
+                XPathSelector = "//xcri12:provider/mlo:location"
+            };
+            return elementValidator;
+        }
+
+        /*
         [TestMethod]
-        public void Invalid_Venue_Without()
+        public void Valid_Venue_WithProvider()
         {
             var elementValidator = this.GetElementValidator_Venues();
             elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
@@ -25,18 +36,18 @@ namespace TestProject.XmlValidationTests
                 NamespaceManager = elementValidator.NamespaceManager
             });
             var vr = elementValidator
-                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Venues.WithoutProvider).Root)
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Venues.WithProvider).Root)
                 .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults
                 (
                 result: vr.ElementAt(0),
-                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 expectedInstances: 1,
-                expectedFailedCount: 1,
-                expectedSuccessfulCount: 0
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
                 );
         }
-
+        */
     }
 }
