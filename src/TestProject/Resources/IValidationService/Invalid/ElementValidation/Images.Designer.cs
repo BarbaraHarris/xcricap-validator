@@ -69,5 +69,61 @@ namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
                 return ResourceManager.GetString("ImageWithoutAltAttribute", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///  &lt;provider&gt;
+        ///    &lt;image src=&quot;http://www.myinstitution.ac.uk/images/logo.jpg&quot; title=&quot;MyInstitution Logo&quot; alt=&quot;MyInstitution Logo&quot;&gt;hello world&lt;/image&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string NotEmpty {
+            get {
+                return ResourceManager.GetString("NotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///  &lt;provider&gt;
+        ///    &lt;image src=&quot;http://www.myinstitution.ac.uk/images/logo.eps&quot; /&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string SourceEps {
+            get {
+                return ResourceManager.GetString("SourceEps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///  &lt;provider&gt;
+        ///    &lt;image src=&quot;http://www.myinstitution.ac.uk/images/logo&quot; /&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string SourceNoExtension {
+            get {
+                return ResourceManager.GetString("SourceNoExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///  &lt;provider&gt;
+        ///    &lt;image src=&quot;hello world&quot; /&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string SourceNotValidUri {
+            get {
+                return ResourceManager.GetString("SourceNotValidUri", resourceCulture);
+            }
+        }
     }
 }

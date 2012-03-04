@@ -757,14 +757,6 @@
         validationGroup="Formatting"
       />
     <numberValidator
-        selector="count(@alt)"
-        message="Image elements should contain alternative text for accessibility"
-        status="Warning"
-        minimum="1"
-        maximum="1"
-        validationGroup="Accessibility"
-      />
-    <numberValidator
         selector="string-length(@alt)"
         message="A provider should provide meaningful alternative text for each image"
         minimum="1"
@@ -774,13 +766,6 @@
     <urlValidator
         selector="@src"
         message="Image sources must be URIs conforming to the URI scheme as specified by IETF RFC 3986."
-        status="Exception"
-        allowRelative="false"
-        validationGroup="Formatting"
-      />
-    <urlValidator
-        selector="@href"
-        message="href attributes must be URIs conforming to the URI scheme as specified by IETF RFC 3986."
         status="Exception"
         allowRelative="false"
         validationGroup="Formatting"

@@ -126,4 +126,36 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="NotEmpty" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+    &lt;image src="http://www.myinstitution.ac.uk/images/logo.jpg" title="MyInstitution Logo" alt="MyInstitution Logo"&gt;hello world&lt;/image&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="SourceEps" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+    &lt;image src="http://www.myinstitution.ac.uk/images/logo.eps" /&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="SourceNoExtension" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+    &lt;image src="http://www.myinstitution.ac.uk/images/logo" /&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="SourceNotValidUri" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+    &lt;image src="hello world" /&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
 </root>
