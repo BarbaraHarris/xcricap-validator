@@ -49,6 +49,35 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Valid_Presentation_WithVenue()
+        {
+            var ev = this.GetElementValidator_Presentation();
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./xcri12:venue)",
+                ExceptionMessage = "All presentations must contain one - and only one - venue",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Presentations.WithVenue).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
         public void Valid_Presentation_WithDuration()
         {
             var ev = this.GetElementValidator_Presentation();

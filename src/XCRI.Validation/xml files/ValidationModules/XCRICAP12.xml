@@ -770,6 +770,14 @@
         </div>
       </furtherInformation>
     </numberValidator>
+    <numberValidator
+        selector="count(./xcri12:venue)"
+        message="All presentations must contain one - and only one - venue"
+        minimum="1"
+        maximum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
   </elementValidation>
   <elementValidation
       selector="//xcri12:image"

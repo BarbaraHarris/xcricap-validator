@@ -66,6 +66,62 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Invalid_Presentation_WithoutVenue()
+        {
+            var elementValidator = this.GetElementValidator_Presentation();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./xcri12:venue)",
+                ExceptionMessage = "All presentations must contain one - and only one - venue",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithoutVenue).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_Presentation_WithMultipleVenues()
+        {
+            var elementValidator = this.GetElementValidator_Presentation();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./xcri12:venue)",
+                ExceptionMessage = "All presentations must contain one - and only one - venue",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithMultipleVenues).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
         public void Invalid_Presentation_WithMultipleStarts()
         {
             var elementValidator = this.GetElementValidator_Presentation();
