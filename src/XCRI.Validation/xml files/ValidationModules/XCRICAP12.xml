@@ -490,7 +490,19 @@
         minimum="1"
         status="Exception"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All providers must contain an identifier element in the Dublin Core namespace that does NOT have an "xsi:type" attribute.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" namespace prefix has been defined):</p>
+          <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
+          <pre>&lt;dc:identifier xsi:type="xsd:string"&gt;hello world&lt;/dc:identifier&gt;</pre>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./dc:title)"
         message="All providers must contain a title, which should be the trading name."
@@ -531,7 +543,19 @@
         minimum="1"
         status="Exception"
         validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>All courses must contain an identifier element in the Dublin Core namespace that does NOT have an "xsi:type" attribute.</p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" namespace prefix has been defined):</p>
+          <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
+          <pre>&lt;dc:identifier xsi:type="xsd:string"&gt;hello world&lt;/dc:identifier&gt;</pre>
+        </div>
+      </furtherInformation>
+    </numberValidator>
     <numberValidator
         selector="count(./dc:title)"
         message="All courses must contain a title"
