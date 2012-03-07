@@ -71,6 +71,23 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///        generated=&quot;2011-03-21T20:00:23Z&quot;
         ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string WithAbstract {
+            get {
+                return ResourceManager.GetString("WithAbstract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string WithCourse {
             get {
                 return ResourceManager.GetString("WithCourse", resourceCulture);
@@ -141,9 +158,60 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///        generated=&quot;2011-03-21T20:00:23Z&quot;
         ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
         /// </summary>
+        internal static string WithoutAbstract {
+            get {
+                return ResourceManager.GetString("WithoutAbstract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
         internal static string WithTitle {
             get {
                 return ResourceManager.GetString("WithTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithTwoAbstractsDifferentLanguages1 {
+            get {
+                return ResourceManager.GetString("WithTwoAbstractsDifferentLanguages1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///        generated=&quot;2011-03-21T20:00:23Z&quot;
+        ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WithTwoAbstractsDifferentLanguages2 {
+            get {
+                return ResourceManager.GetString("WithTwoAbstractsDifferentLanguages2", resourceCulture);
             }
         }
         

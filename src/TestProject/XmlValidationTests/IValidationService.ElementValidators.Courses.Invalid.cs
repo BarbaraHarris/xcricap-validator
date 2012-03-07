@@ -11,6 +11,62 @@ namespace TestProject.XmlValidationTests
     {
 
         [TestMethod]
+        public void Invalid_Course_WithTwoAbstractsSameLanguage1()
+        {
+            var elementValidator = this.GetElementValidator_Course();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberPerLanguageValidator()
+            {
+                XPathSelector = ".",
+                ChildElementSelector = "./xcri12:abstract",
+                ExceptionMessage = "An abstract element can only be used once per language per course element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Courses.WithTwoAbstractsSameLanguage1).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_Course_WithTwoAbstractsSameLanguage2()
+        {
+            var elementValidator = this.GetElementValidator_Course();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberPerLanguageValidator()
+            {
+                XPathSelector = ".",
+                ChildElementSelector = "./xcri12:abstract",
+                ExceptionMessage = "An abstract element can only be used once per language per course element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Courses.WithTwoAbstractsSameLanguage2).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
         public void Invalid_CourseWithIdentifierWithXsiType()
         {
             var elementValidator = this.GetElementValidator_Course();

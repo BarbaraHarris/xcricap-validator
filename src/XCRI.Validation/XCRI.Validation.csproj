@@ -50,6 +50,7 @@
     <Compile Include="ContentValidation\AgeValidator.cs" />
     <Compile Include="ContentValidation\EmailAddressValidator.cs" />
     <Compile Include="ContentValidation\LanguageValidator.cs" />
+    <Compile Include="ContentValidation\NumberPerLanguageValidator.cs" />
     <Compile Include="ContentValidation\UKTelephoneNumberValidator.cs" />
     <Compile Include="ContentValidation\DocumentValidator.cs" />
     <Compile Include="ContentValidation\ElementValidator.cs" />

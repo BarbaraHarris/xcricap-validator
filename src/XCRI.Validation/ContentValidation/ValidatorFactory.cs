@@ -69,6 +69,8 @@ namespace XCRI.Validation.ContentValidation
                 v = new VDEXValidator(this.UriSource);
             if (typeof(T) == typeof(LanguageValidator))
                 v = new LanguageValidator();
+            if (typeof(T) == typeof(NumberPerLanguageValidator))
+                v = new NumberPerLanguageValidator();
             if(v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
             if (null != this.Logs)

@@ -205,7 +205,7 @@
         validationGroup="Manual">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          In the qualification element, Producers SHOULD use title for the name of the qualification, preferably as given by its Awarding Body.
+          In the qualification element, producers SHOULD use title for the name of the qualification, preferably as given by its Awarding Body.
           <ul class="links">
             <li>
               <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Ctitle.3E_element">The title element on the wiki</a>
@@ -480,6 +480,14 @@
         status="Exception"
         validationGroup="Structure"
       />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:abstract"
+      message="An abstract element can only be used once per language per catalog element"
+      maximum="1"
+      status="Exception"
+      validationGroup="Structure"
+      />
   </elementValidation>
   <elementValidation
       selector="//xcri12:provider[not(ancestor::xcri12:venue)]"
@@ -532,6 +540,14 @@
         minimum="1"
         status="Exception"
         validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:abstract"
+      message="An abstract element can only be used once per language per provider element"
+      maximum="1"
+      status="Exception"
+      validationGroup="Structure"
       />
   </elementValidation>
   <elementValidation
@@ -597,6 +613,14 @@
         minimum="1"
         status="Warning"
         validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="//xcri12:course"
+      childElementSelector="./xcri12:abstract"
+      message="An abstract element can only be used once per language per course element"
+      maximum="1"
+      status="Exception"
+      validationGroup="Structure"
       />
   </elementValidation>
   <elementValidation
@@ -801,6 +825,14 @@
         maximum="1"
         status="Exception"
         validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:abstract"
+      message="An abstract element can only be used once per language per presentation element"
+      maximum="1"
+      status="Exception"
+      validationGroup="Structure"
       />
   </elementValidation>
   <elementValidation

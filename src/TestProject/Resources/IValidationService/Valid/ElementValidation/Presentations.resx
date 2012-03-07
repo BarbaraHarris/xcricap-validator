@@ -117,6 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="WithAbstract" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        generated="2011-03-21T20:00:23Z"
+		xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+	&lt;provider&gt;
+		&lt;course&gt;
+			&lt;presentation&gt;
+				&lt;abstract /&gt;
+			&lt;/presentation&gt;
+		&lt;/course&gt;
+	&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="WithApplyTo" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -231,6 +250,24 @@
 		&lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="WithoutAbstract" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        generated="2011-03-21T20:00:23Z"
+		xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+	&lt;provider&gt;
+		&lt;course&gt;
+			&lt;presentation&gt;
+			&lt;/presentation&gt;
+		&lt;/course&gt;
+	&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="WithStart" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
 &lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -286,6 +323,46 @@
 				&lt;/presentation&gt;
 			&lt;/course&gt;
 		&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="WithTwoAbstractsDifferentLanguages1" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        generated="2011-03-21T20:00:23Z"
+		xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+	&lt;provider&gt;
+		&lt;course&gt;
+			&lt;presentation&gt;
+				&lt;abstract /&gt;
+				&lt;abstract xml:lang="abc" /&gt;
+			&lt;/presentation&gt;
+		&lt;/course&gt;
+	&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="WithTwoAbstractsDifferentLanguages2" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        generated="2011-03-21T20:00:23Z"
+		xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+	&lt;provider&gt;
+		&lt;course&gt;
+			&lt;presentation&gt;
+				&lt;abstract xml:lang="def" /&gt;
+				&lt;abstract xml:lang="abc" /&gt;
+			&lt;/presentation&gt;
+		&lt;/course&gt;
+	&lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
   <data name="WithUrl" xml:space="preserve">

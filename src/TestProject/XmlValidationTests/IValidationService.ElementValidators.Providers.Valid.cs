@@ -98,5 +98,117 @@ namespace TestProject.XmlValidationTests
                 );
         }
 
+        [TestMethod]
+        public void Valid_Provider_WithoutAbstract()
+        {
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberPerLanguageValidator()
+            {
+                XPathSelector = ".",
+                ChildElementSelector = "./xcri12:abstract",
+                ExceptionMessage = "An abstract element can only be used once per language per provider element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.WithoutAbstract).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Provider_WithAbstract()
+        {
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberPerLanguageValidator()
+            {
+                XPathSelector = ".",
+                ChildElementSelector = "./xcri12:abstract",
+                ExceptionMessage = "An abstract element can only be used once per language per provider element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.WithAbstract).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Provider_WithTwoAbstractsDifferentLanguages1()
+        {
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberPerLanguageValidator()
+            {
+                XPathSelector = ".",
+                ChildElementSelector = "./xcri12:abstract",
+                ExceptionMessage = "An abstract element can only be used once per language per provider element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.WithTwoAbstractsDifferentLanguages1).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Provider_WithTwoAbstractsDifferentLanguages2()
+        {
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberPerLanguageValidator()
+            {
+                XPathSelector = ".",
+                ChildElementSelector = "./xcri12:abstract",
+                ExceptionMessage = "An abstract element can only be used once per language per provider element",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.WithTwoAbstractsDifferentLanguages2).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
     }
 }

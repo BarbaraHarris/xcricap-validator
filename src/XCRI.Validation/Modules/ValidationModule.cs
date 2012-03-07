@@ -109,6 +109,7 @@ namespace XCRI.Validation.Modules
             if (null == this.ValidatorFactory)
                 throw new InvalidOperationException("The ValidatorFactory property must not be null in order to extract validators from an XML file");
             ContentValidation.IValidator validator = null;
+            decimal value;
             switch (validatorNode.Name.LocalName.ToLower())
             {
                 case "urlvalidator":
@@ -149,7 +150,6 @@ namespace XCRI.Validation.Modules
                     break;
                 case "numbervalidator":
                     var numbervalidator = this.ValidatorFactory.GetValidator<ContentValidation.NumberValidator>();
-                    decimal value;
                     if (
                         (null != validatorNode.Attribute("minimum"))
                         &&
@@ -167,6 +167,32 @@ namespace XCRI.Validation.Modules
                         )
                         numbervalidator.Maximum = value;
                     validator = numbervalidator;
+                    break;
+                case "numberperlanguagevalidator":
+                    var numberPerLanguageValidator = this.ValidatorFactory.GetValidator<ContentValidation.NumberPerLanguageValidator>();
+                    if (
+                        (null != validatorNode.Attribute("minimum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("minimum").Value))
+                        &&
+                        (decimal.TryParse(validatorNode.Attribute("minimum").Value, out value))
+                        )
+                        numberPerLanguageValidator.Minimum = value;
+                    if (
+                        (null != validatorNode.Attribute("maximum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("maximum").Value))
+                        &&
+                        (decimal.TryParse(validatorNode.Attribute("maximum").Value, out value))
+                        )
+                        numberPerLanguageValidator.Maximum = value;
+                    if (
+                        (null != validatorNode.Attribute("childElementSelector"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("childElementSelector").Value))
+                        )
+                        numberPerLanguageValidator.ChildElementSelector = validatorNode.Attribute("childElementSelector").Value;
+                    validator = numberPerLanguageValidator;
                     break;
                 case "stringlengthvalidator":
                     var stringlengthvalidator = this.ValidatorFactory.GetValidator<ContentValidation.StringLengthValidator>();
