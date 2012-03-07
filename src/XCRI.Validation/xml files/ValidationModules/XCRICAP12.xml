@@ -599,7 +599,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain an "applyTo" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations should contain an "applyTo" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "T".</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid</p>
@@ -622,7 +622,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain an "attendanceMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations should contain an "attendanceMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "M".</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid</p>
@@ -644,7 +644,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain an "attendancePattern" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations should contain an "attendancePattern" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "P".</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid</p>
@@ -666,7 +666,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain a "studyMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations should contain a "studyMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "M".</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid</p>
@@ -688,7 +688,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain a "url" element within the MLO (http://purl.org/net/mlo) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations should contain a "url" element within the MLO (http://purl.org/net/mlo) namespace.  Note that the element name must be lower-case.</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid, provided the "mlo" namespace prefix has been declared correctly</p>
@@ -710,7 +710,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations must contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations must contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
@@ -732,7 +732,7 @@
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations must contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations must contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
