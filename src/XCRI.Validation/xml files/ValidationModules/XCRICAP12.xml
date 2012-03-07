@@ -574,6 +574,7 @@
         selector="count(./mlo:start)"
         message="All presentations must contain a start element in the MLO namespace"
         minimum="1"
+        maximum="1"
         status="Exception"
         validationGroup="Structure"
       >

@@ -39,6 +39,34 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Invalid_Presentation_WithMultipleStarts()
+        {
+            var elementValidator = this.GetElementValidator_Presentation();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:start)",
+                ExceptionMessage = "All presentations must contain a start element in the MLO namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithMultipleStarts).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
         public void Invalid_Presentation_WithoutApplyTo()
         {
             var ev = this.GetElementValidator_Presentation();
