@@ -299,12 +299,12 @@
     </emailAddressValidator>
     <ukTelephoneNumberValidator
         selector="(//mlo:phone|//mlo:fax)"
-        message="Telephone numbers should be formatted as they would be dialed from the UK"
+        message="Telephone and fax numbers should be formatted as they would be dialed from the UK"
         status="Warning"
         validationGroup="Formatting">
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          Each phone and fax element should contain a telephone number as it would be dialed from the UK.
+          Each telephone and fax element should contain a telephone number as it would be dialed from the UK.
           The National Format Layout is cited as a recommended format.
           <ul class="links">
             <li>
@@ -313,7 +313,7 @@
           </ul>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
-          Ensure that each phone and fax element contain a telephone number in the National Format Layout format.
+          Ensure that each telephone and fax element contain a telephone number in the National Format Layout format.
         </div>
       </furtherInformation>
     </ukTelephoneNumberValidator>
