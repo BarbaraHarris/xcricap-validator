@@ -594,6 +594,13 @@
       </furtherInformation>
     </numberValidator>
     <numberValidator
+        selector="count(./xcri12:end)"
+        message="Presentations can contain a maximum of one end element in the XCRI-CAP 1.2 namespace"
+        maximum="1"
+        status="Exception"
+        validationGroup="Structure"
+       />
+    <numberValidator
         selector="count(./xcri12:applyTo)"
         message="All presentations should contain an applyTo element in the XCRI-CAP 1.2 namespace"
         minimum="1"
