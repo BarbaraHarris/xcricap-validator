@@ -76,6 +76,34 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Invalid_ProviderWithMultipleLocations()
+        {
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:location)",
+                ExceptionMessage = "All providers must contain a location",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Providers.WithMultipleLocations).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
         public void Invalid_ProviderWithoutLocation()
         {
             var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
