@@ -70,6 +70,28 @@ namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
         ///  &lt;provider&gt;
         ///	&lt;course&gt;
         ///		&lt;mlo:qualification&gt;
+        ///			&lt;dc:title&gt;hello world&lt;/dc:title&gt;
+        ///			&lt;dc:title&gt;hello world&lt;/dc:title&gt;
+        ///		&lt;/mlo:qualification&gt;
+        ///	&lt;/course&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string WithMultipleTitles {
+            get {
+                return ResourceManager.GetString("WithMultipleTitles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///	xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///&gt;
+        ///  &lt;provider&gt;
+        ///	&lt;course&gt;
+        ///		&lt;mlo:qualification&gt;
         ///		&lt;/mlo:qualification&gt;
         ///	&lt;/course&gt;
         ///  &lt;/provider&gt;

@@ -877,6 +877,7 @@
         selector="count(./dc:title)"
         message="All qualifications must contain a title element"
         minimum="1"
+        maximum="1"
         status="Exception"
         validationGroup="Structure"
       />

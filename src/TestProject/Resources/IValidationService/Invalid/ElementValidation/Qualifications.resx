@@ -117,6 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="WithMultipleTitles" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"
+	xmlns:mlo="http://purl.org/net/mlo"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+&gt;
+  &lt;provider&gt;
+	&lt;course&gt;
+		&lt;mlo:qualification&gt;
+			&lt;dc:title&gt;hello world&lt;/dc:title&gt;
+			&lt;dc:title&gt;hello world&lt;/dc:title&gt;
+		&lt;/mlo:qualification&gt;
+	&lt;/course&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="WithoutAwardedBy" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"
