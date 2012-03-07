@@ -517,21 +517,21 @@
     >
     <numberValidator
         selector="count(./dc:identifier[not(@xsi:type)])"
-        message="All courses should contain an identifier without an xsi:type attribute"
+        message="All courses must contain an identifier without an xsi:type attribute"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./dc:title)"
-        message="All courses should contain a title"
+        message="All courses must contain a title"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./dc:subject)"
-        message="All courses should contain a subject"
+        message="All courses must contain a subject"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
@@ -570,14 +570,14 @@
     >
     <numberValidator
         selector="count(./mlo:start)"
-        message="All presentations should contain a start element in the MLO namespace"
+        message="All presentations must contain a start element in the MLO namespace"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain a "start" element within the MLO (http://purl.org/net/mlo) namespace.</p>
+          <p>All presentations must contain a "start" element within the MLO (http://purl.org/net/mlo) namespace.</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>Presentations must contain a start node, and the start node must be within the correct namespace.  For example, the following is valid provided that a namespace prefix of "mlo" has been declared pointing at the correct namespace:</p>
@@ -703,14 +703,14 @@
     </numberValidator>
     <numberValidator
         selector="count(./dc:identifier)"
-        message="All presentations should contain an identifier element in the Dublin Core namespace"
+        message="All presentations must contain an identifier element in the Dublin Core namespace"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations must contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
@@ -725,14 +725,14 @@
     </numberValidator>
     <numberValidator
         selector="count(./dc:title)"
-        message="All presentations should contain a title element in the Dublin Core namespace"
+        message="All presentations must contain a title element in the Dublin Core namespace"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       >
       <furtherInformation>
         <div xmlns="http://www.w3.org/1999/xhtml" class="information">
-          <p>All presentations should contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
+          <p>All presentations must contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the capitalisation of the element name is mandatory.</p>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml" class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
@@ -758,7 +758,7 @@
       />
     <numberValidator
         selector="string-length(@alt)"
-        message="A provider should provide meaningful alternative text for each image"
+        message="A provider must provide meaningful alternative text for each image"
         minimum="1"
         status="Exception"
         validationGroup="Accessibility"
@@ -866,21 +866,21 @@
     >
     <numberValidator
         selector="count(./dc:identifier)"
-        message="All qualifications should contain an identifier element"
+        message="All qualifications must contain an identifier element"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./dc:title)"
-        message="All qualifications should contain a title element"
+        message="All qualifications must contain a title element"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
         selector="count(./xcri12:awardedBy)"
-        message="All qualifications should contain an awardedBy element"
+        message="All qualifications must contain an awardedBy element"
         minimum="1"
         status="Exception"
         validationGroup="Structure"
