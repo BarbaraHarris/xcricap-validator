@@ -430,21 +430,21 @@
         message="Producers should use one of the recommended studyMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CstudyMode.3E_element (note that this list is case-sensitive)"
         status="Warning"
         validationGroup="Formatting"
-        vdexLocation="http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"
+        vdexLocation="http://www.xcri.co.uk/vocabularies/studyMode2_1.xml"
     />
     <vdexValidator
         selector="//xcri12:attendanceMode"
         message="Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendanceMode.3E_element (note that this list is case-sensitive)"
         status="Warning"
         validationGroup="Formatting"
-        vdexLocation="http://www.xcri.co.uk/vocabularies/attendanceMode1_0.xml"
+        vdexLocation="http://www.xcri.co.uk/vocabularies/attendanceMode2_1.xml"
     />
     <vdexValidator
         selector="//xcri12:attendancePattern"
         message="Producers should use one of the recommended attendancePattern values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendancePattern.3E_element (note that this list is case-sensitive)"
         status="Warning"
         validationGroup="Formatting"
-        vdexLocation="http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"
+        vdexLocation="http://www.xcri.co.uk/vocabularies/attendancePattern2_1.xml"
     />
     <numberValidator
       selector="count(/xcri12:catalog)"

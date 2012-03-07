@@ -9,7 +9,7 @@ namespace TestProject.UnitTests.ContentValidation
     public partial class VDEXValidator : IValidator<XCRI.Validation.ContentValidation.VDEXValidator>
     {
 
-        public Uri _studyModeLocation = new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml");
+        public Uri _studyModeLocation = new Uri("http://www.xcri.co.uk/vocabularies/studyMode2_1.xml");
 
         #region Identifier
 
