@@ -501,6 +501,7 @@
         selector="count(./mlo:location)"
         message="All providers must contain a location"
         minimum="1"
+        maximum="1"
         status="Exception"
         validationGroup="Structure"
       />
