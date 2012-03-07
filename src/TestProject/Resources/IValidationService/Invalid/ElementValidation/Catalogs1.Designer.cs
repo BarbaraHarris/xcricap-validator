@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
+namespace TestProject.Resources.IValidationService.Invalid.ElementValidation {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Catalog {
+    internal class Catalogs {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Catalog() {
+        internal Catalogs() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProject.Resources.IValidationService.Valid.ElementValidation.Catalog", typeof(Catalog).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProject.Resources.IValidationService.Invalid.ElementValidation.Catalogs", typeof(Catalogs).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -71,9 +71,26 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///        generated=&quot;2011-03-21T20:00:23Z&quot;
         ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string DescriptionUsed {
+        internal static string DescriptionNotUsed {
             get {
-                return ResourceManager.GetString("DescriptionUsed", resourceCulture);
+                return ResourceManager.GetString("DescriptionNotUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot; standalone=&quot;yes&quot;?&gt;
+        ///&lt;catalog xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        ///         xmlns:ukrlp=&quot;http://www.ukrlp.co.uk&quot;
+        ///         xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;
+        ///         xmlns:xcri12terms=&quot;http://xcri.org/profiles/1.2/catalog/terms&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot;
+        ///         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///         xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        ///		xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string GeneratedAttributeNotUsed {
+            get {
+                return ResourceManager.GetString("GeneratedAttributeNotUsed", resourceCulture);
             }
         }
         
@@ -88,9 +105,9 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///        generated=&quot;2011-03-21T20:00:23Z&quot;
         ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string GeneratedAttributeUsed {
+        internal static string WithMultipleProviders {
             get {
-                return ResourceManager.GetString("GeneratedAttributeUsed", resourceCulture);
+                return ResourceManager.GetString("WithMultipleProviders", resourceCulture);
             }
         }
         
@@ -105,9 +122,9 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///        generated=&quot;2011-03-21T20:00:23Z&quot;
         ///		xmlns=&quot;http://xcri.org [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string WithProvider {
+        internal static string WithoutProvider {
             get {
-                return ResourceManager.GetString("WithProvider", resourceCulture);
+                return ResourceManager.GetString("WithoutProvider", resourceCulture);
             }
         }
     }

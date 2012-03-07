@@ -39,6 +39,33 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Invalid_Presentation_WithMultipleDurations()
+        {
+            var elementValidator = this.GetElementValidator_Presentation();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:duration)",
+                ExceptionMessage = "Presentations can contain a maximum of one duration element in the MLO namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithMultipleDurations).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
         public void Invalid_Presentation_WithMultipleStarts()
         {
             var elementValidator = this.GetElementValidator_Presentation();

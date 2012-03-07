@@ -49,6 +49,62 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Valid_Presentation_WithDuration()
+        {
+            var ev = this.GetElementValidator_Presentation();
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:duration)",
+                ExceptionMessage = "Presentations can contain a maximum of one duration element in the MLO namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Presentations.WithDuration).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Valid_Presentation_WithoutDuration()
+        {
+            var ev = this.GetElementValidator_Presentation();
+            var v = new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./mlo:duration)",
+                ExceptionMessage = "Presentations can contain a maximum of one duration element in the MLO namespace",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = ev.NamespaceManager
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Presentations.WithTitle).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
         public void Valid_Presentation_WithEnd()
         {
             var ev = this.GetElementValidator_Presentation();

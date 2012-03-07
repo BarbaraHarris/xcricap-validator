@@ -472,6 +472,14 @@
         status="Exception"
         validationGroup="Structure"
       />
+    <numberValidator
+        selector="count(./xcri12:provider)"
+        message="All catalogs must contain one and only one provider element"
+        minimum="1"
+        maximum="1"
+        status="Exception"
+        validationGroup="Structure"
+      />
   </elementValidation>
   <elementValidation
       selector="//xcri12:provider[not(ancestor::xcri12:venue)]"
@@ -593,6 +601,13 @@
         </div>
       </furtherInformation>
     </numberValidator>
+    <numberValidator
+        selector="count(./mlo:duration)"
+        message="Presentations can contain a maximum of one duration element in the MLO namespace"
+        maximum="1"
+        status="Exception"
+        validationGroup="Structure"
+       />
     <numberValidator
         selector="count(./xcri12:end)"
         message="Presentations can contain a maximum of one end element in the XCRI-CAP 1.2 namespace"
@@ -894,6 +909,18 @@
         message="All qualifications must contain an awardedBy element"
         minimum="1"
         status="Exception"
+        validationGroup="Structure"
+      />
+  </elementValidation>
+  <elementValidation
+    selector="(//xcri12:attendanceMode|//xcri12:attendancePattern|//xcri12:studyMode)"
+    >
+    <numberValidator
+        selector="count(./@identifier)"
+        message="It is recommended that attendanceMode, attendancePattern and studyMode elements have a populated 'identifier' attribute."
+        minimum="1"
+        maximum="1"
+        status="Recommendation"
         validationGroup="Structure"
       />
   </elementValidation>
