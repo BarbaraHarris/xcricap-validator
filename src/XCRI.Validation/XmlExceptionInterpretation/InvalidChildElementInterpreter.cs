@@ -43,7 +43,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                 {
                     // Is the element name the same (case sensitive) but the wrong namespace?
                     if (
-                        matchElementName.Equals(elementName, StringComparison.CurrentCultureIgnoreCase)
+                        matchElementName.Trim().Equals(elementName, StringComparison.CurrentCultureIgnoreCase)
                         &&
                         false == (matchElementNamespace.Equals(elementNamespace, StringComparison.CurrentCulture))
                         )
@@ -62,7 +62,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                         return InterpretationStatus.Interpreted;
                     }
                     // Is it a capitalisation different on the element names?
-                    if (matchElementName.Equals(elementName, StringComparison.CurrentCultureIgnoreCase))
+                    if (matchElementName.Trim().Equals(elementName, StringComparison.CurrentCultureIgnoreCase))
                     {
                         message = String.Format
                             (
