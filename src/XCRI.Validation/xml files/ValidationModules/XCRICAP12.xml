@@ -493,9 +493,9 @@
       />
     <numberValidator
         selector="count(./mlo:url)"
-        message="All providers must contain a url, which should be its homepage or microsite"
+        message="All providers should contain a url, which should be its homepage or microsite"
         minimum="1"
-        status="Exception"
+        status="Warning"
         validationGroup="Structure"
       />
     <numberValidator
