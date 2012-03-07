@@ -34,7 +34,7 @@
         selector="count(/xcri12:provider)"
         message="The document root element must be a catalog, a provider or a course"
         maximum="0"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       >
       <furtherInformation>
@@ -260,7 +260,7 @@
     </emptyElementValidator>
     <stringLengthValidator
         selector="//xcri12:abstract"
-        message="Producers must not create an abstract that exceeds 140 characters."
+        message="Producers should not create an abstract that exceeds 140 characters."
         status="Warning"
         maximum="140"
         validationGroup="Formatting">
