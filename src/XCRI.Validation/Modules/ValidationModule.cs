@@ -250,6 +250,10 @@ namespace XCRI.Validation.Modules
                     var languageValidator = this.ValidatorFactory.GetValidator<ContentValidation.LanguageValidator>();
                     validator = languageValidator;
                     break;
+                case "durationvalidator":
+                    var durationValidator = this.ValidatorFactory.GetValidator<ContentValidation.DurationValidator>();
+                    validator = durationValidator;
+                    break;
             }
             if (null == validator)
                 throw new InvalidDataException(String.Format

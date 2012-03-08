@@ -71,6 +71,8 @@ namespace XCRI.Validation.ContentValidation
                 v = new LanguageValidator();
             if (typeof(T) == typeof(NumberPerLanguageValidator))
                 v = new NumberPerLanguageValidator();
+            if (typeof(T) == typeof(DurationValidator))
+                v = new DurationValidator();
             if(v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
             if (null != this.Logs)

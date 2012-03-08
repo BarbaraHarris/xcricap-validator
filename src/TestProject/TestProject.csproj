@@ -119,6 +119,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Credits.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\IValidationService\Invalid\ElementValidation\Duration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Duration.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\IValidationService\Invalid\ElementValidation\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -203,6 +208,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Credits.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\IValidationService\Valid\ElementValidation\Duration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Duration.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\IValidationService\Valid\ElementValidation\Images.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -307,6 +317,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\ValidationService.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\UrlValidator.Valid.cs" />
+    <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Durations.Invalid.cs" />
+    <Compile Include="XmlValidationTests\IValidationService.ElementValidators.Durations.Valid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.ElementValidators.StudyMode.Invalid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.ElementValidators.StudyMode.Valid.cs" />
     <Compile Include="XmlValidationTests\IValidationService.ElementValidators.AttendancePattern.Invalid.cs" />
@@ -398,6 +410,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Credits.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Invalid\ElementValidation\Duration.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Duration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Invalid\ElementValidation\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
@@ -465,6 +481,10 @@
     <EmbeddedResource Include="Resources\IValidationService\Valid\ElementValidation\Credits.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Credits.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\IValidationService\Valid\ElementValidation\Duration.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Duration.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Valid\ElementValidation\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>

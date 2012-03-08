@@ -988,4 +988,25 @@
         validationGroup="Structure"
       />
   </elementValidation>
+  <elementValidation
+    selector="//mlo:duration"
+    >
+    <durationValidator
+        selector="@interval"
+        message="The interval attribute must be a valid duration-only time interval as specified by ISO 8601."
+        status="Warning"
+        validationGroup="Structure">
+      <furtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>The interval attribute must contain the interval formatted in an ISO-8601 machine-readable format.</p>
+          <p>While the text content of the duration element is intended to contain a human-readable description of the duration of the learning opportunity, the interval attribute can be used to provide a machine-readable equivalent. If there is no direct machine-equivalent value (e.g., the duration is flexible), then Producers SHOULD NOT include the interval attribute.</p>
+          <ul class="links">
+            <li>
+              <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 duration formats</a>
+            </li>
+          </ul>
+        </div>
+      </furtherInformation>
+    </durationValidator>
+  </elementValidation>
 </contentValidators>

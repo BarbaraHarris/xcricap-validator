@@ -124,7 +124,7 @@ namespace XCRI.Validation.ContentValidation
             {
                 details = String.Format
                     (
-                    "{0} is not a valid ISO 1860 duration",
+                    "{0} is not a valid ISO 8601 duration",
                     input
                     );
                 return false;
