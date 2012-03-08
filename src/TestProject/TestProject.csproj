@@ -255,6 +255,9 @@
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
     <Compile Include="SampleFiles\NorthLindseyCollege_20120223.cs" />
+    <Compile Include="UnitTests\ContentValidation\DurationValidator.cs" />
+    <Compile Include="UnitTests\ContentValidation\DurationValidator.Invalid.cs" />
+    <Compile Include="UnitTests\ContentValidation\DurationValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\LanguageValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\LanguageValidator.Valid.cs" />
     <Compile Include="UnitTests\ContentValidation\LanguageValidator.cs" />
