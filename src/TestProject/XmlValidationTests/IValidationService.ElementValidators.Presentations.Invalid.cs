@@ -122,9 +122,9 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
-        public void Invalid_Presentation_WithoutVenue()
+        public void Invalid_Presentation_WithoutVenueWithCampusAttendanceMode()
         {
-            var elementValidator = this.GetElementValidator_Presentation();
+            var elementValidator = this.GetElementValidator_PresentationWithCampusAttendanceMode();
             elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
             {
                 XPathSelector = "count(./xcri12:venue)",
@@ -136,7 +136,35 @@ namespace TestProject.XmlValidationTests
                 NamespaceManager = elementValidator.NamespaceManager
             });
             var vr = elementValidator
-                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithoutVenue).Root)
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithoutVenueWithCampusAttendanceMode).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                expectedInstances: 1,
+                expectedFailedCount: 1,
+                expectedSuccessfulCount: 0
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_Presentation_WithoutVenueWithCampusAttendanceModeAttribute()
+        {
+            var elementValidator = this.GetElementValidator_PresentationWithCampusAttendanceMode();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./xcri12:venue)",
+                ExceptionMessage = "All presentations must contain one - and only one - venue",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithoutVenueWithCampusAttendanceModeAttribute).Root)
                 .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults

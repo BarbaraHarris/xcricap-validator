@@ -20,6 +20,16 @@ namespace TestProject.XmlValidationTests
             return elementValidator;
         }
 
+        protected XCRI.Validation.ContentValidation.ElementValidator GetElementValidator_PresentationWithCampusAttendanceMode()
+        {
+            var elementValidator = new XCRI.Validation.ContentValidation.ElementValidator()
+            {
+                NamespaceManager = this.GetNamespaceManager(),
+                XPathSelector = "(//xcri12:presentation[.//xcri12:attendanceMode/text()='Campus']|//xcri12:presentation[.//xcri12:attendanceMode[@identifier='CM']])"
+            };
+            return elementValidator;
+        }
+
         [TestMethod]
         public void Valid_Presentation_WithStart()
         {
@@ -187,6 +197,27 @@ namespace TestProject.XmlValidationTests
                 expectedFailedCount: 0,
                 expectedSuccessfulCount: 1
                 );
+        }
+
+        [TestMethod]
+        public void Valid_Presentation_WithoutVenue()
+        {
+            var elementValidator = this.GetElementValidator_PresentationWithCampusAttendanceMode();
+            elementValidator.Validators.Add(new XCRI.Validation.ContentValidation.NumberValidator()
+            {
+                XPathSelector = "count(./xcri12:venue)",
+                ExceptionMessage = "All presentations must contain one - and only one - venue",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
+                Minimum = 1,
+                Maximum = 1,
+                ValidationGroup = "Structure",
+                NamespaceManager = elementValidator.NamespaceManager
+            });
+            var vr = elementValidator
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Presentations.WithoutVenue).Root)
+                .Where(r => r.Message == elementValidator.Validators[0].ExceptionMessage);
+            // This doesn't contain attendanceMode=Campus so will not match
+            Assert.AreEqual<int>(0, vr.Count());
         }
 
         [TestMethod]
