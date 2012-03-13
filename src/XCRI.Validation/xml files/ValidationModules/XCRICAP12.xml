@@ -218,10 +218,11 @@
         </div>
       </furtherInformation>
     </manualValidator>
-    <manualValidator
-        selector="//dc:subject"
+    <regularExpressionValidator
+        selector="//dc:subject[not(@xsi:type)]"
         message="Each subject element must contain one (and only one) keyword, phrase or classification."
-        status="Exception"
+        pattern="^[A-Za-z0-9\s]*?$"
+        status="Warning"
         validationGroup="Manual">
       <furtherInformation>
         <div class="information">
@@ -237,7 +238,7 @@
           Ensure that each subject element contains one (and only one) keyword, phrase or classification.
         </div>
       </furtherInformation>
-    </manualValidator>
+    </regularExpressionValidator>
     <emptyElementValidator
         selector="//dc:subject"
         message="Subject elements cannot be empty"
