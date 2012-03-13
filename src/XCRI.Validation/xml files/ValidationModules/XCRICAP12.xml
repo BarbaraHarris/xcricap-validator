@@ -21,11 +21,11 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           For the Course Data Programme, a &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace 
           should be the root element.
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the document root element is an &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace.
         </div>
       </furtherInformation>
@@ -38,11 +38,11 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           For the Course Data Programme, a &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace 
           should be the root element.
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the document root element is an &lt;catalog&gt; element in the http://xcri.org/profiles/1.2/catalog namespace.
         </div>
       </furtherInformation>
@@ -54,7 +54,7 @@
 			  validationGroup="Formatting"
 			  allowRelative="false">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           All url elements are expected to contain valid URLs to indicate a place on the provider's website where further information can be obtained.
           <ul class="links">
             <li>
@@ -62,7 +62,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the URL value is fully-qualified valid and publically accessible.  Typically the URL should start with "http://".
         </div>
       </furtherInformation>
@@ -81,7 +81,7 @@
         status="Warning"
         validationGroup="Structure">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Date elements should not be used but, instead, use the start element and the temporal elements defined within the Wiki, for example: end, applyFrom and applyUntil.
           <ul class="links">
             <li>
@@ -89,7 +89,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Replace the date element with another of the temporal elements.
         </div>
       </furtherInformation>
@@ -101,7 +101,7 @@
         status="Warning"
         validationGroup="Structure">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           hasPart is included for compatibility with the [EN 15982] standard but should not be used.
           <ul class="links">
             <li>
@@ -109,7 +109,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Remove the hasPart element.
         </div>
       </furtherInformation>
@@ -121,7 +121,7 @@
         status="Warning"
         validationGroup="Structure">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
           <ul class="links">
             <li>
@@ -129,7 +129,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Remove the isPartOf element.
         </div>
       </furtherInformation>
@@ -140,7 +140,7 @@
         status="Warning"
         validationGroup="Manual">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           The contributor element should not be used for general contact information.
           <ul class="links">
             <li>
@@ -148,7 +148,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           If other elements are suitable, they should be used in preference.
         </div>
       </furtherInformation>
@@ -160,7 +160,7 @@
 			  validationGroup="Formatting"
 			  allowRelative="false">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Any identifier element with no type refinement must be a uniform resource identifier conforming to the URI scheme specified by IETF RFC 3986.
           <ul class="links">
             <li>
@@ -171,7 +171,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that any identifier elements without types refinements (xsi:type attributes) are Uniform Resource Identifiers.
           If the identifier uses a specific encoding scheme (for example: a UK Provider Reference Number) then ensure that it has an
           associated xsi:type attribute.
@@ -184,7 +184,7 @@
         status="Recommendation"
         validationGroup="Manual">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Producers SHOULD use URLs for identifiers that also resolve to human-readable content.
           <ul class="links">
             <li>
@@ -192,7 +192,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that any identifier elements without types refinements (xsi:type attributes) are Uniform Resource Identifiers
           and that these URIs resolve to human-readable content.
         </div>
@@ -204,7 +204,7 @@
         status="Warning"
         validationGroup="Manual">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           In the qualification element, producers SHOULD use title for the name of the qualification, preferably as given by its Awarding Body.
           <ul class="links">
             <li>
@@ -212,7 +212,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that any title element within a qualification element contains the name of the qualification, preferably
           as given by its Awarding Body.
         </div>
@@ -224,7 +224,7 @@
         status="Exception"
         validationGroup="Manual">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Each subject element must contain one (and only one) keyword, phrase or classification.
           Producers should use xml:lang and xsi:type attributes, where appropriate, to provide alternative language versions and encoding schemes respectively.
           <ul class="links">
@@ -233,7 +233,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that each subject element contains one (and only one) keyword, phrase or classification.
         </div>
       </furtherInformation>
@@ -245,7 +245,7 @@
         enforcementType="ForceNotEmpty"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Subject elements cannot be empty.
           <ul class="links">
             <li>
@@ -253,7 +253,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           If the subject element is not used, remove it.
         </div>
       </furtherInformation>
@@ -265,7 +265,7 @@
         maximum="140"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           The abstract element cannot contain more than 140 characters.  Aggregators may truncate the abstract if it is over 140 characters.
           <ul class="links">
             <li>
@@ -273,7 +273,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Shorten or truncate the text within the abstract element.
         </div>
       </furtherInformation>
@@ -284,7 +284,7 @@
         status="Exception"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Each email node should contain an email address conforming to the "addr-spec" production in RFC2822.
           <ul class="links">
             <li>
@@ -292,7 +292,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the email node contains an email address.
         </div>
       </furtherInformation>
@@ -303,7 +303,7 @@
         status="Warning"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Each telephone and fax element should contain a telephone number as it would be dialed from the UK.
           The National Format Layout is cited as a recommended format.
           <ul class="links">
@@ -312,7 +312,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that each telephone and fax element contain a telephone number in the National Format Layout format.
         </div>
       </furtherInformation>
@@ -323,10 +323,10 @@
         status="Exception"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Each postcode element should contain the full UK postcode of the respective provider's main site or venue of a presentation.
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the postcode contains a full valid UK postcode.
         </div>
       </furtherInformation>
@@ -338,7 +338,7 @@
         enforcementType="ForceNotEmpty"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           A duration element must contain textual content.
           <ul class="links">
             <li>
@@ -346,7 +346,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the duration element contains textual content or drop it from the XML document.
         </div>
       </furtherInformation>
@@ -357,7 +357,7 @@
         status="Exception"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           The age element must be one of "any", "not known", "x-y, or "x+" (where x and y must be non-negative integers).
           Additionally, if of the format "x-y", the value of x cannot be greater than the value of y.
           <ul class="links">
@@ -366,7 +366,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the age element is one of the four formats enumerated on the wiki.
         </div>
       </furtherInformation>
@@ -379,7 +379,7 @@
       validationGroup="Formatting"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Any XML "language" attributes (xml:lang) must contain a valid language according to the 2-character ISO 639 codes.
           <ul class="links">
             <li>
@@ -387,7 +387,7 @@
             </li>
           </ul>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Ensure that the xml:lang tag contains a valid 2-character code.
         </div>
       </furtherInformation>
@@ -400,11 +400,11 @@
         maximum="0"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Description elements that have a href attribute must not contain any content; the content is expected to be
           obtained from the URI in the href attribute.
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Decide whether the description element should contain content or link through to an external resource.
         </div>
       </furtherInformation>
@@ -417,10 +417,10 @@
         minimum="1"
         validationGroup="Formatting">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           Description elements that do not have a href attribute must contain content.
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           Decide whether the description element should contain content or link through to an external resource.
         </div>
       </furtherInformation>
@@ -500,10 +500,10 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All providers must contain an identifier element in the Dublin Core namespace that does NOT have an "xsi:type" attribute.</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" and "xsd" namespace prefixes have been defined):</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
           <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
@@ -561,10 +561,10 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All courses must contain an identifier element in the Dublin Core namespace that does NOT have an "xsi:type" attribute.</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" and "xsd" namespace prefixes have been defined):</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
           <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
@@ -635,16 +635,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations must contain a "start" element within the MLO (http://purl.org/net/mlo) namespace.</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>Presentations must contain a start node, and the start node must be within the correct namespace.  For example, the following is valid provided that a namespace prefix of "mlo" has been declared pointing at the correct namespace:</p>
           <pre>&lt;presentation&gt;&lt;mlo:start&gt;September 2012&lt;mlo:start&gt;&lt;/presentation&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;presentation&gt;&lt;start&gt;September 2012&lt;start&gt;&lt;/presentation&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain a "start" element, and that element exists within the MLO (http://purl.org/net/mlo) namespace (typically a namespace prefix of "mlo").</p>
         </div>
       </furtherInformation>
@@ -671,17 +671,17 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations should contain an "applyTo" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "T".</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid</p>
           <pre>&lt;applyTo&gt;Apply in writing to the university directly&lt;/applyTo&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;applyto&gt;Apply in writing to the university directly&lt;/applyto&gt;</pre>
           <pre>&lt;APPLYTO&gt;Apply in writing to the university directly&lt;/APPLYTO&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain an "applyTo" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
         </div>
       </furtherInformation>
@@ -694,16 +694,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations should contain an "attendanceMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "M".</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid</p>
           <pre>&lt;attendanceMode identifier="CM"&gt;Campus&lt;/attendanceMode&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;attendancemode identifier="CM"&gt;Campus&lt;/attendancemode&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain an "attendanceMode" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
         </div>
       </furtherInformation>
@@ -716,16 +716,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations should contain an "attendancePattern" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "P".</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid</p>
           <pre>&lt;attendancePattern identifier="CM"&gt;Campus&lt;/attendancePattern&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;attendancepattern identifier="WE"&gt;Weekend&lt;/attendancepattern&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain an "attendancePattern" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
         </div>
       </furtherInformation>
@@ -738,16 +738,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations should contain a "studyMode" element within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace.  Note that the element name must be lower-case with the exception of the letter "M".</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid</p>
           <pre>&lt;studyMode identifier="FL"&gt;Flexible&lt;/studyMode&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;studymode identifier="FL"&gt;Flexible&lt;/studymode&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain a "studyMode" element, and that element exists within the XCRI-CAP 1.2 (http://xcri.org/profiles/1.2/catalog) namespace</p>
         </div>
       </furtherInformation>
@@ -760,16 +760,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations should contain a "url" element within the MLO (http://purl.org/net/mlo) namespace.  Note that the element name must be lower-case.</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid, provided the "mlo" namespace prefix has been declared correctly</p>
           <pre>&lt;mlo:url&gt;http://www.myinstitution.ac.uk&lt;/mlo:url&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;mlo:Url&gt;http://www.myinstitution.ac.uk&lt;/mlo:Url&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain a "url" element, and that element exists within the MLO (http://purl.org/net/mlo) namespace.</p>
         </div>
       </furtherInformation>
@@ -782,16 +782,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations must contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;dc:Identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:Identifier&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain an "identifier" element, and that element exists within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.</p>
         </div>
       </furtherInformation>
@@ -804,16 +804,16 @@
         validationGroup="Structure"
       >
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>All presentations must contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <div class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
           <pre>&lt;dc:title&gt;My Educational Institution&lt;/dc:title&gt;</pre>
           <p>Whereas the following is invalid:</p>
           <pre>&lt;dc:Title&gt;My Educational Institution&lt;/dc:Title&gt;</pre>
         </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain an "title" element, and that element exists within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.</p>
         </div>
       </furtherInformation>
@@ -1001,7 +1001,7 @@
         status="Warning"
         validationGroup="Structure">
       <furtherInformation>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <div class="information">
           <p>The interval attribute must contain the interval formatted in an ISO-8601 machine-readable format.</p>
           <p>While the text content of the duration element is intended to contain a human-readable description of the duration of the learning opportunity, the interval attribute can be used to provide a machine-readable equivalent. If there is no direct machine-equivalent value (e.g., the duration is flexible), then Producers SHOULD NOT include the interval attribute.</p>
           <ul class="links">

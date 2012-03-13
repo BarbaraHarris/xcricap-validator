@@ -284,4 +284,96 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="UniversityOfHertfordshire_20120312" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog
+xmlns="http://xcri.org/profiles/1.2/catalog"
+xmlns:xcriTerms="http://xcri.org/profiles/catalog/terms"
+xmlns:credit="http://purl.org/net/cm"
+xmlns:dcterms="http://purl.org/dc/terms/"
+xmlns:dc="http://purl.org/dc/elements/1.1/" 
+xmlns:mlo="http://purl.org/net/mlo"
+xmlns:xhtml="http://www.w3.org/1999/xhtml"
+xmlns:courseDataProgramme="http://xcri.co.uk"
+xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+xmlns:hesa="http://www.hesa.ac.uk"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd http://xcri.org/profiles/1.2/catalog/terms  http://www.xcri.co.uk/bindings/xcri_cap_terms_1_2.xsd http://xcri.co.uk http://www.xcri.co.uk/bindings/coursedataprogramme.xsd http://www.w3.org/2003/01/geo/wgs84_pos http://web-apps.herts.ac.uk/uhweb/xcri/geo.xsd http://www.hesa.ac.uk"
+generated="2012-03-12T17:01:09Z"&gt;
+&lt;dc:description&gt;Courses offered by the University of Hertfordshire, Updated daily.&lt;/dc:description&gt;
+
+&lt;!-- Consider adding href with link to live version? not clear from DD document --&gt;
+&lt;provider&gt;
+&lt;dc:description&gt;The University of Hertfordshire provides courses via this provider - This refuses to work with or without dc&lt;/dc:description&gt; &lt;!--This refuses to work with or without dc --&gt;
+
+&lt;dc:identifier&gt;http://www.herts.ac.uk/&lt;/dc:identifier&gt;
+&lt;dc:identifier xsi:type="courseDataProgramme:ukprn"&gt;10007147&lt;/dc:identifier&gt;
+&lt;dc:title&gt;University of Hertfordshire&lt;/dc:title&gt;
+&lt;mlo:url&gt;http://www.herts.ac.uk/&lt;/mlo:url&gt;
+        
+&lt;course&gt;
+
+&lt;dc:description&gt;Bit of text about the course&lt;/dc:description&gt;
+&lt;dc:identifier&gt;http://www.herts.ac.uk/courses/Electrical-and-Electronic-Engineering.cfm&lt;/dc:identifier&gt; &lt;!-- Cool URI of Course Page --&gt;
+&lt;dc:identifier&gt;EIEE&lt;/dc:identifier&gt; &lt;!-- Course code to eventually come from CIT --&gt;
+&lt;dc:identifier&gt;UCAS: H600&lt;/dc:identifier&gt; &lt;!-- UCAS Code from CIT --&gt;
+&lt;dc:subject xsi:type="hesa:jacs"&gt;H600&lt;/dc:subject&gt; &lt;!-- JACS code to come from CIT --&gt;
+&lt;dc:subject&gt;subject&lt;/dc:subject&gt; &lt;!-- ? - Marketing Add-on / School of Study --&gt;
+&lt;dc:title&gt;Electrical and Electronic Engineering&lt;/dc:title&gt; &lt;!-- Course title from CIT --&gt;
+&lt;!-- type --&gt;
+&lt;mlo:url&gt;http://www.herts.ac.uk/courses/Electrical-and-Electronic-Engineering.cfm&lt;/mlo:url&gt; &lt;!-- URL to Course Page --&gt;
+&lt;mlo:assessment&gt; &lt;!-- XHTML Version of Assessment Strategy --&gt;
+   &lt;xhtml:div&gt;
+      &lt;xhtml:p&gt;Accessment Stragegy - from CIT&lt;/xhtml:p&gt;
+   &lt;/xhtml:div&gt;
+&lt;/mlo:assessment&gt;
+&lt;!--learningOutcome --&gt;
+&lt;mlo:objective&gt;Course Aim / Why do this course - Marketing Material&lt;/mlo:objective&gt; &lt;!-- Course Aim / Why do this course - Marketing Material --&gt;
+&lt;mlo:prerequisite&gt;Entry Requirments&lt;/mlo:prerequisite&gt; &lt;!-- Entry requirements from CIT --&gt;
+
+
+&lt;mlo:qualification&gt;
+	&lt;dc:identifier&gt;Can be text they suggest url to permanent award info - not course&lt;/dc:identifier&gt;
+	&lt;dc:title&gt;BEng Electrical and Electronic Engineering&lt;/dc:title&gt; &lt;!-- Award title - CIT --&gt;
+	&lt;dcterms:educationLevel&gt;Undergraduate&lt;/dcterms:educationLevel&gt; &lt;!-- Course level - CIT --&gt;
+    &lt;awardedBy&gt;University of Hertfordshire&lt;/awardedBy&gt; &lt;!-- From CIT? --&gt;
+&lt;/mlo:qualification&gt;
+
+&lt;presentation&gt; &lt;!-- Do we present each instance of a course? --&gt;
+&lt;dc:description&gt;A description&lt;/dc:description&gt; &lt;!-- CIT --&gt;
+&lt;dc:identifier&gt;EIEE&lt;/dc:identifier&gt; &lt;!-- Instance code? CIT --&gt;
+&lt;dc:title&gt;Title of the instance&lt;/dc:title&gt; &lt;!-- Can be inherited --&gt;
+&lt;mlo:url&gt;http://www.herts.ac.uk/courses/Electrical-and-Electronic-Engineering.cfm&lt;/mlo:url&gt; &lt;!-- Same as course url at the moment --&gt;
+&lt;mlo:start&gt;2012-05-07&lt;/mlo:start&gt; &lt;!-- Start date - CIT --&gt;
+&lt;end&gt;2012-05-08&lt;/end&gt; &lt;!-- End date - CIT --&gt;
+&lt;mlo:duration&gt;4 months (approx)&lt;/mlo:duration&gt;
+&lt;applyFrom&gt;2010-03-20&lt;/applyFrom&gt;
+&lt;applyUntil&gt;2011-01-07&lt;/applyUntil&gt;
+&lt;applyTo&gt;http://www.herts.ac.uk&lt;/applyTo&gt;&lt;!-- Details from online app feed --&gt;	
+&lt;studyMode identifier="FT"&gt;Full time&lt;/studyMode&gt;
+&lt;attendanceMode&gt;Self-study&lt;/attendanceMode&gt;
+&lt;attendancePattern&gt;Part time distance education course&lt;/attendancePattern&gt;
+&lt;mlo:languageOfInstruction&gt;EN&lt;/mlo:languageOfInstruction&gt;
+&lt;mlo:cost&gt;UK fee: GBP155.00; Ireland fee: GBP340.00; Continental Europe fee: GBP385.00&lt;/mlo:cost&gt;
+&lt;/presentation&gt;
+&lt;/course&gt;
+
+
+&lt;mlo:location&gt;
+    &lt;mlo:town&gt;Hatfield&lt;/mlo:town&gt;
+    &lt;mlo:postcode&gt;AL10 9AB&lt;/mlo:postcode&gt;
+    &lt;mlo:address xsi:type="geo:lat"&gt;-0.239296&lt;/mlo:address&gt;&lt;!-- Added by DG 02/12 to be verified --&gt;
+    &lt;mlo:address xsi:type="geo:long"&gt;51.756405&lt;/mlo:address&gt;    
+    &lt;mlo:address&gt;University of Hertfordshire&lt;/mlo:address&gt;
+    &lt;mlo:address&gt;College Lane&lt;/mlo:address&gt; &lt;!-- Confirm if this is still in postal address DG --&gt;
+	&lt;mlo:address&gt;Hatfield&lt;/mlo:address&gt;
+    &lt;mlo:address&gt;Hertfordshire&lt;/mlo:address&gt;
+    &lt;mlo:phone&gt;01707 284000&lt;/mlo:phone&gt;
+	&lt;mlo:fax&gt;01707 284115&lt;/mlo:fax&gt;
+	&lt;mlo:email&gt;ask@herts.ac.uk&lt;/mlo:email&gt;
+&lt;/mlo:location&gt;
+
+&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
 </root>
