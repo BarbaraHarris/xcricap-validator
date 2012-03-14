@@ -1014,4 +1014,26 @@
       </furtherInformation>
     </durationValidator>
   </elementValidation>
+  <!-- added in preparation of v2.0
+  <elementValidation
+    selector="(//xcri12:abstract|//xcri12:applicationProcedure|//mlo:assessment|//xcri12:learningOutcome|//mlo:objective|//mlo:prerequisite|//xcri12:regulations)"
+    >
+    <stringLengthValidator
+        selector="."
+        message="Common Descriptive Elements and description elements SHOULD NOT be more than 2,000 characters long, including XHTML markup.."
+        status="Warning"
+        maximum="2000"
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div class="information">
+          According to version 2.0 of the Data Definitions Document, Common Descriptive Elements and description elements
+          SHOULD NOT be more than 2,000 characters long, including XHTML markup.
+        </div>
+        <div class="resolution">
+          Shorten or truncate the text.
+        </div>
+      </furtherInformation>
+    </stringLengthValidator>
+  </elementValidation>
+  -->
 </contentValidators>
