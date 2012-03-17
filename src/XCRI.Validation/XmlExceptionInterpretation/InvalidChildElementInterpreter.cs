@@ -15,6 +15,8 @@ namespace XCRI.Validation.XmlExceptionInterpretation
             : base()
         {
             this.ExpectedElements = new List<ExpectedElement>();
+            // This is really ugly and needs to come from somewhere. But where?
+            // It basically (partially) replicates the XSD structure from http://code.google.com/p/xcri-schemas/source/browse/trunk/xsd/xcri_cap_1_2.xsd
             var xcri12CommonElements = new List<ExpectedElement>();
             xcri12CommonElements.Add(new ExpectedElement("hasPart", "http://purl.org/net/mlo"));
             xcri12CommonElements.Add(new ExpectedElement("contributor", "http://purl.org/dc/elements/1.1/"));
