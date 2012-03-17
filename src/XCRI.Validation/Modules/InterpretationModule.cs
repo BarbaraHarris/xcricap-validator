@@ -104,8 +104,8 @@ namespace XCRI.Validation.Modules
                     break;
                 case "invalidchildelementinterpreter":
                     var childElementInterpreter = this.InterpreterFactory.GetInterpreter<XmlExceptionInterpretation.InvalidChildElementInterpreter>();
-                    childElementInterpreter.ElementNameCasingIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNameCasingIncorrect']");
-                    childElementInterpreter.ElementNamespaceIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNamespaceIncorrect']");
+                    childElementInterpreter.FurtherInformation_ElementNameCasingIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNameCasingIncorrect']");
+                    childElementInterpreter.FurtherInformation_ElementNamespaceIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNamespaceIncorrect']");
                     interpreter = childElementInterpreter;
                     break;
             }
