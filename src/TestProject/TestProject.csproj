@@ -302,6 +302,7 @@
     <Compile Include="UnitTests\ContentValidation\AgeValidator.Invalid.cs" />
     <Compile Include="UnitTests\ContentValidation\VDEXValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\VDEXValidator.StudyMode.cs" />
+    <Compile Include="UnitTests\XmlExceptionInterpretation\InvalidChildElementInterpreter.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\StringValidator.Invalid.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\StringValidator.cs" />
     <Compile Include="XmlValidationTests\ContentValidation\StringValidator.Valid.cs" />
