@@ -43,7 +43,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                 {
                     // Is the element name the same (case sensitive) but the wrong namespace?
                     if (
-                        matchElementName.Trim().Equals(elementName, StringComparison.CurrentCultureIgnoreCase)
+                        matchElementName.Trim().Equals(elementName, StringComparison.CurrentCulture)
                         &&
                         false == (matchElementNamespace.Equals(elementNamespace, StringComparison.CurrentCulture))
                         )
