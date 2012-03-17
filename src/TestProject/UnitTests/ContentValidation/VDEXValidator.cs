@@ -63,40 +63,12 @@ namespace TestProject.UnitTests.ContentValidation
         public override void SelectAttribute()
         {
             return;
-            var validator = this.CreateValidator();
-            validator.VDEXLocation = new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml", UriKind.Absolute);
-            validator.XPathSelector = "//@hello";
-            try
-            {
-                var results = validator.Validate(System.Xml.Linq.XDocument.Parse("<root><hello hello=\"hello world\" /></root>").Root);
-                Assert.IsTrue(results.Count() == 1);
-                Assert.IsTrue(results.ElementAt(0).Instances.Count() == 1);
-                Assert.IsTrue(this.SupportsAttributeXPathSelectors);
-            }
-            catch
-            {
-                Assert.IsTrue(false == this.SupportsAttributeXPathSelectors);
-            }
         }
 
         [TestMethod]
         public override void SelectElement()
         {
             return;
-            var validator = this.CreateValidator();
-            validator.VDEXLocation = new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml", UriKind.Absolute);
-            validator.XPathSelector = "//hello";
-            try
-            {
-                var results = validator.Validate(System.Xml.Linq.XDocument.Parse("<root><hello hello=\"hello world\" /></root>").Root);
-                Assert.IsTrue(results.Count() == 1);
-                Assert.IsTrue(results.ElementAt(0).Instances.Count() == 1);
-                Assert.IsTrue(this.SupportsElementXPathSelectors);
-            }
-            catch
-            {
-                Assert.IsTrue(false == this.SupportsElementXPathSelectors);
-            }
         }
     }
 }
