@@ -89,6 +89,22 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                     .Union(new ExpectedElement("venue", "http://xcri.org/profiles/1.2/catalog"))
                     .ToArray()
                 ));
+            this.ExpectedElements.Add(new ExpectedElement
+                (
+                "qualification",
+                "http://purl.org/net/mlo",
+                    new List<ExpectedElement>()
+                    .Union(new ExpectedElement("identifier", "http://purl.org/dc/elements/1.1/"))
+                    .Union(new ExpectedElement("title", "http://purl.org/dc/elements/1.1/"))
+                    .Union(new ExpectedElement("abbr", "http://xcri.org/profiles/1.2/catalog"))
+                    .Union(new ExpectedElement("description", "http://purl.org/dc/elements/1.1/"))
+                    .Union(new ExpectedElement("educationLevel", "http://purl.org/dc/terms/"))
+                    .Union(new ExpectedElement("type", "http://purl.org/dc/elements/1.1/"))
+                    .Union(new ExpectedElement("url", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("awardedBy", "http://xcri.org/profiles/1.2/catalog"))
+                    .Union(new ExpectedElement("accreditedBy", "http://xcri.org/profiles/1.2/catalog"))
+                    .ToArray()
+                ));
         }
         public IList<ExpectedElement> ExpectedElements { get; set; }
         public System.Xml.Linq.XElement FurtherInformation_ElementNameCasingIncorrect { get; set; }
