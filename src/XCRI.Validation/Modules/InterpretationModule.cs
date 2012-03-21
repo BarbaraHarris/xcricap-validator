@@ -106,6 +106,58 @@ namespace XCRI.Validation.Modules
                     var childElementInterpreter = this.InterpreterFactory.GetInterpreter<XmlExceptionInterpretation.InvalidChildElementInterpreter>();
                     childElementInterpreter.FurtherInformation_ElementNameCasingIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNameCasingIncorrect']");
                     childElementInterpreter.FurtherInformation_ElementNamespaceIncorrect = interpreterNode.XPathSelectElement("./FurtherInformation[@type='ElementNamespaceIncorrect']");
+                    // Now load in any expected element groups (expectedElements)
+                    Dictionary<string, IEnumerable<XCRI.Validation.XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement>> expectedElementGroups
+                        = new Dictionary<string, IEnumerable<XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement>>();
+                    foreach (var eeg in interpreterNode.XPathSelectElements("./expectedElements"))
+                    {
+                        List<XCRI.Validation.XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement> expectedElements
+                            = new List<XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement>();
+                        string id = eeg.Attribute("id").Value;
+                        foreach (var ee in eeg.XPathSelectElements("./expectedElement"))
+                        {
+                            expectedElements.Add(new XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement
+                                (
+                                ee.Attribute("element").Value,
+                                ee.Attribute("namespace").Value
+                                ));
+                        }
+                        expectedElementGroups.Add(id, expectedElements);
+                    }
+                    // Now iterate over any expected elements themselves
+                    foreach (var ee in interpreterNode.XPathSelectElements("./expectedElement"))
+                    {
+                        var elementName = ee.Attribute("element").Value;
+                        var elementNamespace = ee.Attribute("namespace").Value;
+                        List<XCRI.Validation.XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement> expectedElements
+                            = new List<XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement>();
+                        // Iterate over children in order
+                        foreach (var child in ee.XPathSelectElements("./*"))
+                        {
+                            switch (child.Name.LocalName.ToLower())
+                            {
+                                case "expectedelements":
+                                    string reference = child.Attribute("ref").Value;
+                                    if (false == expectedElementGroups.ContainsKey(reference))
+                                        throw new Exception("expectedElements element contained an undeclared ref attribute.");
+                                    expectedElements.AddRange(expectedElementGroups[reference]);
+                                    break;
+                                case "expectedelement":
+                                    expectedElements.Add(new XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement
+                                        (
+                                        child.Attribute("element").Value,
+                                        child.Attribute("namespace").Value
+                                        ));
+                                    break;
+                            }
+                        }
+                        childElementInterpreter.ExpectedElements.Add(new XmlExceptionInterpretation.InvalidChildElementInterpreter.ExpectedElement
+                            (
+                            elementName,
+                            elementNamespace,
+                            expectedElements.ToArray()
+                            ));
+                    }
                     interpreter = childElementInterpreter;
                     break;
             }

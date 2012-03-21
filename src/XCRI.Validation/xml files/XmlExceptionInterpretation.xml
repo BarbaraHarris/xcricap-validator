@@ -4,6 +4,103 @@
     >
   <invalidChildElementInterpreter
     >
+    <!-- These are commonly-used sets of elements -->
+    <expectedElements id="XCRI-CAP 1.2 Common Elements">
+      <expectedElement element="hasPart" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="contributor" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="date" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="description" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="identifier" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="image" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="subject" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="title" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="type" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="url" namespace="http://purl.org/net/mlo" />
+    </expectedElements>
+    <expectedElements id="XCRI-CAP 1.2 Descriptive Elements">
+      <expectedElement element="abstract" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="applicationProcedure" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="assessment" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="learningOutcome" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="objective" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="prerequisite" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="regulations" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElements>
+    <!--
+      These expectedElements define parent elements and their expected children - IN ORDER.
+      This is used to parse the XSD exception thrown by unexpected children to highlight that the current XSD files
+      require the elements to be in a specific order.
+    -->
+    <expectedElement
+      element="catalog"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElement element="provider" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="provider"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElement element="course" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="location" namespace="http://purl.org/net/mlo" />
+    </expectedElement>
+    <expectedElement
+      element="course"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElements ref="XCRI-CAP 1.2 Descriptive Elements" />
+      <expectedElement element="level" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="qualification" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="credit" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="presentation" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="presentation"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElements ref="XCRI-CAP 1.2 Descriptive Elements" />
+      <expectedElement element="start" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="end" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="duration" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="applyFrom" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="applyUntil" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="applyTo" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="engagement" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="studyMode" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="attendanceMode" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="attendancePattern" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="languageOfInstruction" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="languageOfAssessment" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="places" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="cost" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="age" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="venue" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="qualification"
+      namespace="http://purl.org/net/mlo">
+      <expectedElement element="identifier" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="title" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="abbr" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="description" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="educationLevel" namespace="http://purl.org/dc/terms/" />
+      <expectedElement element="type" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="url" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="awardedBy" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="accreditedBy" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="location"
+      namespace="http://purl.org/net/mlo">
+      <expectedElement element="street" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="town" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="postcode" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="address" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="phone" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="fax" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="email" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="url" namespace="http://purl.org/net/mlo" />
+    </expectedElement>
     <FurtherInformation type="ElementNameCasingIncorrect">
       <div xmlns="http://www.w3.org/1999/xhtml" class="information">
         <p>

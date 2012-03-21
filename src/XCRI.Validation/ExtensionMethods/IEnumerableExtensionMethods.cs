@@ -9,7 +9,7 @@ namespace XCRI.Validation.ExtensionMethods
     {
         public static IEnumerable<T> Union<T>(this IEnumerable<T> input, T item)
         {
-            return input.Union(new T[]{ item });
+            return input.Union(new T[] { item });
         }
     }
 }
