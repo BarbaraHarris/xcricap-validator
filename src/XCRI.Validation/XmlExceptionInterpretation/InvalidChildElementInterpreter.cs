@@ -105,6 +105,21 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                     .Union(new ExpectedElement("accreditedBy", "http://xcri.org/profiles/1.2/catalog"))
                     .ToArray()
                 ));
+            this.ExpectedElements.Add(new ExpectedElement
+                (
+                "location",
+                "http://purl.org/net/mlo",
+                    new List<ExpectedElement>()
+                    .Union(new ExpectedElement("street", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("town", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("postcode", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("address", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("phone", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("fax", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("email", "http://purl.org/net/mlo"))
+                    .Union(new ExpectedElement("url", "http://purl.org/net/mlo"))
+                    .ToArray()
+                ));
         }
         public IList<ExpectedElement> ExpectedElements { get; set; }
         public System.Xml.Linq.XElement FurtherInformation_ElementNameCasingIncorrect { get; set; }
