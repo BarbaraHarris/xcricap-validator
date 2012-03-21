@@ -101,5 +101,41 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 message
                 );
         }
+        [TestMethod]
+        public void Matches_TitleIncorrectOrderUnderQualification()
+        {
+            var t = base.Instantiate();
+            var exception = new Exception(@"The element 'qualification' in namespace 'http://purl.org/net/mlo' has invalid child element 'title' in namespace 'http://purl.org/dc/elements/1.1/'. List of possible elements expected: 'abstract, applicationProcedure' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'assessment' in namespace 'http://purl.org/net/mlo' as well as 'learningOutcome' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'objective, prerequisite' in namespace 'http://purl.org/net/mlo' as well as 'regulations' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'start' in namespace 'http://purl.org/net/mlo' as well as 'end, startUntil, endFrom' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'duration' in namespace 'http://purl.org/net/mlo' as well as 'applyFrom, applyUntil, applyTo' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'engagement' in namespace 'http://purl.org/net/mlo' as well as 'studyMode, attendanceMode, attendancePattern' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'languageOfInstruction' in namespace 'http://purl.org/net/mlo' as well as 'languageOfAssessment' in namespace 'http://xcri.org/profiles/1.2/catalog' a....");
+            string message = String.Empty;
+            XElement throwaway = null;
+            Assert.AreEqual<InterpretationStatus>
+                (
+                InterpretationStatus.Interpreted,
+                t.Interpret(exception, out throwaway, ref message)
+                );
+            Assert.AreEqual<string>
+                (
+                @"The 'qualification' element contains elements that are in the wrong order.",
+                message
+                );
+        }
+        [TestMethod]
+        public void NotMatches_UnknownElementUnderQualification()
+        {
+            var t = base.Instantiate();
+            var exception = new Exception(@"The element 'qualification' in namespace 'http://purl.org/net/mlo' has invalid child element 'unknown' in namespace 'http://purl.org/dc/elements/1.1/'. List of possible elements expected: 'abstract, applicationProcedure' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'assessment' in namespace 'http://purl.org/net/mlo' as well as 'learningOutcome' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'objective, prerequisite' in namespace 'http://purl.org/net/mlo' as well as 'regulations' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'start' in namespace 'http://purl.org/net/mlo' as well as 'end, startUntil, endFrom' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'duration' in namespace 'http://purl.org/net/mlo' as well as 'applyFrom, applyUntil, applyTo' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'engagement' in namespace 'http://purl.org/net/mlo' as well as 'studyMode, attendanceMode, attendancePattern' in namespace 'http://xcri.org/profiles/1.2/catalog' as well as 'languageOfInstruction' in namespace 'http://purl.org/net/mlo' as well as 'languageOfAssessment' in namespace 'http://xcri.org/profiles/1.2/catalog' a....");
+            string message = String.Empty;
+            XElement throwaway = null;
+            Assert.AreEqual<InterpretationStatus>
+                (
+                InterpretationStatus.NotInterpreted,
+                t.Interpret(exception, out throwaway, ref message)
+                );
+            Assert.AreEqual<string>
+                (
+                String.Empty,
+                message
+                );
+        }
     }
 }
