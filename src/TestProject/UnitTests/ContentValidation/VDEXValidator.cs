@@ -30,7 +30,7 @@ namespace TestProject.UnitTests.ContentValidation
                     if(false == this.CachedValidators.ContainsKey(vdexLocation))
                         this.CachedValidators.Add(vdexLocation, new XCRI.Validation.ContentValidation.VDEXValidator
                         (
-                        new UriSource(null, null)
+                        new UriFromResourceSource()
                         )
                         {
                             VDEXLocation = vdexLocation
@@ -70,5 +70,17 @@ namespace TestProject.UnitTests.ContentValidation
         {
             return;
         }
+        public class UriFromResourceSource : SourceBase<Uri>
+        {
+            public UriFromResourceSource()
+                : base(null, null)
+            {
+            }
+            public override System.Xml.XmlReader GetXmlReader(Uri input)
+            {
+                return System.Xml.XmlReader.Create(new System.IO.StringReader(Resources.ContentValidation.VDEXFiles.ResourceManager.GetString(input.ToString().Replace(":", "_").Replace("/", "_").Replace(".", "_"))));
+            }
+        }
+
     }
 }

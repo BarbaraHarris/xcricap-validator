@@ -1663,7 +1663,7 @@ namespace TestProject.XmlValidationTests
             {
                 NamespaceManager = this.GetNamespaceManager()
             };
-            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"));
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/studyMode2_1.xml"));
             v.XPathSelector = "//xcri12:studyMode";
             v.ExceptionMessage = "Producers should use one of the recommended studyMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CstudyMode.3E_element (note that this list is case-sensitive)";
             v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
@@ -1691,7 +1691,7 @@ namespace TestProject.XmlValidationTests
             {
                 NamespaceManager = this.GetNamespaceManager()
             };
-            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/studyMode1_0.xml"));
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/studyMode2_1.xml"));
             v.XPathSelector = "//xcri12:studyMode";
             v.ExceptionMessage = "Producers should use one of the recommended studyMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CstudyMode.3E_element (note that this list is case-sensitive)";
             v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
@@ -1723,7 +1723,7 @@ namespace TestProject.XmlValidationTests
             {
                 NamespaceManager = this.GetNamespaceManager()
             };
-            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendanceMode1_0.xml"));
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendanceMode2_1.xml"));
             v.XPathSelector = "//xcri12:attendanceMode";
             v.ExceptionMessage = "Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendanceMode.3E_element (note that this list is case-sensitive)";
             v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
@@ -1751,7 +1751,7 @@ namespace TestProject.XmlValidationTests
             {
                 NamespaceManager = this.GetNamespaceManager()
             };
-            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendanceMode1_0.xml"));
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendanceMode2_1.xml"));
             v.XPathSelector = "//xcri12:attendanceMode";
             v.ExceptionMessage = "Producers should use one of the recommended attendanceMode values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendanceMode.3E_element (note that this list is case-sensitive)";
             v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
@@ -1783,7 +1783,7 @@ namespace TestProject.XmlValidationTests
             {
                 NamespaceManager = this.GetNamespaceManager()
             };
-            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"));
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendancePattern2_1.xml"));
             v.XPathSelector = "//xcri12:attendancePattern";
             v.ExceptionMessage = "Producers should use one of the recommended attendancePattern values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendancePattern.3E_element (note that this list is case-sensitive)";
             v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;
@@ -1811,7 +1811,7 @@ namespace TestProject.XmlValidationTests
             {
                 NamespaceManager = this.GetNamespaceManager()
             };
-            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendancePattern1_0.xml"));
+            var v = this.CreateVDEXValidator(new Uri("http://www.xcri.co.uk/vocabularies/attendancePattern2_1.xml"));
             v.XPathSelector = "//xcri12:attendancePattern";
             v.ExceptionMessage = "Producers should use one of the recommended attendancePattern values and identifiers at http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3CattendancePattern.3E_element (note that this list is case-sensitive)";
             v.FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning;

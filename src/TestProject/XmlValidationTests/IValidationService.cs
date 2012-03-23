@@ -35,7 +35,7 @@ namespace TestProject.XmlValidationTests
                     if (false == this.CachedVDEXValidators.ContainsKey(vdexLocation))
                         this.CachedVDEXValidators.Add(vdexLocation, new XCRI.Validation.ContentValidation.VDEXValidator
                         (
-                        new XCRI.Validation.XmlRetrieval.UriSource(null, null)
+                        new TestProject.UnitTests.ContentValidation.VDEXValidator.UriFromResourceSource()
                         )
                         {
                             VDEXLocation = vdexLocation

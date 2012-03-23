@@ -89,6 +89,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Valid.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ContentValidation\VDEXFiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VDEXFiles.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\IValidationService\Invalid\DocumentValidators.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -387,6 +392,10 @@
     <EmbeddedResource Include="Resources\ContentValidation\UrlValidator\Valid.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Valid.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentValidation\VDEXFiles.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VDEXFiles.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Invalid\DocumentValidators.resx">
       <Generator>ResXFileCodeGenerator</Generator>
