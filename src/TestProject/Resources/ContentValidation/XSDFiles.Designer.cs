@@ -61,19 +61,40 @@ namespace TestProject.Resources.ContentValidation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-        ///&lt;xs:schema xmlns=&quot;http://purl.org/net/mlo&quot; xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
-        ///	xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
-        ///	targetNamespace=&quot;http://purl.org/net/mlo&quot; elementFormDefault=&quot;qualified&quot;
-        ///	attributeFormDefault=&quot;unqualified&quot;&gt;
-        ///
-        ///	&lt;xs:import namespace=&quot;http://www.w3.org/XML/1998/namespace&quot;
-        ///		schemaLocation=&quot;http://www.w3.org/2001/xml.xsd&quot; /&gt;
-        ///	&lt;xs:import schemaLocation=&quot;dcterms.xsd&quot; namespace=&quot;http:/ [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;        ///
+        ///&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;        ///
+        ///           xmlns=&quot;http://purl.org/dc/elements/1.1/&quot;        ///
+        ///           targetNamespace=&quot;http://purl.org/dc/elements/1.1/&quot;        ///
+        ///           elementFormDefault=&quot;qualified&quot;        ///
+        ///           attributeFormDefault=&quot;unqualified&quot;&gt;        ///
+        ///        ///
+        ///  &lt;xs:include schemaLocation=&quot;types.xsd&quot;&gt;&lt;/xs:include&gt;        ///
+        ///  &lt;xs:annotation&gt;        ///
+        ///    &lt;xs:documentation xml:lang=&quot;en&quot;&gt;        ///
+        ///      DCMES 1.1 XML Schema        ///
+        ///      XML Schema for http://purl.org/dc/elements/1.1/ n [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string String1 {
+        internal static string XSD_08F8C2B1769B0529D88A2B5A7D1C5E20 {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("XSD_08F8C2B1769B0529D88A2B5A7D1C5E20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;        ///
+        ///&lt;xs:schema         ///
+        ///	xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;        ///
+        ///	xmlns:mlo=&quot;http://purl.org/net/mlo&quot;         ///
+        ///	xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;        ///
+        ///	xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;        ///
+        ///	targetNamespace=&quot;http://xcri.org/profiles/1.2/catalog&quot; elementFormDefault=&quot;qualified&quot;        ///
+        ///	attributeFormDefault=&quot;unqualified&quot;&gt;        ///
+        ///        ///
+        ///	&lt;xs:import namespace=&quot;http://www.w3.org/XML/1998/namespace&quot; schemaLocation=&quot;http://www.w3.org/2001/xm [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_0D2602C068FBEAA7647527924A800281 {
+            get {
+                return ResourceManager.GetString("XSD_0D2602C068FBEAA7647527924A800281", resourceCulture);
             }
         }
         
@@ -94,6 +115,29 @@ namespace TestProject.Resources.ContentValidation {
         internal static string XSD_0D62B08DE6CD9546F1095E0EECB3ECFF {
             get {
                 return ResourceManager.GetString("XSD_0D62B08DE6CD9546F1095E0EECB3ECFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;schema xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot; targetNamespace=&quot;http://purl.org/net/cm&quot;
+        ///	xmlns:credit=&quot;http://purl.org/net/cm&quot; elementFormDefault=&quot;qualified&quot;&gt;
+        ///
+        ///	&lt;annotation&gt;
+        ///		&lt;documentation xml:lang=&quot;en&quot;&gt;
+        ///			This is an unofficial schema for
+        ///			the CEN Educational Credit Information Model (CWA 16077:2010)
+        ///		&lt;/documentation&gt;
+        ///	&lt;/annotation&gt;
+        ///
+        ///	&lt;complexType name=&quot;Credit&quot;&gt;
+        ///		&lt;sequence&gt;
+        ///			&lt;element ref=&quot;credit:scheme&quot; maxOccurs=&quot;unbounded&quot; minOccurs=&quot;0&quot; /&gt;
+        ///		 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_100A5E2255C47D2996B2407DE82676A4 {
+            get {
+                return ResourceManager.GetString("XSD_100A5E2255C47D2996B2407DE82676A4", resourceCulture);
             }
         }
         
@@ -130,6 +174,48 @@ namespace TestProject.Resources.ContentValidation {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema xmlns=&quot;http://purl.org/net/mlo&quot; xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
+        ///	xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///	targetNamespace=&quot;http://purl.org/net/mlo&quot; elementFormDefault=&quot;qualified&quot;
+        ///	attributeFormDefault=&quot;unqualified&quot;&gt;
+        ///
+        ///	&lt;xs:import namespace=&quot;http://www.w3.org/XML/1998/namespace&quot;
+        ///		schemaLocation=&quot;http://www.w3.org/2001/xml.xsd&quot; /&gt;
+        ///	&lt;xs:import schemaLocation=&quot;dcterms.xsd&quot; namespace=&quot;http:/ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_2936658D68C623A90AA700F9511B455B {
+            get {
+                return ResourceManager.GetString("XSD_2936658D68C623A90AA700F9511B455B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///           xmlns=&quot;http://purl.org/dc/dcmitype/&quot;
+        ///           targetNamespace=&quot;http://purl.org/dc/dcmitype/&quot;
+        ///           elementFormDefault=&quot;qualified&quot;
+        ///           attributeFormDefault=&quot;unqualified&quot;&gt;
+        ///
+        ///  &lt;xs:annotation&gt;
+        ///    &lt;xs:documentation xml:lang=&quot;en&quot;&gt;
+        ///      DCMI Type Vocabulary XML Schema
+        ///      XML Schema for http://purl.org/dc/dcmitype/ namespace
+        ///
+        ///      Created 2008-02-11
+        ///
+        ///      Created by 
+        ///
+        ///      T [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_2CC70CBB0F5C4E4F2B0E5409217EAC63 {
+            get {
+                return ResourceManager.GetString("XSD_2CC70CBB0F5C4E4F2B0E5409217EAC63", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
         ///&lt;xs:schema 
         ///
         /// xmlns=&quot;http://purl.org/net/mlo&quot;
@@ -149,6 +235,23 @@ namespace TestProject.Resources.ContentValidation {
         internal static string XSD_2FC979F344A35B5E0A6D737E4E2C4929 {
             get {
                 return ResourceManager.GetString("XSD_2FC979F344A35B5E0A6D737E4E2C4929", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema xmlns=&quot;http://purl.org/net/mlo&quot; xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
+        ///	xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///	targetNamespace=&quot;http://purl.org/net/mlo&quot; elementFormDefault=&quot;qualified&quot;
+        ///	attributeFormDefault=&quot;unqualified&quot;&gt;
+        ///
+        ///	&lt;xs:import namespace=&quot;http://www.w3.org/XML/1998/namespace&quot;
+        ///		schemaLocation=&quot;http://www.w3.org/2001/xml.xsd&quot; /&gt;
+        ///	&lt;xs:import schemaLocation=&quot;dcterms.xsd&quot; namespace=&quot;http:/ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_3B29D8F9F852463CA4866C4CB44AF303 {
+            get {
+                return ResourceManager.GetString("XSD_3B29D8F9F852463CA4866C4CB44AF303", resourceCulture);
             }
         }
         
@@ -317,6 +420,25 @@ namespace TestProject.Resources.ContentValidation {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
         ///&lt;xs:schema 
+        /// xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;  
+        /// xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot;
+        /// xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
+        /// elementFormDefault=&quot;qualified&quot;&gt;
+        /// 
+        /// 	&lt;xs:import namespace=&quot;http://www.w3.org/1999/xhtml&quot;	schemaLocation=&quot;http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd&quot; /&gt;
+        /// 	&lt;xs:import namespace=&quot;http://www.w3.org/XML/1998/namespace&quot; schemaLocation=&quot;http://www.w3.org/2001/xml.xsd&quot;/&gt;
+        /// 	
+        /// 	&lt;!-- This schema defines some comm [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_7D6ACB2A19C91F8227FECE6CD98CFF53 {
+            get {
+                return ResourceManager.GetString("XSD_7D6ACB2A19C91F8227FECE6CD98CFF53", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema 
         ///
         /// xmlns=&quot;http://purl.org/net/mlo&quot;
         /// xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
@@ -358,6 +480,27 @@ namespace TestProject.Resources.ContentValidation {
         internal static string XSD_7F22B92E7365B08186651DA363696CF3 {
             get {
                 return ResourceManager.GetString("XSD_7F22B92E7365B08186651DA363696CF3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///           xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        ///           xmlns:dcmitype=&quot;http://purl.org/dc/dcmitype/&quot;
+        ///           targetNamespace=&quot;http://purl.org/dc/terms/&quot;
+        ///           xmlns=&quot;http://purl.org/dc/terms/&quot;
+        ///           elementFormDefault=&quot;qualified&quot;
+        ///           attributeFormDefault=&quot;unqualified&quot;&gt;
+        ///
+        ///  &lt;xs:annotation&gt;
+        ///    &lt;xs:documentation xml:lang=&quot;en&quot;&gt;
+        ///      DCterms XML Schema
+        ///      XML Schema for htt [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_89F137FB1F7FAD5B61AE1628AE7FE94A {
+            get {
+                return ResourceManager.GetString("XSD_89F137FB1F7FAD5B61AE1628AE7FE94A", resourceCulture);
             }
         }
         
@@ -463,6 +606,30 @@ namespace TestProject.Resources.ContentValidation {
         internal static string XSD_D8C4680FC0DA129F99107F4570BEBC41 {
             get {
                 return ResourceManager.GetString("XSD_D8C4680FC0DA129F99107F4570BEBC41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;xs:schema 
+        ///
+        /// xmlns=&quot;http://purl.org/net/mlo&quot;
+        /// xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
+        /// xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+        /// xmlns:credit=&quot;http://purl.org/net/cm&quot;
+        /// xmlns:xcri=&quot;http://xcri.org/profiles/1.2/catalog&quot;
+        /// xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        /// xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot;
+        /// xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot;
+        /// targetNamespace=&quot;http://purl.org/net/mlo&quot;
+        ///
+        /// elementFormDefault=&quot;qualified&quot;&gt;
+        /// 	&lt;xs:annotation&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XSD_DA8D2214518EFED3D07C3FC2B8DA141E {
+            get {
+                return ResourceManager.GetString("XSD_DA8D2214518EFED3D07C3FC2B8DA141E", resourceCulture);
             }
         }
         

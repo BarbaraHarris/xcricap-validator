@@ -25,6 +25,7 @@ namespace TestProject.XmlValidationTests
                 var memoryStream = new System.IO.MemoryStream();
                 try { return new System.IO.MemoryStream(UTF8Encoding.Default.GetBytes(Resources.ContentValidation.XSDFiles.ResourceManager.GetString(resourceName))); }
                 catch { }
+                Trace.WriteLine("Cached resource named '" + resourceName + "' not found for URI '" + absoluteUri.ToString() + "'");
                 Assert.Fail("A cached resource for " + absoluteUri.ToString() + " could not be found");
                 return base.GetEntity(absoluteUri, role, ofObjectToReturn);
             }

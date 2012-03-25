@@ -117,160 +117,268 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="String1" xml:space="preserve">
-    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xs:schema xmlns="http://purl.org/net/mlo" xmlns:xml="http://www.w3.org/XML/1998/namespace"
-	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://purl.org/net/mlo" elementFormDefault="qualified"
-	attributeFormDefault="unqualified"&gt;
-
-	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"
-		schemaLocation="http://www.w3.org/2001/xml.xsd" /&gt;
-	&lt;xs:import schemaLocation="dcterms.xsd" namespace="http://purl.org/dc/terms/" /&gt;
-	&lt;xs:import namespace="http://purl.org/dc/elements/1.1/"
-		schemaLocation="dc.xsd" /&gt;
-
-	&lt;xs:annotation&gt;
-		&lt;xs:documentation xml:lang="en"&gt;
-			This schema implements the MLO information model using a
-			strictly-conforming XML binding.
-			Conforming bindings should define their own top-level classes with extensions.
-		&lt;/xs:documentation&gt;
-	&lt;/xs:annotation&gt;
-
-
-	&lt;!-- ranges --&gt;
-	&lt;xs:complexType name="Resource"&gt;
-		&lt;xs:annotation&gt;
-			&lt;xs:documentation xml:lang="en"&gt;
-				This type permits either inclusion of sub-elements (resources)
-				or literal text content
-    	&lt;/xs:documentation&gt;
-		&lt;/xs:annotation&gt;
-		&lt;xs:complexContent mixed="true"&gt;
-			&lt;xs:restriction base="xs:anyType"&gt;
-				&lt;xs:sequence&gt;
-					&lt;xs:any processContents="strict" minOccurs="0" maxOccurs="unbounded" /&gt;
-				&lt;/xs:sequence&gt;
-			&lt;/xs:restriction&gt;
-		&lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;
-
-	&lt;xs:complexType name="Association"&gt;
-		&lt;xs:annotation&gt;
-			&lt;xs:documentation xml:lang="en"&gt;
-				This type permits either inclusion of sub-elements (resources)
-				or the use of a literal URI to associate the containing
-				resource with a target.
-				Text is allowed because mixed="true"
-    	&lt;/xs:documentation&gt;
-		&lt;/xs:annotation&gt;
-		&lt;xs:complexContent mixed="true"&gt;
-			&lt;xs:restriction base="xs:anyType"&gt;
-				&lt;xs:sequence&gt;
-					&lt;xs:any namespace="mlo" processContents="strict" minOccurs="0"
-						maxOccurs="unbounded" /&gt;
-				&lt;/xs:sequence&gt;
-			&lt;/xs:restriction&gt;
-		&lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;
-
-
-	&lt;!-- classes --&gt;
-	&lt;xs:complexType name="LearningOpportunityObject"
-		abstract="true"&gt;
-		&lt;xs:sequence&gt;
-			&lt;xs:any namespace="http://purl.org/dc/elements/1.1/"
-				minOccurs="0" maxOccurs="unbounded" processContents="lax" /&gt;
-			&lt;xs:element ref="url" minOccurs="0" maxOccurs="unbounded" /&gt;
-			&lt;xs:element ref="hasPart" minOccurs="0" maxOccurs="unbounded" /&gt;
-		&lt;/xs:sequence&gt;
-	&lt;/xs:complexType&gt;
-
-	&lt;xs:complexType name="LearningOpportunityProvider"&gt;
-		&lt;xs:complexContent&gt;
-			&lt;xs:extension base="LearningOpportunityObject"&gt;
-				&lt;xs:sequence&gt;
-					&lt;xs:element ref="location" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="offers" minOccurs="0" maxOccurs="unbounded" /&gt;
-				&lt;/xs:sequence&gt;
-			&lt;/xs:extension&gt;
-		&lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;
-
-	&lt;xs:complexType name="LearningOpportunitySpecification"&gt;
-		&lt;xs:complexContent&gt;
-			&lt;xs:extension base="LearningOpportunityObject"&gt;
-				&lt;xs:sequence&gt;
-					&lt;xs:element ref="qualification" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="credit" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="level" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="specifies" minOccurs="0" maxOccurs="unbounded" /&gt;
-				&lt;/xs:sequence&gt;
-			&lt;/xs:extension&gt;
-		&lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;
-
-	&lt;xs:complexType name="LearningOpportunityInstance"&gt;
-		&lt;xs:complexContent&gt;
-			&lt;xs:extension base="LearningOpportunityObject"&gt;
-				&lt;xs:sequence&gt;
-					&lt;xs:element ref="location" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="start" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="duration" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="cost" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="languageOfInstruction" minOccurs="0"
-						maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="prerequisite" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="places" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="engagement" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="objective" minOccurs="0" maxOccurs="unbounded" /&gt;
-					&lt;xs:element ref="offeredAt" minOccurs="0" maxOccurs="unbounded" /&gt;
-				&lt;/xs:sequence&gt;
-			&lt;/xs:extension&gt;
-		&lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;
-
-	&lt;xs:element name="learningOpportunityProvider" type="LearningOpportunityProvider" /&gt;
-	&lt;xs:element name="learningOpportunitySpecification" type="LearningOpportunitySpecification" /&gt;
-	&lt;xs:element name="learningOpportunityInstance" type="LearningOpportunityInstance" /&gt;
-
-	&lt;!--associations --&gt;
-
-	&lt;xs:element name="offeredAt" type="Association" /&gt;
-	&lt;xs:element name="offers" type="Association" /&gt;
-	&lt;xs:element name="specifies" type="Association" /&gt;
-	&lt;xs:element name="hasPart" type="Association" /&gt;
-	&lt;xs:element name="isPartOf" type="Association" /&gt;
-
-	&lt;!--properties --&gt;
-
-	&lt;xs:element name="url" type="dc:SimpleLiteral" /&gt;
-	&lt;xs:element name="location" type="locationDType" /&gt;
-	&lt;xs:element name="qualification" type="qualificationDType" /&gt;
-	&lt;xs:element name="credit" type="creditDType" /&gt;
-	&lt;xs:element name="languageOfInstruction" type="dc:SimpleLiteral" /&gt;
-	&lt;xs:element name="level" type="dc:SimpleLiteral" /&gt;
-	&lt;xs:element name="start" type="startDType" /&gt;
-	&lt;xs:element name="duration" type="durationDType" /&gt;
-	&lt;xs:element name="cost" type="dc:SimpleLiteral" /&gt;
-	&lt;xs:element name="prerequisite" type="prerequisiteDType" /&gt;
-	&lt;xs:element name="places" type="Resource" /&gt;
-	&lt;xs:element name="engagement" type="dc:SimpleLiteral" /&gt;
-	&lt;xs:element name="objective" type="objectiveDType" /&gt;
-	&lt;xs:element name="assessment" type="assessmentDType" /&gt;
-
-	&lt;!-- Base types for extension --&gt;
-	&lt;xs:complexType name="qualificationDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="creditDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="startDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="durationDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="prerequisiteDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="assessmentDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="objectiveDType"&gt;&lt;/xs:complexType&gt;
-	&lt;xs:complexType name="locationDType"&gt;&lt;/xs:complexType&gt;
+  <data name="XSD_08F8C2B1769B0529D88A2B5A7D1C5E20" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://purl.org/dc/elements/1.1/"
+           targetNamespace="http://purl.org/dc/elements/1.1/"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"&gt;
+
+  &lt;xs:include schemaLocation="types.xsd"&gt;&lt;/xs:include&gt;
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation xml:lang="en"&gt;
+      DCMES 1.1 XML Schema
+      XML Schema for http://purl.org/dc/elements/1.1/ namespace
+
+      Created 2008-02-11
+
+      Created by 
+
+      Tim Cole (t-cole3@uiuc.edu)
+      Tom Habing (thabing@uiuc.edu)
+      Jane Hunter (jane@dstc.edu.au)
+      Pete Johnston (p.johnston@ukoln.ac.uk),
+      Carl Lagoze (lagoze@cs.cornell.edu)
+
+      This schema declares XML elements for the 15 DC elements from the
+      http://purl.org/dc/elements/1.1/ namespace.
+
+      It defines a complexType SimpleLiteral which permits mixed content 
+      and makes the xml:lang attribute available. It disallows child elements by
+      use of minOcccurs/maxOccurs.
+
+      However, this complexType does permit the derivation of other complexTypes
+      which would permit child elements.
+
+      All elements are declared as substitutable for the abstract element any, 
+      which means that the default type for all elements is dc:SimpleLiteral.
+
+    &lt;/xs:documentation&gt;
+
+  &lt;/xs:annotation&gt;
+
+&lt;!-- Had to change this line to point to the same location that XHTML's schema points to, otherwise validators get upset --&gt;
+    &lt;xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/&gt;
+
+  &lt;xs:complexType name="SimpleLiteral"&gt;
+        &lt;xs:annotation&gt;
+        &lt;xs:documentation xml:lang="en"&gt;
+            This is the default type for all of the DC elements.
+            It permits text content only with optional
+            xml:lang attribute.
+            Text is allowed because mixed="true", but sub-elements
+            are disallowed because minOccurs="0" and maxOccurs="0" 
+            are on the xs:any tag.
+
+    	    This complexType allows for restriction or extension permitting
+            child elements.
+    	&lt;/xs:documentation&gt;
+  	&lt;/xs:annotation&gt;
+
+   &lt;xs:complexContent mixed="true"&gt;
+    &lt;xs:restriction base="xs:anyType"&gt;
+     &lt;xs:sequence&gt;
+      &lt;xs:any processContents="lax" minOccurs="0" maxOccurs="0"/&gt;
+     &lt;/xs:sequence&gt;
+     &lt;xs:attribute ref="xml:lang" use="optional"/&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:complexContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:element name="any" type="SimpleLiteral" abstract="true"/&gt;
+
+  &lt;xs:element name="title" substitutionGroup="any"/&gt;
+  &lt;xs:element name="creator" substitutionGroup="any"/&gt;
+  &lt;!--  changed subject and description type definitions --&gt;
+  &lt;xs:element name="subject" type="subjectDType"/&gt;
+  &lt;xs:element name="description" type="descriptionDType"/&gt;
+  &lt;xs:element name="publisher" substitutionGroup="any"/&gt;
+  &lt;xs:element name="contributor" substitutionGroup="any"/&gt;
+  &lt;xs:element name="date" substitutionGroup="any"/&gt;
+  &lt;xs:element name="type" substitutionGroup="any"/&gt;
+  &lt;xs:element name="format" substitutionGroup="any"/&gt;
+  &lt;xs:element name="identifier" substitutionGroup="any"/&gt;
+  &lt;xs:element name="source" substitutionGroup="any"/&gt;
+  &lt;xs:element name="language" substitutionGroup="any"/&gt;
+  &lt;xs:element name="relation" substitutionGroup="any"/&gt;
+  &lt;xs:element name="coverage" substitutionGroup="any"/&gt;
+  &lt;xs:element name="rights" substitutionGroup="any"/&gt;
+
+  &lt;xs:group name="elementsGroup"&gt;
+  	&lt;xs:annotation&gt;
+    	&lt;xs:documentation xml:lang="en"&gt;
+    	    This group is included as a convenience for schema authors
+            who need to refer to all the elements in the 
+            http://purl.org/dc/elements/1.1/ namespace.
+    	&lt;/xs:documentation&gt;
+  	&lt;/xs:annotation&gt;
+
+  &lt;xs:sequence&gt;
+    &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+      &lt;xs:element ref="any"/&gt;
+    &lt;/xs:choice&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:group&gt;
+
+  &lt;xs:complexType name="elementContainer"&gt;
+  	&lt;xs:annotation&gt;
+    	&lt;xs:documentation xml:lang="en"&gt;
+    		This complexType is included as a convenience for schema authors who need to define a root
+    		or container element for all of the DC elements.
+    	&lt;/xs:documentation&gt;
+  	&lt;/xs:annotation&gt;
+
+    &lt;xs:choice&gt;
+      &lt;xs:group ref="elementsGroup"/&gt;
+    &lt;/xs:choice&gt;
+  &lt;/xs:complexType&gt;
+
+
 &lt;/xs:schema&gt;</value>
-    <comment>http://xcri-schemas.googlecode.com/svn/branches/1.2/xsd/mlo-strict.xsd</comment>
+    <comment>www.xcri.co.uk/bindings/dc.xsd</comment>
+  </data>
+  <data name="XSD_0D2602C068FBEAA7647527924A800281" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema 
+	xmlns="http://xcri.org/profiles/1.2/catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:mlo="http://purl.org/net/mlo" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	targetNamespace="http://xcri.org/profiles/1.2/catalog" elementFormDefault="qualified"
+	attributeFormDefault="unqualified"&gt;
+
+	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" /&gt;
+	&lt;xs:import schemaLocation="mlo_xcri_profile.xsd" namespace="http://purl.org/net/mlo" /&gt;
+	&lt;xs:import schemaLocation="dcterms.xsd" namespace="http://purl.org/dc/terms/" /&gt;
+	&lt;xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd" /&gt;
+	&lt;xs:include schemaLocation="types.xsd" /&gt;
+		
+	&lt;xs:annotation&gt;
+		&lt;xs:documentation xml:lang="en"&gt;See
+			http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2
+		&lt;/xs:documentation&gt;
+	&lt;/xs:annotation&gt;
+
+	&lt;xs:complexType name="commonElements"&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element ref="mlo:hasPart" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:contributor" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:date" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:description" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:identifier" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element name="image" type="imageDType" minOccurs="0" maxOccurs="1" /&gt;
+			&lt;xs:element ref="dc:subject" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:title" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:type" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="mlo:url" minOccurs="0" maxOccurs="1" /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="commonAndCommonDescriptiveElements"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="commonElements"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element name="abstract" minOccurs="0" maxOccurs="unbounded" type="descriptionDType" /&gt;
+					&lt;xs:element name="applicationProcedure" minOccurs="0" maxOccurs="unbounded" type="descriptionDType" /&gt;
+					&lt;xs:element ref="mlo:assessment" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element name="learningOutcome" minOccurs="0" maxOccurs="unbounded" type="descriptionDType" /&gt;
+					&lt;xs:element ref="mlo:objective" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="mlo:prerequisite" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element name="regulations" minOccurs="0" maxOccurs="unbounded" type="descriptionDType" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="imageDType" mixed="false"&gt;
+		&lt;xs:attribute name="src" type="xs:anyURI" use="required" /&gt;
+		&lt;xs:attribute name="title" type="xs:string" use="optional" /&gt;
+		&lt;xs:attribute name="alt" type="xs:string" use="optional" /&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:element name="catalog"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="commonElements"&gt;
+					&lt;xs:sequence&gt;
+						&lt;xs:element ref="provider" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;/xs:sequence&gt;
+					&lt;xs:attribute name="generated" type="xs:dateTime" use="required" /&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+
+	&lt;xs:complexType name="providerDType"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="commonElements"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="course" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="mlo:location" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:element name="provider" type="providerDType"/&gt;
+	
+	&lt;xs:complexType name="venueDType"&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element ref="provider" minOccurs="1" maxOccurs="1" /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+
+	&lt;xs:complexType name="courseDType"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="commonAndCommonDescriptiveElements"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="mlo:level" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="mlo:qualification" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="mlo:credit" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="presentation" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:element name="course" type="courseDType"/&gt;
+
+	&lt;xs:complexType name="presentationDType"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="commonAndCommonDescriptiveElements"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="mlo:start" minOccurs="0"/&gt;
+					&lt;xs:element name="end" type="temporalDType" minOccurs="0" /&gt;
+					&lt;xs:element name="startUntil" type="temporalDType" minOccurs="0" /&gt;
+					&lt;xs:element name="endFrom" type="temporalDType" minOccurs="0" /&gt;
+					&lt;xs:element ref="mlo:duration" minOccurs="0" /&gt;
+					&lt;xs:element name="applyFrom" type="temporalDType" minOccurs="0" /&gt;
+					&lt;xs:element name="applyUntil" type="temporalDType" minOccurs="0" /&gt;
+					&lt;xs:element name="applyTo" type="xs:string" minOccurs="0" maxOccurs="1" /&gt;
+					&lt;xs:element ref="mlo:engagement" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element name="studyMode" minOccurs="0" type="vocabularyDType" /&gt;
+					&lt;xs:element name="attendanceMode" minOccurs="0" type="vocabularyDType" /&gt;
+					&lt;xs:element name="attendancePattern" minOccurs="0" type="vocabularyDType" /&gt;
+					&lt;xs:element ref="mlo:languageOfInstruction" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element name="languageOfAssessment" type="xs:string" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="mlo:places" minOccurs="0" /&gt;
+					&lt;xs:element ref="mlo:cost" minOccurs="0" /&gt;
+					&lt;xs:element name="age" minOccurs="0" /&gt;
+					&lt;xs:element name="venue" type="venueDType" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+	&lt;xs:element name="presentation" type="presentationDType"/&gt;
+
+	&lt;!-- Elements used to extend mlo:qualification --&gt;
+	&lt;xs:element name="abbr" type="xs:string"/&gt;
+	&lt;xs:element name="accreditedBy" type="xs:string"/&gt;
+	&lt;xs:element name="awardedBy" type="xs:string"/&gt;
+
+&lt;/xs:schema&gt;</value>
+    <comment>view-source:http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd</comment>
   </data>
   <data name="XSD_0D62B08DE6CD9546F1095E0EECB3ECFF" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
@@ -289,6 +397,35 @@
   &lt;/xs:simpleType&gt;
 &lt;/xs:schema&gt;</value>
     <comment>http://www.northamptoncollege.ac.uk/xcri/ukprn.xsd</comment>
+  </data>
+  <data name="XSD_100A5E2255C47D2996B2407DE82676A4" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://purl.org/net/cm"
+	xmlns:credit="http://purl.org/net/cm" elementFormDefault="qualified"&gt;
+
+	&lt;annotation&gt;
+		&lt;documentation xml:lang="en"&gt;
+			This is an unofficial schema for
+			the CEN Educational Credit Information Model (CWA 16077:2010)
+		&lt;/documentation&gt;
+	&lt;/annotation&gt;
+
+	&lt;complexType name="Credit"&gt;
+		&lt;sequence&gt;
+			&lt;element ref="credit:scheme" maxOccurs="unbounded" minOccurs="0" /&gt;
+			&lt;element ref="credit:level" maxOccurs="unbounded" minOccurs="0" /&gt;
+			&lt;element ref="credit:value" maxOccurs="unbounded" minOccurs="0" /&gt;
+			&lt;any namespace="##other" processContents="lax" minOccurs="0"
+				maxOccurs="unbounded" /&gt;
+		&lt;/sequence&gt;
+	&lt;/complexType&gt;
+
+	&lt;element name="Credit" type="credit:Credit" /&gt;
+	&lt;element name="level" type="string" /&gt;
+	&lt;element name="scheme" type="string" /&gt;
+	&lt;element name="value" type="string" /&gt;
+&lt;/schema&gt;</value>
+    <comment>http://www.xcri.co.uk/bindings/educationalcredit.xsd</comment>
   </data>
   <data name="XSD_1797EA6AAD1ECCA9BAF0903A815A9C8C" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -693,6 +830,216 @@
 &lt;/xs:schema&gt;</value>
     <comment>http://xcri-schemas.googlecode.com/svn/branches/1.2/xsd/types.xsd</comment>
   </data>
+  <data name="XSD_2936658D68C623A90AA700F9511B455B" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns="http://purl.org/net/mlo" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://purl.org/net/mlo" elementFormDefault="qualified"
+	attributeFormDefault="unqualified"&gt;
+
+	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"
+		schemaLocation="http://www.w3.org/2001/xml.xsd" /&gt;
+	&lt;xs:import schemaLocation="dcterms.xsd" namespace="http://purl.org/dc/terms/" /&gt;
+	&lt;xs:import namespace="http://purl.org/dc/elements/1.1/"
+		schemaLocation="dc.xsd" /&gt;
+
+	&lt;xs:annotation&gt;
+		&lt;xs:documentation xml:lang="en"&gt;
+			This schema implements the MLO information model using a
+			strictly-conforming XML binding.
+			Conforming bindings should define their own top-level classes with extensions.
+		&lt;/xs:documentation&gt;
+	&lt;/xs:annotation&gt;
+
+
+	&lt;!-- ranges --&gt;
+	&lt;xs:complexType name="Resource"&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:documentation xml:lang="en"&gt;
+				This type permits either inclusion of sub-elements (resources)
+				or literal text content
+    	&lt;/xs:documentation&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:complexContent mixed="true"&gt;
+			&lt;xs:restriction base="xs:anyType"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:any processContents="strict" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:restriction&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="Association"&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:documentation xml:lang="en"&gt;
+				This type permits either inclusion of sub-elements (resources)
+				or the use of a literal URI to associate the containing
+				resource with a target.
+				Text is allowed because mixed="true"
+    	&lt;/xs:documentation&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:complexContent mixed="true"&gt;
+			&lt;xs:restriction base="xs:anyType"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:any namespace="mlo" processContents="strict" minOccurs="0"
+						maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:restriction&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+
+	&lt;!-- classes --&gt;
+	&lt;xs:complexType name="LearningOpportunityObject"
+		abstract="true"&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:any namespace="http://purl.org/dc/elements/1.1/"
+				minOccurs="0" maxOccurs="unbounded" processContents="lax" /&gt;
+			&lt;xs:element ref="url" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="hasPart" minOccurs="0" maxOccurs="unbounded" /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="LearningOpportunityProvider"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="LearningOpportunityObject"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="location" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="offers" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="LearningOpportunitySpecification"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="LearningOpportunityObject"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="qualification" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="credit" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="level" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="specifies" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="LearningOpportunityInstance"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="LearningOpportunityObject"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="location" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="start" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="duration" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="cost" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="languageOfInstruction" minOccurs="0"
+						maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="prerequisite" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="places" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="engagement" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="objective" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="offeredAt" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:element name="learningOpportunityProvider" type="LearningOpportunityProvider" /&gt;
+	&lt;xs:element name="learningOpportunitySpecification" type="LearningOpportunitySpecification" /&gt;
+	&lt;xs:element name="learningOpportunityInstance" type="LearningOpportunityInstance" /&gt;
+
+	&lt;!--associations --&gt;
+
+	&lt;xs:element name="offeredAt" type="Association" /&gt;
+	&lt;xs:element name="offers" type="Association" /&gt;
+	&lt;xs:element name="specifies" type="Association" /&gt;
+	&lt;xs:element name="hasPart" type="Association" /&gt;
+	&lt;xs:element name="isPartOf" type="Association" /&gt;
+
+	&lt;!--properties --&gt;
+
+	&lt;xs:element name="url" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="location" type="locationDType" /&gt;
+	&lt;xs:element name="qualification" type="qualificationDType" /&gt;
+	&lt;xs:element name="credit" type="creditDType" /&gt;
+	&lt;xs:element name="languageOfInstruction" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="level" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="start" type="startDType" /&gt;
+	&lt;xs:element name="duration" type="durationDType" /&gt;
+	&lt;xs:element name="cost" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="prerequisite" type="prerequisiteDType" /&gt;
+	&lt;xs:element name="places" type="Resource" /&gt;
+	&lt;xs:element name="engagement" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="objective" type="objectiveDType" /&gt;
+	&lt;xs:element name="assessment" type="assessmentDType" /&gt;
+
+	&lt;!-- Base types for extension --&gt;
+	&lt;xs:complexType name="qualificationDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="creditDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="startDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="durationDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="prerequisiteDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="assessmentDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="objectiveDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="locationDType"&gt;&lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</value>
+    <comment>http://xcri-schemas.googlecode.com/svn/branches/1.2/xsd/mlo-strict.xsd</comment>
+  </data>
+  <data name="XSD_2CC70CBB0F5C4E4F2B0E5409217EAC63" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://purl.org/dc/dcmitype/"
+           targetNamespace="http://purl.org/dc/dcmitype/"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"&gt;
+
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation xml:lang="en"&gt;
+      DCMI Type Vocabulary XML Schema
+      XML Schema for http://purl.org/dc/dcmitype/ namespace
+
+      Created 2008-02-11
+
+      Created by 
+
+      Tim Cole (t-cole3@uiuc.edu)
+      Tom Habing (thabing@uiuc.edu)
+      Jane Hunter (jane@dstc.edu.au)
+      Pete Johnston (p.johnston@ukoln.ac.uk),
+      Carl Lagoze (lagoze@cs.cornell.edu)
+
+      This schema defines a simpleType which enumerates
+      the allowable values for the DCMI Type Vocabulary.
+    &lt;/xs:documentation&gt;
+
+ 
+  &lt;/xs:annotation&gt;
+
+
+  &lt;xs:simpleType name="DCMIType"&gt;
+     &lt;xs:union&gt;
+        &lt;xs:simpleType&gt;
+           &lt;xs:restriction base="xs:Name"&gt;
+		&lt;xs:enumeration value="Collection"/&gt;
+		&lt;xs:enumeration value="Dataset"/&gt;
+		&lt;xs:enumeration value="Event"/&gt;
+		&lt;xs:enumeration value="Image"/&gt;
+		&lt;xs:enumeration value="MovingImage"/&gt;
+		&lt;xs:enumeration value="StillImage"/&gt;
+		&lt;xs:enumeration value="InteractiveResource"/&gt;
+		&lt;xs:enumeration value="Service"/&gt;
+		&lt;xs:enumeration value="Software"/&gt;
+		&lt;xs:enumeration value="Sound"/&gt;
+		&lt;xs:enumeration value="Text"/&gt;
+		&lt;xs:enumeration value="PhysicalObject"/&gt;
+            &lt;/xs:restriction&gt;
+        &lt;/xs:simpleType&gt; 
+     &lt;/xs:union&gt;
+  &lt;/xs:simpleType&gt;
+
+&lt;/xs:schema&gt;</value>
+    <comment>http://www.xcri.co.uk/bindings/dcmitype.xsd</comment>
+  </data>
   <data name="XSD_2FC979F344A35B5E0A6D737E4E2C4929" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;xs:schema 
@@ -840,6 +1187,161 @@
  
 &lt;/xs:schema&gt;</value>
     <comment>http://xcri-schemas.googlecode.com/svn/branches/1.2/xsd/mlo_xcri_profile.xsd</comment>
+  </data>
+  <data name="XSD_3B29D8F9F852463CA4866C4CB44AF303" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns="http://purl.org/net/mlo" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://purl.org/net/mlo" elementFormDefault="qualified"
+	attributeFormDefault="unqualified"&gt;
+
+	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"
+		schemaLocation="http://www.w3.org/2001/xml.xsd" /&gt;
+	&lt;xs:import schemaLocation="dcterms.xsd" namespace="http://purl.org/dc/terms/" /&gt;
+	&lt;xs:import namespace="http://purl.org/dc/elements/1.1/"
+		schemaLocation="dc.xsd" /&gt;
+
+	&lt;xs:annotation&gt;
+		&lt;xs:documentation xml:lang="en"&gt;
+			This schema implements the MLO information model using a
+			strictly-conforming XML binding.
+			Conforming bindings should define their own top-level classes with extensions.
+		&lt;/xs:documentation&gt;
+	&lt;/xs:annotation&gt;
+
+
+	&lt;!-- ranges --&gt;
+	&lt;xs:complexType name="Resource"&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:documentation xml:lang="en"&gt;
+				This type permits either inclusion of sub-elements (resources)
+				or literal text content
+    	&lt;/xs:documentation&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:complexContent mixed="true"&gt;
+			&lt;xs:restriction base="xs:anyType"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:any processContents="strict" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:restriction&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="Association"&gt;
+		&lt;xs:annotation&gt;
+			&lt;xs:documentation xml:lang="en"&gt;
+				This type permits either inclusion of sub-elements (resources)
+				or the use of a literal URI to associate the containing
+				resource with a target.
+				Text is allowed because mixed="true"
+    	&lt;/xs:documentation&gt;
+		&lt;/xs:annotation&gt;
+		&lt;xs:complexContent mixed="true"&gt;
+			&lt;xs:restriction base="xs:anyType"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:any namespace="mlo" processContents="strict" minOccurs="0"
+						maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:restriction&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+
+	&lt;!-- classes --&gt;
+	&lt;xs:complexType name="LearningOpportunityObject"
+		abstract="true"&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:any namespace="http://purl.org/dc/elements/1.1/"
+				minOccurs="0" maxOccurs="unbounded" processContents="lax" /&gt;
+			&lt;xs:element ref="url" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="hasPart" minOccurs="0" maxOccurs="unbounded" /&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="LearningOpportunityProvider"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="LearningOpportunityObject"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="location" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="offers" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="LearningOpportunitySpecification"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="LearningOpportunityObject"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="qualification" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="credit" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="level" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="specifies" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="LearningOpportunityInstance"&gt;
+		&lt;xs:complexContent&gt;
+			&lt;xs:extension base="LearningOpportunityObject"&gt;
+				&lt;xs:sequence&gt;
+					&lt;xs:element ref="location" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="start" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="duration" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="cost" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="languageOfInstruction" minOccurs="0"
+						maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="prerequisite" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="places" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="engagement" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="objective" minOccurs="0" maxOccurs="unbounded" /&gt;
+					&lt;xs:element ref="offeredAt" minOccurs="0" maxOccurs="unbounded" /&gt;
+				&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+		&lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:element name="learningOpportunityProvider" type="LearningOpportunityProvider" /&gt;
+	&lt;xs:element name="learningOpportunitySpecification" type="LearningOpportunitySpecification" /&gt;
+	&lt;xs:element name="learningOpportunityInstance" type="LearningOpportunityInstance" /&gt;
+
+	&lt;!--associations --&gt;
+
+	&lt;xs:element name="offeredAt" type="Association" /&gt;
+	&lt;xs:element name="offers" type="Association" /&gt;
+	&lt;xs:element name="specifies" type="Association" /&gt;
+	&lt;xs:element name="hasPart" type="Association" /&gt;
+	&lt;xs:element name="isPartOf" type="Association" /&gt;
+
+	&lt;!--properties --&gt;
+
+	&lt;xs:element name="url" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="location" type="locationDType" /&gt;
+	&lt;xs:element name="qualification" type="qualificationDType" /&gt;
+	&lt;xs:element name="credit" type="creditDType" /&gt;
+	&lt;xs:element name="languageOfInstruction" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="level" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="start" type="startDType" /&gt;
+	&lt;xs:element name="duration" type="durationDType" /&gt;
+	&lt;xs:element name="cost" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="prerequisite" type="prerequisiteDType" /&gt;
+	&lt;xs:element name="places" type="Resource" /&gt;
+	&lt;xs:element name="engagement" type="dc:SimpleLiteral" /&gt;
+	&lt;xs:element name="objective" type="objectiveDType" /&gt;
+	&lt;xs:element name="assessment" type="assessmentDType" /&gt;
+
+	&lt;!-- Base types for extension --&gt;
+	&lt;xs:complexType name="qualificationDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="creditDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="startDType"/&gt;
+	&lt;xs:complexType name="durationDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="prerequisiteDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="assessmentDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="objectiveDType"&gt;&lt;/xs:complexType&gt;
+	&lt;xs:complexType name="locationDType"&gt;&lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</value>
+    <comment>http://www.xcri.co.uk/bindings/mlo-strict.xsd</comment>
   </data>
   <data name="XSD_3FFB2F8237F79943CE135AA0BB157F5C" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -2423,6 +2925,49 @@
 &lt;/xs:schema&gt;</value>
     <comment>http://xcri-schemas.googlecode.com/svn/trunk/xsd/dcterms.xsd</comment>
   </data>
+  <data name="XSD_7D6ACB2A19C91F8227FECE6CD98CFF53" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema 
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+ xmlns:xhtml="http://www.w3.org/1999/xhtml"
+ xmlns:xml="http://www.w3.org/XML/1998/namespace"
+ elementFormDefault="qualified"&gt;
+ 
+ 	&lt;xs:import namespace="http://www.w3.org/1999/xhtml"	schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd" /&gt;
+ 	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/&gt;
+ 	
+ 	&lt;!-- This schema defines some common type definitions reused in other schemas --&gt;
+ 	&lt;!-- Note this is a "chameleon" schema - the types will take  on the NS of the schema that includes them --&gt;
+ 	 
+ 	&lt;xs:simpleType name="dateOrDateTimeDType"&gt;
+		&lt;xs:union memberTypes="xs:date xs:dateTime" /&gt;
+	&lt;/xs:simpleType&gt;
+
+	&lt;xs:complexType name="descriptionDType" mixed="true"&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:element ref="xhtml:div" minOccurs="0" /&gt;
+		&lt;/xs:sequence&gt;
+		&lt;xs:attribute ref="xml:lang" use="optional" /&gt;
+		&lt;xs:attribute name="href" type="xs:anyURI" use="optional" /&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="vocabularyDType" mixed="true"&gt;
+		&lt;xs:attribute ref="xml:lang" use="optional" /&gt;
+		&lt;xs:attribute name="identifier" use="optional" /&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="subjectDType" mixed="true"&gt;
+		&lt;xs:attribute ref="xml:lang" use="optional" /&gt;
+		&lt;xs:attribute name="identifier" use="optional" /&gt;
+	&lt;/xs:complexType&gt;
+
+	&lt;xs:complexType name="temporalDType" mixed="true"&gt;
+		&lt;xs:attribute name="dtf" use="optional" type="dateOrDateTimeDType"/&gt;
+	&lt;/xs:complexType&gt;
+ 
+&lt;/xs:schema&gt;</value>
+    <comment>http://www.xcri.co.uk/bindings/types.xsd</comment>
+  </data>
   <data name="XSD_7E4D197B85AA9BFC7BC5C6FA7C3A0296" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;xs:schema 
@@ -2593,6 +3138,367 @@
 	&lt;element name="value" type="string" /&gt;
 &lt;/schema&gt;</value>
     <comment>http://xcri-schemas.googlecode.com/svn/trunk/xsd/educationalcredit.xsd</comment>
+  </data>
+  <data name="XSD_89F137FB1F7FAD5B61AE1628AE7FE94A" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+           targetNamespace="http://purl.org/dc/terms/"
+           xmlns="http://purl.org/dc/terms/"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"&gt;
+
+  &lt;xs:annotation&gt;
+    &lt;xs:documentation xml:lang="en"&gt;
+      DCterms XML Schema
+      XML Schema for http://purl.org/dc/terms/ namespace
+ 
+      Created 2008-02-11
+
+      Created by 
+
+      Tim Cole (t-cole3@uiuc.edu)
+      Tom Habing (thabing@uiuc.edu)
+      Jane Hunter (jane@dstc.edu.au)
+      Pete Johnston (p.johnston@ukoln.ac.uk),
+      Carl Lagoze (lagoze@cs.cornell.edu)
+
+      This schema declares XML elements for the DC elements and
+      DC element refinements from the http://purl.org/dc/terms/ namespace.
+      
+      It reuses the complexType dc:SimpleLiteral, imported from the dc.xsd
+      schema, which permits simple element content, and makes the xml:lang
+      attribute available.
+
+      This complexType permits the derivation of other complexTypes
+      which would permit child elements.
+
+      XML elements corresponding to DC elements are declared as substitutable for the abstract element dc:any, and 
+      XML elements corresponding to DC element refinements are defined as substitutable for the base elements 
+      which they refine.
+
+      This means that the default type for all XML elements (i.e. corresponding to all DC elements and 
+      element refinements) is dc:SimpleLiteral.
+
+      Encoding schemes are defined as complexTypes which are restrictions
+      of the dc:SimpleLiteral complexType. These complexTypes restrict 
+      values to an appropriates syntax or format using data typing,
+      regular expressions, or enumerated lists.
+  
+      In order to specify one of these encodings an xsi:type attribute must 
+      be used in the instance document.
+
+      Also, note that one shortcoming of this approach is that any type can be 
+      applied to any of the elements or refinements.  There is no convenient way
+      to restrict types to specific elements using this approach.
+
+      Changes in 2008-02-11 version:
+      
+      Add element declarations corresponding to 15 new dcterms URIs, and amend use of substitutionGroups.
+      
+      Add compexType definitions corresponding to ISO639-3, RFC4646.
+      
+    &lt;/xs:documentation&gt;
+
+  &lt;/xs:annotation&gt;
+
+   &lt;xs:import namespace="http://purl.org/dc/elements/1.1/"
+              schemaLocation="dc.xsd"/&gt;
+
+   &lt;xs:import namespace="http://purl.org/dc/dcmitype/"
+              schemaLocation="dcmitype.xsd"/&gt;
+
+   &lt;xs:element name="title" substitutionGroup="dc:title"/&gt;
+   &lt;xs:element name="creator" substitutionGroup="dc:creator"/&gt;
+   &lt;xs:element name="subject" substitutionGroup="dc:subject"/&gt;
+   &lt;xs:element name="description" substitutionGroup="dc:description"/&gt;
+   &lt;xs:element name="publisher" substitutionGroup="dc:publisher"/&gt;
+   &lt;xs:element name="contributor" substitutionGroup="dc:contributor"/&gt;
+   &lt;xs:element name="date" substitutionGroup="dc:date"/&gt;
+   &lt;xs:element name="type" substitutionGroup="dc:type"/&gt;
+   &lt;xs:element name="format" substitutionGroup="dc:format"/&gt;
+   &lt;xs:element name="identifier" substitutionGroup="dc:identifier"/&gt;
+   &lt;xs:element name="source" substitutionGroup="dc:source"/&gt;
+   &lt;xs:element name="language" substitutionGroup="dc:language"/&gt;
+   &lt;xs:element name="relation" substitutionGroup="dc:relation"/&gt;
+   &lt;xs:element name="coverage" substitutionGroup="dc:coverage"/&gt;
+   &lt;xs:element name="rights" substitutionGroup="dc:rights"/&gt;
+
+   &lt;xs:element name="alternative" substitutionGroup="title"/&gt;
+
+   &lt;xs:element name="tableOfContents" substitutionGroup="description"/&gt;
+   &lt;xs:element name="abstract" substitutionGroup="description"/&gt;
+
+   &lt;xs:element name="created" substitutionGroup="date"/&gt;
+   &lt;xs:element name="valid" substitutionGroup="date"/&gt;
+   &lt;xs:element name="available" substitutionGroup="date"/&gt;
+   &lt;xs:element name="issued" substitutionGroup="date"/&gt;
+   &lt;xs:element name="modified" substitutionGroup="date"/&gt;
+   &lt;xs:element name="dateAccepted" substitutionGroup="date"/&gt;
+   &lt;xs:element name="dateCopyrighted" substitutionGroup="date"/&gt;
+   &lt;xs:element name="dateSubmitted" substitutionGroup="date"/&gt;
+
+   &lt;xs:element name="extent" substitutionGroup="format"/&gt;
+   &lt;xs:element name="medium" substitutionGroup="format"/&gt;
+
+   &lt;xs:element name="isVersionOf" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="hasVersion" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="isReplacedBy" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="replaces" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="isRequiredBy" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="requires" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="isPartOf" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="hasPart" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="isReferencedBy" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="references" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="isFormatOf" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="hasFormat" substitutionGroup="relation"/&gt;
+   &lt;xs:element name="conformsTo" substitutionGroup="relation"/&gt;
+
+   &lt;xs:element name="spatial" substitutionGroup="coverage"/&gt;
+   &lt;xs:element name="temporal" substitutionGroup="coverage"/&gt;
+
+   &lt;xs:element name="audience" substitutionGroup="dc:any"/&gt;
+   &lt;xs:element name="accrualMethod" substitutionGroup="dc:any"/&gt;
+   &lt;xs:element name="accrualPeriodicity" substitutionGroup="dc:any"/&gt;
+   &lt;xs:element name="accrualPolicy" substitutionGroup="dc:any"/&gt;
+   &lt;xs:element name="instructionalMethod" substitutionGroup="dc:any"/&gt;
+   &lt;xs:element name="provenance" substitutionGroup="dc:any"/&gt;
+   &lt;xs:element name="rightsHolder" substitutionGroup="dc:any"/&gt;
+
+   &lt;xs:element name="mediator" substitutionGroup="audience"/&gt;
+   &lt;xs:element name="educationLevel" substitutionGroup="audience"/&gt;
+
+   &lt;xs:element name="accessRights" substitutionGroup="rights"/&gt;
+   &lt;xs:element name="license" substitutionGroup="rights"/&gt;
+
+   &lt;xs:element name="bibliographicCitation" substitutionGroup="identifier"/&gt;
+
+  &lt;xs:complexType name="LCSH"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="MESH"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="DDC"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="LCC"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="UDC"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="Period"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="W3CDTF"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+           &lt;xs:union memberTypes="xs:gYear xs:gYearMonth xs:date xs:dateTime"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt; 
+
+  &lt;xs:complexType name="DCMIType"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="dcmitype:DCMIType"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="IMT"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="URI"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:anyURI"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt; 
+
+  &lt;xs:complexType name="ISO639-2"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="ISO639-3"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="RFC1766"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:language"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="RFC3066"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:language"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="RFC4646"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:language"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="Point"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="ISO3166"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="Box"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="TGN"&gt;
+   &lt;xs:simpleContent&gt;
+    &lt;xs:restriction base="dc:SimpleLiteral"&gt;
+        &lt;xs:simpleType&gt;
+          &lt;xs:restriction base="xs:string"/&gt;
+        &lt;/xs:simpleType&gt;
+    &lt;/xs:restriction&gt;
+   &lt;/xs:simpleContent&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:group name="elementsAndRefinementsGroup"&gt;
+  	&lt;xs:annotation&gt;
+    	&lt;xs:documentation xml:lang="en"&gt;
+    		This group is included as a convenience for schema authors
+            who need to refer to all the DC elements and element refinements 
+            in the http://purl.org/dc/elements/1.1/ and 
+            http://purl.org/dc/terms namespaces. 
+            N.B. Refinements available via substitution groups.
+    	&lt;/xs:documentation&gt;
+  	&lt;/xs:annotation&gt;
+
+  &lt;xs:sequence&gt;
+    &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+	&lt;xs:element ref="dc:any" /&gt;
+    &lt;/xs:choice&gt;
+  &lt;/xs:sequence&gt;
+  &lt;/xs:group&gt;	
+
+  &lt;xs:complexType name="elementOrRefinementContainer"&gt;
+  	&lt;xs:annotation&gt;
+    	&lt;xs:documentation xml:lang="en"&gt;
+    		This is included as a convenience for schema authors who need to define a root
+    		or container element for all of the DC elements and element refinements.
+    	&lt;/xs:documentation&gt;
+  	&lt;/xs:annotation&gt;
+
+    &lt;xs:choice&gt;
+      &lt;xs:group ref="elementsAndRefinementsGroup"/&gt;
+    &lt;/xs:choice&gt;
+  &lt;/xs:complexType&gt;
+
+
+&lt;/xs:schema&gt;</value>
+    <comment>http://www.xcri.co.uk/bindings/dcterms.xsd</comment>
   </data>
   <data name="XSD_9CE854016084667957D64E301E1F2A6D" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -5167,6 +6073,148 @@
 
 &lt;/xs:schema&gt;</value>
     <comment>http://xcri-schemas.googlecode.com/svn/branches/1.2/xsd/xcri_cap_1_2.xsd</comment>
+  </data>
+  <data name="XSD_DA8D2214518EFED3D07C3FC2B8DA141E" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema 
+
+ xmlns="http://purl.org/net/mlo"
+ xmlns:xml="http://www.w3.org/XML/1998/namespace"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:credit="http://purl.org/net/cm"
+ xmlns:xcri="http://xcri.org/profiles/1.2/catalog"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:xhtml="http://www.w3.org/1999/xhtml"
+ targetNamespace="http://purl.org/net/mlo"
+
+ elementFormDefault="qualified"&gt;
+ 	&lt;xs:annotation&gt;
+ 	&lt;xs:documentation&gt;
+ 	This is the profile of MLO used in XCRI; this schema redefines some of the base types in MLO adding
+ 	additional attributes and/or specifying child elements defined by other schemas
+ 	
+ 	Revised by Alan Paull, 30 October 2011
+ 	&lt;/xs:documentation&gt;
+ 	&lt;/xs:annotation&gt;
+ 
+    &lt;xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/&gt;
+	&lt;xs:import namespace="http://purl.org/dc/terms/" schemaLocation="dcterms.xsd"/&gt;
+	&lt;xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/&gt;
+	&lt;xs:import namespace="http://purl.org/net/cm" schemaLocation="educationalcredit.xsd" /&gt;
+	&lt;xs:import namespace="http://xcri.org/profiles/1.2/catalog" schemaLocation="xcri_cap_1_2.xsd"/&gt;
+	&lt;xs:import namespace="http://www.w3.org/1999/xhtml"	schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd" /&gt;
+	&lt;xs:include	schemaLocation="types.xsd"&gt;&lt;/xs:include&gt;
+ 
+ 	&lt;xs:redefine schemaLocation="mlo-strict.xsd"&gt;
+ 			&lt;xs:complexType name="qualificationDType"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="qualificationDType"&gt;
+			&lt;xs:sequence&gt;
+			&lt;xs:element ref="dc:identifier" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dc:title" minOccurs="1" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="xcri:abbr"  minOccurs="0" maxOccurs="1" /&gt;
+			&lt;xs:element ref="dc:description" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="dcterms:educationLevel" minOccurs="0" /&gt;
+			&lt;xs:element ref="dc:type" minOccurs="0" maxOccurs="1" /&gt;
+			&lt;xs:element ref="url" minOccurs="0" maxOccurs="1" /&gt;		
+			&lt;xs:element ref="xcri:awardedBy" minOccurs="0" maxOccurs="1" /&gt;
+			&lt;xs:element ref="xcri:accreditedBy" minOccurs="0" maxOccurs="1" /&gt;
+			&lt;/xs:sequence&gt; 
+			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+
+ 			&lt;xs:complexType name="creditDType"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="creditDType"&gt;
+			&lt;xs:sequence&gt;
+			&lt;xs:element ref="credit:scheme" maxOccurs="unbounded" minOccurs="0" /&gt;
+			&lt;xs:element ref="credit:level" maxOccurs="unbounded" minOccurs="0" /&gt;
+			&lt;xs:element ref="credit:value" maxOccurs="unbounded" minOccurs="0" /&gt;
+			&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+
+ 			&lt;xs:complexType name="locationDType"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="locationDType"&gt;
+			&lt;xs:sequence&gt;
+			&lt;xs:element ref="street" minOccurs="0" /&gt;
+			&lt;xs:element ref="town" minOccurs="0" /&gt;
+			&lt;xs:element ref="postcode" minOccurs="0" /&gt;
+			&lt;xs:element ref="address" minOccurs="0" maxOccurs="unbounded" /&gt;
+			&lt;xs:element ref="phone" minOccurs="0" /&gt;
+			&lt;xs:element ref="fax" minOccurs="0" /&gt;
+			&lt;xs:element ref="email" minOccurs="0" /&gt;
+			&lt;xs:element ref="url" minOccurs="0" /&gt;
+			&lt;/xs:sequence&gt;
+			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+
+ 			&lt;xs:complexType name="startDType" mixed="true"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="startDType"&gt;
+ 			&lt;xs:attribute name="dtf" type="dateOrDateTimeDType"/&gt;
+ 			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+ 			&lt;/xs:complexType&gt;
+
+ 			&lt;xs:complexType name="durationDType" mixed="true"&gt;
+ 			&lt;xs:complexContent mixed="true"&gt;
+ 			&lt;xs:extension base="durationDType"&gt;
+			&lt;xs:attribute name="interval"/&gt;
+			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+
+	 		&lt;xs:complexType name="prerequisiteDType" mixed="true"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="prerequisiteDType"&gt;
+ 			&lt;xs:sequence&gt;
+			&lt;xs:element ref="xhtml:div" minOccurs="0" /&gt;
+			&lt;/xs:sequence&gt;
+			&lt;xs:attribute ref="xml:lang" use="optional" /&gt;
+			&lt;xs:attribute name="href" type="xs:anyURI" use="optional" /&gt;
+ 			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+
+ 			&lt;xs:complexType name="assessmentDType" mixed="true"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="assessmentDType"&gt;
+ 			&lt;xs:sequence&gt;
+			&lt;xs:element ref="xhtml:div" minOccurs="0" /&gt;
+			&lt;/xs:sequence&gt;
+			&lt;xs:attribute ref="xml:lang" use="optional" /&gt;
+			&lt;xs:attribute name="href" type="xs:anyURI" use="optional" /&gt;
+ 			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+
+ 			&lt;xs:complexType name="objectiveDType" mixed="true"&gt;
+ 			&lt;xs:complexContent&gt;
+ 			&lt;xs:extension base="objectiveDType"&gt;
+ 			&lt;xs:sequence&gt;
+			&lt;xs:element ref="xhtml:div" minOccurs="0" /&gt;
+			&lt;/xs:sequence&gt;
+			&lt;xs:attribute ref="xml:lang" use="optional" /&gt;
+			&lt;xs:attribute name="href" type="xs:anyURI" use="optional" /&gt;
+ 			&lt;/xs:extension&gt;
+ 			&lt;/xs:complexContent&gt;
+			&lt;/xs:complexType&gt;
+	&lt;/xs:redefine&gt;
+	&lt;xs:element name="street" type="xs:string"/&gt;
+	&lt;xs:element name="town" type="xs:string"/&gt;
+	&lt;xs:element name="postcode" type="xs:string"/&gt;
+	&lt;xs:element name="address" type="xs:string"/&gt;
+	&lt;xs:element name="phone" type="xs:string"/&gt;
+	&lt;xs:element name="fax" type="xs:string"/&gt;
+	&lt;xs:element name="email" type="xs:string"/&gt;
+&lt;/xs:schema&gt;</value>
+    <comment>http://www.xcri.co.uk/bindings/mlo_xcri_profile.xsd</comment>
   </data>
   <data name="XSD_DCB672EE323A6F53C60966C166ED756E" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
