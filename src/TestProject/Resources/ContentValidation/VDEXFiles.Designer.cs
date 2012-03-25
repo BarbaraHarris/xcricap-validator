@@ -61,32 +61,6 @@ namespace TestProject.Resources.ContentValidation {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;vdex profileType=&quot;flatTokenTerms&quot; xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd&quot; xmlns:xcri=&quot;http://xcri.org/profiles/catalog&quot;&gt;        ///
-        ///&lt;vocabName&gt;        ///
-        ///	&lt;langstring&gt;Attendance Mode for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;        ///
-        ///&lt;/vocabName&gt;        ///
-        ///&lt;vocabIdentifier&gt;http://xcri.org/profile [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string http___www_xcri_co_uk_vocabularies_attendanceMode2_1_xml {
-            get {
-                return ResourceManager.GetString("http___www_xcri_co_uk_vocabularies_attendanceMode2_1_xml", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;vdex profileType=&quot;flatTokenTerms&quot; xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd&quot; xmlns:xcri=&quot;http://xcri.org/profiles/catalog&quot;&gt;        ///
-        ///&lt;vocabName&gt;        ///
-        ///	&lt;langstring&gt;Attendance Pattern for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;        ///
-        ///&lt;/vocabName&gt;        ///
-        ///&lt;vocabIdentifier&gt;http://xcri.org/prof [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string http___www_xcri_co_uk_vocabularies_attendancePattern2_1_xml {
-            get {
-                return ResourceManager.GetString("http___www_xcri_co_uk_vocabularies_attendancePattern2_1_xml", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;vdex profileType=&quot;flatTokenTerms&quot; xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd&quot; xmlns:xcri=&quot;http://xcri.org/profiles/catalog&quot;&gt;
         ///
         ///&lt;vocabName&gt;
@@ -97,9 +71,35 @@ namespace TestProject.Resources.ContentValidation {
         ///
         ///&lt;vocabIdentifier&gt;http://xcri.org/prof [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string http___www_xcri_co_uk_vocabularies_studyMode2_1_xml {
+        internal static string VDEX_020E5DC7A768E70B3481AFD9E176B7BD {
             get {
-                return ResourceManager.GetString("http___www_xcri_co_uk_vocabularies_studyMode2_1_xml", resourceCulture);
+                return ResourceManager.GetString("VDEX_020E5DC7A768E70B3481AFD9E176B7BD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;vdex profileType=&quot;flatTokenTerms&quot; xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd&quot; xmlns:xcri=&quot;http://xcri.org/profiles/catalog&quot;&gt;        ///
+        ///&lt;vocabName&gt;        ///
+        ///	&lt;langstring&gt;Attendance Mode for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;        ///
+        ///&lt;/vocabName&gt;        ///
+        ///&lt;vocabIdentifier&gt;http://xcri.org/profile [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VDEX_563DE9485AC883A619BDF882B22FEF40 {
+            get {
+                return ResourceManager.GetString("VDEX_563DE9485AC883A619BDF882B22FEF40", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;vdex profileType=&quot;flatTokenTerms&quot; xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd&quot; xmlns:xcri=&quot;http://xcri.org/profiles/catalog&quot;&gt;        ///
+        ///&lt;vocabName&gt;        ///
+        ///	&lt;langstring&gt;Attendance Pattern for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;        ///
+        ///&lt;/vocabName&gt;        ///
+        ///&lt;vocabIdentifier&gt;http://xcri.org/prof [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VDEX_A1BA6F2ACE918C1C07A6454C9184FF90 {
+            get {
+                return ResourceManager.GetString("VDEX_A1BA6F2ACE918C1C07A6454C9184FF90", resourceCulture);
             }
         }
     }

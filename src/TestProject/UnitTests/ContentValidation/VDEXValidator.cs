@@ -78,8 +78,10 @@ namespace TestProject.UnitTests.ContentValidation
             }
             public override System.Xml.XmlReader GetXmlReader(Uri input)
             {
-                return System.Xml.XmlReader.Create(new System.IO.StringReader(Resources.ContentValidation.VDEXFiles.ResourceManager.GetString(input.ToString().Replace(":", "_").Replace("/", "_").Replace(".", "_"))));
+                string hashName = "VDEX_" + Hashing.HashUri(input);
+                return System.Xml.XmlReader.Create(new System.IO.StringReader(Resources.ContentValidation.VDEXFiles.ResourceManager.GetString(hashName)));
             }
+		
         }
 
     }

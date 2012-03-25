@@ -54,6 +54,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hashing.cs" />
     <Compile Include="Resources\ContentValidation\RegularExpressionValidator\Common.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +94,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VDEXFiles.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ContentValidation\XSDFiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XSDFiles.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\IValidationService\Invalid\DocumentValidators.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -396,6 +402,10 @@
     <EmbeddedResource Include="Resources\ContentValidation\VDEXFiles.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>VDEXFiles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContentValidation\XSDFiles.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XSDFiles.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\IValidationService\Invalid\DocumentValidators.resx">
       <Generator>ResXFileCodeGenerator</Generator>

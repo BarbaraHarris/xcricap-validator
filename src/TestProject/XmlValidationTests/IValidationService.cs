@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace TestProject.XmlValidationTests
 {
@@ -11,8 +12,24 @@ namespace TestProject.XmlValidationTests
     public abstract partial class IValidationService<T> : TestBase<XCRI.Validation.IValidationService<String>, T>
         where T : XCRI.Validation.IValidationService<String>
     {
-        protected XCRI.Validation.XmlRetrieval.XmlCachingResolver XmlResolver
-            = new XCRI.Validation.XmlRetrieval.XmlCachingResolver(null, null, null);
+        protected class XmlResolverUsingResources
+            : XCRI.Validation.XmlRetrieval.XmlCachingResolver
+        {
+            public XmlResolverUsingResources()
+                : base(null, null, null)
+            {
+            }
+            public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
+            {
+                var resourceName = "XSD_" + Hashing.HashUri(absoluteUri);
+                var memoryStream = new System.IO.MemoryStream();
+                try { return new System.IO.MemoryStream(UTF8Encoding.Default.GetBytes(Resources.ContentValidation.XSDFiles.ResourceManager.GetString(resourceName))); }
+                catch { }
+                Assert.Fail("A cached resource for " + absoluteUri.ToString() + " could not be found");
+                return base.GetEntity(absoluteUri, role, ofObjectToReturn);
+            }
+        }
+        protected XCRI.Validation.XmlRetrieval.XmlCachingResolver XmlResolver = new XmlResolverUsingResources();
         protected System.Xml.XmlNamespaceManager GetNamespaceManager()
         {
             var xmlnsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());

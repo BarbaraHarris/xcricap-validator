@@ -117,114 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="http___www_xcri_co_uk_vocabularies_attendanceMode2_1_xml" xml:space="preserve">
-    <value>&lt;vdex profileType="flatTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd" xmlns:xcri="http://xcri.org/profiles/catalog"&gt;
-&lt;vocabName&gt;
-	&lt;langstring&gt;Attendance Mode for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;
-&lt;/vocabName&gt;
-&lt;vocabIdentifier&gt;http://xcri.org/profiles/catalog/1.2/attendanceMode&lt;/vocabIdentifier&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;CM&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Campus&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;Learner will be expected to attend at the venue for the bulk of their teaching time.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;DA&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Distance with attendance&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;Primarily distance learning however the learner will be required to attend at the venue as necessary.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;DS&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Distance without attendance&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The learning opportunity does not require any attendance at the venue.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;MM&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Mixed mode&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;NC&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Face-to-face non-campus&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The learner undertakes the course off campus.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;ON&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Online (no attendance)&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The learner undertakes the course over the internet only.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-    &lt;term&gt;
-        &lt;termIdentifier&gt;WB&lt;/termIdentifier&gt;
-        &lt;caption&gt;&lt;langstring&gt;Work-based&lt;/langstring&gt;&lt;/caption&gt;
-        &lt;description&gt;
-            &lt;langstring&gt;The learner undertakes the course at their workplace.&lt;/langstring&gt;
-        &lt;/description&gt;
-    &lt;/term&gt;
-&lt;/vdex&gt;</value>
-  </data>
-  <data name="http___www_xcri_co_uk_vocabularies_attendancePattern2_1_xml" xml:space="preserve">
-    <value>&lt;vdex profileType="flatTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd" xmlns:xcri="http://xcri.org/profiles/catalog"&gt;
-&lt;vocabName&gt;
-	&lt;langstring&gt;Attendance Pattern for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;
-&lt;/vocabName&gt;
-&lt;vocabIdentifier&gt;http://xcri.org/profiles/catalog/1.2/attendancePattern&lt;/vocabIdentifier&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;DT&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Daytime&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The opportunity takes place at some time roughly in the hours 9am to 5pm.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;EV&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Evening&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The opportunity takes place at 8pm or later.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;TW&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Twilight&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The opportunity takes place between 5pm and 8pm.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;DR&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Day/Block release&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The opportunity takes place over the course of a day or more of intensive study.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;WE&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Weekend&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The opportunity takes place on Saturday or Sunday.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;term&gt;
-	&lt;termIdentifier&gt;CS&lt;/termIdentifier&gt;
-	&lt;caption&gt;&lt;langstring&gt;Customised&lt;/langstring&gt;&lt;/caption&gt;
-    &lt;description&gt;
-        &lt;langstring&gt;The timetable for the learning opportunity is agreed with the learner.&lt;/langstring&gt;
-    &lt;/description&gt;
-&lt;/term&gt;
-&lt;/vdex&gt;</value>
-  </data>
-  <data name="http___www_xcri_co_uk_vocabularies_studyMode2_1_xml" xml:space="preserve">
+  <data name="VDEX_020E5DC7A768E70B3481AFD9E176B7BD" xml:space="preserve">
     <value>&lt;vdex profileType="flatTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd" xmlns:xcri="http://xcri.org/profiles/catalog"&gt;
 
 &lt;vocabName&gt;
@@ -305,6 +198,113 @@
 
 &lt;/term&gt;
 
+&lt;/vdex&gt;</value>
+  </data>
+  <data name="VDEX_563DE9485AC883A619BDF882B22FEF40" xml:space="preserve">
+    <value>&lt;vdex profileType="flatTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd" xmlns:xcri="http://xcri.org/profiles/catalog"&gt;
+&lt;vocabName&gt;
+	&lt;langstring&gt;Attendance Mode for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;
+&lt;/vocabName&gt;
+&lt;vocabIdentifier&gt;http://xcri.org/profiles/catalog/1.2/attendanceMode&lt;/vocabIdentifier&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;CM&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Campus&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;Learner will be expected to attend at the venue for the bulk of their teaching time.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;DA&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Distance with attendance&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;Primarily distance learning however the learner will be required to attend at the venue as necessary.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;DS&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Distance without attendance&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The learning opportunity does not require any attendance at the venue.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;MM&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Mixed mode&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;NC&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Face-to-face non-campus&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The learner undertakes the course off campus.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;ON&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Online (no attendance)&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The learner undertakes the course over the internet only.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+    &lt;term&gt;
+        &lt;termIdentifier&gt;WB&lt;/termIdentifier&gt;
+        &lt;caption&gt;&lt;langstring&gt;Work-based&lt;/langstring&gt;&lt;/caption&gt;
+        &lt;description&gt;
+            &lt;langstring&gt;The learner undertakes the course at their workplace.&lt;/langstring&gt;
+        &lt;/description&gt;
+    &lt;/term&gt;
+&lt;/vdex&gt;</value>
+  </data>
+  <data name="VDEX_A1BA6F2ACE918C1C07A6454C9184FF90" xml:space="preserve">
+    <value>&lt;vdex profileType="flatTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd" xmlns:xcri="http://xcri.org/profiles/catalog"&gt;
+&lt;vocabName&gt;
+	&lt;langstring&gt;Attendance Pattern for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;
+&lt;/vocabName&gt;
+&lt;vocabIdentifier&gt;http://xcri.org/profiles/catalog/1.2/attendancePattern&lt;/vocabIdentifier&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;DT&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Daytime&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The opportunity takes place at some time roughly in the hours 9am to 5pm.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;EV&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Evening&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The opportunity takes place at 8pm or later.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;TW&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Twilight&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The opportunity takes place between 5pm and 8pm.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;DR&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Day/Block release&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The opportunity takes place over the course of a day or more of intensive study.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;WE&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Weekend&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The opportunity takes place on Saturday or Sunday.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
+&lt;term&gt;
+	&lt;termIdentifier&gt;CS&lt;/termIdentifier&gt;
+	&lt;caption&gt;&lt;langstring&gt;Customised&lt;/langstring&gt;&lt;/caption&gt;
+    &lt;description&gt;
+        &lt;langstring&gt;The timetable for the learning opportunity is agreed with the learner.&lt;/langstring&gt;
+    &lt;/description&gt;
+&lt;/term&gt;
 &lt;/vdex&gt;</value>
   </data>
 </root>
