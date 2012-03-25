@@ -100,7 +100,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                         {
                             message = String.Format
                                 (
-                                "The '{0}' element contains elements that are in the wrong order.",
+                                "The '{0}' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
                                 parentElementName
                                 );
                             // Do we have any prefix text?
