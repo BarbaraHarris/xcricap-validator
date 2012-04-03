@@ -386,23 +386,10 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
-        public void Invalid_Presentation_WithIdentifierWithXsiType()
-        {
-            var elementValidator = this.GetElementValidator_Presentation();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
-                (
-                elementValidator,
-                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithIdentifierWithXsiType).Root,
-                1,
-                0
-                );
-        }
-
-        [TestMethod]
         public void Invalid_Presentation_WithoutIdentifier()
         {
             var elementValidator = this.GetElementValidator_Presentation();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
+            this.TestIdentifierExistsUnderElement
                 (
                 elementValidator,
                 System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Presentations.WithoutIdentifier).Root,

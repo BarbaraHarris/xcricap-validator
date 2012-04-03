@@ -304,4 +304,22 @@
 	&lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="WithIdentifierWithXsiType" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;
+&lt;catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ukrlp="http://www.ukrlp.co.uk"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos"
+         xmlns:xcri12terms="http://xcri.org/profiles/1.2/catalog/terms" xmlns:mlo="http://purl.org/net/mlo"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+        generated="2011-03-21T20:00:23Z"
+		xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+		&lt;provider&gt;
+			&lt;course&gt;
+				&lt;dc:identifier xsi:type="xs:anyURI"&gt;http://www.myinstitution.ac.uk/courses/1&lt;/dc:identifier&gt;
+			&lt;/course&gt;
+		&lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
 </root>

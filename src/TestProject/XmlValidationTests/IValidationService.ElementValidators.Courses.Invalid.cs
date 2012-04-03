@@ -67,23 +67,10 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
-        public void Invalid_CourseWithIdentifierWithXsiType()
-        {
-            var elementValidator = this.GetElementValidator_Course();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
-                (
-                elementValidator,
-                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Courses.WithIdentifierWithXsiType).Root,
-                1,
-                0
-                );
-        }
-
-        [TestMethod]
         public void Invalid_CourseWithoutIdentifier()
         {
             var elementValidator = this.GetElementValidator_Course();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
+            this.TestIdentifierExistsUnderElement
                 (
                 elementValidator,
                 System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Courses.WithoutIdentifier).Root,

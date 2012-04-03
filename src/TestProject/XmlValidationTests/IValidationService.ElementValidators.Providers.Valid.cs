@@ -34,10 +34,23 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Valid_ProviderWithIdentifierWithXsiType()
+        {
+            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
+            this.TestIdentifierExistsUnderElement
+                (
+                elementValidator,
+                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.WithIdentifierWithXsiType).Root,
+                0,
+                1
+                );
+        }
+
+        [TestMethod]
         public void Valid_ProviderWithIdentifierWithoutXsiType()
         {
             var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
+            this.TestIdentifierExistsUnderElement
                 (
                 elementValidator,
                 System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Providers.WithIdentifierWithoutXsiType).Root,

@@ -59,6 +59,19 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Valid_Presentation_WithIdentifierWithXsiType()
+        {
+            var elementValidator = this.GetElementValidator_Presentation();
+            this.TestIdentifierExistsUnderElement
+                (
+                elementValidator,
+                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Presentations.WithIdentifierWithXsiType).Root,
+                0,
+                1
+                );
+        }
+
+        [TestMethod]
         public void Valid_Presentation_WithVenue()
         {
             var ev = this.GetElementValidator_Presentation();
@@ -321,7 +334,7 @@ namespace TestProject.XmlValidationTests
         public void Valid_Presentation_WithIdentifierWithoutXsiType()
         {
             var elementValidator = this.GetElementValidator_Presentation();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
+            this.TestIdentifierExistsUnderElement
                 (
                 elementValidator,
                 System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Presentations.WithIdentifierWithoutXsiType).Root,

@@ -164,7 +164,7 @@ namespace TestProject.XmlValidationTests
             ev.Validators.Clear();
         }
 
-        public void TestIdentifierWithoutXsiTypeExistsUnderElement
+        public void TestIdentifierExistsUnderElement
             (
             XCRI.Validation.ContentValidation.ElementValidator ev,
             System.Xml.Linq.XElement element,
@@ -174,7 +174,7 @@ namespace TestProject.XmlValidationTests
         {
             var v = new XCRI.Validation.ContentValidation.NumberValidator()
             {
-                XPathSelector = "count(./dc:identifier[not(@xsi:type)])",
+                XPathSelector = "count(./dc:identifier)",
                 ExceptionMessage = "All providers must contain an identifier without an xsi:type attribute",
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Exception,
                 Minimum = 1,

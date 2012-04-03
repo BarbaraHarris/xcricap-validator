@@ -80,23 +80,10 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
-        public void Invalid_ProviderWithIdentifierWithXsiType()
-        {
-            var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
-                (
-                elementValidator,
-                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Providers.WithIdentifierWithXsiType).Root,
-                1,
-                0
-                );
-        }
-
-        [TestMethod]
         public void Invalid_ProviderWithoutIdentifier()
         {
             var elementValidator = this.GetElementValidator_ProviderNotWithinVenue();
-            this.TestIdentifierWithoutXsiTypeExistsUnderElement
+            this.TestIdentifierExistsUnderElement
                 (
                 elementValidator,
                 System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Providers.WithoutIdentifier).Root,
