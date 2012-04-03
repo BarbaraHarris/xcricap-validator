@@ -495,7 +495,7 @@
     >
     <numberValidator
         selector="count(./dc:identifier[not(@xsi:type)])"
-        message="All providers must contain an identifier without an xsi:type attribute"
+        message="All providers must contain zero or one identifiers without an xsi:type attribute"
         minimum="0"
         maximum="1"
         status="Exception"
