@@ -198,6 +198,8 @@
         </div>
       </furtherInformation>
     </manualValidator>
+    <!--
+    Commented out after discussion with AP 20120403 
     <manualValidator
         selector="//mlo:qualification/dc:title"
         message="In the qualification element, producers should use the title element for the name of the qualification - preferably as given by its Awarding Body."
@@ -218,6 +220,7 @@
         </div>
       </furtherInformation>
     </manualValidator>
+    -->
     <regularExpressionValidator
         selector="//dc:subject[not(@xsi:type)]"
         message="Each subject element must contain one (and only one) keyword, phrase or classification."
