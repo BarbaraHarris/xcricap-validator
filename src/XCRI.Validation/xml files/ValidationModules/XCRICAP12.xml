@@ -576,7 +576,7 @@
     >
     <numberValidator
         selector="count(./dc:identifier[not(@xsi:type)])"
-        message="All courses must contain an identifier without an xsi:type attribute"
+        message="All courses must contain zero or one identifier elements without an xsi:type attribute"
         minimum="0"
         maximum="1"
         status="Exception"

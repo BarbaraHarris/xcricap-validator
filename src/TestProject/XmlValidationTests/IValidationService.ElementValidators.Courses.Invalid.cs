@@ -80,6 +80,19 @@ namespace TestProject.XmlValidationTests
         }
 
         [TestMethod]
+        public void Invalid_CourseWithMultipleIdentifiersWithoutXsiType()
+        {
+            var elementValidator = this.GetElementValidator_Course();
+            this.TestMultipleIdentifiersWithoutXsiTypeDoNotExistUnderElement
+                (
+                elementValidator,
+                System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Invalid.ElementValidation.Courses.WithMultipleIdentifiersWithoutXsiType).Root,
+                1,
+                0
+                );
+        }
+
+        [TestMethod]
         public void Invalid_CourseWithoutTitle()
         {
             var elementValidator = this.GetElementValidator_Course();
