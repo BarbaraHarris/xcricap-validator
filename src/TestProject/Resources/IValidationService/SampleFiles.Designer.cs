@@ -100,5 +100,15 @@ namespace TestProject.Resources.IValidationService {
                 return ResourceManager.GetString("UniversityOfHertfordshire_20120312", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;catalog xmlns:dcmitype=&quot;http://purl.org/dc/dcmitype/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:credit=&quot;http://purl.org/net/cm&quot; xmlns:mlo=&quot;http://purl.org/net/mlo&quot; xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot; xsi:schemaLocation=&quot;http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd http://xcri.co.uk http://www.xcri.co.uk/bindings/courseDataProgramme.xsd http://www.w3.org/2003/01/geo/wgs84_ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UniversityOfSheffield_20120406 {
+            get {
+                return ResourceManager.GetString("UniversityOfSheffield_20120406", resourceCulture);
+            }
+        }
     }
 }
