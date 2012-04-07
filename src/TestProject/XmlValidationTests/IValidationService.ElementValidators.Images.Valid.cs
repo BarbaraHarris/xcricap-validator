@@ -114,7 +114,7 @@ namespace TestProject.XmlValidationTests
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
                 ValidationGroup = "Formatting",
                 NamespaceManager = ev.NamespaceManager,
-                Pattern = @"(\.jpe?g|\.png)$"
+                Pattern = @"(\.jpe?g|\.png|\.gif)$"
             };
             ev.Validators.Add(v);
             var vr = ev
@@ -142,7 +142,7 @@ namespace TestProject.XmlValidationTests
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
                 ValidationGroup = "Formatting",
                 NamespaceManager = ev.NamespaceManager,
-                Pattern = @"(\.jpe?g|\.png)$"
+                Pattern = @"(\.jpe?g|\.png|\.gif)$"
             };
             ev.Validators.Add(v);
             var vr = ev
@@ -170,11 +170,68 @@ namespace TestProject.XmlValidationTests
                 FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
                 ValidationGroup = "Formatting",
                 NamespaceManager = ev.NamespaceManager,
-                Pattern = @"(\.jpe?g|\.png)$"
+                Pattern = @"(\.jpe?g|\.png|\.gif)$"
             };
             ev.Validators.Add(v);
             var vr = ev
                 .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Images.SourcePng).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_Image_SourceGif()
+        {
+            var ev = this.GetElementValidator_Image();
+            var v = new XCRI.Validation.ContentValidation.RegularExpressionValidator()
+            {
+                XPathSelector = "@src",
+                ExceptionMessage = "Image sources are recommended to be JPEG (.jpg), GIF (.gif), or PNG files (.png).",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Formatting",
+                NamespaceManager = ev.NamespaceManager,
+                Pattern = @"(\.jpe?g|\.png|\.gif)$"
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Images.SourceGif).Root)
+                .Where(r => r.Message == v.ExceptionMessage);
+            Assert.AreEqual<int>(1, vr.Count());
+            ValidateResults
+                (
+                result: vr.ElementAt(0),
+                expectedStatus: XCRI.Validation.ContentValidation.ValidationStatus.Passed,
+                expectedInstances: 1,
+                expectedFailedCount: 0,
+                expectedSuccessfulCount: 1
+                );
+        }
+
+        [TestMethod]
+        public void Invalid_Image_SourceGifCapitalised()
+        {
+            var ev = this.GetElementValidator_Image();
+            var v = new XCRI.Validation.ContentValidation.RegularExpressionValidator()
+            {
+                XPathSelector = "@src",
+                ExceptionMessage = "Image sources are recommended to be JPEG (.jpg), GIF (.gif), or PNG files (.png).",
+                FailedValidationStatus = XCRI.Validation.ContentValidation.ValidationStatus.Warning,
+                ValidationGroup = "Formatting",
+                NamespaceManager = ev.NamespaceManager,
+                IsCaseSensitive = false,
+                Pattern = @"(\.jpe?g|\.png|\.gif)$"
+            };
+            ev.Validators.Add(v);
+            var vr = ev
+                .Validate(System.Xml.Linq.XDocument.Parse(Resources.IValidationService.Valid.ElementValidation.Images.SourceGifCapitalised).Root)
                 .Where(r => r.Message == v.ExceptionMessage);
             Assert.AreEqual<int>(1, vr.Count());
             ValidateResults

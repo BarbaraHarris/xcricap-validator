@@ -88,6 +88,34 @@ namespace TestProject.Resources.IValidationService.Valid.ElementValidation {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
         ///  &lt;provider&gt;
+        ///    &lt;image src=&quot;http://www.myinstitution.ac.uk/images/logo.gif&quot; /&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string SourceGif {
+            get {
+                return ResourceManager.GetString("SourceGif", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///  &lt;provider&gt;
+        ///    &lt;image src=&quot;http://www.myinstitution.ac.uk/images/logo.GIF&quot; /&gt;
+        ///  &lt;/provider&gt;
+        ///&lt;/catalog&gt;.
+        /// </summary>
+        internal static string SourceGifCapitalised {
+            get {
+                return ResourceManager.GetString("SourceGifCapitalised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;catalog xmlns=&quot;http://xcri.org/profiles/1.2/catalog&quot;&gt;
+        ///  &lt;provider&gt;
         ///    &lt;image src=&quot;http://www.myinstitution.ac.uk/images/logo.jpeg&quot; /&gt;
         ///  &lt;/provider&gt;
         ///&lt;/catalog&gt;.

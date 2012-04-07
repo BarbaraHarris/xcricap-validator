@@ -223,6 +223,12 @@ namespace XCRI.Validation.Modules
                         (false == String.IsNullOrEmpty(validatorNode.Attribute("pattern").Value))
                         )
                         regularExpressionValidator.Pattern = validatorNode.Attribute("pattern").Value;
+                    if (
+                        (null != validatorNode.Attribute("isCaseSensitive"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("isCaseSensitive").Value))
+                        )
+                        regularExpressionValidator.IsCaseSensitive = Boolean.Parse(validatorNode.Attribute("isCaseSensitive").Value);
                     validator = regularExpressionValidator;
                     break;
                 case "agevalidator":

@@ -134,6 +134,22 @@
   &lt;/provider&gt;
 &lt;/catalog&gt;</value>
   </data>
+  <data name="SourceGif" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+    &lt;image src="http://www.myinstitution.ac.uk/images/logo.gif" /&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
+  <data name="SourceGifCapitalised" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
+  &lt;provider&gt;
+    &lt;image src="http://www.myinstitution.ac.uk/images/logo.GIF" /&gt;
+  &lt;/provider&gt;
+&lt;/catalog&gt;</value>
+  </data>
   <data name="SourceJpeg" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;catalog xmlns="http://xcri.org/profiles/1.2/catalog"&gt;
