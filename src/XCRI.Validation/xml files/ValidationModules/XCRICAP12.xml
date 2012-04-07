@@ -463,6 +463,31 @@
       status="Exception"
       validationGroup="Structure"
       />
+    <stringLengthValidator
+        selector="(//xcri12:abstract|//xcri12:applicationProcedure|//mlo:assessment|//xcri12:learningOutcome|//mlo:objective|//mlo:prerequisite|//xcri12:regulations|//dc:description)"
+        message="The recommended limit for abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite, regulations and description is 4,000 characters."
+        status="Warning"
+        maximum="4000"
+        validationGroup="Formatting">
+      <furtherInformation>
+        <div class="information">
+          <p>
+            The recommended limit for abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite, regulations and description is 4,000 characters.
+          </p>
+          <blockquote>
+            Producers of XCRI-CAP feeds should be aware that consumers MAY truncate elements with lengths greater than the recommended maximum. Character limits given in this document are drawn from the relevant Information Standard Board’s Business Data Standard (BDS) , with the exception of Common Descriptive Elements and description elements. The recommended limit for the Common Descriptive Elements and description elements is 4,000 characters, including XHTML markup.  Producers should be aware that, if content greater than 4,000 characters is supplied, consumers MAY truncate at 4,000 characters. Consumers operating in strict accordance with the ISB’s Business Data Standard MAY truncate at 2,000 characters.
+          </blockquote>
+          <ul class="links">
+            <li>
+              <a href="http://www.xcri.co.uk/data-definitions-and-vocabulary-framework.html">The Data Definitions Document, version 3.0</a>
+            </li>
+          </ul>
+        </div>
+        <div class="resolution">
+          Shorten or truncate the text within the affected element.
+        </div>
+      </furtherInformation>
+    </stringLengthValidator>
   </documentValidation>
   <!-- elementValidation rules get run once per match -->
   <elementValidation
@@ -551,9 +576,9 @@
       />
     <numberValidator
         selector="count(./mlo:url)"
-        message="All providers should contain a url, which should be its homepage or microsite"
+        message="All providers must contain a url, which should be its homepage or microsite"
         minimum="1"
-        status="Warning"
+        status="Exception"
         validationGroup="Structure"
       />
     <numberValidator
@@ -826,14 +851,14 @@
     </numberValidator>
     <numberValidator
         selector="count(./dc:identifier)"
-        message="All presentations must contain an identifier element in the Dublin Core namespace"
+        message="All presentations should contain an identifier element in the Dublin Core namespace"
         minimum="1"
-        status="Exception"
+        status="Warning"
         validationGroup="Structure"
       >
       <furtherInformation>
         <div class="information">
-          <p>All presentations must contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
+          <p>All presentations should contain an "identifier" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
         </div>
         <div class="example">
           <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
@@ -900,10 +925,17 @@
         validationGroup="Formatting"
       />
     <numberValidator
-        selector="string-length(@alt)"
-        message="A provider must provide meaningful alternative text for each image"
+        selector="string-length(@src)"
+        message="A provider must provide the location (src attribute) for each image"
         minimum="1"
         status="Exception"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="string-length(@alt)"
+        message="A provider should provide meaningful alternative text for each image"
+        minimum="1"
+        status="Warning"
         validationGroup="Accessibility"
       />
     <urlValidator
@@ -918,7 +950,7 @@
         message="Image sources are recommended to be JPEG (.jpg) or PNG files (.png)."
         status="Warning"
         validationGroup="Formatting"
-        pattern="(\.jpe?g|\.png)$"
+        pattern="(\.jpe?g|\.png|\.gif)$"
     />
   </elementValidation>
   <elementValidation
@@ -1009,9 +1041,9 @@
     >
     <numberValidator
         selector="count(./dc:identifier)"
-        message="All qualifications must contain an identifier element"
+        message="All qualifications should contain an identifier element"
         minimum="1"
-        status="Exception"
+        status="Warning"
         validationGroup="Structure"
       />
     <numberValidator
