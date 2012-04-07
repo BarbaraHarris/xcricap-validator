@@ -947,7 +947,7 @@
       />
     <regularExpressionValidator
         selector="@src"
-        message="Image sources are recommended to be JPEG (.jpg) or PNG files (.png)."
+        message="Image sources are recommended to be JPEG (.jpg), GIF (.gif), or PNG files (.png)."
         status="Warning"
         validationGroup="Formatting"
         pattern="(\.jpe?g|\.png|\.gif)$"
