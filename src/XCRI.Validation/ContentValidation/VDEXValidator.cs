@@ -18,6 +18,8 @@ namespace XCRI.Validation.ContentValidation
         public bool IsCaptionCaseSensitive { get; set; }
         public IEnumerable<string> ValidIdentifiers { get; private set; }
         public IEnumerable<string> ValidCaptions { get; private set; }
+        public bool AllowBlankIdentifier { get; set; }
+        public bool AllowBlankCaption { get; set; }
         public VDEXValidator
             (
             ISource<Uri> uriSource
@@ -29,6 +31,8 @@ namespace XCRI.Validation.ContentValidation
             this.UriSource = uriSource;
             this.IsIdentifierCaseSensitive = true;
             this.IsCaptionCaseSensitive = true;
+            this.AllowBlankCaption = false;
+            this.AllowBlankIdentifier = false;
         }
         public void Setup()
         {
@@ -87,25 +91,47 @@ namespace XCRI.Validation.ContentValidation
             if (null != element.Attribute("identifier"))
             {
                 var identifier = element.Attribute("identifier").Value;
-                if (false == this.IsValidIdentifier(identifier))
+                if (false == String.IsNullOrWhiteSpace(identifier))
+                {
+                    if (false == this.IsValidIdentifier(identifier))
+                    {
+                        details = String.Format
+                            (
+                            "The value {0} was not a valid identifier value",
+                            identifier
+                            );
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (false == this.AllowBlankIdentifier)
+                    {
+                        details = "Blank identifiers are not allowed";
+                        return false;
+                    }
+                }
+            }
+            var value = element.Value;
+            if (false == String.IsNullOrWhiteSpace(value))
+            {
+                if (false == this.IsValidElementValue(value))
                 {
                     details = String.Format
                         (
-                        "The value {0} was not a valid identifier value",
-                        identifier
+                        "The value {0} was not a valid element value",
+                        value
                         );
                     return false;
                 }
             }
-            var value = element.Value;
-            if(false == this.IsValidElementValue(value))
+            else
             {
-                details = String.Format
-                    (
-                    "The value {0} was not a valid element value",
-                    value
-                    );
-                return false;
+                if (false == this.AllowBlankCaption)
+                {
+                    details = "Blank values are not allowed";
+                    return false;
+                }
             }
             return true;
         }
