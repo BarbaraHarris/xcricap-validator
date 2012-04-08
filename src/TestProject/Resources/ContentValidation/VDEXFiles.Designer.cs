@@ -78,6 +78,22 @@ namespace TestProject.Resources.ContentValidation {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;        ///
+        ///&lt;vdex xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot;        ///
+        ///	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;        ///
+        ///	xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0.xsd http://purl.org/dc/elements/1.1/ http://xcri.co.uk/bindings/dc.xsd&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; profileType=&quot;flatTokenTerms&quot;&gt;        ///
+        ///&lt;vocabName&gt;        ///
+        ///	&lt;langstring&gt;JACS3&lt;/langstring&gt;        ///
+        ///&lt;/vocabName&gt;        ///
+        ///&lt;vocabIdentifier&gt;http://xcri.org/profile [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VDEX_3D42C15AD7C73E406DE70042A6E7B489 {
+            get {
+                return ResourceManager.GetString("VDEX_3D42C15AD7C73E406DE70042A6E7B489", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;vdex profileType=&quot;flatTokenTerms&quot; xmlns=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd&quot; xmlns:xcri=&quot;http://xcri.org/profiles/catalog&quot;&gt;        ///
         ///&lt;vocabName&gt;        ///
         ///	&lt;langstring&gt;Attendance Mode for Course Data Programme.  Created by Jennifer Paull, APS Ltd.  This VDEX version 5 March 2012.&lt;/langstring&gt;        ///

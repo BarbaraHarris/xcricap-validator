@@ -275,7 +275,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Structure.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Vocabularies\Invalid\JACS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JACS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Vocabularies\Valid\JACS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JACS.resx</DependentUpon>
+    </Compile>
     <Compile Include="SampleFiles\NorthLindseyCollege_20120223.cs" />
+    <Compile Include="UnitTests\ContentValidation\VDEXValidator.JACS3.cs" />
     <Compile Include="UnitTests\ContentValidation\RegularExpressionValidator.Common.Subjects.cs" />
     <Compile Include="UnitTests\ContentValidation\DurationValidator.cs" />
     <Compile Include="UnitTests\ContentValidation\DurationValidator.Invalid.cs" />
@@ -546,6 +557,14 @@
     <EmbeddedResource Include="Resources\IValidationService\Valid\Structure.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Structure.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabularies\Invalid\JACS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JACS.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabularies\Valid\JACS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JACS.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
