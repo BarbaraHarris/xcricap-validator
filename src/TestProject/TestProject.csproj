@@ -280,10 +280,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JACS.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Vocabularies\Invalid\XCRICAP12Terms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XCRICAP12Terms.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Vocabularies\Valid\JACS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JACS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Vocabularies\Valid\XCRICAP12Terms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XCRICAP12Terms.resx</DependentUpon>
     </Compile>
     <Compile Include="SampleFiles\NorthLindseyCollege_20120223.cs" />
     <Compile Include="UnitTests\ContentValidation\VDEXValidator.JACS3.cs" />
@@ -562,9 +572,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>JACS.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabularies\Invalid\XCRICAP12Terms.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XCRICAP12Terms.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Vocabularies\Valid\JACS.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>JACS.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vocabularies\Valid\XCRICAP12Terms.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>XCRICAP12Terms.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
