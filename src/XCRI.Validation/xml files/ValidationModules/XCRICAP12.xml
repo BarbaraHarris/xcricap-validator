@@ -10,7 +10,6 @@
     <add namespace="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi" />
     <add namespace="http://purl.org/net/cm" prefix="credit" />
     <add namespace="http://www.w3.org/XML/1998/namespace" prefix="xml" />
-    <add namespace="http://xcri.co.uk" prefix="courseDataProgramme" />
     <add namespace="http://xcri.org/profiles/1.2/catalog/terms" prefix="xcri12Terms" />
   </namespaces>
   <!-- documentValidation rules get run on the entire document -->
@@ -430,32 +429,35 @@
         vdexLocation="http://www.xcri.co.uk/vocabularies/attendancePattern2_1.xml"
     />
     <vdexValidator
-        selector="//dc:subject[@xsi:type='courseDataProgramme:JACS3']"
+        selector="//xcri12:course//dc:subject"
         message="The JACS code was not found in the JACS vocabulary list"
         status="Warning"
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/JACS3-v1_0.xml"
+        filterByXsiType="true"
+        xsiTypeExpectedNamespace="http://xcri.co.uk"
+        xsiTypeExpectedType="JACS3"
     />
-    <!--
-    COMMENTED OUT AS CURRENTLY NO MEANS TO REFERENCE CPD WITHOUT STUB SCHEMA
     <vdexValidator
-        selector="//xcri12:course/dc:type[@xsi:type=courseDataProgramme:CPD]"
+        selector="//xcri12:course/dc:type"
         message="The CPD code was not found in the CPD vocabulary list"
         status="Warning"
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/courseTypeCPD1_0.xml"
+        filterByXsiType="true"
+        xsiTypeExpectedNamespace="http://xcri.co.uk"
+        xsiTypeExpectedType="courseTypeCPD"
     />
-    -->
-    <!--
-    COMMENTED OUT AS CURRENTLY NO MEANS TO REFERENCE LDCS WITHOUT STUB SCHEMA
     <vdexValidator
-        selector="(//xcri12:course/dc:subject[@xsi:type=courseDataProgramme:LDCS]|//xcri12:presentation/dc:subject[@xsi:type=courseDataProgramme:LDCS]|//xcri12:qualification/dc:subject[@xsi:type=courseDataProgramme:LDCS])"
+        selector="(//xcri12:course/dc:subject|//xcri12:presentation/dc:subject|//xcri12:qualification/dc:subject)"
         message="The LDCS code was not found in the LDCS vocabulary list"
         status="Warning"
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/LDCS_v3.0.xml"
+        filterByXsiType="true"
+        xsiTypeExpectedNamespace="http://xcri.co.uk"
+        xsiTypeExpectedType="LDCS3"
     />
-    -->
     <numberValidator
       selector="count(/xcri12:catalog)"
       message="The root element must be a catalog element in the XCRI-CAP 1.2 namespace"

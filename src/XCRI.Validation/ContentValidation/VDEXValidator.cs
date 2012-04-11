@@ -20,6 +20,9 @@ namespace XCRI.Validation.ContentValidation
         public IEnumerable<string> ValidCaptions { get; private set; }
         public bool AllowBlankIdentifier { get; set; }
         public bool AllowBlankCaption { get; set; }
+        public bool FilterByXsiType { get; set; }
+        public string XsiTypeExpectedNamespace { get; set; }
+        public string XsiTypeExpectedType { get; set; }
         public VDEXValidator
             (
             ISource<Uri> uriSource
@@ -33,6 +36,9 @@ namespace XCRI.Validation.ContentValidation
             this.IsCaptionCaseSensitive = true;
             this.AllowBlankCaption = false;
             this.AllowBlankIdentifier = false;
+            this.FilterByXsiType = false;
+            this.XsiTypeExpectedNamespace = String.Empty;
+            this.XsiTypeExpectedType = String.Empty;
         }
         public void Setup()
         {
@@ -76,6 +82,49 @@ namespace XCRI.Validation.ContentValidation
                 String.Equals(s, value, (this.IsCaptionCaseSensitive ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase))
                 ).Count() > 0;
         }
+        protected virtual bool PassesXsiTypeFilter(System.Xml.Linq.XElement element)
+        {
+            if (false == this.FilterByXsiType)
+                return true;
+            var attribute = element.Attribute(XName.Get("type", "http://www.w3.org/2001/XMLSchema-instance"));
+            if (null == attribute)
+                return false; // Not the cleanest, could we avoid getting here?
+            string value = attribute.Value ?? String.Empty;
+            string valueNamespace = String.Empty;
+            string valueType = value;
+            if (value.Contains(":"))
+            {
+                valueNamespace = value.Substring(0, value.IndexOf(":"));
+                valueType = value.Substring(value.IndexOf(":") + 1);
+            }
+            if (
+                false == String.IsNullOrWhiteSpace(this.XsiTypeExpectedNamespace)
+                &&
+                false == String.IsNullOrWhiteSpace(valueNamespace)
+                )
+            {
+                try
+                {
+                    var expectedPrefix = element.GetPrefixOfNamespace(XNamespace.Get(this.XsiTypeExpectedNamespace)) ?? String.Empty;
+                    if (false == expectedPrefix.Equals(valueNamespace))
+                        return false;
+                }
+                catch
+                {
+                    return false; // This namespace couldn't be found 
+                }
+            }
+            if (
+                false == String.IsNullOrWhiteSpace(this.XsiTypeExpectedType)
+                &&
+                false == String.IsNullOrWhiteSpace(valueType)
+                )
+            {
+                if (false == XsiTypeExpectedType.Equals(valueType))
+                    return false;
+            }
+            return true;
+        }
         public override bool PassesValidation(System.Xml.Linq.XObject node, out string details)
         {
             if (
@@ -88,6 +137,10 @@ namespace XCRI.Validation.ContentValidation
                 throw new InvalidOperationException("The xobject must be an xelement");
             details = null;
             var element = node as XElement;
+            if (false == this.PassesXsiTypeFilter(element))
+            {
+                return true;
+            }
             if (null != element.Attribute("identifier"))
             {
                 var identifier = element.Attribute("identifier").Value;

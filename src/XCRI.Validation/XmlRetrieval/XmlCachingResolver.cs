@@ -72,7 +72,11 @@ namespace XCRI.Validation.XmlRetrieval
                     Logging.LogCategory.XsdLocations,
                     "Attempting to load " + absoluteUri + " (using credentials: " + (null == this.credentials ? "no" : "yes") + ")"
                     );
-                if (absoluteUri.ToString().ToLower().EndsWith(".xsd"))
+                if (
+                    absoluteUri.ToString().ToLower().EndsWith(".xsd") 
+                    ||
+                    (absoluteUri.ToString().ToLower().EndsWith(".xml") && (absoluteUri.Host.ToLower() == "www.xcri.co.uk" || absoluteUri.Host.ToLower() == "xcri.co.uk"))
+                    )
                 {
                     if (null != this.CacheLocations)
                     {

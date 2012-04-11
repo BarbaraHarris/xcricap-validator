@@ -238,6 +238,24 @@ namespace XCRI.Validation.Modules
                 case "vdexvalidator":
                     var vdexValidator = this.ValidatorFactory.GetValidator<ContentValidation.VDEXValidator>();
                     vdexValidator.VDEXLocation = new Uri(validatorNode.Attribute("vdexLocation").Value, UriKind.RelativeOrAbsolute);
+                    if (
+                        (null != validatorNode.Attribute("filterByXsiType"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("filterByXsiType").Value))
+                        )
+                        vdexValidator.FilterByXsiType = Boolean.Parse(validatorNode.Attribute("filterByXsiType").Value);
+                    if (
+                        (null != validatorNode.Attribute("xsiTypeExpectedNamespace"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("xsiTypeExpectedNamespace").Value))
+                        )
+                        vdexValidator.XsiTypeExpectedNamespace = validatorNode.Attribute("xsiTypeExpectedNamespace").Value;
+                    if (
+                        (null != validatorNode.Attribute("xsiTypeExpectedType"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("xsiTypeExpectedType").Value))
+                        )
+                        vdexValidator.XsiTypeExpectedType = validatorNode.Attribute("xsiTypeExpectedType").Value;
                     validator = vdexValidator;
                     break;
                 case "postcodevalidator":

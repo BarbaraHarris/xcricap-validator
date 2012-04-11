@@ -50,7 +50,12 @@ namespace XCRI.Validation.XmlRetrieval
                 ||
                 false == fi.Exists
                 )
+            {
+#if DEBUG
+                System.Diagnostics.Debug.WriteLine("Cache for " + absoluteUri.ToString() + " not found at " + GetMd5Sum(absoluteUri.ToString().ToLower()) + ".cache");
+#endif
                 return null;
+            }
             return new FileStream(fi.FullName, FileMode.Open, FileAccess.Read);
         }
 
