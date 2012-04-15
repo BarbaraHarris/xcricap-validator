@@ -121,6 +121,10 @@ namespace XCRI.Validation.Modules
                                 ee.Attribute("element").Value,
                                 ee.Attribute("namespace").Value
                                 ));
+                            if (null != ee.Attribute("minimumNumber"))
+                                expectedElements[expectedElements.Count - 1].MinimumNumber = Int32.Parse(ee.Attribute("minimumNumber").Value);
+                            if (null != ee.Attribute("maximumNumber"))
+                                expectedElements[expectedElements.Count - 1].MaximumNumber = Int32.Parse(ee.Attribute("maximumNumber").Value);
                         }
                         expectedElementGroups.Add(id, expectedElements);
                     }
@@ -148,6 +152,10 @@ namespace XCRI.Validation.Modules
                                         child.Attribute("element").Value,
                                         child.Attribute("namespace").Value
                                         ));
+                                    if (null != child.Attribute("minimumNumber"))
+                                        expectedElements[expectedElements.Count - 1].MinimumNumber = Int32.Parse(child.Attribute("minimumNumber").Value);
+                                    if (null != child.Attribute("maximumNumber"))
+                                        expectedElements[expectedElements.Count - 1].MaximumNumber = Int32.Parse(child.Attribute("maximumNumber").Value);
                                     break;
                             }
                         }

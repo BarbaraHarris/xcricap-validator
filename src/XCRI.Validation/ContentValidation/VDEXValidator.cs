@@ -21,8 +21,8 @@ namespace XCRI.Validation.ContentValidation
         public bool AllowBlankIdentifier { get; set; }
         public bool AllowBlankCaption { get; set; }
         public bool FilterByXsiType { get; set; }
-        public string XsiTypeExpectedNamespace { get; set; }
-        public string XsiTypeExpectedType { get; set; }
+        public string XsiTypeFilterExpectedNamespace { get; set; }
+        public string XsiTypeFilterExpectedType { get; set; }
         public VDEXValidator
             (
             ISource<Uri> uriSource
@@ -37,8 +37,8 @@ namespace XCRI.Validation.ContentValidation
             this.AllowBlankCaption = false;
             this.AllowBlankIdentifier = false;
             this.FilterByXsiType = false;
-            this.XsiTypeExpectedNamespace = String.Empty;
-            this.XsiTypeExpectedType = String.Empty;
+            this.XsiTypeFilterExpectedNamespace = String.Empty;
+            this.XsiTypeFilterExpectedType = String.Empty;
         }
         public void Setup()
         {
@@ -98,14 +98,14 @@ namespace XCRI.Validation.ContentValidation
                 valueType = value.Substring(value.IndexOf(":") + 1);
             }
             if (
-                false == String.IsNullOrWhiteSpace(this.XsiTypeExpectedNamespace)
+                false == String.IsNullOrWhiteSpace(this.XsiTypeFilterExpectedNamespace)
                 &&
                 false == String.IsNullOrWhiteSpace(valueNamespace)
                 )
             {
                 try
                 {
-                    var expectedPrefix = element.GetPrefixOfNamespace(XNamespace.Get(this.XsiTypeExpectedNamespace)) ?? String.Empty;
+                    var expectedPrefix = element.GetPrefixOfNamespace(XNamespace.Get(this.XsiTypeFilterExpectedNamespace)) ?? String.Empty;
                     if (false == expectedPrefix.Equals(valueNamespace))
                         return false;
                 }
@@ -115,12 +115,12 @@ namespace XCRI.Validation.ContentValidation
                 }
             }
             if (
-                false == String.IsNullOrWhiteSpace(this.XsiTypeExpectedType)
+                false == String.IsNullOrWhiteSpace(this.XsiTypeFilterExpectedType)
                 &&
                 false == String.IsNullOrWhiteSpace(valueType)
                 )
             {
-                if (false == XsiTypeExpectedType.Equals(valueType))
+                if (false == XsiTypeFilterExpectedType.Equals(valueType))
                     return false;
             }
             return true;

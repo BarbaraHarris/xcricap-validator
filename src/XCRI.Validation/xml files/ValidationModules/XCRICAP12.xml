@@ -68,6 +68,27 @@
         </div>
       </furtherInformation>
     </urlValidator>
+    <urlValidator
+			  selector="//@href"
+			  message="All href attributes must be valid URIs"
+			  status="Exception"
+			  validationGroup="Formatting"
+			  allowRelative="false"
+      />
+    <urlValidator
+			  selector="//xcri12:applyTo"
+			  message="All values of applyTo must be valid URIs"
+			  status="Exception"
+			  validationGroup="Formatting"
+			  allowRelative="false"
+      />
+    <positiveIntegerValidator
+			  selector="//credit:value"
+			  message="All credit values must be positive integers"
+			  status="Exception"
+			  validationGroup="Formatting"
+			  allowRelative="false"
+      />
     <uniqueValidator
         selector="//dc:identifier[not(@xsi:type)]"
         message="All identifiers without an xsi:type attribute should be unique for that named element (provider, course, presentation, qualification, etc.)."
@@ -435,8 +456,8 @@
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/JACS3-v1_0.xml"
         filterByXsiType="true"
-        xsiTypeExpectedNamespace="http://xcri.co.uk"
-        xsiTypeExpectedType="JACS3"
+        xsiTypeFilterExpectedNamespace="http://xcri.co.uk"
+        xsiTypeFilterExpectedType="JACS3"
     />
     <vdexValidator
         selector="//xcri12:course/dc:type"
@@ -445,8 +466,8 @@
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/courseTypeCPD1_0.xml"
         filterByXsiType="true"
-        xsiTypeExpectedNamespace="http://xcri.co.uk"
-        xsiTypeExpectedType="courseTypeCPD"
+        xsiTypeFilterExpectedNamespace="http://xcri.co.uk"
+        xsiTypeFilterExpectedType="courseTypeCPD"
     />
     <vdexValidator
         selector="(//xcri12:course/dc:subject|//xcri12:presentation/dc:subject|//xcri12:qualification/dc:subject)"
@@ -455,8 +476,8 @@
         validationGroup="Formatting"
         vdexLocation="http://www.xcri.co.uk/vocabularies/LDCS_v3.0.xml"
         filterByXsiType="true"
-        xsiTypeExpectedNamespace="http://xcri.co.uk"
-        xsiTypeExpectedType="LDCS3"
+        xsiTypeFilterExpectedNamespace="http://xcri.co.uk"
+        xsiTypeFilterExpectedType="LDCS3"
     />
     <numberValidator
       selector="count(/xcri12:catalog)"
@@ -549,6 +570,12 @@
         </div>
       </furtherInformation>
     </numberValidator>
+    <urlValidator
+        selector="./dc:identifier[not(@xsi:type)]"
+        message="An identifier must exist within a provider element without an xsi:type attribute with a value that is a URI."
+        status="Exception"
+        validationGroup="Structure"
+      />
     <numberValidator
         selector="count(./dc:identifier)"
         message="All providers must contain at least one identifier"
@@ -604,6 +631,14 @@
       message="An abstract element can only be used once per language per provider element"
       maximum="1"
       status="Exception"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./dc:description"
+      message="A description element can only be used once per language per provider element"
+      maximum="1"
+      status="Warning"
       validationGroup="Structure"
       />
   </elementValidation>
@@ -697,6 +732,77 @@
       message="An abstract element can only be used once per language per course element"
       maximum="1"
       status="Exception"
+      validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./mlo:url)"
+        message="All courses should contain one (and only one) url"
+        minimum="1"
+        maximum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberValidator
+        selector="count(./xcri12:abstract)"
+        message="All courses should contain one abstract element per language"
+        minimum="1"
+        status="Warning"
+        validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./dc:description"
+      message="A description element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:applicationProcedure"
+      message="An applicationProcedure element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:learningOutcome"
+      message="A learningOutcome element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./mlo:assessment"
+      message="An assessment element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./mlo:objective"
+      message="An objective element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./mlo:prerequisite"
+      message="A prerequisite element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:regulations"
+      message="A regulations element can only be used once per language per course element"
+      maximum="1"
+      status="Warning"
       validationGroup="Structure"
       />
   </elementValidation>
@@ -903,6 +1009,96 @@
       status="Exception"
       validationGroup="Structure"
       />
+    <numberValidator
+      selector="count(./mlo:age)"
+      message="An XCRI presentation must should a maximum of one age element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./xcri12:applyFrom)"
+      message="An XCRI presentation must should a maximum of one applyFrom element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./xcri12:applyTo)"
+      message="An XCRI presentation must should a maximum of one applyTo element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./xcri12:applyUntil)"
+      message="An XCRI presentation must should a maximum of one applyUntil element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./mlo:cost)"
+      message="An XCRI presentation should contain a maximum of one cost element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./mlo:places)"
+      message="An XCRI presentation should contain a maximum of one places element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:applicationProcedure"
+      message="An applicationProcedure element can only be used once per language per presentation element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:learningOutcome"
+      message="A learningOutcome element can only be used once per language per presentation element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./mlo:assessment"
+      message="An assessment element can only be used once per language per presentation element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./mlo:objective"
+      message="An objective element can only be used once per language per presentation element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./mlo:prerequisite"
+      message="A prerequisite element can only be used once per language per presentation element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
+    <numberPerLanguageValidator
+      selector="."
+      childElementSelector="./xcri12:regulations"
+      message="A regulations element can only be used once per language per presentation element"
+      maximum="1"
+      status="Warning"
+      validationGroup="Structure"
+      />
   </elementValidation>
   <elementValidation
       selector="(//xcri12:presentation[.//xcri12:attendanceMode/text()='Campus']|//xcri12:presentation[.//xcri12:attendanceMode[@identifier='CM']])"
@@ -1038,6 +1234,27 @@
       validationGroup="Structure"
       status="Warning"
     />
+    <numberValidator
+      selector="count(./mlo:town)"
+      message="An XCRI provider's location should contain a maximum of one town element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./mlo:fax)"
+      message="An XCRI provider's location should contain a maximum of one fax element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
+    <numberValidator
+      selector="count(./mlo:url)"
+      message="An XCRI provider's location should contain a maximum of one url element."
+      maximum="1"
+      validationGroup="Structure"
+      status="Warning"
+    />
   </elementValidation>
   <elementValidation
       selector="//mlo:qualification"
@@ -1098,26 +1315,4 @@
       </furtherInformation>
     </durationValidator>
   </elementValidation>
-  <!-- added in preparation of v2.0
-  <elementValidation
-    selector="(//xcri12:abstract|//xcri12:applicationProcedure|//mlo:assessment|//xcri12:learningOutcome|//mlo:objective|//mlo:prerequisite|//xcri12:regulations)"
-    >
-    <stringLengthValidator
-        selector="."
-        message="Common Descriptive Elements and description elements SHOULD NOT be more than 2,000 characters long, including XHTML markup.."
-        status="Warning"
-        maximum="2000"
-        validationGroup="Formatting">
-      <furtherInformation>
-        <div class="information">
-          According to version 2.0 of the Data Definitions Document, Common Descriptive Elements and description elements
-          SHOULD NOT be more than 2,000 characters long, including XHTML markup.
-        </div>
-        <div class="resolution">
-          Shorten or truncate the text.
-        </div>
-      </furtherInformation>
-    </stringLengthValidator>
-  </elementValidation>
-  -->
 </contentValidators>

@@ -43,6 +43,8 @@ namespace XCRI.Validation.ContentValidation
             where T : class, IValidator
         {
             IValidator v = null;
+            if (typeof(T) == typeof(PositiveIntegerValidator))
+                v = new PositiveIntegerValidator();
             if (typeof(T) == typeof(UrlValidator))
                 v = new UrlValidator();
             if (typeof(T) == typeof(UniqueValidator))

@@ -100,7 +100,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                         {
                             message = String.Format
                                 (
-                                "The '{0}' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
+                                "The '{0}' element contains elements that are in the wrong order, or multiple child elements where only one was expected.",
                                 parentElementName
                                 );
                             // Do we have any prefix text?
@@ -110,11 +110,25 @@ namespace XCRI.Validation.XmlExceptionInterpretation
                             // Okay, go through and add in what IS expected...
                             var expectedElementsDiv = new XElement(XName.Get("div", "http://www.w3.org/1999/xhtml"));
                             expectedElementsDiv.Add(new XAttribute("class", "information"));
+                            expectedElementsDiv.Add(new XElement(XName.Get("p", "http://www.w3.org/1999/xhtml"), "Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.  Please note that these elements must exist exactly in the order described below.  Some elements may only appear once whereas other elements may be repeated."));
                             expectedElementsDiv.Add(new XElement(XName.Get("p", "http://www.w3.org/1999/xhtml"), "The following elements are expected - in this order - under the " + parentElementName + " element:"));
                             var expectedElementsUL = new XElement(XName.Get("ul", "http://www.w3.org/1999/xhtml"));
                             foreach (var c in ee.ExpectedChildren)
                             {
-                                expectedElementsUL.Add(new XElement(XName.Get("li", "http://www.w3.org/1999/xhtml"), String.Format("'The {0}' element in namespace '{1}'.", c.ElementName, c.ElementNamespace)));
+                                string text = String.Format("'The {0}' element in namespace '{1}'", c.ElementName, c.ElementNamespace);
+                                if (c.MaximumNumber.HasValue && c.MinimumNumber.HasValue)
+                                {
+                                    text += String.Format(" (between {0} and {1} times)", c.MinimumNumber.Value.ToString(), c.MaximumNumber.Value.ToString());
+                                }
+                                else
+                                {
+                                    if (c.MaximumNumber.HasValue)
+                                        text += " (a maximum of " + c.MaximumNumber.Value.ToString() + " time" + (c.MaximumNumber.Value == 1 ? String.Empty : "s") + ")";
+                                    if (c.MinimumNumber.HasValue)
+                                        text += " (a minimum of " + c.MinimumNumber.Value.ToString() + " time" + (c.MinimumNumber.Value == 1 ? String.Empty : "s") + ")";
+                                }
+                                text += ".";
+                                expectedElementsUL.Add(new XElement(XName.Get("li", "http://www.w3.org/1999/xhtml"), text));
                             }
                             expectedElementsDiv.Add(expectedElementsUL);
                             childElements.Add(expectedElementsDiv);
@@ -198,10 +212,14 @@ namespace XCRI.Validation.XmlExceptionInterpretation
         {
             public string ElementName { get; set; }
             public string ElementNamespace { get; set; }
+            public int? MaximumNumber { get; set; }
+            public int? MinimumNumber { get; set; }
             public IList<ExpectedElement> ExpectedChildren { get; set; }
             public ExpectedElement()
             {
                 this.ExpectedChildren = new List<ExpectedElement>();
+                this.MaximumNumber = null;
+                this.MinimumNumber = null;
             }
             public ExpectedElement(string elementName, string elementNamespace)
                 : this()

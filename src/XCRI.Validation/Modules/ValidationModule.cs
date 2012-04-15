@@ -168,6 +168,26 @@ namespace XCRI.Validation.Modules
                         numbervalidator.Maximum = value;
                     validator = numbervalidator;
                     break;
+                case "positiveintegervalidator":
+                    var positiveIntegerValidator = this.ValidatorFactory.GetValidator<ContentValidation.PositiveIntegerValidator>();
+                    if (
+                        (null != validatorNode.Attribute("minimum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("minimum").Value))
+                        &&
+                        (decimal.TryParse(validatorNode.Attribute("minimum").Value, out value))
+                        )
+                        positiveIntegerValidator.Minimum = value;
+                    if (
+                        (null != validatorNode.Attribute("maximum"))
+                        &&
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("maximum").Value))
+                        &&
+                        (decimal.TryParse(validatorNode.Attribute("maximum").Value, out value))
+                        )
+                        positiveIntegerValidator.Maximum = value;
+                    validator = positiveIntegerValidator;
+                    break;
                 case "numberperlanguagevalidator":
                     var numberPerLanguageValidator = this.ValidatorFactory.GetValidator<ContentValidation.NumberPerLanguageValidator>();
                     if (
@@ -245,17 +265,17 @@ namespace XCRI.Validation.Modules
                         )
                         vdexValidator.FilterByXsiType = Boolean.Parse(validatorNode.Attribute("filterByXsiType").Value);
                     if (
-                        (null != validatorNode.Attribute("xsiTypeExpectedNamespace"))
+                        (null != validatorNode.Attribute("xsiTypeFilterExpectedNamespace"))
                         &&
-                        (false == String.IsNullOrEmpty(validatorNode.Attribute("xsiTypeExpectedNamespace").Value))
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("xsiTypeFilterExpectedNamespace").Value))
                         )
-                        vdexValidator.XsiTypeExpectedNamespace = validatorNode.Attribute("xsiTypeExpectedNamespace").Value;
+                        vdexValidator.XsiTypeFilterExpectedNamespace = validatorNode.Attribute("xsiTypeFilterExpectedNamespace").Value;
                     if (
-                        (null != validatorNode.Attribute("xsiTypeExpectedType"))
+                        (null != validatorNode.Attribute("xsiTypeFilterExpectedType"))
                         &&
-                        (false == String.IsNullOrEmpty(validatorNode.Attribute("xsiTypeExpectedType").Value))
+                        (false == String.IsNullOrEmpty(validatorNode.Attribute("xsiTypeFilterExpectedType").Value))
                         )
-                        vdexValidator.XsiTypeExpectedType = validatorNode.Attribute("xsiTypeExpectedType").Value;
+                        vdexValidator.XsiTypeFilterExpectedType = validatorNode.Attribute("xsiTypeFilterExpectedType").Value;
                     validator = vdexValidator;
                     break;
                 case "postcodevalidator":
