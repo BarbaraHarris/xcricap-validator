@@ -179,7 +179,7 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 );
             Assert.AreEqual<string>
                 (
-                @"The 'provider' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
+                @"The 'provider' element contains elements that are in the wrong order, or multiple child elements where only one was expected.",
                 message
                 );
         }
@@ -198,7 +198,7 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 );
             Assert.AreEqual<string>
                 (
-                @"The 'course' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
+                @"The 'course' element contains elements that are in the wrong order, or multiple child elements where only one was expected.",
                 message
                 );
         }
@@ -217,7 +217,7 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 );
             Assert.AreEqual<string>
                 (
-                @"The 'presentation' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
+                @"The 'presentation' element contains elements that are in the wrong order, or multiple child elements where only one was expected.",
                 message
                 );
         }
@@ -236,7 +236,7 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 );
             Assert.AreEqual<string>
                 (
-                @"The 'qualification' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
+                @"The 'qualification' element contains elements that are in the wrong order, or multiple child elements where only one was expected.",
                 message
                 );
         }
@@ -274,7 +274,7 @@ namespace TestProject.UnitTests.XmlExceptionInterpretation
                 );
             Assert.AreEqual<string>
                 (
-                @"The 'location' element contains elements that are in the wrong order.  Whilst the specification does not require elements to be in a specific order, the underlying XSD files used for validation do.",
+                @"The 'location' element contains elements that are in the wrong order, or multiple child elements where only one was expected.",
                 message
                 );
         }
