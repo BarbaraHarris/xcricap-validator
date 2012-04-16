@@ -609,7 +609,7 @@
     </numberValidator>
     <numberValidator
         selector="count(./dc:title)"
-        message="All providers must contain a single title, which should be the trading name."
+        message="All providers must contain one and only one title, which should be the trading name."
         minimum="1"
         maximum="1"
         status="Exception"
@@ -1209,7 +1209,7 @@
     >
     <numberValidator
       selector="count(./mlo:postcode)"
-      message="An XCRI provider's location must contain one postcode element."
+      message="An XCRI provider's location must contain one and only one postcode element."
       minimum="1"
       maximum="1"
       validationGroup="Structure"
@@ -1224,7 +1224,7 @@
     />
     <numberValidator
       selector="count(./mlo:phone)"
-      message="An XCRI provider's location must contain one phone element."
+      message="An XCRI provider's location must contain one and only one phone element."
       minimum="1"
       maximum="1"
       validationGroup="Structure"
@@ -1232,7 +1232,7 @@
     />
     <numberValidator
       selector="count(./mlo:email)"
-      message="An XCRI provider's location should contain one email element."
+      message="An XCRI provider's location should contain one and only one email element."
       minimum="1"
       maximum="1"
       validationGroup="Structure"
@@ -1272,7 +1272,7 @@
       />
     <numberValidator
         selector="count(./dc:title)"
-        message="All qualifications must contain a title element"
+        message="All qualifications must contain one and only one title element"
         minimum="1"
         maximum="1"
         status="Exception"
