@@ -59,7 +59,7 @@
           All url elements are expected to contain valid URLs to indicate a place on the provider's website where further information can be obtained.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Curl.3E_element">&lt;url&gt; element within the XCRI-CAP wiki specification</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Curl.3E_element">&lt;url&gt; element within the XCRI-CAP wiki specification</a>
             </li>
           </ul>
         </div>
@@ -107,7 +107,7 @@
           Date elements should not be used but, instead, use the start element and the temporal elements defined within the Wiki, for example: end, applyFrom and applyUntil.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
             </li>
           </ul>
         </div>
@@ -127,7 +127,7 @@
           hasPart is included for compatibility with the [EN 15982] standard but should not be used.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
             </li>
           </ul>
         </div>
@@ -147,7 +147,7 @@
           isPartOf is included for compatibility with the [EN 15982] standard but should not be used.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Common_Elements">The Common elements within the wiki</a>
             </li>
           </ul>
         </div>
@@ -159,14 +159,14 @@
     <manualValidator
         selector="//dc:contributor"
         message="The contributor element should not be used for general contact information and should only be used when other refinements (for example: presenter or lecturer) are not available."
-        status="Warning"
+        status="Recommendation"
         validationGroup="Manual">
       <furtherInformation>
         <div class="information">
           The contributor element should not be used for general contact information.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Ccontributor.3E_element">The contributor element within the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Ccontributor.3E_element">The contributor element within the wiki</a>
             </li>
           </ul>
         </div>
@@ -186,10 +186,10 @@
           Any identifier element with no type refinement must be a uniform resource identifier conforming to the URI scheme specified by IETF RFC 3986.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
             </li>
             <li>
-              <a href="http://tools.ietf.org/html/rfc3986">IETF RFC 3986</a>
+              <a target="_blank" href="http://tools.ietf.org/html/rfc3986">IETF RFC 3986</a>
             </li>
           </ul>
         </div>
@@ -201,7 +201,7 @@
       </furtherInformation>
     </urlValidator>
     <manualValidator
-        selector="//dc:identifier"
+        selector="//dc:identifier[not(@xsi:type)]"
         message="Producers should use URLs for identifiers that also resolve to human-readable content."
         status="Recommendation"
         validationGroup="Manual">
@@ -210,7 +210,7 @@
           Producers SHOULD use URLs for identifiers that also resolve to human-readable content.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cidentifier.3E_element">The identifier element on the wiki</a>
             </li>
           </ul>
         </div>
@@ -232,7 +232,7 @@
           Producers should use xml:lang and xsi:type attributes, where appropriate, to provide alternative language versions and encoding schemes respectively.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Csubject.3E_element">The subject element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Csubject.3E_element">The subject element on the wiki</a>
             </li>
           </ul>
         </div>
@@ -252,7 +252,7 @@
           Subject elements cannot be empty.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Csubject.3E_element">The subject element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Csubject.3E_element">The subject element on the wiki</a>
             </li>
           </ul>
         </div>
@@ -272,7 +272,7 @@
           The abstract element cannot contain more than 140 characters.  Aggregators may truncate the abstract if it is over 140 characters.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cabstract.3E_element">The abstract element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cabstract.3E_element">The abstract element on the wiki</a>
             </li>
           </ul>
         </div>
@@ -291,7 +291,7 @@
           Each email node should contain an email address conforming to the "addr-spec" production in RFC2822.
           <ul class="links">
             <li>
-              <a href="http://www.ietf.org/rfc/rfc2822.txt?number=2822">RFC8922</a>
+              <a target="_blank" href="http://www.ietf.org/rfc/rfc2822.txt?number=2822">RFC8922</a>
             </li>
           </ul>
         </div>
@@ -311,7 +311,7 @@
           The National Format Layout is cited as a recommended format.
           <ul class="links">
             <li>
-              <a href="http://www.ofcom.org.uk/static/archive/oftel/publications/numbering/2003/num_guide.htm#1b">National Format Layout</a>
+              <a target="_blank" href="http://www.ofcom.org.uk/static/archive/oftel/publications/numbering/2003/num_guide.htm#1b">National Format Layout</a>
             </li>
           </ul>
         </div>
@@ -345,7 +345,7 @@
           A duration element must contain textual content.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cduration.3E_element">The duration element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cduration.3E_element">The duration element on the wiki</a>
             </li>
           </ul>
         </div>
@@ -365,7 +365,7 @@
           Additionally, if of the format "x-y", the value of x cannot be greater than the value of y.
           <ul class="links">
             <li>
-              <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cage.3E_element">The age element on the wiki</a>
+              <a target="_blank" href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#the_.3Cage.3E_element">The age element on the wiki</a>
             </li>
           </ul>
         </div>
@@ -386,7 +386,7 @@
           Any XML "language" attributes (xml:lang) must contain a valid language according to the 2-character ISO 639 codes.
           <ul class="links">
             <li>
-              <a href="http://www.loc.gov/standards/iso639-2/php/English_list.php">A full list of the ISO 639-1 character codes, as documented by the American Library of Congress.</a>
+              <a target="_blank" href="http://www.loc.gov/standards/iso639-2/php/English_list.php">A full list of the ISO 639-1 character codes, as documented by the American Library of Congress.</a>
             </li>
           </ul>
         </div>
@@ -502,7 +502,7 @@
           </blockquote>
           <ul class="links">
             <li>
-              <a href="http://www.xcri.co.uk/data-definitions-and-vocabulary-framework.html">The Data Definitions Document, version 3.0</a>
+              <a target="_blank" href="http://www.xcri.co.uk/data-definitions-and-vocabulary-framework.html">The Data Definitions Document, version 3.0</a>
             </li>
           </ul>
         </div>
@@ -545,6 +545,18 @@
       maximum="1"
       status="Exception"
       validationGroup="Structure"
+      />
+  </elementValidation>
+  <elementValidation
+      selector="//xcri12:provider"
+    >
+    <numberValidator
+        selector="count(./mlo:location)"
+        message="All providers must contain a location"
+        minimum="1"
+        maximum="1"
+        status="Exception"
+        validationGroup="Structure"
       />
   </elementValidation>
   <elementValidation
@@ -607,14 +619,6 @@
         selector="count(./mlo:url)"
         message="All providers must contain a url, which should be its homepage or microsite"
         minimum="1"
-        status="Exception"
-        validationGroup="Structure"
-      />
-    <numberValidator
-        selector="count(./mlo:location)"
-        message="All providers must contain a location"
-        minimum="1"
-        maximum="1"
         status="Exception"
         validationGroup="Structure"
       />
@@ -1308,7 +1312,7 @@
           <p>While the text content of the duration element is intended to contain a human-readable description of the duration of the learning opportunity, the interval attribute can be used to provide a machine-readable equivalent. If there is no direct machine-equivalent value (e.g., the duration is flexible), then Producers SHOULD NOT include the interval attribute.</p>
           <ul class="links">
             <li>
-              <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 duration formats</a>
+              <a target="_blank" href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 duration formats</a>
             </li>
           </ul>
         </div>
