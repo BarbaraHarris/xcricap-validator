@@ -552,7 +552,7 @@
     >
     <numberValidator
         selector="count(./mlo:location)"
-        message="All providers must contain a location"
+        message="All providers must contain one and only one location"
         minimum="1"
         maximum="1"
         status="Exception"
@@ -609,7 +609,7 @@
     </numberValidator>
     <numberValidator
         selector="count(./dc:title)"
-        message="All providers must contain a title, which should be the trading name."
+        message="All providers must contain a single title, which should be the trading name."
         minimum="1"
         maximum="1"
         status="Exception"
@@ -815,7 +815,7 @@
     >
     <numberValidator
         selector="count(./mlo:start)"
-        message="All presentations must contain a start element in the MLO namespace"
+        message="All presentations must contain one and only one start element in the MLO namespace"
         minimum="1"
         maximum="1"
         status="Exception"
@@ -1169,7 +1169,7 @@
     />
     <numberValidator
       selector="count(./credit:level)"
-      message="A credit element must contain a level element."
+      message="A credit element must contain one and only one level element."
       minimum="1"
       maximum="1"
       validationGroup="Structure"
@@ -1177,7 +1177,7 @@
     />
     <numberValidator
       selector="count(./credit:value)"
-      message="A credit element must contain a value element."
+      message="A credit element must contain one and only one value element."
       minimum="1"
       maximum="1"
       validationGroup="Structure"
