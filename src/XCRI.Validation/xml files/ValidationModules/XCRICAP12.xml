@@ -639,12 +639,27 @@
       />
     <numberPerLanguageValidator
       selector="."
-      childElementSelector="./dc:description"
+      childElementSelector="./dc:description[not(@xsi:type)]"
       message="A description element can only be used once per language per provider element"
       maximum="1"
       status="Warning"
       validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div class="information">
+          <p>
+            The description element should be used zero or one times in a single language, differentiated using the xml:lang attribute.  Multiple elements are permitted to enable
+            information in more than one language.  For description elements that are more specific than summaries,
+            use an xsi:type attribute to specify the vocabulary term.
+          </p>
+          <ul class="links">
+            <li>
+              <a target="_blank" href="http://www.xcri.co.uk/data-definitions-and-vocabulary-framework.html">The Data Definitions Document, version 3.0</a>
+            </li>
+          </ul>
+        </div>
+      </furtherInformation>
+    </numberPerLanguageValidator>
   </elementValidation>
   <elementValidation
       selector="//xcri12:course"
@@ -755,12 +770,27 @@
       />
     <numberPerLanguageValidator
       selector="."
-      childElementSelector="./dc:description"
+      childElementSelector="./dc:description[not(@xsi:type)]"
       message="A description element can only be used once per language per course element"
       maximum="1"
       status="Warning"
       validationGroup="Structure"
-      />
+      >
+      <furtherInformation>
+        <div class="information">
+          <p>
+            The description element should be used zero or one times in a single language, differentiated using the xml:lang attribute.  Multiple elements are permitted to enable
+            information in more than one language.  For description elements that are more specific than a course summary, for example using the XCRI Terms description vocabulary,
+            use an xsi:type attribute to specify the vocabulary term.
+          </p>
+          <ul class="links">
+            <li>
+              <a target="_blank" href="http://www.xcri.co.uk/data-definitions-and-vocabulary-framework.html">The Data Definitions Document, version 3.0</a>
+            </li>
+          </ul>
+        </div>
+      </furtherInformation>
+    </numberPerLanguageValidator>
     <numberPerLanguageValidator
       selector="."
       childElementSelector="./xcri12:applicationProcedure"
