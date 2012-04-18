@@ -970,28 +970,6 @@
       </furtherInformation>
     </numberValidator>
     <numberValidator
-        selector="count(./mlo:url)"
-        message="All presentations should contain a url element in the MLO namespace"
-        minimum="1"
-        status="Warning"
-        validationGroup="Structure"
-      >
-      <furtherInformation>
-        <div class="information">
-          <p>All presentations should contain a "url" element within the MLO (http://purl.org/net/mlo) namespace.  Note that the element name must be lower-case.</p>
-        </div>
-        <div class="example">
-          <p>For example, the following is valid, provided the "mlo" namespace prefix has been declared correctly</p>
-          <pre>&lt;mlo:url&gt;http://www.myinstitution.ac.uk&lt;/mlo:url&gt;</pre>
-          <p>Whereas the following is invalid:</p>
-          <pre>&lt;mlo:Url&gt;http://www.myinstitution.ac.uk&lt;/mlo:Url&gt;</pre>
-        </div>
-        <div class="resolution">
-          <p>Ensure that the presentation nodes listed below contain a "url" element, and that element exists within the MLO (http://purl.org/net/mlo) namespace.</p>
-        </div>
-      </furtherInformation>
-    </numberValidator>
-    <numberValidator
         selector="count(./dc:identifier)"
         message="All presentations should contain an identifier element in the Dublin Core namespace"
         minimum="1"
@@ -1010,28 +988,6 @@
         </div>
         <div class="resolution">
           <p>Ensure that the presentation nodes listed below contain an "identifier" element, and that element exists within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.</p>
-        </div>
-      </furtherInformation>
-    </numberValidator>
-    <numberValidator
-        selector="count(./dc:title)"
-        message="All presentations must contain a title element in the Dublin Core namespace"
-        minimum="1"
-        status="Exception"
-        validationGroup="Structure"
-      >
-      <furtherInformation>
-        <div class="information">
-          <p>All presentations must contain an "title" element within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.  Note that the element name must be lower-case.</p>
-        </div>
-        <div class="example">
-          <p>For example, the following is valid, provided the "dc" namespace prefix has been declared correctly</p>
-          <pre>&lt;dc:title&gt;My Educational Institution&lt;/dc:title&gt;</pre>
-          <p>Whereas the following is invalid:</p>
-          <pre>&lt;dc:Title&gt;My Educational Institution&lt;/dc:Title&gt;</pre>
-        </div>
-        <div class="resolution">
-          <p>Ensure that the presentation nodes listed below contain an "title" element, and that element exists within the Dublin Core (http://purl.org/dc/elements/1.1/) namespace.</p>
         </div>
       </furtherInformation>
     </numberValidator>
