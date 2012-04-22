@@ -7,6 +7,6 @@ namespace XCRI.Validation.Modules
 {
     public interface IInterpretationModule
     {
-        IEnumerable<XmlExceptionInterpretation.IInterpreter> ExtractInterpreters(System.IO.FileInfo fi);
+        IEnumerable<XmlExceptionInterpretation.IInterpreter> ExtractInterpreters(System.Xml.Linq.XDocument document);
     }
 }

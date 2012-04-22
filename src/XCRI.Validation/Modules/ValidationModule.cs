@@ -35,15 +35,9 @@ namespace XCRI.Validation.Modules
 
         public IEnumerable<ContentValidation.IValidator> ExtractValidators
             (
-            FileInfo fi
+            XDocument xdoc
             )
         {
-            if (null == fi)
-                throw new ArgumentNullException("fi");
-            if (fi.Exists == false)
-                throw new ArgumentException("The file must exist to be called in this manner", "fi");
-            // Grab reference to doc
-            var xdoc = XDocument.Load(fi.FullName);
             var xmlnsmgr = new System.Xml.XmlNamespaceManager(new System.Xml.NameTable());
             // Extract namespace details
             foreach (var node in xdoc.XPathSelectElements("/contentValidators/namespaces/add"))
