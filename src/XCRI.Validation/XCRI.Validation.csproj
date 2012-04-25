@@ -92,6 +92,7 @@
     <Compile Include="Modules\IValidationModule.cs" />
     <Compile Include="Modules\ValidationModule.cs" />
     <Compile Include="ValidationResult.cs" />
+    <Compile Include="ValidationResultList.cs" />
     <Compile Include="XmlExceptionInterpretation\IInterpreterFactory.cs" />
     <Compile Include="XmlExceptionInterpretation\InterpretationStatus.cs" />
     <Compile Include="XmlExceptionInterpretation\InvalidChildElementInterpreter.cs" />

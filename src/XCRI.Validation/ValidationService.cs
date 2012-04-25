@@ -86,7 +86,7 @@ namespace XCRI.Validation
             else
                 this.TimedLogs = new List<Logging.ITimedLog>();
         }
-        public IList<ValidationResult> Validate(T input)
+        public ValidationResultList Validate(T input)
         {
             if (null == this.Source)
                 throw new InvalidOperationException("The Source property must be set before calling Validate");
@@ -213,7 +213,10 @@ namespace XCRI.Validation
                     }
                 }
             }
-            return results.Values.ToList();
+            return new ValidationResultList(results.Values)
+            {
+                Document = doc
+            };
         }
         private class ValidationResultCollection : Dictionary<string, ValidationResult>
         {

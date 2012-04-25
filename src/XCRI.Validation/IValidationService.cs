@@ -14,7 +14,7 @@ namespace XCRI.Validation
         IList<IValidator> XmlContentValidators { get; }
         IList<NamespaceReference> NamespaceReferences { get; }
         System.Globalization.CultureInfo TargetCulture { get; }
-        IList<ValidationResult> Validate(T input);
+        ValidationResultList Validate(T input);
         XmlRetrieval.ISource<T> Source { get; set; }
         IList<Logging.ILog> Logs { get; }
         IList<Logging.ITimedLog> TimedLogs { get; }
