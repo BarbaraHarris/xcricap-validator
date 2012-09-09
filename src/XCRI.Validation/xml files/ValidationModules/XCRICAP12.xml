@@ -733,9 +733,9 @@
       />
     <numberValidator
         selector="count(./xcri12:presentation)"
-        message="All courses must contain a presentation element."
+        message="All courses should contain a presentation element."
         minimum="1"
-        status="Exception"
+        status="Warning"
         validationGroup="Structure"
       />
     <numberValidator
