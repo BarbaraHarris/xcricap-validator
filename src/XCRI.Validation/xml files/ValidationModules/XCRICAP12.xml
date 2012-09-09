@@ -577,8 +577,8 @@
         <div class="example">
           <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" and "xsd" namespace prefixes have been defined):</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
-          <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
-          <pre>&lt;dc:identifier xsi:type="xsd:string"&gt;hello world&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following shows an identifier with an xsi:type attribute (the type itself is for example only):</p>
+          <pre>&lt;dc:identifier xsi:type="abc:def"&gt;hello world&lt;/dc:identifier&gt;</pre>
         </div>
       </furtherInformation>
     </numberValidator>
@@ -602,8 +602,8 @@
         <div class="example">
           <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" and "xsd" namespace prefixes have been defined):</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
-          <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
-          <pre>&lt;dc:identifier xsi:type="xsd:string"&gt;hello world&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following shows an identifier with an xsi:type attribute (the type itself is for example only):</p>
+          <pre>&lt;dc:identifier xsi:type="abc:def"&gt;hello world&lt;/dc:identifier&gt;</pre>
         </div>
       </furtherInformation>
     </numberValidator>
@@ -679,8 +679,8 @@
         <div class="example">
           <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" and "xsd" namespace prefixes have been defined):</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
-          <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
-          <pre>&lt;dc:identifier xsi:type="xsd:string"&gt;hello world&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following shows an identifier with an xsi:type attribute (the type itself is for example only):</p>
+          <pre>&lt;dc:identifier xsi:type="abc:def"&gt;hello world&lt;/dc:identifier&gt;</pre>
         </div>
       </furtherInformation>
     </numberValidator>
@@ -698,8 +698,8 @@
         <div class="example">
           <p>The example below shows an identifier element without an xsi:type attribute (assume the "dc" and "xsd" namespace prefixes have been defined):</p>
           <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
-          <p>Whereas the following shows an identifier with an xsi:type attribute:</p>
-          <pre>&lt;dc:identifier xsi:type="xsd:string"&gt;hello world&lt;/dc:identifier&gt;</pre>
+          <p>Whereas the following shows an identifier with an xsi:type attribute (the type itself is for example only):</p>
+          <pre>&lt;dc:identifier xsi:type="abc:def"&gt;hello world&lt;/dc:identifier&gt;</pre>
         </div>
       </furtherInformation>
     </numberValidator>
