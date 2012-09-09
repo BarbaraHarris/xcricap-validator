@@ -487,15 +487,15 @@
       validationGroup="Structure"
       />
     <stringLengthValidator
-        selector="(//xcri12:abstract|//xcri12:applicationProcedure|//mlo:assessment|//xcri12:learningOutcome|//mlo:objective|//mlo:prerequisite|//xcri12:regulations|//dc:description)"
-        message="The recommended limit for abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite, regulations and description is 4,000 characters."
+        selector="(//xcri12:applicationProcedure|//mlo:assessment|//xcri12:learningOutcome|//mlo:objective|//mlo:prerequisite|//xcri12:regulations|//dc:description)"
+        message="The recommended limit for applicationProcedure, assessment, learningOutcome, objective, prerequisite, regulations and description is 4,000 characters."
         status="Warning"
         maximum="4000"
         validationGroup="Formatting">
       <furtherInformation>
         <div class="information">
           <p>
-            The recommended limit for abstract, applicationProcedure, assessment, learningOutcome, objective, prerequisite, regulations and description is 4,000 characters.
+            The recommended limit for applicationProcedure, assessment, learningOutcome, objective, prerequisite, regulations and description is 4,000 characters.
           </p>
           <blockquote>
             Producers of XCRI-CAP feeds should be aware that consumers MAY truncate elements with lengths greater than the recommended maximum. Character limits given in this document are drawn from the relevant Information Standard Board’s Business Data Standard (BDS) , with the exception of Common Descriptive Elements and description elements. The recommended limit for the Common Descriptive Elements and description elements is 4,000 characters, including XHTML markup.  Producers should be aware that, if content greater than 4,000 characters is supplied, consumers MAY truncate at 4,000 characters. Consumers operating in strict accordance with the ISB’s Business Data Standard MAY truncate at 2,000 characters.
