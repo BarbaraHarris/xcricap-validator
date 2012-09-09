@@ -9,19 +9,10 @@ namespace XCRI.Validation.ContentValidation
     public class UrlValidator : Validator
     {
         public bool AllowRelative { get; set; }
-        public UrlValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public UrlValidator()
+            : base()
         {
             this.AllowRelative = false;
-        }
-        public UrlValidator
-            (
-            )
-            : this(null)
-        {
         }
         public override bool PassesValidation(string input, out string details)
         {

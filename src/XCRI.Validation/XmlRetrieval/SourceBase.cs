@@ -13,15 +13,18 @@ namespace XCRI.Validation.XmlRetrieval
         public IList<NamespaceReference> NamespaceReferences { get; protected set; }
         public Action<System.Xml.Schema.ValidationEventArgs> ValidationEventHandler { get; set; }
         public XmlResolver XmlResolver { get; set; }
-        public Logging.ILog Log { get; protected set; }
+        public IList<Logging.ILog> Logs { get; protected set; }
 
         public SourceBase
             (
-            Logging.ILog log,
+            IEnumerable<Logging.ILog> logs,
             XmlResolver xmlResolver
             )
         {
-            this.Log = log;
+            if (null != logs)
+                this.Logs = new List<Logging.ILog>(logs);
+            else
+                this.Logs = new List<Logging.ILog>();
             this.XmlResolver = xmlResolver;
             this.NamespaceReferences = new List<NamespaceReference>();
         }

@@ -10,11 +10,8 @@ namespace XCRI.Validation.ContentValidation
     public abstract class ValidatorCollection : Validator
     {
         public IList<IValidator> Validators = null;
-        public ValidatorCollection
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public ValidatorCollection()
+            : base()
         {
             this.Validators = new List<IValidator>();
         }
@@ -34,7 +31,7 @@ namespace XCRI.Validation.ContentValidation
             var lvr = new List<ValidationResult>();
             if (null != this.Validators)
             {
-                this.Log.LogMessageStatic(String.Format
+                this.Logs.Log(Logging.LogCategory.TimingInformation, String.Format
                     (
                     "There are {0} validators in this context",
                     this.Validators.Count
@@ -51,7 +48,7 @@ namespace XCRI.Validation.ContentValidation
             }
             else
             {
-                this.Log.LogMessageStatic("There are 0 validators in this context");
+                this.Logs.Log(Logging.LogCategory.TimingInformation, "There are 0 validators in this context");
             }
             results = lvr;
         }

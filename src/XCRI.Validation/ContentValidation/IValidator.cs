@@ -45,6 +45,7 @@ namespace XCRI.Validation.ContentValidation
         /// <returns>The results of the validation</returns>
         IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input);
         string ValidationGroup { get; set; }
-        Logging.ILog Log { get; }
+        IList<Logging.ILog> Logs { get; }
+        IList<Logging.ITimedLog> TimedLogs { get; }
     }
 }

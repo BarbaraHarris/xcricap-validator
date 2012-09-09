@@ -12,20 +12,11 @@ namespace XCRI.Validation.ContentValidation
     {
         public decimal? Minimum { get; set; }
         public decimal? Maximum { get; set; }
-        public NumberValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public NumberValidator()
+            : base()
         {
             this.Minimum = null;
             this.Maximum = null;
-        }
-        public NumberValidator
-            (
-            )
-            : this(null)
-        {
         }
         public override IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
         {

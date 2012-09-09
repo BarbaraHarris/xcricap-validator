@@ -97,8 +97,10 @@ namespace TestProject.UnitTests.ContentValidation
         [ExpectedException(typeof(InvalidOperationException))]
         public void PatternIsNull()
         {
-            XCRI.Validation.ContentValidation.AgeValidator av = this.CreateValidator();
-            av.XPathSelector = "/";
+            XCRI.Validation.ContentValidation.AgeValidator av = new XCRI.Validation.ContentValidation.AgeValidator()
+            {
+                XPathSelector = "/"
+            };
             av.Pattern = null;
             av.Validate(new System.Xml.Linq.XElement("age")
             {

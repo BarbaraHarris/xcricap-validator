@@ -19,19 +19,10 @@ namespace XCRI.Validation.ContentValidation
         /// Whether to force that the item is empty or not.  Defaults to ForceNotEmpty.
         /// </summary>
         public EnforcementTypes EnforcementType { get; set; }
-        public EmptyElementValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public EmptyElementValidator()
+            : base()
         {
             this.EnforcementType = EnforcementTypes.ForceNotEmpty;
-        }
-        public EmptyElementValidator
-            (
-            )
-            : this(null)
-        {
         }
         public override bool PassesValidation(System.Xml.Linq.XObject input, out string details)
         {

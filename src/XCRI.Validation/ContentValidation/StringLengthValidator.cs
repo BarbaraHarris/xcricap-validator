@@ -10,17 +10,8 @@ namespace XCRI.Validation.ContentValidation
     {
         public int? MinimumCharacters { get; set; }
         public int? MaximumCharacters { get; set; }
-        public StringLengthValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
-        {
-        }
-        public StringLengthValidator
-            (
-            )
-            : this(null)
+        public StringLengthValidator()
+            : base()
         {
         }
         public override bool PassesValidation(string input, out string details)

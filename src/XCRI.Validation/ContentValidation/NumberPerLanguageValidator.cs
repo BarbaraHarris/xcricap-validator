@@ -10,19 +10,6 @@ namespace XCRI.Validation.ContentValidation
 {
     public class NumberPerLanguageValidator : NumberValidator
     {
-        public NumberPerLanguageValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
-        {
-        }
-        public NumberPerLanguageValidator
-            (
-            )
-            : this(null)
-        {
-        }
         public string ChildElementSelector { get; set; }
         public override IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
         {

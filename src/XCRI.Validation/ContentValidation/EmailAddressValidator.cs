@@ -9,17 +9,10 @@ namespace XCRI.Validation.ContentValidation
     public class EmailAddressValidator : Validator
     {
         public EmailAddressValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
+            ()
+            : base()
         {
-        }
-        public EmailAddressValidator
-            (
-            )
-            : this(null)
-        {
+            
         }
         public override bool PassesValidation(string input, out string details)
         {

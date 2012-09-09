@@ -11,19 +11,10 @@ namespace XCRI.Validation.XmlExceptionInterpretation
 {
     public class InvalidChildElementInterpreter : Interpreter
     {
-        public InvalidChildElementInterpreter
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public InvalidChildElementInterpreter()
+            : base()
         {
             this.ExpectedElements = new List<ExpectedElement>();
-        }
-        public InvalidChildElementInterpreter
-            (
-            )
-            : this(null)
-        {
         }
         public IList<ExpectedElement> ExpectedElements { get; set; }
         public System.Xml.Linq.XElement FurtherInformation_ElementNameCasingIncorrect { get; set; }

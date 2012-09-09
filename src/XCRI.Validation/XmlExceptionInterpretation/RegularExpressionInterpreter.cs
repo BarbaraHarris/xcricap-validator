@@ -17,20 +17,10 @@ namespace XCRI.Validation.XmlExceptionInterpretation
         public string Message { get; set; }
         public List<Condition> Conditions { get; protected set; }
 
-        public RegularExpressionInterpreter
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public RegularExpressionInterpreter()
+            : base()
         {
             this.Conditions = new List<Condition>();
-        }
-
-        public RegularExpressionInterpreter
-            (
-            )
-            :this(null)
-        {
         }
 
         public override InterpretationStatus Interpret

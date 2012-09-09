@@ -14,25 +14,16 @@ namespace XCRI.Validation.ContentValidation
     /// </summary>
     public class DocumentValidator : ValidatorCollection
     {
-        public DocumentValidator
-            (
-            Logging.ILog log
-            )
-            : base(log)
+        public DocumentValidator()
+            : base()
         {
             base.ValidationGroup = String.Empty;
             this.XPathSelector = "/*";
         }
-        public DocumentValidator
-            (
-            )
-            : this(null)
-        {
-        }
         public override IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
         {
             IEnumerable<ValidationResult> r = null;
-            using (this.Log.StepStatic("Executing per-document validation rules"))
+            using (this.TimedLogs.Step("Executing per-document validation rules"))
             {
                 r = base.Validate(input);
             }

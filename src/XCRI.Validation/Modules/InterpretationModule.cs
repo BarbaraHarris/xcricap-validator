@@ -9,16 +9,25 @@ namespace XCRI.Validation.Modules
 {
     public class InterpretationModule : IInterpretationModule
     {
-        public Logging.ILog Log { get; private set; }
+        public List<Logging.ILog> Logs { get; private set; }
+        public List<Logging.ITimedLog> TimedLogs { get; private set; }
         public XmlExceptionInterpretation.IInterpreterFactory InterpreterFactory { get; set; }
         public InterpretationModule
             (
-            Logging.ILog log,
+            IEnumerable<Logging.ILog> logs,
+            IEnumerable<Logging.ITimedLog> timedLogs,
             XmlExceptionInterpretation.IInterpreterFactory interpreterFactory
             )
             : base()
         {
-            this.Log = log;
+            if (null == logs)
+                this.Logs = new List<Logging.ILog>();
+            else
+                this.Logs = new List<Logging.ILog>(logs);
+            if (null == timedLogs)
+                this.TimedLogs = new List<Logging.ITimedLog>();
+            else
+                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
             this.InterpreterFactory = interpreterFactory;
         }
         public IEnumerable<XmlExceptionInterpretation.IInterpreter> ExtractInterpreters
