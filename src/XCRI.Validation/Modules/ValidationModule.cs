@@ -11,25 +11,16 @@ namespace XCRI.Validation.Modules
 {
     public class ValidationModule : IValidationModule
     {
-        public List<Logging.ILog> Logs { get; private set; }
-        public List<Logging.ITimedLog> TimedLogs { get; private set; }
+        public Logging.ILog Log { get; private set; }
         public ContentValidation.IValidatorFactory ValidatorFactory { get; set; }
         public ValidationModule
             (
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs,
+            Logging.ILog log,
             ContentValidation.IValidatorFactory validatorFactory
             )
             : base()
         {
-            if (null == logs)
-                this.Logs = new List<Logging.ILog>();
-            else
-                this.Logs = new List<Logging.ILog>(logs);
-            if (null == timedLogs)
-                this.TimedLogs = new List<Logging.ITimedLog>();
-            else
-                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
+            this.Log = log;
             this.ValidatorFactory = validatorFactory;
         }
 
@@ -51,16 +42,10 @@ namespace XCRI.Validation.Modules
             // Extract document validators
             foreach (var node in xdoc.XPathSelectElements("/contentValidators/documentValidation"))
             {
-                var d = new ContentValidation.DocumentValidator()
+                var d = new ContentValidation.DocumentValidator(this.Log)
                 {
                     NamespaceManager = xmlnsmgr
                 };
-                if (null != this.Logs)
-                    foreach (var l in this.Logs)
-                        d.Logs.Add(l);
-                if (null != this.TimedLogs)
-                    foreach (var l in this.TimedLogs)
-                        d.TimedLogs.Add(l);
                 foreach (var validatorNode in node.XPathSelectElements("./*"))
                 {
                     var v = this.ExtractValidator(validatorNode);
@@ -73,17 +58,11 @@ namespace XCRI.Validation.Modules
             foreach (var node in xdoc.XPathSelectElements("/contentValidators/elementValidation"))
             {
                 var selector = node.Attribute("selector").Value;
-                var e = new ContentValidation.ElementValidator()
+                var e = new ContentValidation.ElementValidator(this.Log)
                 {
                     NamespaceManager = xmlnsmgr,
                     XPathSelector = selector
                 };
-                if (null != this.Logs)
-                    foreach (var l in this.Logs)
-                        e.Logs.Add(l);
-                if (null != this.TimedLogs)
-                    foreach (var l in this.TimedLogs)
-                        e.TimedLogs.Add(l);
                 foreach (var validatorNode in node.XPathSelectElements("./*"))
                 {
                     var v = this.ExtractValidator(validatorNode);

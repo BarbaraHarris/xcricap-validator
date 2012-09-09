@@ -11,10 +11,19 @@ namespace XCRI.Validation.ContentValidation
     {
         public bool IsCaseSensitive { get; set; }
         public string Pattern { get; set; }
-        public RegularExpressionValidator()
-            : base()
+        public RegularExpressionValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             this.IsCaseSensitive = true;
+        }
+        public RegularExpressionValidator
+            (
+            )
+            : this(null)
+        {
         }
         public override bool PassesValidation(string input, out string details)
         {

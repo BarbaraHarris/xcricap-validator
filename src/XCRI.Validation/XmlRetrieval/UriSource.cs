@@ -11,19 +11,18 @@ namespace XCRI.Validation.XmlRetrieval
     {
         public UriSource
             (
-            IEnumerable<Logging.ILog> logs,
+            Logging.ILog log,
             XmlResolver xmlResolver
             )
-            : base(logs, xmlResolver)
+            : base(log, xmlResolver)
         {
         }
         public override XmlReader GetXmlReader(Uri input)
         {
             if (null == input)
                 throw new ArgumentNullException("input");
-            this.Logs.Log
+            this.Log.LogMessageStatic
                 (
-                Logging.LogCategory.UtilisationInformation,
                 "Validating " + input.ToString()
                 );
             XmlReaderSettings settings = this.GetXmlReaderSettings();

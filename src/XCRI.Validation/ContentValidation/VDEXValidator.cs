@@ -25,9 +25,10 @@ namespace XCRI.Validation.ContentValidation
         public string XsiTypeFilterExpectedType { get; set; }
         public VDEXValidator
             (
+            Logging.ILog log,
             ISource<Uri> uriSource
             )
-            : base()
+            : base(log)
         {
             if (null == uriSource)
                 throw new ArgumentNullException("uriSource");
@@ -39,6 +40,13 @@ namespace XCRI.Validation.ContentValidation
             this.FilterByXsiType = false;
             this.XsiTypeFilterExpectedNamespace = String.Empty;
             this.XsiTypeFilterExpectedType = String.Empty;
+        }
+        public VDEXValidator
+            (
+            ISource<Uri> uriSource
+            )
+            : this(null, uriSource)
+        {
         }
         public void Setup()
         {

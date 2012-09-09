@@ -11,15 +11,21 @@ namespace XCRI.Validation.ContentValidation
 {
     public abstract class Validator : IValidator
     {
-        public Validator()
+        public Validator
+            (
+            Logging.ILog log
+            )
             : base()
         {
-            this.Logs = new List<Logging.ILog>();
-            this.TimedLogs = new List<Logging.ITimedLog>();
+            this.Log = log;
             this.XPathSelector = null;
             this.ExceptionMessage = String.Empty;
             this.FailedValidationStatus = ValidationStatus.Exception;
             this.ValidationGroup = "Other";
+        }
+        public Validator()
+            : this(null)
+        {
         }
 
         #region IContentValidator Members
@@ -31,8 +37,7 @@ namespace XCRI.Validation.ContentValidation
         public ValidationStatus FailedValidationStatus { get; set; }
         public XElement FurtherInformation { get; set; }
         public string ValidationGroup { get; set; }
-        public IList<Logging.ILog> Logs { get; protected set; }
-        public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
+        public Logging.ILog Log { get; protected set; }
         public virtual IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
         {
             if(null == input)

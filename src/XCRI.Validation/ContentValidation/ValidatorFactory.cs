@@ -10,14 +10,12 @@ namespace XCRI.Validation.ContentValidation
     public class ValidatorFactory : IValidatorFactory
     {
 
-        public List<Logging.ILog> Logs { get; private set; }
-        public List<Logging.ITimedLog> TimedLogs { get; private set; }
+        public Logging.ILog Log { get; private set; }
         public ISource<Uri> UriSource { get; protected set; }
 
         public ValidatorFactory
             (
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs,
+            Logging.ILog log,
             ISource<Uri> uriSource
             )
             : base()
@@ -25,14 +23,7 @@ namespace XCRI.Validation.ContentValidation
             if (null == uriSource)
                 throw new ArgumentNullException("uriSource");
             this.UriSource = uriSource;
-            if (null == logs)
-                this.Logs = new List<Logging.ILog>();
-            else
-                this.Logs = new List<Logging.ILog>(logs);
-            if (null == timedLogs)
-                this.TimedLogs = new List<Logging.ITimedLog>();
-            else
-                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
+                this.Log = log;
         }
 
         #region IValidatorFactory Members
@@ -44,45 +35,39 @@ namespace XCRI.Validation.ContentValidation
         {
             IValidator v = null;
             if (typeof(T) == typeof(PositiveIntegerValidator))
-                v = new PositiveIntegerValidator();
+                v = new PositiveIntegerValidator(this.Log);
             if (typeof(T) == typeof(UrlValidator))
-                v = new UrlValidator();
+                v = new UrlValidator(this.Log);
             if (typeof(T) == typeof(UniqueValidator))
-                v = new UniqueValidator();
+                v = new UniqueValidator(this.Log);
             if (typeof(T) == typeof(EmptyElementValidator))
-                v = new EmptyElementValidator();
+                v = new EmptyElementValidator(this.Log);
             if (typeof(T) == typeof(NumberValidator))
-                v = new NumberValidator();
+                v = new NumberValidator(this.Log);
             if (typeof(T) == typeof(ManualValidator))
-                v = new ManualValidator();
+                v = new ManualValidator(this.Log);
             if (typeof(T) == typeof(StringLengthValidator))
-                v = new StringLengthValidator();
+                v = new StringLengthValidator(this.Log);
             if (typeof(T) == typeof(RegularExpressionValidator))
-                v = new RegularExpressionValidator();
+                v = new RegularExpressionValidator(this.Log);
             if (typeof(T) == typeof(PostCodeValidator))
-                v = new PostCodeValidator();
+                v = new PostCodeValidator(this.Log);
             if (typeof(T) == typeof(UKTelephoneNumberValidator))
-                v = new UKTelephoneNumberValidator();
+                v = new UKTelephoneNumberValidator(this.Log);
             if (typeof(T) == typeof(AgeValidator))
-                v = new AgeValidator();
+                v = new AgeValidator(this.Log);
             if (typeof(T) == typeof(EmailAddressValidator))
-                v = new EmailAddressValidator();
+                v = new EmailAddressValidator(this.Log);
             if (typeof(T) == typeof(VDEXValidator))
-                v = new VDEXValidator(this.UriSource);
+                v = new VDEXValidator(this.Log, this.UriSource);
             if (typeof(T) == typeof(LanguageValidator))
-                v = new LanguageValidator();
+                v = new LanguageValidator(this.Log);
             if (typeof(T) == typeof(NumberPerLanguageValidator))
-                v = new NumberPerLanguageValidator();
+                v = new NumberPerLanguageValidator(this.Log);
             if (typeof(T) == typeof(DurationValidator))
-                v = new DurationValidator();
+                v = new DurationValidator(this.Log);
             if(v == null)
                 throw new ArgumentException("The supplied validator type '" + typeof(T).FullName+ "' could not be loaded");
-            if (null != this.Logs)
-                foreach (var l in this.Logs)
-                    v.Logs.Add(l);
-            if (null != this.TimedLogs)
-                foreach (var l in this.TimedLogs)
-                    v.TimedLogs.Add(l);
             return v as T;
         }
 

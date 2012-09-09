@@ -31,8 +31,17 @@ namespace XCRI.Validation.ContentValidation
             @"^P(?<Date>(?:(?<Years>\d{4})-?(?<Months>\d{2})-?(?<Days>\d{2}))|(?:(?<Years>\d{4})-?(?<Months>\d{2})-?(?<Days>\d{2}))|(?:(?<Years>\d{4})-?W(?<Weeks>\d{2})-?(?<Days>\d{1})?)|(?:(?<Years>\d{4})-?(?<Months>\d{2})))(?:T(?<Time>(?<Hours>\d{2}):?(?<Minutes>\d{2}):?(?<Seconds>\d{2})(?<Offset>Z?|[\+\-](?<OffsetHours>\d{2}):?(?<OffsetMinutes>\d{2})?)))?$",
             System.Text.RegularExpressions.RegexOptions.Compiled
             );
-        public DurationValidator()
-            : base()
+        public DurationValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
+        {
+        }
+        public DurationValidator
+            (
+            )
+            : this(null)
         {
         }
         public static bool TryParse

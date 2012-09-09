@@ -8,10 +8,18 @@ namespace XCRI.Validation.ContentValidation
     public class PostCodeValidator : RegularExpressionValidator
     {
         public PostCodeValidator
-            ()
-            : base()
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             base.Pattern = @"(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})";
+        }
+        public PostCodeValidator
+            (
+            )
+            : this(null)
+        {
         }
         public override bool PassesValidation(string input, out string details)
         {

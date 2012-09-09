@@ -15,8 +15,17 @@ namespace XCRI.Validation.ContentValidation
     /// </summary>
     public class ManualValidator : Validator
     {
-        public ManualValidator()
-            : base()
+        public ManualValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
+        {
+        }
+        public ManualValidator
+            (
+            )
+            : this(null)
         {
         }
         public override bool PassesValidation(string input, out string details)

@@ -11,8 +11,11 @@ namespace XCRI.Validation.ContentValidation
 {
     public class PositiveIntegerValidator : NumberValidator
     {
-        public PositiveIntegerValidator()
-            : base()
+        public PositiveIntegerValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             this.Minimum = null;
             this.Maximum = null;

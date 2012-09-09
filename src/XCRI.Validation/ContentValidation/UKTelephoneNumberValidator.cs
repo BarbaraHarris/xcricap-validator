@@ -8,10 +8,18 @@ namespace XCRI.Validation.ContentValidation
     public class UKTelephoneNumberValidator : RegularExpressionValidator
     {
         public UKTelephoneNumberValidator
-            ()
-            : base()
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             base.Pattern = @"^(?<prefix>0[0-9]{2}\s*?[0-9]{1,3})\s*?(?<number>[0-9]{2,4}\s*?[0-9]{3,4})$";
+        }
+        public UKTelephoneNumberValidator
+            (
+            )
+            : this(null)
+        {
         }
         public override bool PassesValidation(string input, out string details)
         {

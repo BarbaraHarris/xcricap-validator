@@ -12,10 +12,19 @@ namespace XCRI.Validation.ContentValidation
     public class UniqueValidator : Validator
     {
         public UniqueAcrossTypes UniqueAcross { get; set; }
-        public UniqueValidator()
-            : base()
+        public UniqueValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             this.UniqueAcross = UniqueAcrossTypes.Document;
+        }
+        public UniqueValidator
+            (
+            )
+            : this(null)
+        {
         }
         public override bool PassesValidation(System.Xml.Linq.XObject input, out string details)
         {

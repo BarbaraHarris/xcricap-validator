@@ -12,10 +12,10 @@ namespace XCRI.Validation.XmlRetrieval
     {
         public StringSource
             (
-            IEnumerable<Logging.ILog> logs,
+            Logging.ILog log,
             XmlResolver xmlResolver
             )
-            : base(logs, xmlResolver)
+            : base(log, xmlResolver)
         {
         }
         public override XmlReader GetXmlReader(string input)
@@ -24,9 +24,8 @@ namespace XCRI.Validation.XmlRetrieval
                 throw new ArgumentNullException("input");
             if (String.IsNullOrWhiteSpace(input))
                 throw new ArgumentException("The parameter cannot be empty or just contain whitespace", "input");
-            this.Logs.Log
+            this.Log.LogMessageStatic
                 (
-                Logging.LogCategory.UtilisationInformation,
                 "Validating string source"
                 );
             XmlReaderSettings settings = this.GetXmlReaderSettings();

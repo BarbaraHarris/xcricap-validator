@@ -16,14 +16,12 @@ namespace XCRI.Validation.XmlRetrieval
         public bool BypassCache { get; set; }
         private ICredentials credentials = null;
         public IList<IXmlCacheLocation> CacheLocations { get; protected set; }
-        public IList<Logging.ILog> Logs { get; protected set; }
-        public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
+        public Logging.ILog Log { get; protected set; }
 
         public XmlCachingResolver
             (
             IEnumerable<IXmlCacheLocation> cacheLocations,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs
+            Logging.ILog log
             )
         {
             this.BypassCache = false;
@@ -31,14 +29,7 @@ namespace XCRI.Validation.XmlRetrieval
                 this.CacheLocations = new List<IXmlCacheLocation>(cacheLocations);
             else
                 this.CacheLocations = new List<IXmlCacheLocation>();
-            if (null != logs)
-                this.Logs = new List<Logging.ILog>(logs);
-            else
-                this.Logs = new List<Logging.ILog>();
-            if (null != timedLogs)
-                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
-            else
-                this.TimedLogs = new List<Logging.ITimedLog>();
+            this.Log = log;
         }
 
         public override ICredentials Credentials
@@ -58,18 +49,16 @@ namespace XCRI.Validation.XmlRetrieval
             }
             if (this.BypassCache)
             {
-                this.Logs.Log
+                this.Log.LogMessageStatic
                     (
-                    Logging.LogCategory.XsdLocations,
                     "Bypassing cache for " + absoluteUri
                     );
                 return base.GetEntity(absoluteUri, role, ofObjectToReturn);
             }
-            using (this.TimedLogs.Step("Retrieving " + absoluteUri.ToString()))
+            using (this.Log.StepStatic("Retrieving " + absoluteUri.ToString()))
             {
-                this.Logs.Log
+                this.Log.LogMessageStatic
                     (
-                    Logging.LogCategory.XsdLocations,
                     "Attempting to load " + absoluteUri + " (using credentials: " + (null == this.credentials ? "no" : "yes") + ")"
                     );
                 if (
@@ -80,7 +69,7 @@ namespace XCRI.Validation.XmlRetrieval
                 {
                     if (null != this.CacheLocations)
                     {
-                        using (this.TimedLogs.Step(String.Format
+                        using (this.Log.StepStatic(String.Format
                             (
                             "Checking cache ({0} location{1})",
                             this.CacheLocations.Count,
@@ -92,17 +81,15 @@ namespace XCRI.Validation.XmlRetrieval
                                 var fs = cl.RetrieveCache(absoluteUri);
                                 if (null != fs)
                                 {
-                                    this.Logs.Log
+                                    this.Log.LogMessageStatic
                                         (
-                                        Logging.LogCategory.XsdLocations | Logging.LogCategory.CachingInformation | Logging.LogCategory.TimingInformation,
                                         absoluteUri.ToString() + " loaded from cache"
                                         );
                                     return fs;
                                 }
                             }
-                            this.Logs.Log
+                            this.Log.LogMessageStatic
                                 (
-                                Logging.LogCategory.XsdLocations | Logging.LogCategory.CachingInformation | Logging.LogCategory.TimingInformation,
                                 "No suitable cache found"
                                 );
                         }
@@ -116,16 +103,15 @@ namespace XCRI.Validation.XmlRetrieval
                             (null == ofObjectToReturn || ofObjectToReturn == typeof(Stream))
                             )
                         {
-                            using (this.TimedLogs.Step("Downloading file"))
+                            using (this.Log.StepStatic("Downloading file"))
                             {
                                 WebRequest webReq = WebRequest.Create(absoluteUri);
                                 webReq.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.CacheIfAvailable);
                                 if (null != credentials)
                                     webReq.Credentials = credentials;
                                 WebResponse resp = webReq.GetResponse();
-                                this.Logs.Log
+                                this.Log.LogMessageStatic
                                     (
-                                    Logging.LogCategory.XsdLocations | Logging.LogCategory.CachingInformation | Logging.LogCategory.TimingInformation,
                                     resp.IsFromCache ? absoluteUri + " loaded from HTTP cache" : absoluteUri + " downloaded"
                                     );
                                 return resp.GetResponseStream();
@@ -133,18 +119,16 @@ namespace XCRI.Validation.XmlRetrieval
                         }
                         else
                         {
-                            this.Logs.Log
+                            this.Log.LogMessageStatic
                                 (
-                                Logging.LogCategory.CachingInformation,
                                 absoluteUri + " was downloaded as it was not deemed suitable for caching"
                                 );
                         }
                     }
                     catch (Exception e)
                     {
-                        this.Logs.Log
+                        this.Log.LogMessageStatic
                             (
-                            Logging.LogCategory.XsdLocations | Logging.LogCategory.Exceptions,
                             "Exception encountered when retrieving " + absoluteUri.ToString() + "(" + e.Message + ")"
                             );
                     }

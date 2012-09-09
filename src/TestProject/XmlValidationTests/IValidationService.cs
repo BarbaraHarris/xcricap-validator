@@ -16,7 +16,7 @@ namespace TestProject.XmlValidationTests
             : XCRI.Validation.XmlRetrieval.XmlCachingResolver
         {
             public XmlResolverUsingResources()
-                : base(null, null, null)
+                : base(null, null)
             {
             }
             public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
@@ -378,6 +378,12 @@ namespace TestProject.XmlValidationTests
         private class DebugIntepreter : XCRI.Validation.XmlExceptionInterpretation.Interpreter
         {
 
+            public DebugIntepreter
+            (
+            )
+                : base(null)
+            {
+            }
             public string InterpretationMessage { get; set; }
             public Func<Exception, XCRI.Validation.XmlExceptionInterpretation.InterpretationStatus> InterpretationFunction = null;
 

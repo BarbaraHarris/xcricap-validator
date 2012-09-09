@@ -24,8 +24,7 @@ namespace XCRI.Validation
             get { return this.Source.NamespaceReferences; }
         }
         public System.Globalization.CultureInfo TargetCulture { get; set; }
-        public IList<Logging.ILog> Logs { get; protected set; }
-        public IList<Logging.ITimedLog> TimedLogs { get; protected set; }
+        public Logging.ILog Log { get; protected set; }
         public XmlRetrieval.ISource<T> Source { get; set; }
         public IXmlCachingResolver XmlCachingResolver { get; set; }
         public bool AttemptSchemaLocationInjection { get; set; }
@@ -37,8 +36,7 @@ namespace XCRI.Validation
             (
             IEnumerable<IInterpreter> interpreters,
             IEnumerable<IValidator> contentValidators,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs,
+            Logging.ILog log,
             XmlRetrieval.ISource<T> source,
             XmlCachingResolver xmlCachingResolver
             )
@@ -47,8 +45,7 @@ namespace XCRI.Validation
             System.Globalization.CultureInfo.CurrentUICulture, 
             interpreters, 
             contentValidators,
-            logs,
-            timedLogs,
+            log,
             source,
             xmlCachingResolver
             )
@@ -59,8 +56,7 @@ namespace XCRI.Validation
             System.Globalization.CultureInfo targetCulture,
             IEnumerable<IInterpreter> interpreters,
             IEnumerable<IValidator> contentValidators,
-            IEnumerable<Logging.ILog> logs,
-            IEnumerable<Logging.ITimedLog> timedLogs,
+            Logging.ILog log,
             XmlRetrieval.ISource<T> source,
             XmlCachingResolver xmlCachingResolver
             )
@@ -77,14 +73,7 @@ namespace XCRI.Validation
                 this.XmlContentValidators = new List<IValidator>(contentValidators.OrderBy(cv => cv.Order));
             else
                 this.XmlContentValidators = new List<IValidator>();
-            if (null != logs)
-                this.Logs = new List<Logging.ILog>(logs);
-            else
-                this.Logs = new List<Logging.ILog>();
-            if (null != timedLogs)
-                this.TimedLogs = new List<Logging.ITimedLog>(timedLogs);
-            else
-                this.TimedLogs = new List<Logging.ITimedLog>();
+            this.Log = log;
         }
         public ValidationResultList Validate(T input)
         {
@@ -123,7 +112,7 @@ namespace XCRI.Validation
             };
             System.Xml.Linq.XDocument doc = null;
             //doc.Schemas = xmlReader.Settings.Schemas;
-            using (this.TimedLogs.Step("Loading and parsing XML file"))
+            using (this.Log.StepStatic("Loading and parsing XML file"))
             {
                 DateTime start = DateTime.Now;
                 try
@@ -197,7 +186,7 @@ namespace XCRI.Validation
                 }
                 if (null != doc)
                 {
-                    using (this.TimedLogs.Step("Executing content validators"))
+                    using (this.Log.StepStatic("Executing content validators"))
                     {
                         if (null != this.XmlContentValidators)
                         {

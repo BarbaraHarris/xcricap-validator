@@ -17,10 +17,19 @@ namespace XCRI.Validation.ContentValidation
         /// and x is less than or equal to the value of y.
         /// </summary>
         /// <seealso cref="IValidator"/>
-        public AgeValidator()
-            : base()
+        public AgeValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             this.Pattern = @"^(?:any|not known|(?<Lower>\d{1,})(?:\+|(?:\-(?<Upper>\d{1,}))))$";
+        }
+        public AgeValidator
+            (
+            )
+            : this(null)
+        {
         }
         public override bool PassesValidation(string input, out string details)
         {

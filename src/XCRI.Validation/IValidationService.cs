@@ -16,8 +16,7 @@ namespace XCRI.Validation
         System.Globalization.CultureInfo TargetCulture { get; }
         ValidationResultList Validate(T input);
         XmlRetrieval.ISource<T> Source { get; set; }
-        IList<Logging.ILog> Logs { get; }
-        IList<Logging.ITimedLog> TimedLogs { get; }
+        Logging.ILog Log { get; }
         bool AttemptSchemaLocationInjection { get; set; }
     }
 }

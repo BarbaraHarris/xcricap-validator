@@ -14,15 +14,24 @@ namespace XCRI.Validation.ContentValidation
     /// </summary>
     public class ElementValidator : ValidatorCollection
     {
-        public ElementValidator()
-            : base()
+        public ElementValidator
+            (
+            Logging.ILog log
+            )
+            : base(log)
         {
             base.ValidationGroup = String.Empty;
+        }
+        public ElementValidator
+            (
+            )
+            : this(null)
+        {
         }
         public override IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
         {
             IEnumerable<ValidationResult> r = null;
-            using (this.TimedLogs.Step(String.Format
+            using (this.Log.StepStatic(String.Format
                 (
                 "Executing per-element validation rules (for query {0})",
                 this.XPathSelector

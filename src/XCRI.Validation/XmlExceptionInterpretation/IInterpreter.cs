@@ -10,8 +10,7 @@ namespace XCRI.Validation.XmlExceptionInterpretation
     {
         int Order { get; set;  }
         string PropertyName { get; set; }
-        IList<Logging.ILog> Logs { get; }
-        IList<Logging.ITimedLog> TimedLogs { get; }
+        Logging.ILog Log { get; }
         InterpretationStatus Interpret
             (
             Exception e,

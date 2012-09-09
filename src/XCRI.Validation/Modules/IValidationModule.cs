@@ -9,8 +9,7 @@ namespace XCRI.Validation.Modules
 {
     public interface IValidationModule
     {
-        List<Logging.ILog> Logs { get; }
-        List<Logging.ITimedLog> TimedLogs { get; }
+        Logging.ILog Log { get; }
         ContentValidation.IValidatorFactory ValidatorFactory { get; set; }
         IEnumerable<ContentValidation.IValidator> ExtractValidators(XDocument document);
         ContentValidation.IValidator ExtractValidator(XElement validatorNode);
