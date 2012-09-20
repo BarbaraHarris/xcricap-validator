@@ -91,6 +91,15 @@ namespace XCRI.Validation.ContentValidation
                         // For providers inside venue, only worry about the id being unique within this presentation
                         root = XDocument.Parse(input.Parent.Parent.Parent.OuterXml()); // To the presentation!
                     }
+                    // If this is a qualification then the identifier must be unique within the course
+                    if (
+                        (input.Parent.Name.LocalName == "qualification")
+                        &&
+                        (input.Parent.Name.NamespaceName == "http://purl.org/net/mlo")
+                        )
+                    {
+                        root = XDocument.Parse(input.Parent.Parent.OuterXml());
+                    }
                     same = root.XPathSelectElements(this.XPathSelector, this.NamespaceManager)
                         .Where(xe => xe.Value == value)
                         .Where(xe => xe.Parent.Name.LocalName == input.Parent.Name.LocalName)
