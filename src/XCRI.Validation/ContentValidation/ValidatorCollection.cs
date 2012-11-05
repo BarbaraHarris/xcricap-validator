@@ -33,8 +33,9 @@ namespace XCRI.Validation.ContentValidation
             {
                 this.Logs.Log(Logging.LogCategory.TimingInformation, String.Format
                     (
-                    "There are {0} validators in this context",
-                    this.Validators.Count
+                    "There are {0} validators in this context, matching {1} elements",
+                    this.Validators.Count,
+                    elements.Count()
                     ));
                 foreach (System.Xml.Linq.XObject node in elements)
                 {
@@ -42,7 +43,10 @@ namespace XCRI.Validation.ContentValidation
                         throw new InvalidOperationException("The XPath selector '" + this.XPathSelector + "' must evaluate to an element");
                     foreach (var v in this.Validators)
                     {
-                        lvr.AddRange(v.Validate(node as System.Xml.Linq.XElement));
+                        using (this.TimedLogs.Step(String.Format("Validating {0} (xpath: {1})", v.GetType().ToString(), v.XPathSelector)))
+                        {
+                            lvr.AddRange(v.Validate(node as System.Xml.Linq.XElement));
+                        }
                     }
                 }
             }

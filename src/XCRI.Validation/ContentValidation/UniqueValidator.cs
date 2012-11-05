@@ -17,6 +17,37 @@ namespace XCRI.Validation.ContentValidation
         {
             this.UniqueAcross = UniqueAcrossTypes.Document;
         }
+        public override IEnumerable<ValidationResult> Validate(System.Xml.Linq.XElement input)
+        {
+            if (null == input)
+                throw new ArgumentNullException("input");
+            var elements = (input.XPathEvaluate(this.XPathSelector, this.NamespaceManager) as System.Collections.IEnumerable).Cast<XElement>();
+            this.Logs.Log(Logging.LogCategory.TimingInformation, String.Format("Total matching elements: {0}", elements.Count()));
+            var distinctValues = (from v in
+                                      elements
+                                  group v by v.Value into grouped
+                                  select new
+                                  {
+                                      value = grouped.Key,
+                                      Count = grouped.Count()
+                                  }).Where(g => g.Count > 1).Select(g => g.value);
+            this.Logs.Log(Logging.LogCategory.TimingInformation, String.Format("There are {0} distinct values", distinctValues.Count()));
+            //var filteredElements = elements.Where(e => distinctValues.Contains(e.Value));
+            var filteredElements = new List<XElement>();
+            foreach (var value in distinctValues)
+            {
+                filteredElements.AddRange((input.XPathEvaluate(this.XPathSelector + "[text()='" + value.Replace("'", "&quot;") + "']", this.NamespaceManager) as System.Collections.IEnumerable).Cast<XElement>());
+            }
+            this.Logs.Log(Logging.LogCategory.TimingInformation, String.Format("Filtered elements: {0}", filteredElements.Count()));
+            IEnumerable<ValidationResult> r = null;
+            //this.Validate(input.XPathSelectElements(this.XPathSelector, this.NamespaceManager), out r);
+            this.Validate
+                (
+                filteredElements,
+                out r
+                );
+            return r;
+        }
         public override bool PassesValidation(System.Xml.Linq.XObject input, out string details)
         {
             details = null;

@@ -33,6 +33,7 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
+            /*
             Assert.AreEqual<int>
                 (
                 2,
@@ -43,19 +44,17 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 2,
                 vr.SuccessCount
                 );
+            */
             Assert.AreEqual<int>
                 (
                 0,
                 vr.FailedCount
                 );
-            Assert.IsTrue(vr.Instances[0].LineNumber.HasValue);
-            Assert.IsTrue(vr.Instances[0].LinePosition.HasValue);
-            Assert.AreEqual<int>(vr.Instances[0].LineNumber.Value, 11);
-            Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 8);
-            Assert.IsTrue(vr.Instances[1].LineNumber.HasValue);
-            Assert.IsTrue(vr.Instances[1].LinePosition.HasValue);
-            Assert.AreEqual<int>(vr.Instances[1].LineNumber.Value, 15);
-            Assert.AreEqual<int>(vr.Instances[1].LinePosition.Value, 8);
+            Assert.AreEqual<int>
+                (
+                0,
+                vr.Count
+                );
         }
         [TestMethod]
         public void Valid_UniqueIdentifiers()
@@ -82,6 +81,7 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 XCRI.Validation.ContentValidation.ValidationStatus.Passed,
                 vr.Status
                 );
+            /*
             Assert.AreEqual<int>
                 (
                 2,
@@ -92,19 +92,17 @@ namespace TestProject.XmlValidationTests.ContentValidation
                 2,
                 vr.SuccessCount
                 );
+            */
             Assert.AreEqual<int>
                 (
                 0,
                 vr.FailedCount
                 );
-            Assert.IsTrue(vr.Instances[0].LineNumber.HasValue);
-            Assert.IsTrue(vr.Instances[0].LinePosition.HasValue);
-            Assert.AreEqual<int>(vr.Instances[0].LineNumber.Value, 11);
-            Assert.AreEqual<int>(vr.Instances[0].LinePosition.Value, 6);
-            Assert.IsTrue(vr.Instances[1].LineNumber.HasValue);
-            Assert.IsTrue(vr.Instances[1].LinePosition.HasValue);
-            Assert.AreEqual<int>(vr.Instances[1].LineNumber.Value, 18);
-            Assert.AreEqual<int>(vr.Instances[1].LinePosition.Value, 8);
+            Assert.AreEqual<int>
+                (
+                0,
+                vr.Count
+                );
         }
         [TestMethod]
         public void Valid_IdentifierReusedByPresentation()
