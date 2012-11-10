@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		XCRI.Validation.vsmdi = XCRI.Validation.vsmdi
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCRI.Validator.App", "XCRI.Validator.App\XCRI.Validator.App.csproj", "{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = XCRI.Validation.vsmdi
@@ -45,6 +47,16 @@ Global
 		{4BD9073B-8F73-4AD6-A222-CA17FB2D7270}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{4BD9073B-8F73-4AD6-A222-CA17FB2D7270}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4BD9073B-8F73-4AD6-A222-CA17FB2D7270}.Release|x86.ActiveCfg = Release|Any CPU
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Debug|x86.ActiveCfg = Debug|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Debug|x86.Build.0 = Debug|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Release|Any CPU.ActiveCfg = Release|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Release|x86.ActiveCfg = Release|x86
+		{F1FCBEBA-E35E-421A-BCCA-2EB45502924B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
