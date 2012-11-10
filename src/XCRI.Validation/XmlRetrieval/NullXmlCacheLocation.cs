@@ -16,7 +16,7 @@ namespace XCRI.Validation.XmlRetrieval
 
         public System.IO.FileStream RetrieveCache(Uri absoluteUri)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public void SaveCache(Uri absoluteUri, string contents)

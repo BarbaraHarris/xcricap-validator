@@ -7,7 +7,7 @@ xmlns:dc="http://purl.org/dc/elements/1.1/"
 xmlns:mlo="http://purl.org/net/mlo" 
 xmlns:xhtml="http://www.w3.org/1999/xhtml" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog file://F:/Users/Craig/Documents/Visual%20Studio%202010/Projects/JISC/XCRI.Misc/XCRI.Validation.Runner/xsds/xcri_cap_1_2.xsd" 
+xsi:schemaLocation="http://xcri.org/profiles/1.2/catalog http://www.xcri.co.uk/bindings/xcri_cap_1_2.xsd" 
 generated="2011-03-24T09:32:50.827Z">
 	<provider>
 		<dc:identifier>http://www.open.ac.uk/</dc:identifier>
