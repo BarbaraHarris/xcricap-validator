@@ -1,0 +1,41 @@
+<vdex profileType="flatTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 http://www.imsglobal.org/xsd/imsvdex_v1p0_flat.xsd" xmlns:xcri="http://xcri.org/profiles/catalog">
+<vocabName>
+	<langstring>Generic Study Mode for Course Data Programme.  Created by Alan Paull, APS Ltd.  This VDEX version 30 January 2012.</langstring>
+</vocabName>
+<vocabIdentifier>http://xcri.org/profiles/catalog/1.2/studyMode</vocabIdentifier>
+<term>
+	<termIdentifier>NK</termIdentifier>
+	<caption><langstring>Not known</langstring></caption>
+    <description>
+        <langstring>The provider has not supplied the information. [DEFAULT]</langstring>
+    </description>
+</term>
+<term>
+	<termIdentifier>FL</termIdentifier>
+	<caption><langstring>Flexible</langstring></caption>
+    <description>
+        <langstring>Could be full time or part time dependent on the learner.</langstring>
+    </description>
+</term>
+<term>
+	<termIdentifier>FT</termIdentifier>
+	<caption><langstring>Full time</langstring></caption>
+    <description>
+        <langstring>The learning opportunity is the learner's main activity.</langstring>
+    </description>
+</term>
+<term>
+	<termIdentifier>PF</termIdentifier>
+	<caption><langstring>Part of a full time programme</langstring></caption>
+    <description>
+        <langstring>The learning opportunity is a component of a set of learning opportunities that form the learner's main activity.</langstring>
+    </description>
+</term>
+<term>
+	<termIdentifier>PT</termIdentifier>
+	<caption><langstring>Part time</langstring></caption>
+    <description>
+        <langstring>The learning opportunity is not the learner's main activity</langstring>
+    </description>
+</term>
+</vdex>

@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<interpreters
+		xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    >
+  <invalidChildElementInterpreter
+    >
+    <!-- These are commonly-used sets of elements -->
+    <expectedElements id="XCRI-CAP 1.2 Common Elements">
+      <expectedElement element="hasPart" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="contributor" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="date" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="description" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="identifier" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="image" namespace="http://xcri.org/profiles/1.2/catalog" maximumNumber="1" />
+      <expectedElement element="subject" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="title" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="type" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="url" namespace="http://purl.org/net/mlo" maximumNumber="1" />
+    </expectedElements>
+    <expectedElements id="XCRI-CAP 1.2 Descriptive Elements">
+      <expectedElement element="abstract" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="applicationProcedure" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="assessment" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="learningOutcome" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="objective" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="prerequisite" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="regulations" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElements>
+    <!--
+      These expectedElements define parent elements and their expected children - IN ORDER.
+      This is used to parse the XSD exception thrown by unexpected children to highlight that the current XSD files
+      require the elements to be in a specific order.
+    -->
+    <expectedElement
+      element="catalog"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElement element="provider" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="provider"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElement element="course" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="location" namespace="http://purl.org/net/mlo" />
+    </expectedElement>
+    <expectedElement
+      element="course"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElements ref="XCRI-CAP 1.2 Descriptive Elements" />
+      <expectedElement element="level" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="qualification" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="credit" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="presentation" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="presentation"
+      namespace="http://xcri.org/profiles/1.2/catalog">
+      <expectedElements ref="XCRI-CAP 1.2 Common Elements" />
+      <expectedElements ref="XCRI-CAP 1.2 Descriptive Elements" />
+      <expectedElement element="start" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="end" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="duration" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="applyFrom" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="applyUntil" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="applyTo" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="engagement" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="studyMode" namespace="http://xcri.org/profiles/1.2/catalog" maximumNumber="1" />
+      <expectedElement element="attendanceMode" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="attendancePattern" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="languageOfInstruction" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="languageOfAssessment" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="places" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="cost" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="age" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="venue" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="qualification"
+      namespace="http://purl.org/net/mlo">
+      <expectedElement element="identifier" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="title" namespace="http://purl.org/dc/elements/1.1/" minimumNumber="1" />
+      <expectedElement element="abbr" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="description" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="educationLevel" namespace="http://purl.org/dc/terms/" />
+      <expectedElement element="type" namespace="http://purl.org/dc/elements/1.1/" />
+      <expectedElement element="url" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="awardedBy" namespace="http://xcri.org/profiles/1.2/catalog" />
+      <expectedElement element="accreditedBy" namespace="http://xcri.org/profiles/1.2/catalog" />
+    </expectedElement>
+    <expectedElement
+      element="location"
+      namespace="http://purl.org/net/mlo">
+      <expectedElement element="street" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="town" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="postcode" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="address" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="phone" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="fax" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="email" namespace="http://purl.org/net/mlo" />
+      <expectedElement element="url" namespace="http://purl.org/net/mlo" />
+    </expectedElement>
+    <FurtherInformation type="ElementNameCasingIncorrect">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <p>
+          An element was found which had incorrect capitalisation.  As XML (and hence XCRI-CAP 1.2) is case-sensitive, it is important to note that
+          all elements must use the same capitalisation as on the <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2">wiki</a>.
+        </p>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <p>
+          As an example, the following is valid
+        </p>
+        <pre>&lt;applicationProcedure&gt;Apply to the university directly in writing&lt;/applicationProcedure&gt;</pre>
+        <p>Whereas the following is not:</p>
+        <pre>&lt;applicationprocedure&gt;Apply to the university directly in writing&lt;/applicationprocedure&gt;</pre>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <p>
+          The element will need to be correctly capitalised and the validator re-run.
+        </p>
+      </div>
+    </FurtherInformation>
+    <FurtherInformation type="ElementNamespaceIncorrect">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+        <p>
+          An element was found which was in an incorrect namespace.  The XCRI-CAP 1.2 standard uses a number of <a href="http://www.xcri.org/wiki/index.php/XCRI_CAP_1.2#Namespace">XML namespaces</a>
+          and it is important that each element is placed in the correct one.  Mostly this is done using XML prefixes.
+        </p>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+        <p>
+          As an example, the following is valid, provided that the "dc" prefix has been declared pointing at the Dublin Core namespace (http://purl.org/dc/elements/1.1/).
+        </p>
+        <pre>&lt;dc:identifier&gt;http://www.myinstitution.ac.uk&lt;/dc:identifier&gt;</pre>
+        <p>Whereas the following is not:</p>
+        <pre>&lt;xcri:identifier&gt;http://www.myinstitution.ac.uk&lt;/xcri:identifier&gt;</pre>
+      </div>
+      <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+        <p>
+          The element will need to be altered to use the correct namespace.
+          For more information on using XML prefixes, see this <a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx">help page</a>.
+        </p>
+      </div>
+    </FurtherInformation>
+  </invalidChildElementInterpreter>
+  <regularExpressionInterpreter
+      pattern="The element 'catalog' in namespace 'http://xcri.org/profiles/1.2/catalog' has invalid child element 'Provider' in namespace 'http://xcri.org/profiles/1.2/catalog'."
+      propertyName="Message"
+      message="The provider element should be capitalised as 'provider'."
+    ></regularExpressionInterpreter>
+  <regularExpressionInterpreter
+      pattern="The '(?&lt;StartTag&gt;\w*?)' start tag on line (?&lt;LineNumber&gt;[\d{1,}\,]) position (?&lt;Position&gt;[\d{1,}\,]) does not match the end tag of '(?&lt;EndTag&gt;\w*?)'"
+      propertyName="Message"
+    >
+    <if type="Match">
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            The XML document has a major structural problem.  XML documents are structured through the use of tags.
+            All tags must have a start tag (for example: &lt;a&gt;) and an end tag (for example: &lt;/a&gt;).  The only exception are tags that
+            are "self-closing" (for example: &lt;img /&gt;).
+          </p>
+          <p>
+            All tags must be closed in the inverse order to that which they're created.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, the following is valid:
+          </p>
+          <pre>&lt;a&gt;&lt;b&gt;&lt;c /&gt;&lt;/b&gt;&lt;/a&gt;</pre>
+          <p>Whereas the following is not:</p>
+            <pre>&lt;a&gt;&lt;b&gt;&lt;c /&gt;&lt;/a&gt;&lt;/b&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            The structural issue will need to be resolved manually.
+            Typically the error message will give both line number and position of the error.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+      pattern="Cannot load the schema for the namespace"
+      propertyName="Message"
+    >
+    <if type="Match">
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            One of the locations within the XML Schema-Instance 'schemaLocation'
+            attributes could not be loaded.  The error message will contain details on the exact error.
+            Please note that if an XSD file cannot be loaded then the validation may fail and cause a large
+            number of warnings to be reported - fixing this may resolve other reported issues.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            To resolve the issue you must identify the source of the error:
+            If the error code returned is "404" then the Uri to the XSD file is incorrect, the XSD file has
+            not been uploaded, or the web server isn't serving the XSD file properly.
+            If the error code returned is "500" then the XSD file is not being served properly;
+            due to the fact that XSD files are not normally dynamically created, this is typically
+            due to a server misconfiguration.
+            If the error code returned is "403" then there is a permissions problem accessing the Uri.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+      pattern="Missing 'xmlns' attribute on root node"
+			propertyName="Message"
+      >
+    <if type="Match">
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            The 'xmlns' attribute could not be found on the root node.
+            Without this attribute, the document namespace cannot be found.
+            Please note that if a namespace is not defined then the validation will fail and cause a large
+            number of warnings to be reported - fixing this may resolve other reported issues.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            More information on XML namespaces - including identifying the
+            default document namespace - can be found on the
+            <xhtml:a href="/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+      pattern="Missing XML Schema-Instance 'schemaLocation' attribute on root node"
+			propertyName="Message"
+      >
+    <if type="Match">
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            The XML Schema-Instance 'schemaLocation' attribute could not be found on the root node.
+            This attribute ties together the namespaces used within the document and the XSD documents
+            that define their correct structure.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            To resolve the issue, add in a valid XML Schema-Instance 'schemaLocation' attribute on the
+            root node.  The value of the attribute should specify an XSD document for each namespace
+            used within the document.
+            More information on XML namespaces can be found on the
+            <xhtml:a href="/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+    pattern="Unexpected end of file has occurred."
+    propertyName="Message"
+		>
+    <if
+				type="Match"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            The XML document has a major structural problem.  XML documents are structured through the use of tags.
+            All tags must have a start tag (for example: &lt;a&gt;) and an end tag (for example: &lt;/a&gt;).  The only exception are tags that
+            are "self-closing" (for example: &lt;img /&gt;).
+          </p>
+          <p>
+            All tags must be closed in the inverse order to that which they're created.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, the following is valid:
+          </p>
+          <pre>&lt;a&gt;&lt;b&gt;&lt;c /&gt;&lt;/b&gt;&lt;/a&gt;</pre>
+          <p>Whereas the following is not:</p>
+          <pre>&lt;a&gt;&lt;b&gt;&lt;c /&gt;&lt;/a&gt;&lt;/b&gt;</pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            The structural issue will need to be resolved manually.
+            Typically the error message will give both line number and position of the error.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+			pattern="The value '(?&lt;AttributeNamespace&gt;\w*?):(?&lt;AttributeName&gt;\w*?)' is invalid according to its schema type '(?&lt;SchemaType&gt;\w*?)' - '(?&lt;Namespace&gt;\w*?)' is an undeclared namespace."
+			propertyName="Message"
+		>
+    <if
+				type="Match"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            The value specified within an attribute contained a namespace that was not defined.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, an attribute may be defined as 'xsi:type=&quot;geo:lat&quot;'.
+            This error would be thrown if the geo prefix has not been defined.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            Add a namespace prefix definition to the root node.
+            There is more information on XML namespaces and prefixes on the
+            <xhtml:a href="/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+    <if
+				type="Group"
+				groupName="Namespace"
+				equals="geo"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            <xhtml:strong>In this specific instance,</xhtml:strong> this would be added as:
+            'xmlns:geo=&quot;http://www.w3.org/2003/01/geo/wgs84_pos&quot;'
+          </p>
+          <p>
+            Please note that your feed will still fail validation if you do not reference an applicable
+            XSD for the 'geo' namespace.  Whilst there is not an official XSD, you may download
+            and use a sample XSD stub from the <xhtml:a href="/XCRI/Validation/Help/References.aspx#geo">references page</xhtml:a> for use with XCRI-CAP 1.2.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+    <if
+				type="Group"
+				groupName="Namespace"
+				equals="ukprn"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            <xhtml:strong>In this specific instance,</xhtml:strong> this would be added as:
+            'xmlns:ukprn=&quot;http://www.ukrlp.co.uk&quot;'
+          </p>
+          <p>
+            Please note that your feed will still fail validation if you do not reference an applicable
+            XSD for the 'ukprn' namespace.  Whilst there is not an official XSD, you may download
+            and use a sample XSD stub from the <xhtml:a href="/XCRI/Validation/Help/References.aspx#ukprn">references page</xhtml:a> for use with XCRI-CAP 1.2.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+			pattern="The element '(?&lt;ParentName&gt;\w*?)' in namespace '(?&lt;ParentNamespace&gt;[^']*?)' has invalid child element '(?&lt;ChildName&gt;\w*?)' in namespace '(?&lt;ChildNamespace&gt;[^']*?)'. List of possible elements expected: '(?&lt;AllowedName&gt;[^']*?)' in namespace '(?&lt;AllowedNamespace&gt;[^']*?)'."
+			propertyName="Message"
+		>
+    <if
+				type="Match"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            An element was found in the XML file that was unexpected.
+            Any XSD file may define the order in which 'child' elements may appear under a 'parent'.
+            In the case of the XCRI-CAP 1.2 XSD file, the order of the child elements is specified and, as such it is required that the
+            'child' elements are output in this specific order.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, the validator may report that &quot;The element 'provider' in namespace 'http://xcri.org/profiles/catalog' has invalid child element 'url' in namespace 'http://xcri.org/profiles/catalog'. List of possible elements expected: 'phone, fax, email, course' in namespace 'http://xcri.org/profiles/catalog'.&quot;.
+            This means that the &lt;url&gt; ('child') element was not expected in this location under the &lt;provider&gt; ('parent') element.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            In order to resolve this issue you may need to look up the parent element within the <xhtml:a href="http://www.xcri.org/wiki/">wiki</xhtml:a> and identify the order in which
+            the elements are expected.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+			pattern="The element '(?&lt;ParentName&gt;\w*?)' in namespace '(?&lt;ParentNamespace&gt;[^']*?)' has invalid child element '(?&lt;ChildName&gt;\w*?)' in namespace '(?&lt;ChildNamespace&gt;[^']*?)'. List of possible elements expected: '(?&lt;AllowedName&gt;[^']*?)' in namespace '(?&lt;AllowedNamespace&gt;[^']*?)'."
+			propertyName="Message"
+		>
+    <if
+				type="Match"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            An element was found in the XML file that was unexpected.
+            Any XSD file may define the order in which 'child' elements may appear under a 'parent'.
+            In the case of the XCRI-CAP 1.2 XSD file, the order of the child elements is specified and, as such it is required that the
+            'child' elements are output in this specific order.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, the validator may report that &quot;The element 'provider' in namespace 'http://xcri.org/profiles/catalog' has invalid child element 'url' in namespace 'http://xcri.org/profiles/catalog'. List of possible elements expected: 'phone, fax, email, course' in namespace 'http://xcri.org/profiles/catalog'.&quot;.
+            This means that the &lt;url&gt; ('child') element was not expected in this location under the &lt;provider&gt; ('parent') element.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            In order to resolve this issue you may need to look up the parent element within the <xhtml:a href="http://www.xcri.org/wiki/">wiki</xhtml:a> and identify the order in which
+            the elements are expected.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+			pattern="The element '(?&lt;ParentName&gt;\w*?)' in namespace '(?&lt;ParentNamespace&gt;[^']*?)' cannot contain text."
+			propertyName="Message"
+		>
+    <if
+				type="Match"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            Some elements within the XML schemas are allowed to contain text (for example: a description or title),
+            whereas some elements are meant to contain other elements (for example: an address should contain postcodes, etc).
+            An element within the XML document contains text when it should contain elements.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, this would be invalid:
+          </p>
+          <xhtml:pre>
+            &lt;venue&gt;
+            201 Wood Lane, London, W12 7TS
+            &lt;/venue&gt;
+          </xhtml:pre>
+          <p>
+            Instead, this would be valid:
+          </p>
+          <xhtml:pre>
+            &lt;venue&gt;
+            &lt;street&gt;
+            201 Wood Lane
+            &lt;/street&gt;
+            &lt;town&gt;
+            London
+            &lt;/town&gt;
+            &lt;postcode&gt;
+            W12 7TS
+            &lt;/postcode&gt;
+            &lt;/venue&gt;
+          </xhtml:pre>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            In order to resolve this issue you will need to look up the parent element within the <xhtml:a href="http://www.xcri.org/wiki/">wiki</xhtml:a> and identify
+            the elements that are expected within the node.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+			pattern="This is an invalid (?&lt;Attribute&gt;(?&lt;AttributePrefix&gt;\w*?):?(?&lt;AttributeName&gt;\w*?))\s{0,}'(?&lt;ValueNamespace&gt;.*):(?&lt;Value&gt;\w*?)'."
+			propertyName="Message"
+		>
+    <if
+				type="Group"
+				groupName="AttributeName"
+				equals="type"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            An 'xsi:type' attribute was found on a node, but there was a problem identifying the type indicated.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="example">
+          <p>
+            As an example, the validator may report that there is an invalid type of &quot;http://www.ukrlp.co.uk/:ukprn&quot;.
+            This is typically because the &quot;http://www.ukrlp.co.uk/&quot; namespace has been defined but a XSD for that namespace has not been loaded.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            The resolution is to ensure that the namespace is correctly defined and a valid XSD referenced within the root node's xsi:schemaLocation attribute.
+            There is more information on defining XML namespaces and referencing XSD documents at the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+    <if
+				type="Group"
+				groupName="ValueNamespace"
+				equals="http://www.w3.org/2003/01/geo/wgs84_pos"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            <xhtml:strong>In this specific instance,</xhtml:strong>
+            it seems that an XSD has not been loaded for the geolocation
+            (http://www.w3.org/2003/01/geo/wgs84_pos) namespace.  Whilst there is not an official XSD, you may download
+            and use a sample XSD stub from the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx#stubs">references page</xhtml:a> for use with XCRI-CAP 1.2.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+    <if
+				type="Group"
+				groupName="ValueNamespace"
+				equals="http://www.ukrlp.co.uk/"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            <xhtml:strong>In this specific instance,</xhtml:strong>
+            it seems that an XSD has not been loaded for the UK Provider Reference Number
+            (http://www.ukrlp.co.uk/) namespace.  Whilst there is not an official XSD, you may download
+            and use a sample XSD stub from the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx#stubs">references page</xhtml:a> for use with XCRI-CAP 1.2.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+  <regularExpressionInterpreter
+  		pattern="Could not find schema information for the (?&lt;Type&gt;\w*?)"
+			propertyName="Message"
+    >
+    <if
+				type="Match"
+			>
+      <FurtherInformation>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="information">
+          <p>
+            The validator could not find schema information for one or more elements within the XML document.
+            This could be if an XML namespace has been defined, but no XSD file has been loaded for it, or if no default namespace has been defined for the document.
+          </p>
+        </div>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="resolution">
+          <p>
+            The resolution is to ensure that the namespace is correctly defined and a valid XSD referenced within the root node's xsi:schemaLocation attribute.
+            There is more information on defining XML namespaces and referencing XSD documents at the <xhtml:a href="/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+            More information on referencing XSD files can be found on the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+          </p>
+          <p>
+            If no default namespace ("xmlns") attribute exists, documentation on adding one can be found on the <xhtml:a href="http://www.craighawker.co.uk/XCRI/Validation/Help/References.aspx">references page</xhtml:a>.
+          </p>
+        </div>
+      </FurtherInformation>
+    </if>
+  </regularExpressionInterpreter>
+</interpreters>
