@@ -46,6 +46,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml-files\Examples\ou-example.xml" />
+    <Content Include="xml-files\ValidationModules\XCRICAP12.xml" />
+    <Content Include="xml-files\vocabularies\studyMode1_0.xml" />
+    <Content Include="xml-files\XmlExceptionInterpretation.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
