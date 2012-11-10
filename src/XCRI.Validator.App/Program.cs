@@ -21,7 +21,6 @@ namespace XCRI.Validator.App
     {
         static void Main(string[] args)
         {
-            var kernel = new Ninject.StandardKernel();
             var logs = new List<ILog>();
             var timedLogs = new List<ITimedLog>();
             timedLogs.Add(new XCRI.Validator.App.Logging.TimedLogToConsole());
