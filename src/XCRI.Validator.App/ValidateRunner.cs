@@ -65,7 +65,6 @@ namespace XCRI.Validator.App
                 }
                 r = this.ValidationService.Validate
                     (
-                    //new Uri(@"file://F:/Users/Craig/Documents/Visual Studio 2010/Projects/JISC/XCRI.Misc/XCRI.Validation.Runner/ou-example.xml", UriKind.Absolute)
                     new Uri("file://" + this.FileToValidate.FullName.Replace("\\", "/"), UriKind.Absolute)
                     );
             }
