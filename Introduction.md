@@ -1,0 +1,3 @@
+The XCRICAP-Validator project is an open-source validation project that allows producers of XCRI-CAP 1.2 feeds to test whether they meet the XCRI-CAP 1.2 standard.
+
+The project started in December 2011 with the deadline of the validator library to be live and usable by March 2012.  To validate an XCRI-CAP 1.2 feed you can either download this  library and follow the [Getting Started](GettingStarted.md) wiki page, or use the [online version](http://validator.xcri.co.uk).
